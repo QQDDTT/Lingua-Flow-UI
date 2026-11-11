@@ -1,0 +1,302 @@
+{
+  "episode_id": "immersive_ep01",
+  "theme_id": "immersive",
+  "title": "🌌 星尘漫游 · 汝窑金缮与夜光螺钿八角谐振星盘",
+  "feedback_prefix": "✨ 声波共振重叠！原住民向你致以温和的微风问候",
+  "encounters": [
+    {
+      "encounter_id": "immersive_ep01_enc01",
+      "lang": "en",
+      "chapter_title": "第一章（英语 I）：双子星港的回声漫步",
+      "chapter_badge": "CHAPTER EN-01 · CEFR B1",
+      "mechanic_type": "harmonic_waveform_tuner",
+      "action_button_label": "共鸣星港拉丁词源泛音",
+      "rubbing_glyph": "alibi",
+      "rubbing_reading": "/ˈæl.ɪ.baɪ/ · 身处他方之静谧",
+      "rubbing_etymology": "拉丁语源 alius (其他) + ibi (在彼处) → 漫步于双子星港彼岸的安宁栖居",
+      "target_freq_min": 46,
+      "target_freq_max": 66,
+      "default_freq": 56,
+      "instruction_text": "步骤 ① 拨动声波滑块进入 46~66Hz 谐振绿区对齐过去进行时语调；步骤 ② 拖动石碑拓印滑块擦除青苔点亮拉丁词源 alibi。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_01",
+          "speaker": "星港灯塔守望者 · 赛琳 (Selene)",
+          "ruby_html": "While the twin stars <strong>were shining</strong>, our peaceful <strong>alibi</strong> echoed across the bay.",
+          "translation": "当双子恒星闪耀之时，我们宁静的栖居回荡在星湾彼岸。",
+          "text": "While the twin stars were shining, our peaceful alibi echoed across the bay.",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "en_b1_grammar_past_continuous",
+          "target_evidence_ku_id_ref": "en_b1_lemma_alibi"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "露米提示：感受『were shining』的轻柔重音起伏，先将上方频率滑入目标区间，再将下方石碑拓印滑块拉至阈值以上即可共鸣。"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "immersive_ep01_enc02",
+      "lang": "en",
+      "chapter_title": "第二章（英语 II）：星云望远镜的假想低语",
+      "chapter_badge": "CHAPTER EN-02 · CEFR B1",
+      "mechanic_type": "sensory_rubbing",
+      "action_button_label": "拓印星云拉丁铭文并收录",
+      "rubbing_glyph": "contradict",
+      "rubbing_reading": "/ˌkɒn.trəˈdɪkt/ · 逆向回声与辩证",
+      "rubbing_etymology": "拉丁词根 contra- (相对、逆向) + dicere (言说) → 星云引力波的交错回响",
+      "target_freq_min": 48,
+      "target_freq_max": 68,
+      "default_freq": 58,
+      "instruction_text": "步骤 ① 拨动声波滑块进入 48~68Hz 谐振区间对齐虚拟语气语调；步骤 ② 擦拭汝窑石碑显影拉丁词源 contradict。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_02",
+          "speaker": "观星台记录官 · 奥利弗 (Oliver)",
+          "ruby_html": "If the nebula <strong>were</strong> closer tonight, no starlight <strong>would contradict</strong> our star chart.",
+          "translation": "倘若今夜星云离我们更近，没有任何星光会违逆我们的星图。",
+          "text": "If the nebula were closer tonight, no starlight would contradict our star chart.",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "en_b1_grammar_subjunctive_past",
+          "target_evidence_ku_id_ref": "en_b1_lemma_contradict"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "露米提示：聆听非真实条件句『If the nebula were... would contradict...』的舒缓节奏，完成双滑块谐振与石碑拓印。"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "immersive_ep01_enc03",
+      "lang": "ja",
+      "chapter_title": "第一章（日语 I）：晨曦林间的初次问候",
+      "chapter_badge": "CHAPTER JA-01 · JLPT N5",
+      "mechanic_type": "harmonic_waveform_tuner",
+      "action_button_label": "完成金缮调频共振",
+      "rubbing_glyph": "私",
+      "rubbing_reading": "わたし (watashi)",
+      "rubbing_etymology": "禾 (饱满谷穗) + 厶 (环抱自守) → 温和谦逊的第一人称自称",
+      "target_freq_min": 45,
+      "target_freq_max": 65,
+      "default_freq": 55,
+      "instruction_text": "步骤 ① 拨动声波滑块进入 45~65Hz 区间使螺钿波与金缮基准波重合；步骤 ② 轻擦汝窑瓷面拓印『私』字源。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_03",
+          "speaker": "星尘水母向导 · 露米 (Lumi)",
+          "ruby_html": "<ruby>私<rt>わたし</rt></ruby>は<ruby>異星<rt>いせい</rt></ruby>の<ruby>探検家<rt>たんけんか</rt></ruby>です。",
+          "translation": "我是来自异星的探险家。",
+          "text": "私は異星の探検家です。",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "ja_n5_grammar_0001",
+          "target_evidence_ku_id_ref": "ja_n5_lemma_0001"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "露米泛起柔和金缮微光：聆听主题助词『は (wa)』轻柔平稳的平板型过渡音高，将频率滑入目标赫兹区间即可同频。"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "immersive_ep01_enc04",
+      "lang": "ja",
+      "chapter_title": "第二章（日语 II）：苔原石碑上的星辰手记",
+      "chapter_badge": "CHAPTER JA-02 · JLPT N5 HANZI",
+      "mechanic_type": "sensory_rubbing",
+      "action_button_label": "拓印螺钿图腾并收录手帐",
+      "rubbing_glyph": "私 · 書",
+      "rubbing_reading": "わたし (私) / かく (書)",
+      "rubbing_etymology": "汝窑天青开片下镶嵌的鲍鱼壳夜光螺钿字源：『私』(禾+厶) 与『書』(聿+曰)",
+      "target_freq_min": 48,
+      "target_freq_max": 68,
+      "default_freq": 56,
+      "instruction_text": "步骤 ① 拨动声波滑块进入 48~68Hz 谐振区间；步骤 ② 拖动下方汝窑石碑拓印滑块拭去星尘青苔，显影螺钿汉字部首。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_04",
+          "speaker": "石碑守望者 · 苍苔古树",
+          "ruby_html": "<ruby>私<rt>わたし</rt></ruby>は<ruby>星<rt>ほし</rt></ruby>の<ruby>記録<rt>きろく</rt></ruby>を<ruby>書<rt>か</rt></ruby>かない。",
+          "translation": "我尚未书写星辰的记录。",
+          "text": "私は星の記録を書かない。",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "ja_n5_grammar_0012",
+          "target_evidence_ku_id_ref": "ja_n5_hanzi_0001"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "露米提示：顺着汝窑金缮裂隙滑动拓印滑杆至目标阈值以上，同时保持声波在谐振区间。"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "immersive_ep01_enc05",
+      "lang": "zh",
+      "chapter_title": "第一章（汉语 I）：云端茶馆的时光漫谈",
+      "chapter_badge": "CHAPTER ZH-01 · HSK 1",
+      "mechanic_type": "harmonic_waveform_tuner",
+      "action_button_label": "共鸣茶馆风铃声波",
+      "rubbing_glyph": "学生 · 时间",
+      "rubbing_reading": "xué shēng / shí jiān",
+      "rubbing_etymology": "汉语阳平 (35调值) 上扬曲线与阴平 (55调值) 高平延展的螺钿声学曲线",
+      "target_freq_min": 50,
+      "target_freq_max": 70,
+      "default_freq": 58,
+      "instruction_text": "步骤 ① 拨动声波滑块进入 50~70Hz 谐振区间对齐汉语阳平与阴平包络；步骤 ② 擦拭汝窑石碑显影『学生 · 时间』字源。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_05",
+          "speaker": "云端茶馆主人 · 云舒",
+          "ruby_html": "我是星际学院的<ruby>学生<rt>xué shēng</rt></ruby>，在茶香中感受静谧的<ruby>时间<rt>shí jiān</rt></ruby>。",
+          "translation": "在云端茶香之中，体会『是……』判断句式与汉语平仄声调的温润共鸣。",
+          "text": "我是星际学院的学生，在茶香中感受静谧的时间。",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "zh_hsk1_grammar_0002",
+          "target_evidence_ku_id_ref": "zh_hsk1_lemma_0002"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "露米提示：『学 (xué)』与『时 (shí)』皆为第二声阳平（由中音平滑上扬至高音），将频率调入目标赫兹区间并擦亮石碑即可达成风铃共鸣。"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "immersive_ep01_enc06",
+      "lang": "zh",
+      "chapter_title": "第二章（汉语 II）：竹林书院的晨读碑铭",
+      "chapter_badge": "CHAPTER ZH-02 · HSK 1 HANZI",
+      "mechanic_type": "sensory_rubbing",
+      "action_button_label": "拓印竹林晨读碑铭",
+      "rubbing_glyph": "学 · 时",
+      "rubbing_reading": "xué (教化启蒙) · shí (日影寸移)",
+      "rubbing_etymology": "『学』（宀+子，堂下习字）与『时』（日+寸，日晷度刻）的甲骨金文螺钿拓片",
+      "target_freq_min": 46,
+      "target_freq_max": 66,
+      "default_freq": 56,
+      "instruction_text": "步骤 ① 拨动声波滑块进入 46~66Hz 区间感受时间与处所状语前置韵律；步骤 ② 擦拭青苔汝窑石碑显影汉字『学 · 时』。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_06",
+          "speaker": "竹林守碑人 · 怀素",
+          "ruby_html": "<ruby>学生<rt>xué shēng</rt></ruby>清晨在竹林静心晨读，珍惜每一寸晨光<ruby>时间<rt>shí jiān</rt></ruby>。",
+          "translation": "体会现代汉语『主语 + 时间 + 在处所 + 动词』的自然叙事韵律。",
+          "text": "学生清晨在竹林静心晨读，珍惜每一寸晨光时间。",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "zh_hsk1_grammar_0001",
+          "target_evidence_ku_id_ref": "zh_hsk1_hanzi_0001"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "露米提示：先将声波调入 46~66Hz 谐振区间，再将下方汝窑石碑滑块擦拭至目标显影度以上即可收录。"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    }
+  ]
+}

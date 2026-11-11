@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lfw-bg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#141124"/>
+    </linearGradient>
+    <linearGradient id="lfw-flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <style>
+      .dash-beam { stroke-dasharray: 8 6; animation: beamMove 1.8s linear infinite; }
+      .orb-pulse { animation: orbGlow 2.6s ease-in-out infinite; }
+      @keyframes beamMove { to { stroke-dashoffset: -28; } }
+      @keyframes orbGlow { 0%, 100% { r: 4.5px; opacity: 0.6; } 50% { r: 7px; opacity: 1; } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="280" rx="18" fill="url(#lfw-bg)" stroke="#38bdf8" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <text x="600" y="36" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700" letter-spacing="3">LINGUA-FLOW 双轴正交解耦架构与三级递进心流习得管线</text>
+  <text x="600" y="56" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="11" letter-spacing="2">STEP 01: PURE SINGLE-LANGUAGE LOCK ➔ STEP 02: NARRATIVE THEME WORLD ➔ STEP 03: ARTIFACT DRILL &amp; FSRS-5</text>
+
+  <!-- Animated Connector Beams -->
+  <g stroke="url(#lfw-flow)" stroke-width="2.2" fill="none" class="dash-beam">
+    <line x1="275" y1="148" x2="335" y2="148"/>
+    <line x1="605" y1="148" x2="665" y2="148"/>
+    <line x1="915" y1="148" x2="965" y2="148"/>
+  </g>
+
+  <!-- Node 1: L1 Pure Language Selection -->
+  <g transform="translate(45, 80)">
+    <rect width="230" height="136" rx="14" fill="#111827" stroke="#38bdf8" stroke-opacity="0.65" stroke-width="1.5"/>
+    <rect x="14" y="14" width="110" height="20" rx="10" fill="#38bdf8" fill-opacity="0.18" stroke="#38bdf8" stroke-opacity="0.5"/>
+    <text x="69" y="28" text-anchor="middle" fill="#bae6fd" font-family="monospace" font-size="10" font-weight="bold">L1 · LANGUAGE AXIS</text>
+    <circle class="orb-pulse" cx="206" cy="24" r="5" fill="#38bdf8"/>
+    <text x="16" y="58" fill="#ffffff" font-family="sans-serif" font-size="14.5" font-weight="700">第一步：纯单语种锁定</text>
+    <text x="16" y="82" fill="#cbd5e1" font-family="sans-serif" font-size="11.5">🇬🇧 CEFR B1 / 🇯🇵 JLPT N5 / 🇨🇳 HSK 3.0</text>
+    <text x="16" y="102" fill="#38bdf8" font-family="monospace" font-size="10.5">严禁跨语种混排 · 100% 考纲对齐</text>
+  </g>
+
+  <!-- Node 2: L2 Narrative Theme Worlds -->
+  <g transform="translate(335, 80)">
+    <rect width="270" height="136" rx="14" fill="#111827" stroke="#a855f7" stroke-opacity="0.65" stroke-width="1.5"/>
+    <rect x="14" y="14" width="124" height="20" rx="10" fill="#a855f7" fill-opacity="0.18" stroke="#c084fc" stroke-opacity="0.5"/>
+    <text x="76" y="28" text-anchor="middle" fill="#e9d5ff" font-family="monospace" font-size="10" font-weight="bold">L2 · NARRATIVE AXIS</text>
+    <circle class="orb-pulse" cx="246" cy="24" r="5" fill="#c084fc"/>
+    <text x="16" y="58" fill="#ffffff" font-family="sans-serif" font-size="14.5" font-weight="700">第二步：三大心智叙事世界</text>
+    <text x="16" y="82" fill="#fde68a" font-family="sans-serif" font-size="11.5">01 雾都回响 · 02 星尘漫游 · 03 刻痕圣殿</text>
+    <text x="16" y="102" fill="#c084fc" font-family="monospace" font-size="10.5">T1~T3 跨等级视觉贴图与进度进化</text>
+  </g>
+
+  <!-- Node 3: L3 Interactive Artifact Drills -->
+  <g transform="translate(665, 80)">
+    <rect width="250" height="136" rx="14" fill="#111827" stroke="#f59e0b" stroke-opacity="0.65" stroke-width="1.5"/>
+    <rect x="14" y="14" width="118" height="20" rx="10" fill="#f59e0b" fill-opacity="0.18" stroke="#fbbf24" stroke-opacity="0.5"/>
+    <text x="73" y="28" text-anchor="middle" fill="#fde68a" font-family="monospace" font-size="10" font-weight="bold">L3 · ARTIFACT DRILLS</text>
+    <circle class="orb-pulse" cx="226" cy="24" r="5" fill="#fbbf24"/>
+    <text x="16" y="58" fill="#ffffff" font-family="sans-serif" font-size="14.5" font-weight="700">第三步：古物级交互演练</text>
+    <text x="16" y="82" fill="#cbd5e1" font-family="sans-serif" font-size="11.5">黄铜透镜 · 金缮调频 · 变位榫卯</text>
+    <text x="16" y="102" fill="#fde68a" font-family="monospace" font-size="10.5">4+1 组块容量 · 即时多模态反馈</text>
+  </g>
+
+  <!-- Node 4: Client-Side FSRS-5 & IndexedDB -->
+  <g transform="translate(965, 80)">
+    <rect width="190" height="136" rx="14" fill="#111827" stroke="#10b981" stroke-opacity="0.7" stroke-width="1.5"/>
+    <rect x="14" y="14" width="108" height="20" rx="10" fill="#10b981" fill-opacity="0.18" stroke="#34d399" stroke-opacity="0.5"/>
+    <text x="68" y="28" text-anchor="middle" fill="#a7f3d0" font-family="monospace" font-size="10" font-weight="bold">OFFLINE VAULT</text>
+    <circle class="orb-pulse" cx="166" cy="24" r="5" fill="#10b981"/>
+    <text x="16" y="58" fill="#ffffff" font-family="sans-serif" font-size="14.5" font-weight="700">FSRS-5 离线记忆库</text>
+    <text x="16" y="82" fill="#cbd5e1" font-family="sans-serif" font-size="11.5">IndexedDB + LocalStorage</text>
+    <text x="16" y="102" fill="#34d399" font-family="monospace" font-size="10.5">JSON 跨设备导出/导入恢复</text>
+  </g>
+
+  <text x="600" y="252" text-anchor="middle" fill="#bae6fd" font-family="monospace" font-size="11.5" letter-spacing="2">✦ 严格 CSP 安全沙箱 · Service Worker 离线就绪 · 桌面宽屏与移动竖屏全自适应 ✦</text>
+</svg>

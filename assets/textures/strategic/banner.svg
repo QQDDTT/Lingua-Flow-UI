@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" width="600" height="180">
+  <defs>
+    <!-- 1. 材质物理与光学滤镜层：新粗野零模糊硬阴影 + 背光宝石彩绘玻璃 + 果冻次表面透光 (Jelly SSS) -->
+    <filter id="sb-hard-shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="4" dy="4" stdDeviation="0" flood-color="#020605" flood-opacity="1"/>
+    </filter>
+    <linearGradient id="sb-emerald" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="30%" stop-color="#6ee7b7"/>
+      <stop offset="65%" stop-color="#34d399"/>
+      <stop offset="90%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="sb-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="35%" stop-color="#7dd3fc"/>
+      <stop offset="70%" stop-color="#38bdf8"/>
+      <stop offset="90%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <linearGradient id="sb-amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="40%" stop-color="#fde047"/>
+      <stop offset="75%" stop-color="#fbbf24"/>
+      <stop offset="92%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </linearGradient>
+    <linearGradient id="sb-coral" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fee2e2"/>
+      <stop offset="45%" stop-color="#fca5a5"/>
+      <stop offset="80%" stop-color="#f87171"/>
+      <stop offset="95%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#7f1d1d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 2. <g id="layer-footprint">：深渊黑曜石圣殿祭坛与背光彩色玻璃折射焦散光斑（零虚线环） -->
+  <g id="layer-footprint">
+    <rect width="600" height="180" rx="14" fill="#091e1a" stroke="#020605" stroke-width="4"/>
+    <!-- 地面彩色玻璃焦散多边形光斑 -->
+    <polygon points="30,24 140,12 165,80 45,95" fill="#34d399" fill-opacity="0.16"/>
+    <polygon points="220,105 340,92 360,165 210,170" fill="#38bdf8" fill-opacity="0.16"/>
+    <polygon points="420,18 560,32 540,120 400,98" fill="#fbbf24" fill-opacity="0.15"/>
+  </g>
+
+  <!-- 3. <g id="layer-chassis">：T1 -> T2 -> T3 跨等级拓扑进化序列（基础石槽 -> 双翼彩窗夹 -> 六翼玫瑰花窗法阵） -->
+  <g id="layer-chassis" filter="url(#sb-hard-shadow)">
+    <!-- T1 基础阶：单核切角黑曜石果冻凹槽块 (左侧 x=108) -->
+    <g transform="translate(108, 84)">
+      <polygon points="-34,-30 34,-30 42,-22 42,22 34,30 -34,30 -42,22 -42,-22" fill="#0f2922" stroke="#020605" stroke-width="4" stroke-linejoin="bevel"/>
+      <path d="M-26,-18 L4,-18 L4,-7 L-8,-7 L-8,7 L4,7 L4,18 L-26,18 Z" fill="url(#sb-emerald)" stroke="#020605" stroke-width="3"/>
+      <path d="M8,-18 L28,-18 L28,18 L8,18 L8,7 L-4,7 L-4,-7 L8,-7 Z" fill="url(#sb-cyan)" stroke="#020605" stroke-width="3"/>
+      <text x="0" y="54" text-anchor="middle" fill="#a7f3d0" font-family="sans-serif" font-size="10" font-weight="bold">T1 · 基础果冻榫卯块</text>
+    </g>
+
+    <!-- 进化箭头 1 -->
+    <path d="M164,84 L198,84 L190,78 M198,84 L190,90" fill="none" stroke="#34d399" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- T2 进阶阶：双翼彩绘玻璃铆钉机械锁夹 (中侧 x=280) -->
+    <g transform="translate(280, 84)">
+      <polygon points="0,0 -52,-36 -24,-44 0,-22 24,-44 52,-36" fill="url(#sb-cyan)" stroke="#020605" stroke-width="3.5" stroke-linejoin="bevel"/>
+      <polygon points="0,0 -52,36 -24,44 0,22 24,44 52,36" fill="url(#sb-amber)" stroke="#020605" stroke-width="3.5" stroke-linejoin="bevel"/>
+      <rect x="-26" y="-20" width="52" height="40" rx="4" fill="#091e1a" stroke="#020605" stroke-width="4"/>
+      <path d="M-20,-12 L2,-12 L2,-4 L-6,-4 L-6,4 L2,4 L2,12 L-20,12 Z" fill="url(#sb-emerald)" stroke="#020605" stroke-width="2.5"/>
+      <path d="M5,-12 L20,-12 L20,12 L5,12 L5,4 L-3,4 L-3,-4 L5,-4 Z" fill="url(#sb-cyan)" stroke="#020605" stroke-width="2.5"/>
+      <text x="0" y="60" text-anchor="middle" fill="#bae6fd" font-family="sans-serif" font-size="10" font-weight="bold">T2 · 双翼彩窗铆钉夹</text>
+    </g>
+
+    <!-- 进化箭头 2 -->
+    <path d="M348,84 L382,84 L374,78 M382,84 L374,90" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- T3 终极阶：六翼折纸玫瑰花窗祭坛与6节点星轨咏唱环 (右侧 x=476) -->
+    <g transform="translate(476, 82)">
+      <polygon points="0,-54 47,-27 47,27 0,54 -47,27 -47,-27" fill="#091e1a" stroke="#020605" stroke-width="4.5" stroke-linejoin="bevel"/>
+      <polygon points="0,0 -18,-44 0,-52 18,-44" fill="url(#sb-emerald)" stroke="#020605" stroke-width="3"/>
+      <polygon points="0,0 18,-44 46,-26 42,0" fill="url(#sb-cyan)" stroke="#020605" stroke-width="3"/>
+      <polygon points="0,0 42,0 46,26 18,44" fill="url(#sb-amber)" stroke="#020605" stroke-width="3"/>
+      <polygon points="0,0 18,44 0,52 -18,44" fill="url(#sb-emerald)" stroke="#020605" stroke-width="3"/>
+      <polygon points="0,0 -18,44 -46,26 -42,0" fill="url(#sb-coral)" stroke="#020605" stroke-width="3"/>
+      <polygon points="0,0 -42,0 -46,-26 -18,-44" fill="url(#sb-cyan)" stroke="#020605" stroke-width="3"/>
+      <!-- 中心果冻SSS榫卯核心 -->
+      <circle cx="0" cy="0" r="20" fill="#091e1a" stroke="#020605" stroke-width="3.5"/>
+      <path d="M-13,-10 L0,-10 L0,-4 L-5,-4 L-5,4 L0,4 L0,10 L-13,10 Z" fill="url(#sb-emerald)" stroke="#020605" stroke-width="2"/>
+      <path d="M2,-10 L13,-10 L13,10 L2,10 L2,4 L-3,4 L-3,-4 L2,-4 Z" fill="url(#sb-cyan)" stroke="#020605" stroke-width="2"/>
+      <text x="0" y="66" text-anchor="middle" fill="#fef08a" font-family="sans-serif" font-size="10" font-weight="bold">T3 · 六翼玫瑰花窗法阵</text>
+    </g>
+  </g>
+
+  <!-- 4. <g id="layer-mechanics">：六节点法术咏唱激光连线环与锻铁六角铆钉 -->
+  <g id="layer-mechanics">
+    <polygon points="476,46 507,64 507,100 476,118 445,100 445,64" fill="none" stroke="#fef08a" stroke-width="2.5"/>
+    <circle cx="476" cy="46" r="4" fill="#38bdf8" stroke="#020605" stroke-width="1.5"/>
+    <circle cx="507" cy="64" r="4" fill="#34d399" stroke="#020605" stroke-width="1.5"/>
+    <circle cx="507" cy="100" r="4" fill="#fbbf24" stroke="#020605" stroke-width="1.5"/>
+    <circle cx="476" cy="118" r="4" fill="#34d399" stroke="#020605" stroke-width="1.5"/>
+    <circle cx="445" cy="100" r="4" fill="#f87171" stroke="#020605" stroke-width="1.5"/>
+    <circle cx="445" cy="64" r="4" fill="#38bdf8" stroke="#020605" stroke-width="1.5"/>
+  </g>
+
+  <!-- 5. <g id="layer-patina-fx">：果冻腰果形高光斑与珊瑚红斥力电火花 -->
+  <g id="layer-patina-fx">
+    <ellipse cx="92" cy="72" rx="6" ry="2.5" transform="rotate(-15 92 72)" fill="#ffffff" fill-opacity="0.85"/>
+    <ellipse cx="268" cy="76" rx="5" ry="2" transform="rotate(-15 268 76)" fill="#ffffff" fill-opacity="0.85"/>
+    <ellipse cx="470" cy="76" rx="5" ry="2" transform="rotate(-15 470 76)" fill="#ffffff" fill-opacity="0.9"/>
+  </g>
+</svg>
+

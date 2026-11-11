@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-07T04:30:00Z",
+  "standard": "CEFR",
+  "language": "en",
+  "level": "b1",
+  "unit_type": "grammar",
+  "total_items": 2,
+  "items": [
+    {
+      "ku_id": "en_b1_grammar_past_continuous",
+      "unit_type": "grammar",
+      "lang": "en",
+      "level": "b1",
+      "text": "Past Continuous (was/were + V-ing)",
+      "phonetic": {
+        "display": "/wɒz, wɜː(r) + -ɪŋ/",
+        "ipa": "wɒz, wɜː(r) + -ɪŋ"
+      },
+      "pos": ["grammar"],
+      "tags": ["tense", "aspect", "narrative"],
+      "definitions": [
+        "过去进行时：表示过去某一特定时刻或背景时间段内正在持续进行的动作（常与 while/at 9:00 PM 连用）。"
+      ],
+      "formation": "was / were + Verb-ing",
+      "examples": [
+        {
+          "source": "At 9:00 PM yesterday, while the vault was opened, I was staying at home alone.",
+          "ruby": [],
+          "translation": "昨晚9点金库被打开时，我正独自呆在家里。"
+        }
+      ],
+      "notes": "在侦探证词分析中，若嫌疑人描述过去特定时间点正在发生的持续背景动作却误用一般现在时（如 stay），则构成典型时态矛盾。",
+      "fsrs_seed": {
+        "initial_difficulty": 4.5,
+        "initial_stability": 2.4
+      }
+    },
+    {
+      "ku_id": "en_b1_grammar_subjunctive_past",
+      "unit_type": "grammar",
+      "lang": "en",
+      "level": "b1",
+      "text": "Second Conditional (If + Past Simple, would + V)",
+      "phonetic": {
+        "display": "/ɪf ... wʊd/",
+        "ipa": "ɪf ... wʊd"
+      },
+      "pos": ["grammar"],
+      "tags": ["conditional", "subjunctive"],
+      "definitions": [
+        "第二条件句（非真实条件虚拟语气）：表示与现在或将来事实相反的假设。"
+      ],
+      "formation": "If + Subject + Past Simple, Subject + would/could + Verb",
+      "examples": [
+        {
+          "source": "If I had the vault key, I would not need to force the lock.",
+          "ruby": [],
+          "translation": "如果我有金库钥匙，我就不必强行撬锁了。"
+        }
+      ],
+      "notes": "用于表达反事实推理与不在场证明假设。",
+      "fsrs_seed": {
+        "initial_difficulty": 5.0,
+        "initial_stability": 2.0
+      }
+    }
+  ]
+}
+

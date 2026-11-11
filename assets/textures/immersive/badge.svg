@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="64" height="64">
+  <defs>
+    <!-- 1. 材质物理与光学滤镜层：推光黑大漆 + 汝窑天青冰裂 + 全光谱鲍鱼螺钿虹彩 + 24K金缮 -->
+    <radialGradient id="imm-urushi-bg" cx="50%" cy="50%" r="68%">
+      <stop offset="0%" stop-color="#181326"/>
+      <stop offset="40%" stop-color="#0d0b14"/>
+      <stop offset="75%" stop-color="#09080a"/>
+      <stop offset="92%" stop-color="#050407"/>
+      <stop offset="100%" stop-color="#1e1b2e"/>
+    </radialGradient>
+    <linearGradient id="imm-celadon-glaze" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f9ff"/>
+      <stop offset="28%" stop-color="#bae6fd"/>
+      <stop offset="55%" stop-color="#7dd3fc"/>
+      <stop offset="82%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="imm-raden-nacre" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="22%" stop-color="#38bdf8"/>
+      <stop offset="48%" stop-color="#c084fc"/>
+      <stop offset="74%" stop-color="#f472b6"/>
+      <stop offset="90%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#fef08a"/>
+    </linearGradient>
+    <linearGradient id="imm-kintsugi-seam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="25%" stop-color="#fde047"/>
+      <stop offset="55%" stop-color="#fbbf24"/>
+      <stop offset="80%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#fef08a"/>
+    </linearGradient>
+    <radialGradient id="imm-lumi-bell" cx="50%" cy="38%" r="58%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="28%" stop-color="#f5d0fe"/>
+      <stop offset="58%" stop-color="#c084fc"/>
+      <stop offset="85%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </radialGradient>
+    <filter id="imm-glow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="2.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 2. <g id="layer-footprint">：流派专属底座（推光黑大漆描金八角坛城盘与螺钿回纹框，零虚线环） -->
+  <g id="layer-footprint">
+    <polygon points="128,8 213,43 248,128 213,213 128,248 43,213 8,128 43,43" fill="url(#imm-urushi-bg)" stroke="url(#imm-kintsugi-seam)" stroke-width="5.5"/>
+    <polygon points="128,20 204,52 236,128 204,204 128,236 52,204 20,128 52,52" fill="none" stroke="url(#imm-raden-nacre)" stroke-width="2.5"/>
+    <!-- 八角星盘24K金铆钉座 -->
+    <circle cx="128" cy="14" r="3.5" fill="#fef08a"/>
+    <circle cx="208" cy="48" r="3.5" fill="#fef08a"/>
+    <circle cx="242" cy="128" r="3.5" fill="#fef08a"/>
+    <circle cx="208" cy="208" r="3.5" fill="#fef08a"/>
+    <circle cx="128" cy="242" r="3.5" fill="#fef08a"/>
+    <circle cx="48" cy="208" r="3.5" fill="#fef08a"/>
+    <circle cx="14" cy="128" r="3.5" fill="#fef08a"/>
+    <circle cx="48" cy="48" r="3.5" fill="#fef08a"/>
+  </g>
+
+  <!-- 3. <g id="layer-chassis">：主体体积结构（八瓣放射折扇式汝窑天青瓷与黑漆螺钿扇面） -->
+  <g id="layer-chassis">
+    <!-- 四正方向：宋代汝窑天青冰裂折扇瓣 -->
+    <path d="M128,128 L92,28 Q128,18 164,28 Z" fill="url(#imm-celadon-glaze)" fill-opacity="0.48" stroke="url(#imm-kintsugi-seam)" stroke-width="2"/>
+    <path d="M128,128 L164,228 Q128,238 92,228 Z" fill="url(#imm-celadon-glaze)" fill-opacity="0.48" stroke="url(#imm-kintsugi-seam)" stroke-width="2"/>
+    <path d="M128,128 L28,92 Q18,128 28,164 Z" fill="url(#imm-celadon-glaze)" fill-opacity="0.48" stroke="url(#imm-kintsugi-seam)" stroke-width="2"/>
+    <path d="M128,128 L228,164 Q238,128 228,92 Z" fill="url(#imm-celadon-glaze)" fill-opacity="0.48" stroke="url(#imm-kintsugi-seam)" stroke-width="2"/>
+    <!-- 四隅方向：推光黑大漆螺钿扇瓣 -->
+    <path d="M128,128 L164,28 L228,92 Z" fill="#09080a" stroke="url(#imm-raden-nacre)" stroke-width="1.8"/>
+    <path d="M128,128 L228,164 L164,228 Z" fill="#09080a" stroke="url(#imm-raden-nacre)" stroke-width="1.8"/>
+    <path d="M128,128 L92,228 L28,164 Z" fill="#09080a" stroke="url(#imm-raden-nacre)" stroke-width="1.8"/>
+    <path d="M128,128 L28,92 L92,28 Z" fill="#09080a" stroke="url(#imm-raden-nacre)" stroke-width="1.8"/>
+  </g>
+
+  <!-- 4. <g id="layer-mechanics">：中观次级工艺部件（黄铜浑天仪音律环、24K金缮正弦波弦与螺钿水母露米） -->
+  <g id="layer-mechanics">
+    <!-- 浑天仪黄铜谐振内环 -->
+    <circle cx="128" cy="128" r="76" fill="#09080a" fill-opacity="0.82" stroke="url(#imm-kintsugi-seam)" stroke-width="3.5"/>
+    <circle cx="128" cy="128" r="64" fill="none" stroke="url(#imm-raden-nacre)" stroke-width="1.6"/>
+    <!-- 双层正弦声波共振调频弦 -->
+    <path d="M56,128 C80,86 104,170 128,128 C152,86 176,170 200,128" fill="none" stroke="#34d399" stroke-width="3" stroke-opacity="0.85"/>
+    <path d="M56,128 C80,92 104,164 128,128 C152,92 176,164 200,128" fill="none" stroke="url(#imm-kintsugi-seam)" stroke-width="4" filter="url(#imm-glow)"/>
+    <!-- 中心星尘螺钿水母向导露米 (Lumi) -->
+    <path d="M88,118 C88,72 168,72 168,118 C152,130 104,130 88,118 Z" fill="url(#imm-lumi-bell)" stroke="#fef9c3" stroke-width="2.2" filter="url(#imm-glow)"/>
+    <path d="M104,126 Q96,162 108,184 M120,128 Q118,166 122,190 M136,128 Q138,166 134,190 M152,126 Q160,162 148,184" fill="none" stroke="url(#imm-raden-nacre)" stroke-width="3.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- 5. <g id="layer-patina-fx">：汝窑蝉翼冰裂纹、24K金缮裂隙、螺钿花叶镶嵌与晨露高光斑 -->
+  <g id="layer-patina-fx">
+    <!-- 汝窑冰裂金缮纹 -->
+    <path d="M114,42 L128,62 L144,48 M112,214 L128,194 L146,208 M42,116 L62,128 L48,144 M214,116 L194,128 L208,144" fill="none" stroke="url(#imm-kintsugi-seam)" stroke-width="2.2" stroke-linecap="round"/>
+    <!-- 四隅全光谱螺钿奇花镶嵌片 -->
+    <circle cx="176" cy="80" r="7" fill="url(#imm-raden-nacre)"/>
+    <circle cx="80" cy="80" r="7" fill="url(#imm-raden-nacre)"/>
+    <circle cx="176" cy="176" r="7" fill="url(#imm-raden-nacre)"/>
+    <circle cx="80" cy="176" r="7" fill="url(#imm-raden-nacre)"/>
+    <!-- 露米伞盖水润腰果形高光斑 -->
+    <ellipse cx="114" cy="96" rx="14" ry="6" transform="rotate(-18 114 96)" fill="#ffffff" fill-opacity="0.85"/>
+  </g>
+</svg>

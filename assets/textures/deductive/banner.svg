@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" width="600" height="180">
+  <defs>
+    <!-- 1. 材质物理与光学滤镜层：6阶普鲁士蓝夜雾 + 鲸油煤气灯暖金 + 羊皮纸SSS + 蔡司透镜焦散 -->
+    <linearGradient id="db-sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050914"/>
+      <stop offset="28%" stop-color="#0b1528"/>
+      <stop offset="55%" stop-color="#16243d"/>
+      <stop offset="80%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#271c15"/>
+    </linearGradient>
+    <linearGradient id="db-brass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="22%" stop-color="#fde047"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="78%" stop-color="#b45309"/>
+      <stop offset="92%" stop-color="#451a03"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="db-tyndall" x1="0" y1="0" x2="0.3" y2="1">
+      <stop offset="0%" stop-color="#fef08a" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#f59e0b" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#0b1528" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="db-zeiss" cx="38%" cy="35%" r="62%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#bae6fd" stop-opacity="0.58"/>
+      <stop offset="65%" stop-color="#38bdf8" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.52"/>
+    </radialGradient>
+    <radialGradient id="db-scroll-sss" cx="50%" cy="50%" r="58%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="45%" stop-color="#fde68a"/>
+      <stop offset="85%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#78350f"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 2. <g id="layer-footprint">：维多利亚法庭哥特石柱基座与煤气灯丁达尔体积光场（零虚线环） -->
+  <g id="layer-footprint">
+    <rect width="600" height="180" rx="14" fill="url(#db-sky)"/>
+    <polygon points="90,0 240,0 320,180 40,180" fill="url(#db-tyndall)"/>
+    <polygon points="340,0 490,0 570,180 280,180" fill="url(#db-tyndall)" opacity="0.72"/>
+    <!-- 远景法庭高耸肋拱石柱 -->
+    <polygon points="18,180 48,0 74,0 52,180" fill="#070d19" opacity="0.8"/>
+    <polygon points="582,180 552,0 526,0 548,180" fill="#070d19" opacity="0.8"/>
+    <path d="M74,0 Q300,58 526,0" fill="none" stroke="#1e293b" stroke-width="6"/>
+  </g>
+
+  <!-- 3. <g id="layer-chassis">：T1 -> T2 -> T3 跨等级拓扑进化序列底盘（单镜 -> 双镜游标卡尺 -> 八臂陀飞轮钟楼棱镜） -->
+  <g id="layer-chassis">
+    <!-- T1 基础阶：紧凑单核手持黄铜放大镜 (左侧 x=115) -->
+    <g transform="translate(115, 92)">
+      <circle cx="0" cy="-8" r="28" fill="#0b1325" stroke="url(#db-brass)" stroke-width="5.5"/>
+      <circle cx="0" cy="-8" r="22" fill="url(#db-zeiss)"/>
+      <rect x="-4" y="20" width="8" height="28" rx="3" fill="url(#db-brass)" stroke="#451a03" stroke-width="1"/>
+      <text x="0" y="62" text-anchor="middle" fill="#fde68a" font-family="sans-serif" font-size="10" font-weight="bold">T1 · 初阶单核透镜</text>
+    </g>
+
+    <!-- 进化箭头 1 -->
+    <path d="M168,88 L202,88 L194,82 M202,88 L194,94" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- T2 进阶阶：分体双联装游标卡尺与红宝石激光瞄准器 (中侧 x=280) -->
+    <g transform="translate(280, 92)">
+      <rect x="-46" y="-14" width="92" height="8" rx="2" fill="url(#db-brass)"/>
+      <circle cx="-14" cy="-8" r="30" fill="#0b1325" stroke="url(#db-brass)" stroke-width="6"/>
+      <circle cx="-14" cy="-8" r="23" fill="url(#db-zeiss)"/>
+      <circle cx="24" cy="-18" r="16" fill="url(#db-zeiss)" stroke="url(#db-brass)" stroke-width="4"/>
+      <circle cx="38" cy="6" r="6" fill="#ef4444" stroke="#fef08a" stroke-width="1.5"/>
+      <rect x="-18" y="22" width="10" height="26" rx="3" fill="url(#db-brass)"/>
+      <text x="0" y="62" text-anchor="middle" fill="#fde68a" font-family="sans-serif" font-size="10" font-weight="bold">T2 · 双镜游标激光仪</text>
+    </g>
+
+    <!-- 进化箭头 2 -->
+    <path d="M350,88 L384,88 L376,82 M384,88 L376,94" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- T3 终极阶：多体分离八臂陀飞轮钟楼棱镜与次表面透光伪证卷轴 (右侧 x=475) -->
+    <g transform="translate(475, 86)">
+      <!-- 悬浮次表面透光伪证卷轴 -->
+      <path d="M-56,-58 Q0,-66 56,-58 L52,-32 Q0,-38 -52,-32 Z" fill="url(#db-scroll-sss)" stroke="#fef08a" stroke-width="1.5"/>
+      <rect x="-24" y="-52" width="48" height="12" rx="2" fill="#dc2626" fill-opacity="0.3" stroke="#dc2626" stroke-width="1.2"/>
+      <!-- 八臂放射卡尺与陀飞轮外环 -->
+      <circle cx="0" cy="8" r="42" fill="none" stroke="url(#db-brass)" stroke-width="3.5"/>
+      <path d="M0,-38 L0,54 M-46,8 L46,8 M-33,-25 L33,41 M-33,41 L33,-25" stroke="url(#db-brass)" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="0" cy="8" r="26" fill="url(#db-zeiss)" stroke="url(#db-brass)" stroke-width="5"/>
+      <text x="0" y="68" text-anchor="middle" fill="#fef08a" font-family="sans-serif" font-size="10" font-weight="bold">T3 · 钟楼陀飞轮质证台</text>
+    </g>
+  </g>
+
+  <!-- 4. <g id="layer-mechanics">：中观擒纵齿轮、法兰铆钉与向上穿刺的猩红矛盾指控激光针 -->
+  <g id="layer-mechanics">
+    <!-- T3 向上发射的猩红矛盾激光直刺卷轴破绽 -->
+    <line x1="475" y1="125" x2="475" y2="40" stroke="#ef4444" stroke-width="4"/>
+    <line x1="475" y1="125" x2="475" y2="40" stroke="#ffffff" stroke-width="1.4"/>
+    <circle cx="475" cy="40" r="6" fill="#fef08a" stroke="#dc2626" stroke-width="2"/>
+    <!-- T2 激光引线 -->
+    <line x1="318" y1="98" x2="348" y2="62" stroke="#ef4444" stroke-width="2.5"/>
+  </g>
+
+  <!-- 5. <g id="layer-patina-fx">：蔡司月牙反射高光斑、亚毫米金属划痕与奶油散景微粒 -->
+  <g id="layer-patina-fx">
+    <path d="M102,74 Q114,64 128,74" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.8"/>
+    <path d="M254,74 Q266,64 280,74" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.8"/>
+    <path d="M460,82 Q475,70 490,82" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-opacity="0.85"/>
+    <circle cx="62" cy="42" r="3" fill="#fef08a" fill-opacity="0.6"/>
+    <circle cx="215" cy="36" r="4" fill="#fbbf24" fill-opacity="0.5"/>
+    <circle cx="388" cy="48" r="3.5" fill="#38bdf8" fill-opacity="0.55"/>
+    <circle cx="556" cy="52" r="4" fill="#fef08a" fill-opacity="0.6"/>
+  </g>
+</svg>
+

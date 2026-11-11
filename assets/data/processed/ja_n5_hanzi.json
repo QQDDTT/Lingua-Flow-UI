@@ -1,0 +1,84 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-07T04:30:00Z",
+  "standard": "JLPT",
+  "language": "ja",
+  "level": "n5",
+  "unit_type": "hanzi",
+  "total_items": 2,
+  "items": [
+    {
+      "ku_id": "ja_n5_hanzi_0001",
+      "unit_type": "hanzi",
+      "lang": "ja",
+      "level": "n5",
+      "text": "私",
+      "phonetic": {
+        "display": "シ / わたくし・わたし",
+        "onyomi": ["シ"],
+        "kunyomi": ["わたくし", "わたし"]
+      },
+      "pos": ["kanji"],
+      "tags": ["radical:禾", "strokes:7", "jlpt:n5"],
+      "definitions": [
+        "私（わたし / シ）：个人的、自称代词核心汉字元（部首：禾，总笔画：7画）"
+      ],
+      "examples": [
+        {
+          "source": "私は異星の探検家です。",
+          "ruby": [
+            { "base": "私", "rt": "わたし" },
+            { "base": "は", "rt": "" },
+            { "base": "異星", "rt": "いせい" },
+            { "base": "の", "rt": "" },
+            { "base": "探検家", "rt": "たんけんか" },
+            { "base": "です。", "rt": "" }
+          ],
+          "translation": "我是异星的探险家。"
+        }
+      ],
+      "notes": "砂岩拓印笔顺重点：先写左侧『禾』偏旁（5画），再写右侧『厶』（2画）。",
+      "fsrs_seed": {
+        "initial_difficulty": 2.4,
+        "initial_stability": 3.2
+      }
+    },
+    {
+      "ku_id": "ja_n5_hanzi_0002",
+      "unit_type": "hanzi",
+      "lang": "ja",
+      "level": "n5",
+      "text": "書",
+      "phonetic": {
+        "display": "ショ / か.く",
+        "onyomi": ["ショ"],
+        "kunyomi": ["か.く"]
+      },
+      "pos": ["kanji"],
+      "tags": ["radical:曰", "strokes:10", "jlpt:n5"],
+      "definitions": [
+        "書（かく / ショ）：书写、铭刻、典籍（部首：曰，总笔画：10画）"
+      ],
+      "examples": [
+        {
+          "source": "古いルーン文字を書かない。",
+          "ruby": [
+            { "base": "古", "rt": "ふる" },
+            { "base": "いルーン", "rt": "" },
+            { "base": "文字", "rt": "もじ" },
+            { "base": "を", "rt": "" },
+            { "base": "書", "rt": "か" },
+            { "base": "かない。", "rt": "" }
+          ],
+          "translation": "不书写古老的符文文字。"
+        }
+      ],
+      "notes": "象形会意：上方为执笔之手（聿），下方为竹简或话语（曰）。",
+      "fsrs_seed": {
+        "initial_difficulty": 3.0,
+        "initial_stability": 2.8
+      }
+    }
+  ]
+}
+

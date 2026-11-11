@@ -1,0 +1,17 @@
+{
+  "name": "Lingua-Flow",
+  "short_name": "LinguaFlow",
+  "description": "心理学与游戏化外语习得平台",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#38bdf8",
+  "icons": [
+    {
+      "src": "assets/icons/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
+

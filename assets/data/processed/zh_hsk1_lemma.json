@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-07T04:30:00Z",
+  "standard": "HSK3",
+  "language": "zh",
+  "level": "hsk1",
+  "unit_type": "lemma",
+  "total_items": 2,
+  "items": [
+    {
+      "ku_id": "zh_hsk1_lemma_0001",
+      "unit_type": "lemma",
+      "lang": "zh",
+      "level": "hsk1",
+      "text": "学生",
+      "phonetic": {
+        "display": "xué sheng",
+        "pinyin": "xué sheng"
+      },
+      "pos": ["noun"],
+      "tags": ["hsk1", "person"],
+      "definitions": [
+        "在学校或研究机构学习的人 (student)"
+      ],
+      "examples": [
+        {
+          "source": "我是汉语学生。",
+          "ruby": [
+            { "base": "我", "rt": "wǒ" },
+            { "base": "是", "rt": "shì" },
+            { "base": "汉语", "rt": "hàn yǔ" },
+            { "base": "学生", "rt": "xué sheng" }
+          ],
+          "translation": "I am a Chinese language student."
+        }
+      ],
+      "notes": "“生”在此处读轻声 sheng。",
+      "fsrs_seed": {
+        "initial_difficulty": 2.0,
+        "initial_stability": 3.5
+      }
+    },
+    {
+      "ku_id": "zh_hsk1_lemma_0002",
+      "unit_type": "lemma",
+      "lang": "zh",
+      "level": "hsk1",
+      "text": "时间",
+      "phonetic": {
+        "display": "shí jiān",
+        "pinyin": "shí jiān"
+      },
+      "pos": ["noun"],
+      "tags": ["hsk1", "time"],
+      "definitions": [
+        "物质运动过程的持续性与顺序性 (time)"
+      ],
+      "examples": [
+        {
+          "source": "请注意案发时间。",
+          "ruby": [
+            { "base": "请", "rt": "qǐng" },
+            { "base": "注意", "rt": "zhù yì" },
+            { "base": "案发", "rt": "àn fā" },
+            { "base": "时间", "rt": "shí jiān" }
+          ],
+          "translation": "Please pay attention to the time of the incident."
+        }
+      ],
+      "notes": "HSK 3.0 一级核心时间名词。",
+      "fsrs_seed": {
+        "initial_difficulty": 2.2,
+        "initial_stability": 3.2
+      }
+    }
+  ]
+}
+

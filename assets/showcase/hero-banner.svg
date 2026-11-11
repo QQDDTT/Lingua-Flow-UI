@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="100%" height="100%">
+  <defs>
+    <linearGradient id="lf-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070b14"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#131126"/>
+    </linearGradient>
+    <linearGradient id="lf-curve" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <radialGradient id="lf-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#a855f7" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#070b14" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="lf-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <style>
+      .star-orbit-1 { transform-origin: 995px 170px; animation: spin1 26s linear infinite; }
+      .star-orbit-2 { transform-origin: 995px 170px; animation: spin2 18s linear infinite; }
+      .wave-pulse { stroke-dasharray: 10 6; animation: waveFlow 2.2s linear infinite; }
+      .node-pulse { animation: pulseNode 3s ease-in-out infinite; }
+      @keyframes spin1 { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+      @keyframes spin2 { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+      @keyframes waveFlow { to { stroke-dashoffset: -32; } }
+      @keyframes pulseNode { 0%, 100% { r: 5px; opacity: 0.75; } 50% { r: 8px; opacity: 1; } }
+    </style>
+  </defs>
+
+  <rect width="1200" height="340" rx="20" fill="url(#lf-bg)" stroke="url(#lf-curve)" stroke-opacity="0.45" stroke-width="1.5"/>
+  <circle cx="220" cy="170" r="150" fill="url(#lf-halo)"/>
+  <circle cx="995" cy="170" r="150" fill="url(#lf-halo)"/>
+
+  <!-- Left: FSRS-5 Memory Stability & Forgetting Curve Fitting Wave -->
+  <g transform="translate(42, 48)">
+    <rect width="336" height="232" rx="14" fill="#0b1120" fill-opacity="0.88" stroke="#334155" stroke-width="1.2"/>
+    <text x="18" y="28" fill="#38bdf8" font-family="monospace" font-size="11" font-weight="bold">FSRS-5 MEMORY STABILITY WAVE</text>
+    <text x="318" y="28" text-anchor="end" fill="#a855f7" font-family="monospace" font-size="10">R(t,S) = (1+19/81·t/S)^-0.5</text>
+
+    <!-- Grid Lines -->
+    <g stroke="#ffffff" stroke-opacity="0.07" stroke-width="1">
+      <line x1="24" y1="60" x2="312" y2="60"/>
+      <line x1="24" y1="115" x2="312" y2="115"/>
+      <line x1="24" y1="170" x2="312" y2="170"/>
+    </g>
+    <!-- 70%-85% Golden Flow Zone -->
+    <rect x="24" y="75" width="288" height="42" fill="#10b981" fill-opacity="0.1" stroke="#10b981" stroke-opacity="0.3" stroke-dasharray="4 4"/>
+    <text x="306" y="92" text-anchor="end" fill="#34d399" font-family="monospace" font-size="9.5">70%~85% 心流黄金带</text>
+
+    <!-- Forgetting Curve & Spaced Repetition Boosts -->
+    <path d="M 28,60 Q 65,148 110,162 L 110,62 Q 165,124 215,138 L 215,62 Q 268,94 310,102" fill="none" stroke="url(#lf-curve)" stroke-width="3" filter="url(#lf-glow)"/>
+    <path class="wave-pulse" d="M 28,60 Q 150,72 310,82" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
+
+    <circle class="node-pulse" cx="110" cy="62" r="6" fill="#38bdf8" filter="url(#lf-glow)"/>
+    <circle class="node-pulse" cx="215" cy="62" r="6" fill="#a855f7" filter="url(#lf-glow)"/>
+    <circle class="node-pulse" cx="310" cy="102" r="6" fill="#f59e0b" filter="url(#lf-glow)"/>
+
+    <text x="18" y="212" fill="#94a3b8" font-family="monospace" font-size="10">S' Stability ↑ · D' Difficulty · LinguaFlowDB</text>
+  </g>
+
+  <!-- Center: Brand Title, Dual-Axis Orthogonal Matrix -->
+  <g transform="translate(600, 0)">
+    <rect x="-175" y="34" width="350" height="26" rx="13" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-opacity="0.45"/>
+    <text x="0" y="51" text-anchor="middle" fill="#bae6fd" font-family="monospace" font-size="11" letter-spacing="2.5">LINGUA.EVOTENSOR.DEV · ORTHOGONAL DUAL-AXIS</text>
+
+    <text x="0" y="112" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="42" font-weight="800" letter-spacing="6" filter="url(#lf-glow)">LINGUA-FLOW</text>
+    <text x="0" y="146" text-anchor="middle" fill="#e2e8f0" font-family="sans-serif" font-size="16" font-weight="600" letter-spacing="4">心理学与游戏化多语种外语习得平台</text>
+    <text x="0" y="174" text-anchor="middle" fill="#94a3b8" font-family="sans-serif" font-size="12.5" letter-spacing="1">纯单语种沉浸锁定 × 三大心智叙事世界 × 客户端 IndexedDB 离线持久化</text>
+
+    <!-- Language Standards Badges -->
+    <g transform="translate(0, 218)" font-family="sans-serif" font-size="12" font-weight="600">
+      <g transform="translate(-145, 0)">
+        <rect x="-64" y="-16" width="128" height="32" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="1.4"/>
+        <text x="0" y="4" text-anchor="middle" fill="#e0f2fe">🇬🇧 英语 CEFR B1</text>
+      </g>
+      <g transform="translate(0, 0)">
+        <rect x="-64" y="-16" width="128" height="32" rx="16" fill="#1e293b" stroke="#a855f7" stroke-width="1.4"/>
+        <text x="0" y="4" text-anchor="middle" fill="#f3e8ff">🇯🇵 日语 JLPT N5</text>
+      </g>
+      <g transform="translate(145, 0)">
+        <rect x="-64" y="-16" width="128" height="32" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-width="1.4"/>
+        <text x="0" y="4" text-anchor="middle" fill="#fef3c7">🇨🇳 汉语 HSK 3.0</text>
+      </g>
+    </g>
+
+    <text x="0" y="286" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="11" letter-spacing="2">L1 语言锁定 ➔ L2 主题叙事世界 ➔ L3 古物交互演练舱</text>
+  </g>
+
+  <!-- Right: 3 Narrative Worlds Astrolabe (Deductive / Immersive / Strategic) -->
+  <g class="star-orbit-1">
+    <circle cx="995" cy="170" r="106" fill="none" stroke="url(#lf-curve)" stroke-width="1.5" stroke-dasharray="10 6"/>
+    <!-- World 1: Deductive (Fog Echo) -->
+    <circle cx="995" cy="64" r="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#lf-glow)"/>
+    <text x="995" y="68" text-anchor="middle" fill="#fde68a" font-size="11" font-weight="bold">01</text>
+    <!-- World 2: Immersive (Stardust) -->
+    <circle cx="1087" cy="223" r="14" fill="#1e293b" stroke="#38bdf8" stroke-width="2" filter="url(#lf-glow)"/>
+    <text x="1087" y="227" text-anchor="middle" fill="#bae6fd" font-size="11" font-weight="bold">02</text>
+    <!-- World 3: Strategic (Sanctuary) -->
+    <circle cx="903" cy="223" r="14" fill="#1e293b" stroke="#a855f7" stroke-width="2" filter="url(#lf-glow)"/>
+    <text x="903" y="227" text-anchor="middle" fill="#e9d5ff" font-size="11" font-weight="bold">03</text>
+  </g>
+  <g class="star-orbit-2">
+    <polygon points="995,96 1059,207 931,207" fill="#a855f7" fill-opacity="0.1" stroke="#38bdf8" stroke-width="1.2"/>
+    <polygon points="995,244 1059,133 931,133" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-opacity="0.7"/>
+  </g>
+  <circle cx="995" cy="170" r="24" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.8" filter="url(#lf-glow)"/>
+  <text x="995" y="174" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="10" font-weight="bold">3 WORLDS</text>
+  <text x="995" y="310" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="11" letter-spacing="1.5">雾都回响 · 星尘漫游 · 刻痕圣殿</text>
+</svg>

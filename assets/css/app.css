@@ -1,0 +1,2589 @@
+@charset "UTF-8";
+/**
+ * Lingua-Flow 全局设计系统与三轴空间动态样式表 (Optic-Resonance v4.0)
+ * 严格遵循：
+ *   1. L01 五维明暗色域光谱系统 (S1 白瓷 / S2 汝窑暖素 / S3 羊皮暖砂 / S4 北欧雾灰 / S5 黑曜暗夜)
+ *   2. L02 多范式空间布局拓扑 (L-A1 Bento 12列矩阵 / L-A2 黄金主从双舞台 / L-A3 微岛HUD / L-A4 横向画廊 / L-A5 幻灯片甲板 / L-A11 扇形词牌场 / L-A16 拇指壳层)
+ *   3. L03~L05 & D09 精密字体排印工程 (clamp流体字阶 / 65ch最佳行宽 / text-wrap:balance / 正文对比度≥78% / ruby防碰撞 / 100% tabular-nums)
+ *   4. L06~L09 Y轴一屏守恒、32px边缘渐变羽化遮罩与Z轴立体唤醒消解遮挡体系
+ *   5. L10 & D01~D15 纯合成层物理动效红线 (仅限 transform/opacity/filter/color/background-color/border-color/box-shadow，0 布局重排属性)
+ */
+
+/* ============================================================================
+ * 1. 全局设计令牌：流体字阶、动效物理常数、Y/Z 轴遮罩与默认 S1 日光白瓷色域
+ * ============================================================================ */
+:root {
+  color-scheme: light;
+
+  /* 字体族：兼顾西文几何人文感、中日韩清晰笔画与等宽遥测数字 */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", "Noto Sans JP", sans-serif;
+  --font-serif-editorial: "Georgia", "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+
+  /* 5.1 流体模数字阶系统 (最小绝对下限 12px = 0.75rem) */
+  --optic-font-display: clamp(1.65rem, 2.6vw + 0.9rem, 2.55rem);
+  --optic-font-h1: clamp(1.32rem, 1.8vw + 0.78rem, 1.92rem);
+  --optic-font-h2: clamp(1.1rem, 1.0vw + 0.72rem, 1.38rem);
+  --optic-font-h3: clamp(0.98rem, 0.5vw + 0.82rem, 1.14rem);
+  --optic-font-body: clamp(0.9375rem, 0.22vw + 0.86rem, 1.04rem);
+  --optic-font-sm: clamp(0.84375rem, 0.15vw + 0.8rem, 0.90625rem);
+  --optic-font-xs: 0.75rem;
+
+  /* 最佳阅读行宽钳制 (65ch / 中文 36em / 严控 <= 740px) */
+  --optic-measure-optimal: min(65ch, 740px);
+
+  /* 空间间距与圆角令牌 */
+  --optic-space-xs: 6px;
+  --optic-space-sm: 10px;
+  --optic-space-md: 16px;
+  --optic-space-lg: 24px;
+  --optic-space-xl: 32px;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 26px;
+  --radius-pill: 9999px;
+
+  /* 物理动效时间与缓动曲线 (D03~D06 非对称出入场) */
+  --optic-ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --optic-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --optic-ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --optic-ease-spring: cubic-bezier(0.34, 1.42, 0.64, 1);
+
+  --optic-dur-instant: 80ms;
+  --optic-dur-fast: 180ms;
+  --optic-dur-exit: 220ms;
+  --optic-dur-slide-exit: 260ms;
+  --optic-dur-enter: 420ms;
+  --optic-stagger-step: 45ms;
+  --optic-stagger-cap: 360ms;
+
+  /* Y 轴与 X 轴边缘渐变羽化遮罩 (L07: 28~32px 柔和渐隐) */
+  --optic-mask-y-fade: linear-gradient(
+    to bottom,
+    transparent 0px,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent 100%
+  );
+  --optic-mask-y-bottom-only: linear-gradient(
+    to bottom,
+    #000 0px,
+    #000 calc(100% - 28px),
+    transparent 100%
+  );
+  --optic-mask-x-fade: linear-gradient(
+    to right,
+    #000 0px,
+    #000 calc(100% - 28px),
+    transparent 100%
+  );
+
+  /* Z 轴层级规范 (Z0~Z4) */
+  --z-base: 1;
+  --z-lifted-card: 12;
+  --z-sticky-nav: 60;
+  --z-dropdown: 100;
+  --z-drawer: 200;
+  --z-spotlight: 300;
+  --z-toast: 400;
+
+  /* 默认色域 S1: 日光白瓷 (Daylight-Porcelain) */
+  --bg-canvas: #f8fafc;
+  --bg-canvas-alt: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-subtle: #f1f5f9;
+  --bg-glass-nav: rgba(248, 250, 252, 0.88);
+  --optic-z-scrim: rgba(15, 23, 42, 0.44);
+
+  /* 四级可读性对比度黄金走廊 (L03: 正文/次级正文有效不透明度 >= 0.78) */
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15, 23, 42, 0.80);
+  --text-tertiary: rgba(15, 23, 42, 0.62);
+  --text-muted: rgba(15, 23, 42, 0.40);
+
+  --border-subtle: rgba(15, 23, 42, 0.11);
+  --border-strong: rgba(15, 23, 42, 0.22);
+  --shadow-elevation-1: 0 2px 8px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-elevation-2: 0 12px 28px -6px rgba(15, 23, 42, 0.10), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
+  --shadow-elevation-3: 0 22px 48px -10px rgba(15, 23, 42, 0.18), 0 8px 18px -4px rgba(15, 23, 42, 0.08);
+
+  /* 语义强调色 (在亮底上具备高对比度 WCAG AA+) */
+  --accent-primary: #1d4ed8;
+  --accent-primary-soft: rgba(29, 78, 216, 0.10);
+  --accent-primary-border: rgba(29, 78, 216, 0.30);
+  --accent-secondary: #b45309;
+  --accent-emerald: #047857;
+  --accent-emerald-soft: rgba(4, 120, 87, 0.11);
+  --accent-amber: #b45309;
+  --accent-amber-soft: rgba(180, 83, 9, 0.12);
+  --accent-crimson: #b91c1c;
+  --accent-crimson-soft: rgba(185, 28, 28, 0.10);
+  --accent-cyan: #0369a1;
+  --accent-cyan-soft: rgba(3, 105, 161, 0.10);
+  --accent-violet: #6d28d9;
+  --accent-violet-soft: rgba(109, 40, 217, 0.10);
+
+  /* 按钮前景色令牌 */
+  --btn-primary-bg: linear-gradient(135deg, #1e40af 0%, #1d4ed8 100%);
+  --btn-primary-fg: #ffffff;
+}
+
+/* ============================================================================
+ * 2. 五维明暗色域光谱矩阵 (S1 白瓷 / S2 汝窑暖素 / S3 羊皮暖砂 / S4 北欧雾灰 / S5 黑曜暗夜)
+ * ============================================================================ */
+
+/* S1: 日光白瓷 (Daylight-Porcelain) */
+html[data-spectrum="porcelain"],
+body[data-spectrum="porcelain"] {
+  color-scheme: light;
+  --bg-canvas: #f8fafc;
+  --bg-canvas-alt: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-subtle: #eff4f9;
+  --bg-glass-nav: rgba(248, 250, 252, 0.90);
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15, 23, 42, 0.80);
+  --text-tertiary: rgba(15, 23, 42, 0.62);
+  --border-subtle: rgba(15, 23, 42, 0.11);
+  --border-strong: rgba(15, 23, 42, 0.22);
+}
+
+/* S2: 美术馆暖素白 / 宋代汝窑天青素白 (Gallery-Alabaster · 星尘漫游默认昼间光谱) */
+html[data-spectrum="gallery"],
+body[data-spectrum="gallery"] {
+  color-scheme: light;
+  --bg-canvas: #f5f5ef;
+  --bg-canvas-alt: #eceee6;
+  --bg-surface: #fcfcf9;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-subtle: #ebede5;
+  --bg-glass-nav: rgba(245, 245, 239, 0.90);
+  --optic-z-scrim: rgba(21, 28, 30, 0.42);
+  --text-primary: #141a1d;
+  --text-secondary: rgba(20, 26, 29, 0.80);
+  --text-tertiary: rgba(20, 26, 29, 0.62);
+  --border-subtle: rgba(20, 48, 52, 0.13);
+  --border-strong: rgba(14, 116, 144, 0.28);
+  --shadow-elevation-1: 0 2px 10px rgba(20, 36, 38, 0.05);
+  --shadow-elevation-2: 0 14px 30px -8px rgba(20, 36, 38, 0.09);
+}
+
+/* S3: 温润羊皮暖砂 (Warm-Parchment · 雾都回响默认昼间卷宗光谱) */
+html[data-spectrum="parchment"],
+body[data-spectrum="parchment"] {
+  color-scheme: light;
+  --bg-canvas: #f3efe6;
+  --bg-canvas-alt: #eae3d5;
+  --bg-surface: #faf7f0;
+  --bg-surface-elevated: #fffdf8;
+  --bg-surface-subtle: #ede6d8;
+  --bg-glass-nav: rgba(243, 239, 230, 0.91);
+  --optic-z-scrim: rgba(28, 25, 23, 0.46);
+  --text-primary: #1c1917;
+  --text-secondary: rgba(28, 25, 23, 0.81);
+  --text-tertiary: rgba(28, 25, 23, 0.63);
+  --border-subtle: rgba(120, 83, 42, 0.18);
+  --border-strong: rgba(146, 64, 14, 0.34);
+  --shadow-elevation-1: 0 2px 8px rgba(68, 48, 24, 0.07);
+  --shadow-elevation-2: 0 14px 30px -8px rgba(68, 48, 24, 0.12);
+}
+
+/* S4: 北欧雾灰岩板 (Nordic-Slate · 刻痕圣殿默认昼间构筑光谱) */
+html[data-spectrum="slate"],
+body[data-spectrum="slate"] {
+  color-scheme: light;
+  --bg-canvas: #edf2f7;
+  --bg-canvas-alt: #e2e8f0;
+  --bg-surface: #f8fafc;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-subtle: #e2e8f0;
+  --bg-glass-nav: rgba(237, 242, 247, 0.91);
+  --optic-z-scrim: rgba(15, 23, 42, 0.48);
+  --text-primary: #0f172a;
+  --text-secondary: rgba(15, 23, 42, 0.81);
+  --text-tertiary: rgba(15, 23, 42, 0.63);
+  --border-subtle: rgba(15, 23, 42, 0.15);
+  --border-strong: rgba(15, 23, 42, 0.32);
+  --shadow-elevation-1: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-elevation-2: 0 14px 28px -6px rgba(15, 23, 42, 0.12);
+}
+
+/* S5: 黑曜深邃暗夜 (Obsidian-Nocturne · 受限夜审与暗房沉浸光谱) */
+html[data-spectrum="obsidian"],
+body[data-spectrum="obsidian"] {
+  color-scheme: dark;
+  --bg-canvas: #0a0c10;
+  --bg-canvas-alt: #10141d;
+  --bg-surface: #131822;
+  --bg-surface-elevated: #19202e;
+  --bg-surface-subtle: #1c2434;
+  --bg-glass-nav: rgba(10, 12, 16, 0.88);
+  --optic-z-scrim: rgba(2, 6, 14, 0.68);
+
+  --text-primary: #f3f4f6;
+  --text-secondary: rgba(243, 244, 246, 0.82);
+  --text-tertiary: rgba(243, 244, 246, 0.64);
+  --text-muted: rgba(243, 244, 246, 0.40);
+
+  --border-subtle: rgba(255, 255, 255, 0.12);
+  --border-strong: rgba(255, 255, 255, 0.24);
+  --shadow-elevation-1: 0 4px 14px rgba(0, 0, 0, 0.38);
+  --shadow-elevation-2: 0 16px 36px -6px rgba(0, 0, 0, 0.55);
+  --shadow-elevation-3: 0 26px 56px -10px rgba(0, 0, 0, 0.72);
+
+  --accent-primary: #60a5fa;
+  --accent-primary-soft: rgba(96, 165, 250, 0.15);
+  --accent-primary-border: rgba(96, 165, 250, 0.36);
+  --accent-secondary: #fbbf24;
+  --accent-emerald: #34d399;
+  --accent-emerald-soft: rgba(52, 211, 153, 0.15);
+  --accent-amber: #fbbf24;
+  --accent-amber-soft: rgba(251, 191, 36, 0.15);
+  --accent-crimson: #f87171;
+  --accent-crimson-soft: rgba(248, 113, 113, 0.16);
+  --accent-cyan: #38bdf8;
+  --accent-cyan-soft: rgba(56, 189, 248, 0.15);
+  --accent-violet: #c084fc;
+  --accent-violet-soft: rgba(192, 132, 252, 0.16);
+}
+
+/* ============================================================================
+ * 3. 三大叙事主题的专属视觉语义令牌 (与五维光谱正交叠加，严禁写死暗色纯黑底)
+ * ============================================================================ */
+
+/* 主题一：雾都回响 (Deductive · 维多利亚法庭卷宗 × 蔡司黄铜 × 火漆猩红) */
+body.theme-page-deductive {
+  --theme-accent: #9a3412;
+  --theme-accent-strong: #b45309;
+  --theme-accent-secondary: #b91c1c;
+  --theme-accent-soft: rgba(180, 83, 9, 0.11);
+  --theme-accent-border: rgba(146, 64, 14, 0.32);
+  --theme-btn-bg: linear-gradient(135deg, #92400e 0%, #b45309 55%, #991b1b 100%);
+  --theme-btn-fg: #fffbeb;
+  --theme-card-border-style: double;
+  --theme-card-border-width: 3px;
+}
+
+html[data-spectrum="obsidian"] body.theme-page-deductive,
+body.theme-page-deductive[data-spectrum="obsidian"] {
+  --bg-canvas: #090d16;
+  --bg-surface: #111827;
+  --bg-surface-elevated: #182235;
+  --bg-surface-subtle: #1e293b;
+  --theme-accent: #fbbf24;
+  --theme-accent-strong: #fde68a;
+  --theme-accent-secondary: #f87171;
+  --theme-accent-soft: rgba(245, 158, 11, 0.15);
+  --theme-accent-border: rgba(245, 158, 11, 0.38);
+  --theme-btn-bg: linear-gradient(135deg, #b45309 0%, #d97706 55%, #b91c1c 100%);
+  --theme-btn-fg: #fffbeb;
+}
+
+/* 主题二：星尘漫游 (Immersive · 宋代汝窑天青 × 24K 金缮 × 夜光螺钿) */
+body.theme-page-immersive {
+  --theme-accent: #0e7490;
+  --theme-accent-strong: #0369a1;
+  --theme-accent-secondary: #6d28d9;
+  --theme-accent-soft: rgba(14, 116, 144, 0.10);
+  --theme-accent-border: rgba(14, 116, 144, 0.28);
+  --theme-btn-bg: linear-gradient(135deg, #0e7490 0%, #0284c7 52%, #6d28d9 100%);
+  --theme-btn-fg: #f8fafc;
+}
+
+html[data-spectrum="obsidian"] body.theme-page-immersive,
+body.theme-page-immersive[data-spectrum="obsidian"] {
+  --bg-canvas: #080a12;
+  --bg-surface: #111522;
+  --bg-surface-elevated: #171c2e;
+  --bg-surface-subtle: #1e253b;
+  --theme-accent: #7dd3fc;
+  --theme-accent-strong: #bae6fd;
+  --theme-accent-secondary: #c084fc;
+  --theme-accent-soft: rgba(125, 211, 252, 0.14);
+  --theme-accent-border: rgba(125, 211, 252, 0.34);
+  --theme-btn-bg: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #7c3aed 100%);
+  --theme-btn-fg: #f8fafc;
+}
+
+/* 主题三：刻痕圣殿 (Strategic · 新粗野主义铅条花窗 × 果冻透光 × 翡翠奥术) */
+body.theme-page-strategic {
+  --theme-accent: #047857;
+  --theme-accent-strong: #065f46;
+  --theme-accent-secondary: #0369a1;
+  --theme-accent-soft: rgba(4, 120, 87, 0.11);
+  --theme-accent-border: #1e293b;
+  --theme-lead-came: #1e293b;
+  --theme-hard-shadow: 3px 3px 0 #1e293b;
+  --theme-btn-bg: linear-gradient(135deg, #047857 0%, #059669 55%, #0284c7 100%);
+  --theme-btn-fg: #ffffff;
+}
+
+html[data-spectrum="obsidian"] body.theme-page-strategic,
+body.theme-page-strategic[data-spectrum="obsidian"] {
+  --bg-canvas: #050b0a;
+  --bg-surface: #0c1715;
+  --bg-surface-elevated: #11221f;
+  --bg-surface-subtle: #162d29;
+  --theme-accent: #34d399;
+  --theme-accent-strong: #6ee7b7;
+  --theme-accent-secondary: #38bdf8;
+  --theme-accent-soft: rgba(52, 211, 153, 0.15);
+  --theme-accent-border: #34d399;
+  --theme-lead-came: #020605;
+  --theme-hard-shadow: 4px 4px 0 #020605;
+  --theme-btn-bg: linear-gradient(135deg, #059669 0%, #10b981 55%, #0284c7 100%);
+  --theme-btn-fg: #022c22;
+}
+
+/* ============================================================================
+ * 4. 基础重置与精密字体排印卫生 (L03 ~ L05 & D09)
+ * ============================================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:where(*, *::before, *::after) {
+  transition-property: none;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  font-size: var(--optic-font-body);
+  line-height: 1.65;
+  color: var(--text-primary);
+  background-color: var(--bg-canvas);
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  transition: background-color 240ms var(--optic-ease-out), color 240ms var(--optic-ease-out);
+}
+
+/* L04: 所有标题与微提示 100% 启用智能断行平衡，消灭孤字 */
+h1,
+h2,
+h3,
+h4,
+.optic-card-title,
+.optic-slide-title,
+.lab-title,
+.card-title,
+.hub-chapter-title,
+.stage-chapter-title,
+.micro-prompt-pill {
+  margin: 0;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--optic-font-h1);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: var(--optic-font-h2);
+  line-height: 1.30;
+  letter-spacing: -0.010em;
+}
+
+h3 {
+  font-size: var(--optic-font-h3);
+  line-height: 1.38;
+  letter-spacing: -0.005em;
+}
+
+/* L03 ~ L05: 正文段落最佳行宽钳制 (<= 65ch / 740px)、黄金行高 (1.68) 与高对比度 (>= 0.80) */
+p,
+.optic-body-text,
+.optic-slide-desc,
+.lab-desc,
+.hero-description {
+  margin: 0;
+  max-width: var(--optic-measure-optimal);
+  font-size: var(--optic-font-body);
+  line-height: 1.68;
+  color: var(--text-secondary);
+  text-align: left;
+  text-wrap: pretty;
+  line-break: strict;
+  overflow-wrap: break-word;
+}
+
+/* 多语种 <ruby>/<rt> 振假名与汉语拼音防碰撞铁律 (L05: line-height 2.05) */
+ruby {
+  ruby-position: over;
+  ruby-align: center;
+  line-height: 2.05;
+}
+
+rt {
+  font-size: clamp(0.64rem, 0.65em, 0.78rem);
+  font-weight: 600;
+  color: var(--theme-accent, var(--accent-cyan));
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+/* D09: 动态数值 100% 强制启用等宽数字对齐，彻底消灭跳动抖动 */
+[id*="price"],
+[id*="count"],
+[id*="val"],
+[class*="odometer"],
+[class*="metric"],
+[class*="num"],
+.tabular-nums,
+.meta-pill,
+.status-badge,
+.phase-num,
+.op-step-num,
+.usage-step-num,
+.zeiss-focus-readout,
+.telemetry-stat-value {
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+/* 键盘焦点可达性环 */
+:focus-visible {
+  outline: 2px solid var(--theme-accent, var(--accent-primary));
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+ * 5. 顶栏导航与 Z-02 五维色域智能避让切换器 (z-index: 100, 8px 呼吸间隙防遮挡)
+ * ============================================================================ */
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky-nav);
+  background-color: var(--bg-glass-nav);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  min-height: 56px;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.brand-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.brand-subtitle {
+  font-size: var(--optic-font-xs);
+  color: var(--text-tertiary);
+}
+
+.nav-controls-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 11px;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  font-size: var(--optic-font-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-emerald);
+  flex-shrink: 0;
+}
+
+/* Z-02 智能避让下拉容器 (保留 8px 间隙，绝不遮挡触发按钮本身) */
+.optic-dropdown-anchor {
+  position: relative;
+  display: inline-flex;
+}
+
+.optic-spectrum-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-elevation-1);
+  transition: transform 180ms var(--optic-ease-out), background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.optic-spectrum-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--theme-accent, var(--accent-primary));
+}
+
+.spectrum-swatch-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--bg-canvas);
+  flex-shrink: 0;
+}
+
+.optic-z2-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: var(--z-dropdown);
+  width: min(276px, calc(100vw - 24px));
+  padding: 8px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface-elevated);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-elevation-3);
+  transform-origin: top right;
+  opacity: 0;
+  transform: translate3d(0, -6px, 0) scale(0.97);
+  pointer-events: none;
+  transition: opacity var(--optic-dur-exit) var(--optic-ease-exit),
+    transform var(--optic-dur-exit) var(--optic-ease-exit);
+}
+
+.optic-z2-dropdown.is-flipped-up {
+  top: auto;
+  bottom: calc(100% + 8px);
+  transform-origin: bottom right;
+}
+
+.optic-z2-dropdown.is-flipped-left {
+  right: auto;
+  left: 0;
+}
+
+.optic-z2-dropdown.is-open {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  pointer-events: auto;
+  transition: opacity var(--optic-dur-enter) var(--optic-ease-cinematic),
+    transform var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+
+.dropdown-section-caption {
+  padding: 4px 8px 6px;
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  color: var(--text-tertiary);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 4px;
+}
+
+.spectrum-option-btn {
+  width: 100%;
+  min-height: 44px;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: var(--optic-font-sm);
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms var(--optic-ease-out);
+}
+
+.spectrum-option-btn:hover {
+  background-color: var(--bg-surface-subtle);
+}
+
+.spectrum-option-btn.is-active {
+  background-color: var(--theme-accent-soft, var(--accent-primary-soft));
+  border-color: var(--theme-accent, var(--accent-primary));
+  font-weight: 800;
+}
+
+.spectrum-option-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spectrum-chip-preview {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid rgba(15, 23, 42, 0.28);
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+ * 6. 通用交互按钮、六态磁吸微交互 (C13: >= 44x44px, 80ms 受压保底) 与徽章
+ * ============================================================================ */
+.btn-theme,
+.btn-secondary-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  min-width: 44px;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  font-size: var(--optic-font-sm);
+  font-weight: 800;
+  line-height: 1.25;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition: transform 180ms var(--optic-ease-out),
+    box-shadow 180ms var(--optic-ease-out),
+    background-color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
+}
+
+.btn-theme {
+  border: 1px solid transparent;
+  background: var(--theme-btn-bg, var(--btn-primary-bg));
+  color: var(--theme-btn-fg, var(--btn-primary-fg));
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.btn-deductive {
+  background: linear-gradient(135deg, #92400e 0%, #b45309 55%, #991b1b 100%);
+  color: #fffbeb;
+}
+
+.btn-immersive {
+  background: linear-gradient(135deg, #0e7490 0%, #0284c7 52%, #6d28d9 100%);
+  color: #f8fafc;
+}
+
+.btn-strategic {
+  background: linear-gradient(135deg, #047857 0%, #059669 55%, #0284c7 100%);
+  color: #ffffff;
+  border: 2px solid var(--theme-lead-came, #1e293b);
+  box-shadow: var(--theme-hard-shadow, 3px 3px 0 #1e293b);
+}
+
+html[data-spectrum="obsidian"] .btn-strategic,
+body[data-spectrum="obsidian"] .btn-strategic {
+  color: #ecfdf5;
+}
+
+.btn-secondary-ghost {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-elevation-1);
+}
+
+.btn-theme:hover,
+.btn-secondary-ghost:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-elevation-2);
+}
+
+/* C13: 80ms 受压行程与连续介质弹性释放 */
+.is-optic-pressed {
+  transform: scale(0.965) translateY(1px) !important;
+  transition-duration: 50ms !important;
+}
+
+.is-optic-released {
+  animation: opticSpringRelease 280ms var(--optic-ease-spring);
+}
+
+@keyframes opticSpringRelease {
+  0% {
+    transform: scale(0.965);
+  }
+  55% {
+    transform: scale(1.018);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-theme.is-submit-ready {
+  box-shadow: 0 0 0 3px var(--theme-accent-soft, rgba(52, 211, 153, 0.28)), var(--shadow-elevation-2);
+}
+
+.meta-pill,
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  line-height: 1.35;
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.meta-pill-success {
+  background-color: var(--accent-emerald-soft);
+  color: var(--accent-emerald);
+  border-color: var(--accent-emerald);
+}
+
+.meta-pill-accent {
+  background-color: var(--theme-accent-soft, var(--accent-primary-soft));
+  color: var(--theme-accent, var(--accent-primary));
+  border-color: var(--theme-accent-border, var(--accent-primary-border));
+}
+
+/* C06: Bento 波前级联动画 (严守最大延迟封顶 <= 360ms, D06) */
+.optic-stagger-item {
+  animation: opticWavefrontEnter var(--optic-dur-enter) var(--optic-ease-cinematic) both;
+  animation-delay: min(calc(var(--stagger-idx, 0) * var(--optic-stagger-step)), var(--optic-stagger-cap));
+}
+
+@keyframes opticWavefrontEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* 二阶阻尼 3D 微倾角 (D12: 严格限幅 <= ±5.5deg) */
+.optic-tilt-target {
+  transform: perspective(1000px) rotateX(var(--tilt-rx, 0deg)) rotateY(var(--tilt-ry, 0deg));
+  will-change: transform;
+}
+
+/* Y-01: 局部纵向滚动边缘渐变羽化遮罩 (L07) */
+.optic-scroll-y-zone {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-mask-image: var(--optic-mask-y-bottom-only);
+  mask-image: var(--optic-mask-y-bottom-only);
+}
+
+.optic-scroll-y-zone.is-scrolled-mid {
+  -webkit-mask-image: var(--optic-mask-y-fade);
+  mask-image: var(--optic-mask-y-fade);
+}
+
+/* ============================================================================
+ * 7. L1 一级门户布局：L-A1 瑞士便当盒 12 列非对称矩阵 + L-A4 移动端横向画廊
+ * ============================================================================ */
+.l1-bento-shell {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(14px, 2vw, 26px) clamp(14px, 2.4vw, 28px) 32px;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.l1-top-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 20px);
+  align-items: stretch;
+}
+
+.bento-cell {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: clamp(16px, 2.2vw, 26px);
+  box-shadow: var(--shadow-elevation-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.bento-hero-lang {
+  grid-column: span 8;
+}
+
+.bento-telemetry-island {
+  grid-column: span 4;
+  background-color: var(--bg-surface-subtle);
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background-color: var(--accent-primary-soft);
+  border: 1px solid var(--accent-primary-border);
+  color: var(--accent-primary);
+  font-size: var(--optic-font-xs);
+  font-weight: 800;
+}
+
+.l1-display-title {
+  font-size: var(--optic-font-display);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.lang-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.lang-option-card {
+  min-height: 60px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-subtle);
+  background-color: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  text-align: left;
+  transition: transform 180ms var(--optic-ease-out),
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.lang-option-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.lang-option-card.is-selected {
+  border-color: var(--accent-primary);
+  background-color: var(--accent-primary-soft);
+  box-shadow: 0 0 0 2px var(--accent-primary-border);
+}
+
+.lang-option-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.lang-flag-title {
+  font-size: var(--optic-font-sm);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.lang-std-badge {
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-surface);
+  color: var(--accent-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+.bento-kpi-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bento-kpi-tile {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.bento-kpi-num {
+  font-size: clamp(1.2rem, 1.6vw + 0.7rem, 1.65rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.15;
+}
+
+.bento-kpi-label {
+  font-size: var(--optic-font-xs);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* L1 第二幕：三大叙事世界画廊 (桌面 3 列 Bento / 移动端 L-A4 横向焦点滑轨) */
+.l1-worlds-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 22px);
+  align-items: stretch;
+}
+
+.theme-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  box-shadow: var(--shadow-elevation-1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 240ms var(--optic-ease-out),
+    box-shadow 240ms var(--optic-ease-out),
+    border-color 200ms ease;
+}
+
+.theme-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevation-2);
+}
+
+/* 三大主题卡片在门户页即展现差异化材质骨架 */
+.theme-card.theme-deductive {
+  border-color: rgba(180, 83, 9, 0.34);
+  background-color: var(--bg-surface);
+}
+
+.theme-card.theme-immersive {
+  border-color: rgba(14, 116, 144, 0.30);
+  background-color: var(--bg-surface);
+}
+
+.theme-card.theme-strategic {
+  border: 2px solid var(--border-strong);
+  box-shadow: 4px 4px 0 var(--border-strong);
+}
+
+.theme-banner-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 10 / 3;
+  overflow: hidden;
+  background-color: #0f172a;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.theme-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 420ms var(--optic-ease-cinematic);
+}
+
+.theme-card:hover .theme-banner-img {
+  transform: scale(1.03);
+}
+
+.theme-card-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1 1 auto;
+}
+
+.theme-header-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-badge-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.theme-tag {
+  font-size: var(--optic-font-xs);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+
+.theme-title {
+  font-size: var(--optic-font-h2);
+  font-weight: 800;
+}
+
+.theme-desc {
+  font-size: var(--optic-font-sm);
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.theme-card-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+/* ============================================================================
+ * 8. L2 二级主题中枢页：L-A2 黄金主从双舞台 (1fr : 1.618fr) + 三主题差异化陈列
+ * ============================================================================ */
+.l2-hub-topbar {
+  max-width: 1360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hub-world-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.hub-world-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  transition: transform 160ms var(--optic-ease-out), background-color 160ms ease, border-color 160ms ease;
+}
+
+.hub-world-pill.is-current {
+  background-color: var(--theme-accent-soft);
+  color: var(--theme-accent);
+  border-color: var(--theme-accent-border);
+  font-weight: 800;
+}
+
+.l2-split-horizon-shell {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: clamp(12px, 1.8vw, 22px) clamp(14px, 2.2vw, 26px) 24px;
+  display: grid;
+  grid-template-columns: minmax(340px, 1fr) minmax(0, 1.618fr);
+  gap: clamp(16px, 2vw, 24px);
+  align-items: start;
+}
+
+/* L2 左舞台：主题锚定视窗 + 器具阶位展台 + 紧凑三行胶囊配置器 */
+.l2-master-stage {
+  position: sticky;
+  top: 72px;
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--theme-accent-border, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  padding: clamp(16px, 2vw, 22px);
+  box-shadow: var(--shadow-elevation-1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* 三大主题左舞台专属材质边框 */
+body.theme-page-deductive .l2-master-stage {
+  border-width: 3px;
+  border-style: double;
+}
+
+body.theme-page-immersive .l2-master-stage {
+  border-radius: var(--radius-xl);
+}
+
+body.theme-page-strategic .l2-master-stage {
+  border: 2px solid var(--theme-lead-came, #1e293b);
+  box-shadow: var(--theme-hard-shadow, 4px 4px 0 #1e293b);
+  border-radius: var(--radius-md);
+}
+
+.l2-identity-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.l2-identity-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.l2-spectrum-kicker {
+  font-size: var(--optic-font-xs);
+  font-weight: 800;
+  color: var(--theme-accent);
+  letter-spacing: 0.03em;
+}
+
+/* L2 物理器具视觉预览舱 (#theme-workbench-mount 挂载承载 banner.svg 与 mechanic_hud.svg) */
+.l2-apparatus-showcase {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-subtle);
+  display: flex;
+  flex-direction: column;
+}
+
+.l2-banner-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 600 / 130;
+  overflow: hidden;
+  background-color: #0f172a;
+}
+
+.l2-banner-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.l2-rig-hud-strip {
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.l2-rig-hud-left {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.l2-rig-hud-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.l2-rig-tier-text {
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 三行紧凑胶囊配置器 (44px 触控热区) */
+.hub-config-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.seg-control-row {
+  display: grid;
+  grid-template-columns: 68px minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+}
+
+.seg-row-label {
+  font-size: var(--optic-font-xs);
+  font-weight: 800;
+  color: var(--text-tertiary);
+}
+
+.seg-pill-group {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.seg-pill-btn {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-secondary);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 160ms var(--optic-ease-out),
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.seg-pill-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--theme-accent);
+}
+
+.seg-pill-btn.is-selected {
+  background-color: var(--theme-accent-soft);
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
+  font-weight: 800;
+}
+
+/* L2 右舞台：Bento 章节甲板与主题差异化卡片 */
+.l2-detail-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+.l2-detail-header {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-elevation-1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.l2-status-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hub-chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.hub-chapter-card {
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  box-shadow: var(--shadow-elevation-1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 220px;
+  transition: transform 220ms var(--optic-ease-out),
+    box-shadow 220ms var(--optic-ease-out),
+    border-color 200ms ease;
+}
+
+.hub-chapter-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevation-2);
+  border-color: var(--theme-accent);
+}
+
+/* 主题 01 雾都回响：维多利亚法庭双线火漆案卷卡 */
+body.theme-page-deductive .hub-chapter-card {
+  border-style: double;
+  border-width: 3px;
+  border-color: var(--theme-accent-border);
+}
+
+/* 主题 02 星尘漫游：宋代汝窑圆融玉质手帐卡 */
+body.theme-page-immersive .hub-chapter-card {
+  border-radius: var(--radius-xl);
+  padding: 20px;
+}
+
+/* 主题 03 刻痕圣殿：新粗野主义铅条镶嵌石板卡 */
+body.theme-page-strategic .hub-chapter-card {
+  border: 2px solid var(--theme-lead-came, #1e293b);
+  border-radius: var(--radius-md);
+  box-shadow: var(--theme-hard-shadow, 3px 3px 0 #1e293b);
+}
+
+.hub-chapter-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.hub-chapter-title {
+  font-size: var(--optic-font-h3);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.hub-chapter-focus-tag {
+  font-size: var(--optic-font-sm);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface-subtle);
+  border-left: 3px solid var(--theme-accent);
+}
+
+.hub-chapter-fsrs-line {
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  color: var(--theme-accent);
+}
+
+/* ============================================================================
+ * 9. L3 三级单屏演练台：100dvh 严格守恒 + L-A3 微岛顶栏 + L-A5 幻灯片甲板 + L-A16 拇指坞
+ * ============================================================================ */
+body.learn-single-screen-body {
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* L-A3 边缘微岛极简顶栏 */
+.learn-micro-topbar {
+  flex: 0 0 auto;
+  min-height: 50px;
+  padding: 4px clamp(10px, 2vw, 20px);
+  background-color: var(--bg-glass-nav);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.learn-nav-left,
+.learn-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.micro-island-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 6px 11px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 160ms var(--optic-ease-out), background-color 160ms ease, border-color 160ms ease;
+}
+
+.micro-island-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--theme-accent);
+}
+
+/* L3 主工作区：宽屏采用 L-A2 黄金协同双栏，窄屏自动收拢为单焦点拇指壳层 */
+.learn-viewport-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(6px, 1.2vh, 16px) clamp(10px, 2vw, 22px) max(8px, env(safe-area-inset-bottom, 0px));
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 16px;
+  overflow: hidden;
+}
+
+/* 宽屏左侧情境协同岛 (移动端自动折叠进 Z-01 抽屉) */
+.learn-context-rail {
+  min-height: 0;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 14px;
+  box-shadow: var(--shadow-elevation-1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  overflow: hidden;
+}
+
+body.theme-page-deductive .learn-context-rail {
+  border-style: double;
+  border-width: 3px;
+  border-color: var(--theme-accent-border);
+}
+
+body.theme-page-strategic .learn-context-rail {
+  border: 2px solid var(--theme-lead-came, #1e293b);
+  box-shadow: var(--theme-hard-shadow, 3px 3px 0 #1e293b);
+  border-radius: var(--radius-md);
+}
+
+.context-rig-card {
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.context-rig-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.context-companion-whisper {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background-color: var(--theme-accent-soft);
+  border: 1px solid var(--theme-accent-border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.context-whisper-body {
+  font-size: var(--optic-font-sm);
+  line-height: 1.62;
+  color: var(--text-secondary);
+}
+
+.context-mini-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.context-mini-tile {
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+}
+
+.context-mini-label {
+  font-size: var(--optic-font-xs);
+  color: var(--text-tertiary);
+  font-weight: 700;
+}
+
+.context-mini-val {
+  font-size: var(--optic-font-sm);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* L3 主演练舞台面板 (#theme-stage-panel) */
+.apparatus-stage-panel {
+  min-height: 0;
+  height: 100%;
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--theme-accent-border, var(--border-subtle));
+  border-radius: var(--radius-lg);
+  padding: clamp(8px, 1.4vh, 16px) clamp(10px, 1.8vw, 20px);
+  box-shadow: var(--shadow-elevation-2);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vh, 12px);
+  overflow: hidden;
+}
+
+body.theme-page-deductive .apparatus-stage-panel {
+  border-style: double;
+  border-width: 3px;
+}
+
+body.theme-page-strategic .apparatus-stage-panel {
+  border: 2px solid var(--theme-lead-came, #1e293b);
+  box-shadow: var(--theme-hard-shadow, 4px 4px 0 #1e293b);
+  border-radius: var(--radius-md);
+}
+
+.apparatus-stage-panel.is-shaking {
+  animation: opticRepulseShake 280ms var(--optic-ease-out);
+}
+
+@keyframes opticRepulseShake {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  22% { transform: translate3d(-6px, 0, 0); }
+  48% { transform: translate3d(6px, 0, 0); }
+  74% { transform: translate3d(-3px, 0, 0); }
+}
+
+/* 章节切换条与当前标题头 */
+.learn-stage-top-strip {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chapter-tabs-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chapter-tabs-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.chapter-tab-btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-secondary);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 160ms var(--optic-ease-out), background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.chapter-tab-btn.is-active {
+  background-color: var(--theme-accent-soft);
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
+  font-weight: 800;
+}
+
+.stage-chapter-title {
+  font-size: clamp(1.0rem, 1.2vw + 0.65rem, 1.32rem);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Phased Workbench Mount (容纳双幕进度栏 + Z-03 恒定高度幻灯片栈 + 底部拇指操控坞) */
+.phased-workbench-mount {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vh, 12px);
+  overflow: hidden;
+}
+
+.stage-phase-bar {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.stage-phase-pill {
+  min-height: 44px;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-secondary);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  transition: transform 160ms var(--optic-ease-out), background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.stage-phase-pill.is-active {
+  background-color: var(--theme-accent-soft);
+  border-color: var(--theme-accent);
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.stage-phase-pill.is-done .phase-num {
+  background-color: var(--accent-emerald);
+  color: #ffffff;
+}
+
+.phase-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-strong);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--optic-font-xs);
+  font-weight: 800;
+}
+
+/* L-A5 & Z-03: 恒定画幅时间线幻灯片舞台 (grid-area: 1 / 1 原地景深切换，CLS = 0) */
+.optic-slide-deck-frame {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  position: relative;
+  overflow: hidden;
+}
+
+.instrument-module,
+.stage-victory-card {
+  grid-area: 1 / 1;
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  padding: clamp(10px, 1.6vh, 18px) clamp(12px, 1.8vw, 20px);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
+  gap: clamp(8px, 1.2vh, 14px);
+  transition: opacity var(--optic-dur-enter) var(--optic-ease-cinematic),
+    transform var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+
+.instrument-module.is-slide-active,
+.stage-victory-card.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 2;
+}
+
+.instrument-module.prev {
+  opacity: 0;
+  transform: translate3d(-36px, 0, 0) scale(0.965);
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 1;
+  transition: opacity var(--optic-dur-slide-exit) var(--optic-ease-exit),
+    transform var(--optic-dur-slide-exit) var(--optic-ease-exit),
+    visibility 0s linear var(--optic-dur-slide-exit);
+}
+
+.instrument-module.next,
+.stage-victory-card:not(.is-visible) {
+  opacity: 0;
+  transform: translate3d(36px, 0, 0) scale(0.975);
+  pointer-events: none;
+  visibility: hidden;
+  z-index: 1;
+  transition: opacity var(--optic-dur-slide-exit) var(--optic-ease-exit),
+    transform var(--optic-dur-slide-exit) var(--optic-ease-exit),
+    visibility 0s linear var(--optic-dur-slide-exit);
+}
+
+.instrument-module.is-module-ready {
+  border-color: var(--accent-emerald);
+}
+
+.panel-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: var(--optic-font-sm);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.micro-prompt-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 5px 11px;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+/* ============================================================================
+ * 10. 三大主题专属物理交互装置容器与 L-A11 扇形词牌防遮挡引力场
+ * ============================================================================ */
+
+/* 通用物理滑杆：确保 >= 44px 触控热区与跟手零粘滞 (D08) */
+.apparatus-slider {
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  cursor: pointer;
+  accent-color: var(--theme-accent);
+  touch-action: pan-y;
+}
+
+/* --- 主题 01 · 雾都回响：蔡司黄铜取证透镜与法庭扇形质证席 --- */
+.zeiss-lens-viewport {
+  padding: clamp(10px, 1.5vh, 16px) 14px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--theme-accent-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: filter 120ms linear, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.zeiss-lens-viewport.is-zeiss-locked {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 2px var(--accent-emerald-soft);
+}
+
+.zeiss-lens-word {
+  font-family: var(--font-serif-editorial);
+  font-size: clamp(1.15rem, 1.5vw + 0.8rem, 1.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.zeiss-phonetic-tag {
+  font-family: var(--font-sans);
+  font-size: var(--optic-font-sm);
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-left: 6px;
+}
+
+.zeiss-lens-etymology {
+  margin-top: 4px;
+  font-size: var(--optic-font-sm);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  max-width: var(--optic-measure-optimal);
+}
+
+.zeiss-reticle-dial {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  transition: transform 120ms linear;
+}
+
+.deductive-testimony-box {
+  margin: 0;
+  max-width: var(--optic-measure-optimal);
+  padding: clamp(10px, 1.4vh, 14px) 14px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border-left: 4px solid var(--theme-accent);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-serif-editorial);
+  font-size: var(--optic-font-body);
+  line-height: 1.65;
+  color: var(--text-primary);
+}
+
+/* L-A11 扇形/极坐标候选词牌与物证引力场：悬停或锁定时 Z 轴独立抽离，邻牌微推零遮挡 */
+.optic-fan-field,
+.deductive-clue-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.optic-token-fan-row {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.interactive-token,
+.interactive-choice {
+  position: relative;
+  min-height: 45px;
+  min-width: 44px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-strong);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--optic-font-sm);
+  font-weight: 700;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 200ms var(--optic-ease-out),
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 200ms var(--optic-ease-out);
+}
+
+.interactive-token:hover,
+.interactive-choice:hover {
+  z-index: var(--z-lifted-card);
+  transform: translate3d(0, -4px, 0) scale(1.02);
+  border-color: var(--theme-accent);
+  box-shadow: var(--shadow-elevation-2);
+}
+
+/* L-A11 邻牌水平避让微推 */
+.interactive-token:hover + .interactive-token,
+.interactive-choice:hover + .interactive-choice {
+  transform: translate3d(4px, 0, 0);
+}
+
+.interactive-token.is-locked,
+.interactive-choice.is-locked {
+  z-index: var(--z-lifted-card);
+  background-color: var(--accent-emerald-soft);
+  border-color: var(--accent-emerald);
+  color: var(--text-primary);
+  transform: translate3d(0, -3px, 0) scale(1.015);
+  box-shadow: 0 0 0 2px var(--accent-emerald-soft), var(--shadow-elevation-1);
+}
+
+.crimson-laser-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 15;
+  transition: opacity 220ms var(--optic-ease-out);
+}
+
+.crimson-laser-overlay.is-firing {
+  opacity: 1;
+}
+
+/* --- 主题 02 · 星尘漫游：24K 金缮声波谐振盘与汝窑螺钿拭苔碑 --- */
+.immersive-sentence-card {
+  padding: clamp(8px, 1.2vh, 14px) 14px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--theme-accent-border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.immersive-ruby-line {
+  font-size: clamp(1.02rem, 1.2vw + 0.78rem, 1.28rem);
+  font-weight: 700;
+  line-height: 2.05;
+  color: var(--text-primary);
+}
+
+.immersive-translation-line {
+  font-size: var(--optic-font-sm);
+  line-height: 1.60;
+  color: var(--text-secondary);
+}
+
+.harmonic-wave-stage {
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.harmonic-wave-stage.is-wave-resonant {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 2px var(--accent-emerald-soft);
+}
+
+.celadon-rubbing-tablet {
+  position: relative;
+  padding: clamp(10px, 1.6vh, 18px) 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border: 1.5px solid var(--theme-accent-border);
+  text-align: center;
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.celadon-rubbing-tablet.is-rubbing-complete {
+  border-color: var(--accent-emerald);
+  box-shadow: 0 0 0 2px var(--accent-emerald-soft);
+}
+
+.celadon-moss-layer {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(14, 116, 144, 0.14) 0px,
+    rgba(14, 116, 144, 0.14) 10px,
+    rgba(109, 40, 217, 0.10) 10px,
+    rgba(109, 40, 217, 0.10) 20px
+  );
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 160ms ease;
+}
+
+.rubbing-glyph-display {
+  font-size: clamp(1.35rem, 2vw + 0.9rem, 1.85rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1.25;
+  transition: filter 140ms linear;
+}
+
+.rubbing-reading-line {
+  font-size: var(--optic-font-sm);
+  font-weight: 700;
+  color: var(--theme-accent);
+  margin-top: 2px;
+}
+
+.rubbing-etym-line {
+  font-size: var(--optic-font-xs);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* --- 主题 03 · 刻痕圣殿：果冻透光榫卯槽与 L-A11 六翼花窗星轨晶球场 --- */
+.mortise-joint-stage {
+  padding: clamp(10px, 1.5vh, 16px);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface);
+  border: 2px solid var(--theme-lead-came, #1e293b);
+  box-shadow: var(--theme-hard-shadow, 3px 3px 0 #1e293b);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  transition: transform 200ms var(--optic-ease-spring), border-color 200ms ease;
+}
+
+.mortise-joint-stage.is-mortise-snapped {
+  border-color: var(--accent-emerald);
+}
+
+.stem-mortise-box {
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background-color: var(--theme-accent-soft);
+  border: 2px dashed var(--theme-accent);
+  color: var(--text-primary);
+  font-size: var(--optic-font-sm);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+}
+
+.strategic-tenon-btn {
+  border: 2px solid var(--theme-lead-came, #1e293b) !important;
+  box-shadow: 3px 3px 0 var(--theme-lead-came, #1e293b);
+}
+
+.strategic-formula-banner {
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-surface);
+  border: 2px solid var(--theme-lead-came, #1e293b);
+  color: var(--text-primary);
+  font-size: var(--optic-font-body);
+  font-weight: 700;
+  line-height: 2.0;
+  text-align: center;
+}
+
+.constellation-orb-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spell-orb-btn {
+  min-height: 46px;
+  min-width: 56px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--theme-lead-came, #1e293b);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: var(--optic-font-sm);
+  font-weight: 800;
+  box-shadow: 2px 2px 0 var(--theme-lead-came, #1e293b);
+  cursor: pointer;
+  transition: transform 200ms var(--optic-ease-spring),
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    box-shadow 180ms ease;
+}
+
+.spell-orb-btn:hover {
+  z-index: var(--z-lifted-card);
+  transform: translate3d(0, -5px, 0) scale(1.05);
+}
+
+.spell-orb-btn:hover + .spell-orb-btn {
+  transform: translate3d(4px, 0, 0);
+}
+
+.spell-orb-btn.is-routed {
+  background-color: var(--accent-emerald-soft);
+  border-color: var(--accent-emerald);
+  color: var(--accent-emerald);
+  transform: translate3d(0, -3px, 0) scale(1.03);
+}
+
+/* 通关战报卡 (Stage Victory Card) */
+.stage-victory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stage-victory-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--optic-font-h3);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.stage-victory-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* L-A16 底部霍伯拇指热区标准操控坞 (Thumb-Shell Dock) */
+.workbench-action-bar.thumb-ergonomic-dock {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+/* ============================================================================
+ * 11. Z-01 主动唤醒抽屉层 (z-index: 200, Scrim 景深压暗模糊 + 420ms/220ms 非对称出入场)
+ * ============================================================================ */
+.optic-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+  background-color: var(--optic-z-scrim);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px 12px max(12px, env(safe-area-inset-bottom, 0px));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--optic-dur-exit) var(--optic-ease-exit);
+}
+
+.optic-sheet-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+
+.optic-sheet-panel {
+  width: min(680px, 100%);
+  max-height: min(80dvh, 640px);
+  background-color: var(--bg-surface-elevated);
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  box-shadow: var(--shadow-elevation-3);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+  transform: translate3d(0, 36px, 0) scale(0.98);
+  transition: transform var(--optic-dur-exit) var(--optic-ease-exit);
+}
+
+.optic-sheet-backdrop.is-open .optic-sheet-panel {
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: transform var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+
+/* D07: 父子容器收展双向逆序（展开父先子后，收起子先淡出父后合拢） */
+.optic-sheet-body {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transform: translate3d(0, 8px, 0);
+  transition: opacity 150ms var(--optic-ease-exit), transform 150ms var(--optic-ease-exit);
+}
+
+.optic-sheet-backdrop.is-open .optic-sheet-body {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition: opacity 320ms var(--optic-ease-cinematic) 75ms,
+    transform 320ms var(--optic-ease-cinematic) 75ms;
+}
+
+.optic-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.optic-sheet-title {
+  font-size: var(--optic-font-h2);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.sheet-close-btn {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-surface-subtle);
+  color: var(--text-primary);
+  font-size: var(--optic-font-xs);
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 160ms var(--optic-ease-out), background-color 160ms ease;
+}
+
+.usage-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.usage-step-card {
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.usage-step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--theme-accent, var(--accent-primary));
+  color: #ffffff;
+  font-size: var(--optic-font-xs);
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.telemetry-stat-box {
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.telemetry-stat-label {
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  color: var(--text-tertiary);
+}
+
+.telemetry-stat-value {
+  font-size: var(--optic-font-sm);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* ============================================================================
+ * 12. 非阻塞瞬态 Toast 反馈层 (z-index: 400) 与页脚
+ * ============================================================================ */
+#toast-container {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top, 14px));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: min(92vw, 520px);
+  pointer-events: none;
+}
+
+.toast-banner {
+  padding: 10px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-surface-elevated);
+  border: 1.5px solid var(--border-strong);
+  color: var(--text-primary);
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  box-shadow: var(--shadow-elevation-3);
+  animation: toastSlideIn 240ms var(--optic-ease-cinematic) both;
+}
+
+.toast-success {
+  border-color: var(--accent-emerald);
+}
+
+.toast-warn {
+  border-color: var(--accent-amber);
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -10px, 0) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.site-footer {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 16px 24px max(20px, env(safe-area-inset-bottom, 20px));
+  border-top: 1px solid var(--border-subtle);
+  font-size: var(--optic-font-xs);
+  color: var(--text-tertiary);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================================
+ * 13. 多终端视口自适应拓扑断点 (Desktop 1920 / Tablet 1024 / Mobile 393 & 360)
+ * ============================================================================ */
+@media (max-width: 980px) {
+  .l1-top-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-hero-lang,
+  .bento-telemetry-island {
+    grid-column: span 1;
+  }
+
+  .l2-split-horizon-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .l2-master-stage {
+    position: static;
+  }
+
+  .learn-viewport-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .learn-context-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .lang-selector-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* L1 移动端启用 L-A4 X 轴横向焦点画廊滑轨 (scroll-snap-type: x mandatory) */
+  .themes-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+    -webkit-mask-image: var(--optic-mask-x-fade);
+    mask-image: var(--optic-mask-x-fade);
+  }
+
+  .themes-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .themes-grid .theme-card {
+    flex: 0 0 min(84vw, 330px);
+    scroll-snap-align: start;
+  }
+
+  .hub-chapters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .deductive-clue-grid,
+  .usage-steps-grid,
+  .telemetry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seg-control-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .brand-subtitle,
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .learn-micro-topbar {
+    gap: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .learn-nav-left,
+  .learn-nav-right {
+    gap: 4px;
+  }
+
+  .micro-island-btn,
+  .learn-micro-topbar .optic-spectrum-btn {
+    padding: 6px 8px;
+    gap: 3px;
+    white-space: nowrap;
+  }
+
+  .workbench-action-bar.thumb-ergonomic-dock {
+    gap: 6px;
+  }
+
+  .workbench-action-bar.thumb-ergonomic-dock .btn-secondary-ghost {
+    padding: 6px 9px;
+    white-space: nowrap;
+    font-size: var(--optic-font-xs);
+  }
+
+  .workbench-action-bar.thumb-ergonomic-dock .btn-theme {
+    padding: 6px 10px;
+    font-size: var(--optic-font-xs);
+    line-height: 1.25;
+  }
+}
+
+/* 针对极紧凑竖屏 (360x640) 的一屏零溢出保护 */
+@media (max-height: 700px) {
+  .learn-micro-topbar {
+    min-height: 46px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+
+  .apparatus-stage-panel {
+    padding: 6px 10px;
+    gap: 5px;
+  }
+
+  .instrument-module,
+  .stage-victory-card {
+    padding: 8px 10px;
+    gap: 6px;
+  }
+
+  .zeiss-lens-viewport,
+  .deductive-testimony-box,
+  .immersive-sentence-card,
+  .celadon-rubbing-tablet,
+  .mortise-joint-stage {
+    padding: 7px 10px;
+  }
+
+  .workbench-action-bar.thumb-ergonomic-dock .btn-theme,
+  .workbench-action-bar.thumb-ergonomic-dock .btn-secondary-ghost {
+    min-height: 44px;
+    padding: 6px 10px;
+  }
+}
+
+/* D14: 减弱动态无障碍双轨退火 (剥离位移与缩放，仅保留柔和透明度过渡) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .optic-tilt-target,
+  .theme-card:hover,
+  .hub-chapter-card:hover,
+  .interactive-token:hover,
+  .interactive-choice:hover,
+  .spell-orb-btn:hover {
+    transform: none !important;
+  }
+
+  .instrument-module.prev,
+  .instrument-module.next,
+  .optic-sheet-panel,
+  .optic-z2-dropdown {
+    transform: none !important;
+  }
+}

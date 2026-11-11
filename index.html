@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-spectrum="porcelain">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
+  <meta name="theme-color" content="#f8fafc">
+  <meta name="description" content="Lingua-Flow 心流语境：融合心理学与游戏化叙事的多语种习得平台，涵盖英语 CEFR、日语 JLPT 与汉语 HSK 权威考纲。">
+  <title>Lingua-Flow 心流语境 | 心理学与游戏化外语习得平台</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body data-page-level="1">
+  <!-- 顶部导航栏：离线状态 + Z-02 五维色域智能切换器 + Z-01 离线备份抽屉入口 -->
+  <header class="top-navbar">
+    <div class="navbar-inner">
+      <a href="index.html" class="brand-group" aria-label="Lingua-Flow 首页">
+        <img src="assets/icons/logo.svg" alt="Lingua-Flow 标志" class="brand-logo" width="32" height="32">
+        <div>
+          <div class="brand-title">Lingua-Flow 心流语境</div>
+          <div class="brand-subtitle">Linguistics Core × Narrative Worlds</div>
+        </div>
+      </a>
+
+      <div class="nav-controls-group">
+        <div class="status-pill hide-on-mobile" id="offline-status-pill" aria-live="polite">
+          <span class="status-dot" id="network-dot"></span>
+          <span id="network-text">离线就绪 · 实时同步</span>
+        </div>
+
+        <!-- Z-02 五维明暗色域智能翻转切换器 (保留 8px 间隙，零遮挡触发源) -->
+        <div class="optic-dropdown-anchor" id="spectrum-dropdown-anchor">
+          <button type="button" class="optic-spectrum-btn" id="optic-spectrum-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="optic-spectrum-menu">
+            <span class="spectrum-swatch-dot" aria-hidden="true"></span>
+            <span id="optic-spectrum-label">🎨 色域：白瓷</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="optic-z2-dropdown" id="optic-spectrum-menu" role="menu" aria-hidden="true">
+            <div class="dropdown-section-caption">五维光学色域 · 破除唯暗色视觉疲劳</div>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="auto" role="menuitemradio" aria-checked="true">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background: linear-gradient(135deg, #f8fafc 50%, #f3efe6 50%);"></span>
+                <span>✨ 主题情境自适应 (推荐)</span>
+              </span>
+              <span class="meta-pill">默认</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="porcelain" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f8fafc;"></span>
+                <span>S1 · 日光白瓷</span>
+              </span>
+              <span class="meta-pill">清朗</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="gallery" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f5f5ef;"></span>
+                <span>S2 · 汝窑暖素</span>
+              </span>
+              <span class="meta-pill">宣纸</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="parchment" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f3efe6;"></span>
+                <span>S3 · 羊皮暖砂</span>
+              </span>
+              <span class="meta-pill">护眼</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="slate" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #edf2f7;"></span>
+                <span>S4 · 北欧雾灰</span>
+              </span>
+              <span class="meta-pill">岩板</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="obsidian" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #0a0c10; border-color: #475569;"></span>
+                <span>S5 · 黑曜暗夜</span>
+              </span>
+              <span class="meta-pill">夜审</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-secondary-ghost" id="open-backup-sheet-btn" style="min-height: 44px; padding: 6px 12px;">
+          <span>💾 进度库</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- L1 主画布：L-A1 瑞士便当盒 12 列非对称矩阵 + L-A4 移动端横向焦点画廊 -->
+  <main class="l1-bento-shell">
+    <section class="l1-top-bento-grid" aria-label="目标语种锁定与记忆态势舱">
+      <!-- 左侧 8 列：第 1 步锁定纯净单语专场 -->
+      <div class="bento-cell bento-hero-lang optic-stagger-item" style="--stagger-idx: 0;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="hero-eyebrow">
+            <span>🧠 第 1 步 · 锁定目标外语考纲（纯净单语专场）</span>
+          </div>
+          <h1 class="l1-display-title">先选定一门目标外语，再踏入专属心智叙事世界</h1>
+          <p class="hero-description">
+            基于 FSRS-5 记忆动力学与双轴正交解耦架构：锁定单一目标语言后，三大叙事世界将自动装载对应语种的权威考纲词源与句法实操案卷，彻底消除跨语种混排干扰。
+          </p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+            <span class="meta-pill meta-pill-accent" id="current-lang-summary">🇬🇧 英语 · English (CEFR B1)（纯净单语专场）</span>
+            <span style="font-size: var(--optic-font-xs); font-weight: 700; color: var(--text-tertiary);">点击下方语种卡片瞬时切换</span>
+          </div>
+          <div class="lang-selector-grid" id="home-lang-selector" role="radiogroup" aria-label="选择单一学习目标语言">
+            <button type="button" class="lang-option-card is-selected" data-lang-select="en" role="radio" aria-checked="true">
+              <div class="lang-option-top">
+                <span class="lang-flag-title">🇬🇧 英语 · English</span>
+                <span class="lang-std-badge">CEFR B1 · 已锁定</span>
+              </div>
+              <span style="font-size: var(--optic-font-xs); color: var(--text-secondary);">过去进行时 · 虚拟语气 · 拉丁词根</span>
+            </button>
+            <button type="button" class="lang-option-card" data-lang-select="ja" role="radio" aria-checked="false">
+              <div class="lang-option-top">
+                <span class="lang-flag-title">🇯🇵 日语 · 日本語</span>
+                <span class="lang-std-badge">JLPT N5</span>
+              </div>
+              <span style="font-size: var(--optic-font-xs); color: var(--text-secondary);">五段未然形 · 主题助词 · 汉字字源</span>
+            </button>
+            <button type="button" class="lang-option-card" data-lang-select="zh" role="radio" aria-checked="false">
+              <div class="lang-option-top">
+                <span class="lang-flag-title">🇨🇳 汉语 · 中文</span>
+                <span class="lang-std-badge">HSK 1</span>
+              </div>
+              <span style="font-size: var(--optic-font-xs); color: var(--text-secondary);">时间状语前置 · 动宾正序 · 声调韵律</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧 4 列：FSRS-5 记忆脉冲与离线存储态势岛 -->
+      <aside class="bento-cell bento-telemetry-island optic-stagger-item" style="--stagger-idx: 1;" aria-label="本地记忆仓实时状态">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <span class="meta-pill meta-pill-success">⚡ 19 维 FSRS-5 引擎</span>
+            <span class="meta-pill" id="db-stats-text">LinguaFlowDB · 就绪</span>
+          </div>
+          <h2 style="margin-top: 4px;">离线心流记忆态势舱</h2>
+          <p style="font-size: var(--optic-font-sm);">
+            全部复习轨迹与记忆稳定度均保存在浏览器本地双轨存储中，零云端上传延迟。
+          </p>
+        </div>
+
+        <div class="bento-kpi-pair">
+          <div class="bento-kpi-tile">
+            <span class="bento-kpi-num" id="home-completed-count">0/18</span>
+            <span class="bento-kpi-label">全馆已通关实操章</span>
+          </div>
+          <div class="bento-kpi-tile">
+            <span class="bento-kpi-num" id="home-memcard-count">0</span>
+            <span class="bento-kpi-label">激活 FSRS 记忆卡</span>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+          <span style="font-size: var(--optic-font-xs); font-weight: 700; color: var(--text-secondary);" id="home-progress-summary">已通关 0/18 章 · 本地双轨同步就绪</span>
+          <button type="button" class="btn-secondary-ghost" id="bento-open-backup-btn" style="width: 100%; min-height: 44px;">
+            <span>📤 导出 / 导入学习进度备份</span>
+          </button>
+        </div>
+      </aside>
+    </section>
+
+    <!-- 第二幕：三大心智叙事世界 (桌面 3 列 Bento / 移动端横向焦点滑轨) -->
+    <section aria-labelledby="themes-heading" style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="l1-worlds-section-header">
+        <div>
+          <span class="meta-pill" style="margin-bottom: 6px;">🎭 第 2 步 · 选择契合今日心境的叙事主题世界</span>
+          <h2 id="themes-heading">三大正交心智叙事空间（日间专属色域自适应）</h2>
+        </div>
+        <span style="font-size: var(--optic-font-xs); font-weight: 700; color: var(--text-tertiary);">窄屏可左右滑动检视 · 点击任意世界卡片即刻启程</span>
+      </div>
+
+      <div class="themes-grid">
+        <!-- 主题一：雾都回响 (Deductive · S3 羊皮暖砂卷宗) -->
+        <article class="theme-card theme-deductive optic-stagger-item" data-theme-card="deductive" style="--stagger-idx: 2;">
+          <div class="theme-banner-wrap">
+            <img src="assets/textures/deductive/banner.svg" alt="雾都回响：维多利亚法庭与蔡司黄铜取证镜" class="theme-banner-img" width="600" height="180">
+          </div>
+          <div class="theme-card-body">
+            <div class="theme-header-row">
+              <img src="assets/textures/deductive/badge.svg" alt="雾都回响徽章" class="theme-badge-icon" width="44" height="44">
+              <div>
+                <div class="theme-tag">01 · DEDUCTIVE · 羊皮卷宗光谱</div>
+                <h3 class="theme-title optic-card-title">雾都回响</h3>
+              </div>
+            </div>
+            <p class="theme-desc">
+              置身维多利亚皇家高等质证法庭，旋动蔡司双环分光透镜破译词源印记，以猩红矛盾激光击穿嫌疑人证词中的时态与接续破绽。
+            </p>
+            <div class="theme-card-pills">
+              <span class="meta-pill meta-pill-accent" data-theme-lang-pill="deductive">🇬🇧 已绑定语种：英语 English</span>
+              <span class="meta-pill" data-theme-progress-pill="deductive">🏆 当前语种进度：0/2 章</span>
+            </div>
+            <a href="deductive.html?lang=en" class="btn-theme btn-deductive" data-theme-link="deductive" style="width: 100%; margin-top: 6px;">
+              <span data-theme-btn-text="deductive">进入雾都回响（英语专场）</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- 主题二：星尘漫游 (Immersive · S2 汝窑天青素白) -->
+        <article class="theme-card theme-immersive optic-stagger-item" data-theme-card="immersive" style="--stagger-idx: 3;">
+          <div class="theme-banner-wrap">
+            <img src="assets/textures/immersive/banner.svg" alt="星尘漫游：宋代汝窑天青与金缮谐振星盘" class="theme-banner-img" width="600" height="180">
+          </div>
+          <div class="theme-card-body">
+            <div class="theme-header-row">
+              <img src="assets/textures/immersive/badge.svg" alt="星尘漫游徽章" class="theme-badge-icon" width="44" height="44">
+              <div>
+                <div class="theme-tag">02 · IMMERSIVE · 汝窑暖素光谱</div>
+                <h3 class="theme-title optic-card-title">星尘漫游</h3>
+              </div>
+            </div>
+            <p class="theme-desc">
+              零倒计时低焦虑异星漫步，拨动八角螺钿与 24K 金缮谐振盘对齐母语声波韵律，轻拭汝窑天青石碑显影古老字源与诗意手帐。
+            </p>
+            <div class="theme-card-pills">
+              <span class="meta-pill meta-pill-accent" data-theme-lang-pill="immersive">🇬🇧 已绑定语种：英语 English</span>
+              <span class="meta-pill" data-theme-progress-pill="immersive">🏆 当前语种进度：0/2 章</span>
+            </div>
+            <a href="immersive.html?lang=en" class="btn-theme btn-immersive" data-theme-link="immersive" style="width: 100%; margin-top: 6px;">
+              <span data-theme-btn-text="immersive">进入星尘漫游（英语专场）</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- 主题三：刻痕圣殿 (Strategic · S4 北欧雾灰岩板) -->
+        <article class="theme-card theme-strategic optic-stagger-item" data-theme-card="strategic" style="--stagger-idx: 4;">
+          <div class="theme-banner-wrap">
+            <img src="assets/textures/strategic/banner.svg" alt="刻痕圣殿：铅条彩绘玻璃花窗与果冻榫卯" class="theme-banner-img" width="600" height="180">
+          </div>
+          <div class="theme-card-body">
+            <div class="theme-header-row">
+              <img src="assets/textures/strategic/badge.svg" alt="刻痕圣殿徽章" class="theme-badge-icon" width="44" height="44">
+              <div>
+                <div class="theme-tag">03 · STRATEGIC · 北欧岩板光谱</div>
+                <h3 class="theme-title optic-card-title">刻痕圣殿</h3>
+              </div>
+            </div>
+            <p class="theme-desc">
+              新粗野主义铅条彩绘圣殿，将果冻透光词缀卡榫精准嵌入词干凹槽，沿六翼玫瑰花窗点亮句法晶球回路并释放破盾焦散射线。
+            </p>
+            <div class="theme-card-pills">
+              <span class="meta-pill meta-pill-accent" data-theme-lang-pill="strategic">🇬🇧 已绑定语种：英语 English</span>
+              <span class="meta-pill" data-theme-progress-pill="strategic">🏆 当前语种进度：0/2 章</span>
+            </div>
+            <a href="strategic.html?lang=en" class="btn-theme btn-strategic" data-theme-link="strategic" style="width: 100%; margin-top: 6px;">
+              <span data-theme-btn-text="strategic">进入刻痕圣殿（英语专场）</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Z-01 主动唤醒抽屉：客户端学习进度离线备份与跨设备迁移 (z-index: 200) -->
+  <div class="optic-sheet-backdrop" id="backup-progress-sheet" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="backup-sheet-title">
+    <div class="optic-sheet-panel">
+      <div class="optic-sheet-header">
+        <div>
+          <span class="meta-pill meta-pill-success">💾 纯客户端双轨持久化</span>
+          <h2 class="optic-sheet-title" id="backup-sheet-title" style="margin-top: 4px;">学习进度备份与跨设备迁移</h2>
+        </div>
+        <button type="button" class="sheet-close-btn" data-close-sheet="backup-progress-sheet" aria-label="关闭进度管理抽屉">✕ 关闭</button>
+      </div>
+      <div class="optic-sheet-body">
+        <p>
+          所有通关章节、解锁词条与 19 维 FSRS-5 记忆稳定度均实时保存在本地 IndexedDB 与镜像仓中。您可随时导出标准 JSON 备份文件，在平板、手机或桌面浏览器上一键导入恢复。
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <button type="button" class="btn-secondary-ghost" id="btn-export-progress">
+            <span>📥 导出进度 JSON</span>
+          </button>
+          <button type="button" class="btn-secondary-ghost" id="btn-import-progress">
+            <span>📤 导入备份 JSON</span>
+          </button>
+          <input type="file" id="input-import-progress" accept="application/json,.json" hidden aria-hidden="true">
+          <button type="button" class="btn-secondary-ghost" id="btn-reset-progress" style="color: var(--accent-crimson);">
+            <span>🗑️ 清空本地记录</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div>© 2026 Lingua-Flow · 权威语言学内核 × 五维光学心智空间</div>
+    <div>Offline-First PWA · IndexedDB FSRS-5 Engine</div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

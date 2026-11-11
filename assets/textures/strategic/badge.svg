@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="64" height="64">
+  <defs>
+    <!-- 1. 材质物理与光学滤镜层：新粗野零模糊硬阴影 + 背光宝石彩绘玻璃 + 果冻次表面透光 (Jelly SSS) -->
+    <filter id="str-hard-shadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="6" dy="6" stdDeviation="0" flood-color="#020605" flood-opacity="1"/>
+    </filter>
+    <linearGradient id="str-emerald-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="28%" stop-color="#6ee7b7"/>
+      <stop offset="60%" stop-color="#34d399"/>
+      <stop offset="85%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="str-cyan-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="30%" stop-color="#7dd3fc"/>
+      <stop offset="65%" stop-color="#38bdf8"/>
+      <stop offset="88%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="str-amber-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="35%" stop-color="#fde047"/>
+      <stop offset="70%" stop-color="#fbbf24"/>
+      <stop offset="90%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+    <linearGradient id="str-coral-glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fee2e2"/>
+      <stop offset="35%" stop-color="#fca5a5"/>
+      <stop offset="70%" stop-color="#f87171"/>
+      <stop offset="90%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#991b1b"/>
+    </linearGradient>
+    <radialGradient id="str-jelly-core" cx="38%" cy="35%" r="62%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="25%" stop-color="#a7f3d0"/>
+      <stop offset="58%" stop-color="#34d399"/>
+      <stop offset="85%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 2. <g id="layer-footprint">：流派专属底座（新粗野零模糊硬阴影六角铅条玫瑰花窗盘，零虚线环） -->
+  <g id="layer-footprint" filter="url(#str-hard-shadow)">
+    <polygon points="128,8 232,68 232,188 128,248 24,188 24,68" fill="#091e1a" stroke="#020605" stroke-width="8" stroke-linejoin="bevel"/>
+    <polygon points="128,22 220,75 220,181 128,234 36,181 36,75" fill="#0f2922" stroke="#34d399" stroke-width="3" stroke-linejoin="bevel"/>
+  </g>
+
+  <!-- 3. <g id="layer-chassis">：主体体积结构（中心对称六翼折纸彩绘玻璃羽翼 Topology-3C） -->
+  <g id="layer-chassis">
+    <!-- 正上翡翠翼 -->
+    <polygon points="128,128 84,36 128,14 172,36" fill="url(#str-emerald-glass)" stroke="#020605" stroke-width="6" stroke-linejoin="bevel"/>
+    <!-- 右上电青翼 -->
+    <polygon points="128,128 172,36 226,72 214,128" fill="url(#str-cyan-glass)" stroke="#020605" stroke-width="6" stroke-linejoin="bevel"/>
+    <!-- 右下琥珀翼 -->
+    <polygon points="128,128 214,128 226,184 172,220" fill="url(#str-amber-glass)" stroke="#020605" stroke-width="6" stroke-linejoin="bevel"/>
+    <!-- 正下翡翠翼 -->
+    <polygon points="128,128 172,220 128,242 84,220" fill="url(#str-emerald-glass)" stroke="#020605" stroke-width="6" stroke-linejoin="bevel"/>
+    <!-- 左下珊瑚翼 -->
+    <polygon points="128,128 84,220 30,184 42,128" fill="url(#str-coral-glass)" stroke="#020605" stroke-width="6" stroke-linejoin="bevel"/>
+    <!-- 左上电青翼 -->
+    <polygon points="128,128 42,128 30,72 84,36" fill="url(#str-cyan-glass)" stroke="#020605" stroke-width="6" stroke-linejoin="bevel"/>
+  </g>
+
+  <!-- 4. <g id="layer-mechanics">：中观机关结构（六节点一笔画咏唱星环 + 中心果冻SSS凹凸榫卯咬合核心） -->
+  <g id="layer-mechanics">
+    <!-- 一笔画咏唱激光连线六边形 -->
+    <polygon points="128,52 194,90 194,166 128,204 62,166 62,90" fill="none" stroke="#fef08a" stroke-width="5" stroke-linejoin="round"/>
+    <circle cx="128" cy="52" r="10" fill="url(#str-cyan-glass)" stroke="#020605" stroke-width="4"/>
+    <circle cx="194" cy="90" r="10" fill="url(#str-emerald-glass)" stroke="#020605" stroke-width="4"/>
+    <circle cx="194" cy="166" r="10" fill="url(#str-amber-glass)" stroke="#020605" stroke-width="4"/>
+    <circle cx="128" cy="204" r="10" fill="url(#str-emerald-glass)" stroke="#020605" stroke-width="4"/>
+    <circle cx="62" cy="166" r="10" fill="url(#str-coral-glass)" stroke="#020605" stroke-width="4"/>
+    <circle cx="62" cy="90" r="10" fill="url(#str-cyan-glass)" stroke="#020605" stroke-width="4"/>
+
+    <!-- 中心果冻透光 (Jelly SSS) 动词变位凹凸榫卯核心 -->
+    <circle cx="128" cy="128" r="56" fill="#091e1a" stroke="#020605" stroke-width="7"/>
+    <!-- 左：词干凹槽 (Stem Mortise) -->
+    <path d="M84,96 L128,96 L128,114 L112,114 L112,142 L128,142 L128,160 L84,160 Z" fill="url(#str-jelly-core)" stroke="#020605" stroke-width="5" stroke-linejoin="bevel"/>
+    <!-- 右：词缀凸榫 (Affix Tenon) -->
+    <path d="M132,96 L172,96 L172,160 L132,160 L132,142 L116,142 L116,114 L132,114 Z" fill="url(#str-cyan-glass)" stroke="#020605" stroke-width="5" stroke-linejoin="bevel"/>
+  </g>
+
+  <!-- 5. <g id="layer-patina-fx">：宝石玻璃折射焦散切面、果冻水滴高光斑与铅条铆钉细节 -->
+  <g id="layer-patina-fx">
+    <!-- 果冻水滴高光斑 (Jelly Cashew Specular Highlight) -->
+    <ellipse cx="102" cy="108" rx="11" ry="4.5" transform="rotate(-18 102 108)" fill="#ffffff" fill-opacity="0.88"/>
+    <ellipse cx="152" cy="108" rx="10" ry="4" transform="rotate(-18 152 108)" fill="#ffffff" fill-opacity="0.82"/>
+    <!-- 玻璃焦散高光三角片 -->
+    <polygon points="128,22 110,44 126,48" fill="#ffffff" fill-opacity="0.45"/>
+    <polygon points="212,78 188,92 198,106" fill="#ffffff" fill-opacity="0.4"/>
+    <polygon points="44,78 68,92 58,106" fill="#ffffff" fill-opacity="0.4"/>
+  </g>
+</svg>

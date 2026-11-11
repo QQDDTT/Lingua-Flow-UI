@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-spectrum="parchment">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
+  <meta name="theme-color" content="#f3efe6">
+  <title>语言学习分幕演练台 | Lingua-Flow</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="theme-page-deductive learn-single-screen-body" data-page-level="3">
+  <!-- L-A3 边缘微岛极简顶栏 (高度 <= 50px，全部控件 >= 44x44px) -->
+  <header class="learn-micro-topbar">
+    <div class="learn-nav-left">
+      <a href="deductive.html" class="micro-island-btn" id="learn-back-l2" title="返回当前主题配置台">← 雾都回响</a>
+      <a href="index.html" class="micro-island-btn hide-on-mobile" id="learn-back-l1" title="返回一级语言门户">🏠 门户</a>
+      <span class="meta-pill meta-pill-accent hide-on-mobile" id="learn-lang-pill">🇬🇧 英语 (CEFR B1)</span>
+      <span class="meta-pill hide-on-mobile" id="learn-diff-pill">🎚️ 进阶</span>
+      <span class="meta-pill hide-on-mobile" id="learn-focus-pill">📚 综合双轴</span>
+    </div>
+
+    <div class="learn-nav-right">
+      <!-- Z-02 五维色域智能避让切换器 -->
+      <div class="optic-dropdown-anchor" id="spectrum-dropdown-anchor">
+        <button type="button" class="optic-spectrum-btn" id="optic-spectrum-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="optic-spectrum-menu">
+          <span class="spectrum-swatch-dot" aria-hidden="true"></span>
+          <span id="optic-spectrum-label">🎨 色域</span>
+          <span aria-hidden="true">▾</span>
+        </button>
+        <div class="optic-z2-dropdown" id="optic-spectrum-menu" role="menu" aria-hidden="true">
+          <div class="dropdown-section-caption">演练舱五维色域切换</div>
+          <button type="button" class="spectrum-option-btn" data-spectrum-choice="auto" role="menuitemradio" aria-checked="true">
+            <span class="spectrum-option-left">
+              <span class="spectrum-chip-preview" style="background: linear-gradient(135deg, #f3efe6 50%, #f5f5ef 50%);"></span>
+              <span>✨ 主题情境自适应</span>
+            </span>
+            <span class="meta-pill">默认</span>
+          </button>
+          <button type="button" class="spectrum-option-btn" data-spectrum-choice="porcelain" role="menuitemradio" aria-checked="false">
+            <span class="spectrum-option-left">
+              <span class="spectrum-chip-preview" style="background-color: #f8fafc;"></span>
+              <span>S1 · 日光白瓷</span>
+            </span>
+            <span class="meta-pill">清朗</span>
+          </button>
+          <button type="button" class="spectrum-option-btn" data-spectrum-choice="gallery" role="menuitemradio" aria-checked="false">
+            <span class="spectrum-option-left">
+              <span class="spectrum-chip-preview" style="background-color: #f5f5ef;"></span>
+              <span>S2 · 汝窑暖素</span>
+            </span>
+            <span class="meta-pill">宣纸</span>
+          </button>
+          <button type="button" class="spectrum-option-btn" data-spectrum-choice="parchment" role="menuitemradio" aria-checked="false">
+            <span class="spectrum-option-left">
+              <span class="spectrum-chip-preview" style="background-color: #f3efe6;"></span>
+              <span>S3 · 羊皮暖砂</span>
+            </span>
+            <span class="meta-pill">卷宗</span>
+          </button>
+          <button type="button" class="spectrum-option-btn" data-spectrum-choice="slate" role="menuitemradio" aria-checked="false">
+            <span class="spectrum-option-left">
+              <span class="spectrum-chip-preview" style="background-color: #edf2f7;"></span>
+              <span>S4 · 北欧雾灰</span>
+            </span>
+            <span class="meta-pill">岩板</span>
+          </button>
+          <button type="button" class="spectrum-option-btn" data-spectrum-choice="obsidian" role="menuitemradio" aria-checked="false">
+            <span class="spectrum-option-left">
+              <span class="spectrum-chip-preview" style="background-color: #0a0c10; border-color: #475569;"></span>
+              <span>S5 · 黑曜暗夜</span>
+            </span>
+            <span class="meta-pill">暗房</span>
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="micro-island-btn" id="audio-toggle-btn" title="切换微晶触感音效">
+        <span id="audio-toggle-label">🔇 静音</span>
+      </button>
+
+      <button type="button" class="micro-island-btn" id="open-telemetry-sheet-btn" title="检视 FSRS-5 记忆脉冲与装备阶位">
+        <span>📊 脉冲</span>
+      </button>
+    </div>
+  </header>
+
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- L3 一屏守恒主舞台：宽屏为 L-A2 黄金协同双栏，移动端收拢为 L-A16 拇指壳层 -->
+  <main class="learn-viewport-shell">
+    <!-- 宽屏左侧情境协同岛 (移动端隐藏并按需通过 Z-01 抽屉唤醒) -->
+    <aside class="learn-context-rail" aria-label="同伴导航与实时记忆遥测侧岛">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="context-rig-card">
+          <img src="assets/textures/deductive/mechanic_hud.svg" alt="主题光学器具徽标" class="context-rig-icon" id="desk-hud-img" width="40" height="40">
+          <div style="min-width: 0;">
+            <div style="font-size: var(--optic-font-xs); color: var(--text-tertiary); font-weight: 700;">器具进化阶位</div>
+            <div style="font-size: var(--optic-font-xs); font-weight: 800; color: var(--text-primary);" id="desk-rig-tier-val">T1 黄铜单筒放大镜</div>
+          </div>
+        </div>
+
+        <div class="context-companion-whisper">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 6px;">
+            <span style="font-size: var(--optic-font-xs); font-weight: 800; color: var(--theme-accent);" id="desk-companion-name">🦉 首席档案员 · 艾琳</span>
+            <span class="meta-pill" id="desk-theme-pill">🔍 雾都回响</span>
+          </div>
+          <p class="context-whisper-body" id="desk-companion-whisper">
+            先完成第一幕词源感知，系统将平滑推进至第二幕句法交锋。
+          </p>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: var(--optic-font-xs); font-weight: 800; color: var(--text-tertiary);">FSRS-5 实时心流遥测</div>
+        <div class="context-mini-metrics">
+          <div class="context-mini-tile">
+            <div class="context-mini-label">专注计时</div>
+            <div class="context-mini-val" id="desk-timer-val">0.0s</div>
+          </div>
+          <div class="context-mini-tile">
+            <div class="context-mini-label">心流通道</div>
+            <div class="context-mini-val" id="desk-flow-val">FLOW · 0.9</div>
+          </div>
+        </div>
+        <div style="font-size: var(--optic-font-xs); color: var(--text-tertiary);" id="learn-footer-text">
+          © 2026 Lingua-Flow · 离线 FSRS-5 实操舱
+        </div>
+      </div>
+    </aside>
+
+    <!-- 中央定高演练舞台 (#theme-stage-panel)：承载章节标签、Z-03 幻灯片甲板与拇指坞 -->
+    <section class="apparatus-stage-panel" id="theme-stage-panel" aria-label="双幕物理演练舞台">
+      <div class="learn-stage-top-strip">
+        <div class="chapter-tabs-bar" id="learn-chapter-tabs" role="tablist" aria-label="当前语种章节切换"></div>
+        <span class="meta-pill meta-pill-accent hide-on-mobile" id="stage-ku-badge">🎯 核心双轴考点</span>
+      </div>
+
+      <h1 class="stage-chapter-title" id="stage-chapter-heading">章节加载中…</h1>
+
+      <!-- 动态挂载区：包含双幕切换条、Z-03 恒定画幅幻灯片容器与底部拇指操控坞 -->
+      <div class="phased-workbench-mount" id="theme-workbench-mount"></div>
+    </section>
+  </main>
+
+  <!-- Z-01 主动唤醒抽屉 A：同伴语境提示锦囊 (#companion-sheet, z-index: 200) -->
+  <div class="optic-sheet-backdrop" id="companion-sheet" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="companion-name-label">
+    <div class="optic-sheet-panel">
+      <div class="optic-sheet-header">
+        <div>
+          <span class="meta-pill meta-pill-accent" id="companion-en-label">Irene Knox</span>
+          <h2 class="optic-sheet-title" id="companion-name-label" style="margin-top: 4px;">🦉 首席档案员 · 艾琳·诺克斯</h2>
+        </div>
+        <button type="button" class="sheet-close-btn" data-close-sheet="companion-sheet" aria-label="关闭同伴提示">✕ 关闭</button>
+      </div>
+      <div class="optic-sheet-body">
+        <p id="companion-speech-text">
+          观察语境时间锚点与词尾接续法则，即可精准锁定正确项。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Z-01 主动唤醒抽屉 B：FSRS-5 记忆脉冲与装备遥测 (#telemetry-sheet, z-index: 200) -->
+  <div class="optic-sheet-backdrop" id="telemetry-sheet" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="telemetry-sheet-title">
+    <div class="optic-sheet-panel">
+      <div class="optic-sheet-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/textures/deductive/mechanic_hud.svg" alt="器具徽标" id="learn-hud-img" width="38" height="38" style="border-radius: 10px;">
+          <div>
+            <span class="meta-pill meta-pill-success" id="telemetry-flow-badge">FLOW · R=0.9</span>
+            <h2 class="optic-sheet-title" id="telemetry-sheet-title" style="margin-top: 4px;">FSRS-5 记忆脉冲与装备遥测</h2>
+          </div>
+        </div>
+        <button type="button" class="sheet-close-btn" data-close-sheet="telemetry-sheet" aria-label="关闭记忆脉冲抽屉">✕ 关闭</button>
+      </div>
+      <div class="optic-sheet-body">
+        <div class="telemetry-grid">
+          <div class="telemetry-stat-box">
+            <span class="telemetry-stat-label">本节活跃专注计时</span>
+            <span class="telemetry-stat-value" id="telemetry-timer-val">0.0s</span>
+          </div>
+          <div class="telemetry-stat-box">
+            <span class="telemetry-stat-label">双轴归因失误计数</span>
+            <span class="telemetry-stat-value" id="telemetry-errors-val">语法 0 / 物证 0</span>
+          </div>
+          <div class="telemetry-stat-box">
+            <span class="telemetry-stat-label">句法考点记忆稳定度</span>
+            <span class="telemetry-stat-value" id="telemetry-grammar-sd">待结算</span>
+          </div>
+          <div class="telemetry-stat-box">
+            <span class="telemetry-stat-label">词源考点记忆稳定度</span>
+            <span class="telemetry-stat-value" id="telemetry-evidence-sd">待结算</span>
+          </div>
+        </div>
+        <div class="telemetry-stat-box">
+          <span class="telemetry-stat-label">当前装备进化阶位</span>
+          <span class="telemetry-stat-value" id="rig-tier-label">T1 黄铜单筒放大镜</span>
+        </div>
+        <p style="font-size: var(--optic-font-xs);" id="telemetry-unlocked-list">
+          📂 尚无归档记录：完成本节双幕实操即可写入客户端本地记忆仓。
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

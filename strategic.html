@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-spectrum="slate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
+  <meta name="theme-color" content="#edf2f7">
+  <title>刻痕圣殿 · 榫卯锻造与花窗矩阵 | Lingua-Flow</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="theme-page-strategic" data-page-level="2" data-theme-hub="strategic">
+  <!-- 顶部导航栏：返回门户 + 三世界切换 + Z-02 五维色域切换 + Z-01 圣殿法则唤醒 -->
+  <header class="top-navbar">
+    <div class="navbar-inner l2-hub-topbar">
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <a href="index.html" class="btn-secondary-ghost" id="back-to-home-link" style="min-height: 44px; padding: 6px 12px;">
+          <span>← 语言门户</span>
+        </a>
+        <nav class="hub-world-pills" aria-label="三大叙事世界快速切换">
+          <a href="deductive.html" class="hub-world-pill" data-hub-switch="deductive">🔍 雾都回响</a>
+          <a href="immersive.html" class="hub-world-pill" data-hub-switch="immersive">🌌 星尘漫游</a>
+          <a href="strategic.html" class="hub-world-pill is-current" data-hub-switch="strategic" aria-current="page">⚔️ 刻痕圣殿</a>
+        </nav>
+      </div>
+
+      <div class="nav-controls-group">
+        <div class="optic-dropdown-anchor" id="spectrum-dropdown-anchor">
+          <button type="button" class="optic-spectrum-btn" id="optic-spectrum-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="optic-spectrum-menu">
+            <span class="spectrum-swatch-dot" aria-hidden="true"></span>
+            <span id="optic-spectrum-label">🎨 色域：北欧雾灰</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="optic-z2-dropdown" id="optic-spectrum-menu" role="menu" aria-hidden="true">
+            <div class="dropdown-section-caption">刻痕圣殿 · 五维光学色域切换</div>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="auto" role="menuitemradio" aria-checked="true">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #edf2f7;"></span>
+                <span>✨ 北欧圣殿雾灰岩板 (推荐)</span>
+              </span>
+              <span class="meta-pill">日间</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="porcelain" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f8fafc;"></span>
+                <span>S1 · 日光白瓷</span>
+              </span>
+              <span class="meta-pill">清朗</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="gallery" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f5f5ef;"></span>
+                <span>S2 · 汝窑暖素</span>
+              </span>
+              <span class="meta-pill">宣纸</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="parchment" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f3efe6;"></span>
+                <span>S3 · 羊皮暖砂</span>
+              </span>
+              <span class="meta-pill">护眼</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="slate" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #edf2f7;"></span>
+                <span>S4 · 北欧雾灰</span>
+              </span>
+              <span class="meta-pill">岩板</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="obsidian" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #050b0a; border-color: #475569;"></span>
+                <span>S5 · 黑曜背光花窗</span>
+              </span>
+              <span class="meta-pill">深渊</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-secondary-ghost" id="open-rules-sheet-btn" style="min-height: 44px; padding: 6px 12px;">
+          <span>📖 圣殿法则</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- L2 主画布：L-A2 黄金比例主从双舞台 (1fr 圣殿锻造中枢 : 1.618fr 阶层符文石板矩阵) -->
+  <main class="l2-split-horizon-shell">
+    <!-- 左舞台 (1fr)：新粗野主义铅条花窗主视觉、鲁班锁进化阶位与三行锻造配置器 -->
+    <section class="l2-master-stage optic-stagger-item" style="--stagger-idx: 0;" aria-label="刻痕圣殿构筑配置台">
+      <div class="l2-identity-row">
+        <img src="assets/textures/strategic/badge.svg" alt="刻痕圣殿玫瑰花窗徽章" class="l2-identity-badge" width="52" height="52">
+        <div>
+          <div class="l2-spectrum-kicker">03 · STRATEGIC · 铅条彩绘与榫卯圣殿</div>
+          <h1>刻痕圣殿 · 符文构筑台</h1>
+        </div>
+      </div>
+
+      <p>
+        协同机巧魔典之灵奥隆，将抽象语法变位与语序规则具象为高张力的果冻透光榫卯卡扣与六翼玫瑰花窗星轨连击。
+      </p>
+
+      <!-- 器具与场景主视觉预览舱 -->
+      <div class="l2-apparatus-showcase" id="theme-workbench-mount">
+        <div class="l2-banner-frame">
+          <img src="assets/textures/strategic/banner.svg" alt="刻痕圣殿铅条玫瑰花窗与果冻榫卯" width="600" height="130">
+        </div>
+        <div class="l2-rig-hud-strip">
+          <div class="l2-rig-hud-left">
+            <img src="assets/textures/strategic/mechanic_hud.svg" alt="圣殿鲁班锁阶位徽标" class="l2-rig-hud-icon" width="34" height="34">
+            <div>
+              <div style="font-size: var(--optic-font-xs); color: var(--text-tertiary); font-weight: 700;">当前构筑圣物核心</div>
+              <div class="l2-rig-tier-text" id="hub-rig-tier-val">T1 玄铁单槽鲁班锁</div>
+            </div>
+          </div>
+          <span class="meta-pill meta-pill-accent" id="hub-lang-badge">🇬🇧 英语 (CEFR B1)</span>
+        </div>
+      </div>
+
+      <!-- 紧凑三行 44px 分段胶囊配置器 -->
+      <div class="hub-config-matrix" role="group" aria-label="圣殿构筑参数设定">
+        <div class="seg-control-row">
+          <span class="seg-row-label">🌐 专场语种</span>
+          <div class="seg-pill-group">
+            <button type="button" class="seg-pill-btn is-selected" data-hub-lang="en">🇬🇧 英语</button>
+            <button type="button" class="seg-pill-btn" data-hub-lang="ja">🇯🇵 日语</button>
+            <button type="button" class="seg-pill-btn" data-hub-lang="zh">🇨🇳 汉语</button>
+          </div>
+        </div>
+
+        <div class="seg-control-row">
+          <span class="seg-row-label">🎚️ 护盾阶位</span>
+          <div class="seg-pill-group" role="radiogroup" aria-label="选择护盾阶位难度">
+            <button type="button" class="seg-pill-btn" data-difficulty-select="tier1" role="radio" aria-checked="false">🌱 2晶球</button>
+            <button type="button" class="seg-pill-btn is-selected" data-difficulty-select="tier2" role="radio" aria-checked="true">⚖️ 3晶球</button>
+            <button type="button" class="seg-pill-btn" data-difficulty-select="tier3" role="radio" aria-checked="false">🔥 全晶球</button>
+          </div>
+        </div>
+
+        <div class="seg-control-row">
+          <span class="seg-row-label">🎯 锻造重心</span>
+          <div class="seg-pill-group" role="radiogroup" aria-label="选择锻造重心">
+            <button type="button" class="seg-pill-btn is-selected" data-content-select="all" role="radio" aria-checked="true">📚 综合破盾</button>
+            <button type="button" class="seg-pill-btn" data-content-select="lemma" role="radio" aria-checked="false">✨ 星轨连击</button>
+            <button type="button" class="seg-pill-btn" data-content-select="grammar" role="radio" aria-checked="false">⚙️ 榫卯咬合</button>
+          </div>
+        </div>
+      </div>
+
+      <a href="learn.html?theme=strategic" class="btn-theme btn-strategic" id="hub-quick-start-btn" style="width: 100%;">
+        <span>💥 开启试炼 · 攻克推荐圣殿阶层</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <!-- 右舞台 (1.618fr)：圣殿阶层符文石板矩阵 -->
+    <section class="l2-detail-stage optic-stagger-item" style="--stagger-idx: 1;" aria-labelledby="chapters-heading">
+      <div class="l2-detail-header">
+        <div>
+          <span class="meta-pill" style="margin-bottom: 4px;">🛡️ 圣殿试炼回廊 · 单语符文阶层</span>
+          <h2 id="chapters-heading">选择圣殿阶层进入双幕破盾</h2>
+        </div>
+        <div class="l2-status-badges">
+          <span class="meta-pill" id="hub-diff-badge">🎚️ 进阶 (Standard)</span>
+          <span class="meta-pill meta-pill-accent" id="hub-content-badge">📚 综合双轴实操</span>
+        </div>
+      </div>
+
+      <div class="hub-chapters-grid" id="hub-chapters-mount">
+        <!-- 由 app.js 按已选单一语言渲染专属铅条圣殿石板卡 -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Z-01 主动唤醒抽屉：刻痕圣殿三步破盾法则 -->
+  <div class="optic-sheet-backdrop" id="rules-guide-sheet" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rules-sheet-title">
+    <div class="optic-sheet-panel usage-guide-section">
+      <div class="optic-sheet-header">
+        <div>
+          <span class="meta-pill meta-pill-accent">📖 机巧魔典之灵 · 奥隆战术法典</span>
+          <h2 class="optic-sheet-title" id="rules-sheet-title" style="margin-top: 4px;">刻痕圣殿 · 榫卯咬合与星轨破盾法则</h2>
+        </div>
+        <button type="button" class="sheet-close-btn" data-close-sheet="rules-guide-sheet" aria-label="关闭圣殿法则">✕ 关闭</button>
+      </div>
+      <div class="optic-sheet-body">
+        <p>
+          每一层试炼通过“果冻透光词缀榫卯咬合 + 六翼玫瑰花窗晶球连击”两幕递进构筑，错误卡榫会触发磁极排斥震动反馈。
+        </p>
+        <div class="usage-steps-grid">
+          <div class="usage-step-card">
+            <span class="usage-step-num">1</span>
+            <h3>第一幕 · 果冻榫卯咬合</h3>
+            <p style="font-size: var(--optic-font-sm);">观察青铜词干凹槽的时态或助词接口，点击匹配的果冻透光卡榫完成机械锁定。</p>
+          </div>
+          <div class="usage-step-card">
+            <span class="usage-step-num">2</span>
+            <h3>第二幕 · 玫瑰花窗咏唱</h3>
+            <p style="font-size: var(--optic-font-sm);">按目标句式顺序点击或连续划过花窗语法晶球，达到难度所需晶球数即贯通回路。</p>
+          </div>
+          <div class="usage-step-card">
+            <span class="usage-step-num">3</span>
+            <h3>终局 · 焦散射线破盾</h3>
+            <p style="font-size: var(--optic-font-sm);">点击释放破盾奥义轰碎守卫护盾，实时结算双知识点 FSRS-5 记忆稳定度。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div>© 2026 Lingua-Flow · 刻痕圣殿 (Strategic Sanctuary Hub)</div>
+    <div>S4 Nordic-Slate / S5 Backlit Stained-Glass Dual-Mode</div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

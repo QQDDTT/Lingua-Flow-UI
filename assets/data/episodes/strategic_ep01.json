@@ -1,0 +1,284 @@
+{
+  "episode_id": "strategic_ep01",
+  "theme_id": "strategic",
+  "title": "⚔️ 刻痕圣殿 · 六翼玫瑰花窗与果冻透光榫卯构筑台",
+  "feedback_prefix": "💥 榫卯咬合锁定！释放【破盾焦散射线】轰碎守卫护盾",
+  "encounters": [
+    {
+      "encounter_id": "strategic_ep01_enc01",
+      "lang": "en",
+      "chapter_title": "第一层（英语 I）：镜像回廊的虚拟结界",
+      "chapter_badge": "STRATUM EN-01 · CEFR B1",
+      "mechanic_type": "spell_gesture_routing",
+      "action_button_label": "星轨闭环 · 轰碎镜像结界",
+      "stem_label": "If the rune were fake, (虚拟条件词干)",
+      "affix_label": "it would contradict the scroll (过去将来主句卡榫)",
+      "distractor_affix_label": "it will contradicts the scroll (时态冲突干扰卡榫)",
+      "spell_orbs": ["If", "were", "fake,", "it", "would", "contradict"],
+      "instruction_text": "步骤 ① 点击正确主句卡榫【it would contradict...】与条件词干完成咬合；步骤 ② 依次点亮下方六翼玫瑰花窗的语法晶球贯通回路。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_01",
+          "speaker": "镜像守卫魔像 · 阿尔戈斯",
+          "ruby_html": "If the ancient rune <strong>were</strong> fake, it <strong>would contradict</strong> the sacred scroll.",
+          "text": "If the ancient rune were fake, it would contradict the sacred scroll.",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "en_b1_grammar_subjunctive_past",
+          "target_evidence_ku_id_ref": "en_b1_lemma_contradict"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "奥隆提示：非真实条件句『If + 主语 + were...』的主句接口必须咬合『would + 动词原形 contradict』！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "strategic_ep01_enc02",
+      "lang": "en",
+      "chapter_title": "第二层（英语 II）：钟摆圣堂的持续咏唱",
+      "chapter_badge": "STRATUM EN-02 · CEFR B1",
+      "mechanic_type": "conjugation_mortise",
+      "action_button_label": "榫卯咬合 · 贯穿钟摆核心",
+      "stem_label": "While the guardian watched, (过去背景从句凹槽)",
+      "affix_label": "the envoy was verifying the alibi (过去进行时卡榫)",
+      "distractor_affix_label": "the envoy verify the alibi (时态断裂干扰卡榫)",
+      "spell_orbs": ["While", "watched,", "envoy", "was", "verifying", "alibi"],
+      "instruction_text": "步骤 ① 点击过去进行时卡榫【the envoy was verifying the alibi】完成咬合；步骤 ② 点亮下方六翼花窗晶球释放破盾射线。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_02",
+          "speaker": "钟摆圣堂执政官 · 瓦伦 (Valen)",
+          "ruby_html": "While the guardian watched, the envoy <strong>was verifying</strong> the sacred <strong>alibi</strong>.",
+          "text": "While the guardian watched, the envoy was verifying the sacred alibi.",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "en_b1_grammar_past_continuous",
+          "target_evidence_ku_id_ref": "en_b1_lemma_alibi"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "奥隆提示：While 引导的过去持续背景动作中，主句需咬合过去进行时『was/were + V-ing (was verifying)』！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "strategic_ep01_enc03",
+      "lang": "ja",
+      "chapter_title": "第一层（日语 I）：冰封遗迹的未然形石门",
+      "chapter_badge": "STRATUM JA-01 · JLPT N5",
+      "mechanic_type": "conjugation_mortise",
+      "action_button_label": "榫卯咬合 · 释放霜冻射线",
+      "stem_label": "書か- (五段未然形词干)",
+      "affix_label": "-ない (未然形否定卡榫)",
+      "distractor_affix_label": "-ます (连用形干扰卡榫)",
+      "spell_orbs": ["古い", "ルーン", "を", "書か-", "-ない"],
+      "instruction_text": "步骤 ① 点击果冻透光词缀卡榫【-ない】嵌入五段动词未然形凹槽【書か-】；步骤 ② 点亮下方六翼玫瑰花窗星轨晶球激活破盾法术。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_03",
+          "speaker": "机巧魔典之灵 · 奥隆 (Oron)",
+          "ruby_html": "<ruby>古<rt>ふる</rt></ruby>いルーン<ruby>文字<rt>もじ</rt></ruby>を<ruby>書<rt>か</rt></ruby>かない。",
+          "text": "古いルーン文字を書かない。",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "ja_n5_grammar_0012",
+          "target_evidence_ku_id_ref": "ja_n5_lemma_0002"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "奥隆展开青铜星环：五段动词『書く (kaku)』连接否定助动词『ない』时，词尾『く』需变为あ段未然形『か』，严禁接连用形『-ます』！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "strategic_ep01_enc04",
+      "lang": "ja",
+      "chapter_title": "第二层（日语 II）：星铭回廊的契约誓言",
+      "chapter_badge": "STRATUM JA-02 · JLPT N5",
+      "mechanic_type": "spell_gesture_routing",
+      "action_button_label": "契约咬合 · 轰碎星铭护盾",
+      "stem_label": "私は (第一人称主题基座)",
+      "affix_label": "神聖な誓約です (名词判断句肯定卡榫)",
+      "distractor_affix_label": "神聖な誓約をない (助词接续错误卡榫)",
+      "spell_orbs": ["私", "は", "神聖な", "誓約", "です"],
+      "instruction_text": "步骤 ① 点击肯定判断卡榫【神聖な誓約です】与主题基座【私は】完成咬合；步骤 ② 依次点亮下方五颗日语契约晶球。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_04",
+          "speaker": "星铭圣殿守卫 · 迦具土",
+          "ruby_html": "<ruby>私<rt>わたし</rt></ruby>は<ruby>聖殿<rt>せいでん</rt></ruby>の<ruby>守護者<rt>しゅごしゃ</rt></ruby>です。",
+          "text": "私は聖殿の守護者です。",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "ja_n5_grammar_0001",
+          "target_evidence_ku_id_ref": "ja_n5_hanzi_0001"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "奥隆提示：日语标准判断句由『名词1 + は + 名词2 + です』构成，请咬合『神聖な誓約です』卡榫并点亮晶球！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "strategic_ep01_enc05",
+      "lang": "zh",
+      "chapter_title": "第一层（汉语 I）：时之沙漏的持续护盾",
+      "chapter_badge": "STRATUM ZH-01 · HSK 1",
+      "mechanic_type": "conjugation_mortise",
+      "action_button_label": "正序咬合 · 贯穿沙漏核心",
+      "stem_label": "我是圣殿的学生，(主语判断基座 · xué shēng)",
+      "affix_label": "守护宝贵的时间 (动宾正序卡榫 · shí jiān)",
+      "distractor_affix_label": "宝贵的时间守护在后 (宾语前置排斥卡榫)",
+      "spell_orbs": ["我是", "圣殿的", "学生", "守护", "宝贵的", "时间"],
+      "instruction_text": "步骤 ① 点击汉语标准动宾正序卡榫【守护宝贵的时间】与主语基座完成咬合；步骤 ② 点亮下方六翼花窗晶球击穿沙漏核心！",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_05",
+          "speaker": "时之沙漏领主 · 克洛诺斯",
+          "ruby_html": "我是圣殿的<ruby>学生<rt>xué shēng</rt></ruby>，在沙漏流转中守护宝贵的<ruby>时间<rt>shí jiān</rt></ruby>。",
+          "text": "我是圣殿的学生，在沙漏流转中守护宝贵的时间。",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "zh_hsk1_grammar_0002",
+          "target_evidence_ku_id_ref": "zh_hsk1_lemma_0002"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "奥隆提示：汉语核心动宾结构要求谓语动词『守护』居于宾语『时间 (shí jiān)』之前，准确咬合正序卡榫即可破盾！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "strategic_ep01_enc06",
+      "lang": "zh",
+      "chapter_title": "第二层（汉语 II）：晷影圣坛的语序法阵",
+      "chapter_badge": "STRATUM ZH-02 · HSK 1",
+      "mechanic_type": "spell_gesture_routing",
+      "action_button_label": "正序咏唱 · 激活晷影法阵",
+      "stem_label": "我 (主语基座)",
+      "affix_label": "上午八点在圣坛读书 (时间+处所状语前置卡榫)",
+      "distractor_affix_label": "读书在圣坛上午八点 (状语后置排斥卡榫)",
+      "spell_orbs": ["我", "上午八点", "在圣坛", "专心", "读书"],
+      "instruction_text": "步骤 ① 点击符合汉语『时间状语与处所状语置于动词前』的正序卡榫嵌入主语基座；步骤 ② 依次点亮下方五颗晶球激活晷影法阵！",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_06",
+          "speaker": "晷影圣坛守护者 · 羲和",
+          "ruby_html": "我上午八点在圣坛校准古老的<ruby>时间<rt>shí jiān</rt></ruby>刻度。",
+          "text": "我上午八点在圣坛校准古老的时间刻度。",
+          "has_flaw": false,
+          "flaw_grammar_ku_id_ref": "zh_hsk1_grammar_0001",
+          "target_evidence_ku_id_ref": "zh_hsk1_lemma_0002"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "奥隆提示：现代汉语要求时间状语（上午八点）与处所状语（在圣坛）依次置于核心动词之前，不可倒置！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    }
+  ]
+}

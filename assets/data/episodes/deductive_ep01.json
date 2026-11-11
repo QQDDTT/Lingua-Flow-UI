@@ -1,0 +1,302 @@
+{
+  "episode_id": "deductive_ep01",
+  "theme_id": "deductive",
+  "title": "🔍 雾都回响 · 皇家高等质证法庭与蔡司取证台",
+  "feedback_prefix": "🎯 异议成立 (Objection Sustained!)！精准命中证词矛盾",
+  "encounters": [
+    {
+      "encounter_id": "deductive_ep01_enc01",
+      "lang": "en",
+      "chapter_title": "第一卷（英语 I）：雾都钟楼的不在场证明",
+      "chapter_badge": "CASE EN-01 · CEFR B1",
+      "mechanic_type": "contradiction_pinpoint",
+      "action_button_label": "发射猩红矛盾指控针 (Objection!)",
+      "clue_label": "📄 证物 A（正确）：咖啡馆 9:15 PM 电子小票 (contradict)",
+      "distractor_clue_label": "🎫 证物 B（干扰）：三天前的旧火车票",
+      "magnifier_target_word": "contradict",
+      "magnifier_phonetic": "/ˌkɒn.trəˈdɪkt/",
+      "magnifier_etymology": "contra- (逆、反) + dicere (言说) → 证词与物证正面冲突",
+      "instruction_text": "步骤 ① 拖动蔡司调焦环看清物证词根 contradict；步骤 ② 点击证词中违反过去进行时的动词破绽 stay，并点选匹配的咖啡馆小票物证。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_01",
+          "speaker": "嫌疑人 · 钟表匠亚瑟 (Arthur)",
+          "text": "At 9:00 PM yesterday, while the vault was opened, I stay at home alone reading books.",
+          "flaw_token": "stay",
+          "distractor_token": "yesterday",
+          "expected_correction": "was staying (过去进行时)",
+          "has_flaw": true,
+          "flaw_grammar_ku_id_ref": "en_b1_grammar_past_continuous",
+          "target_evidence_ku_id_ref": "en_b1_lemma_contradict"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "艾琳·诺克斯提示：注意案发具体时刻（9:00 PM）伴随 while 从句，持续动作必须使用过去进行时 was staying，不可用一般现在时 stay！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "deductive_ep01_enc02",
+      "lang": "en",
+      "chapter_title": "第二卷（英语 II）：午夜酒馆的假想证词",
+      "chapter_badge": "CASE EN-02 · CEFR B1",
+      "mechanic_type": "semantic_magnifier",
+      "action_button_label": "锁定伪造不在场证明 (Expose Alibi!)",
+      "clue_label": "🕰️ 证物 A（正确）：停摆的怀表与酒馆账单 (alibi)",
+      "distractor_clue_label": "📰 证物 B（干扰）：上周泰晤士报剪报",
+      "magnifier_target_word": "alibi",
+      "magnifier_phonetic": "/ˈæl.ɪ.baɪ/",
+      "magnifier_etymology": "拉丁语 alibi (在别处) → 嫌疑人声称案发时身处他处的法律抗辩",
+      "instruction_text": "步骤 ① 拖动蔡司调焦环提取账单关键词 alibi；步骤 ② 点击虚拟语气假想句中错误的模态词 will，并点选怀表账单物证。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_02",
+          "speaker": "嫌疑人 · 银行书记官维克多 (Victor)",
+          "text": "If I were at the dockyard tonight, I will confess immediately, but my alibi is solid!",
+          "flaw_token": "will",
+          "distractor_token": "tonight",
+          "expected_correction": "would (与现在事实相反的虚拟语气主句)",
+          "has_flaw": true,
+          "flaw_grammar_ku_id_ref": "en_b1_grammar_subjunctive_past",
+          "target_evidence_ku_id_ref": "en_b1_lemma_alibi"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "艾琳·诺克斯提示：条件从句使用了 If I were...（非真实假设），主句必须使用过去将来模态词 would confess 而非 will！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "deductive_ep01_enc03",
+      "lang": "ja",
+      "chapter_title": "第一卷（日语 I）：墨迹未干的署名文书",
+      "chapter_badge": "CASE JA-01 · JLPT N5",
+      "mechanic_type": "semantic_magnifier",
+      "action_button_label": "击破伪造契约证言 (Verdict!)",
+      "clue_label": "🖋️ 证物 A（正确）：火漆契约残页『書』字源印鉴",
+      "distractor_clue_label": "🕯️ 证物 B（干扰）：空白鲸油蜡烛台",
+      "magnifier_target_word": "書 (かく / ショ)",
+      "magnifier_phonetic": "部首：曰 (ひらび) · 10画",
+      "magnifier_etymology": "聿 (执笔之手) + 曰 (文书言辞) → 以毛笔签署契约文书",
+      "instruction_text": "步骤 ① 拖动蔡司调焦环鉴定火漆契约上的汉字『書』；步骤 ② 点击证词中五段动词否定接续错误的『書きない』并锁定契约物证。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_03",
+          "speaker": "证人 · 古籍商佐藤 (Sato)",
+          "text": "私はその秘密の契約書を決して書きない！",
+          "flaw_token": "書きない",
+          "distractor_token": "契約書",
+          "expected_correction": "書かない (五段动词未然形 + ない)",
+          "has_flaw": true,
+          "flaw_grammar_ku_id_ref": "ja_n5_grammar_0012",
+          "target_evidence_ku_id_ref": "ja_n5_hanzi_0002"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "艾琳·诺克斯提示：五段动词『書く』接否定助动词『ない』时，词尾『く』需变为あ段未然形『か』（書かない），说成『書きない』暴露了伪证！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "deductive_ep01_enc04",
+      "lang": "ja",
+      "chapter_title": "第二卷（日语 II）：雾夜庭院的匿名供词",
+      "chapter_badge": "CASE JA-02 · JLPT N5",
+      "mechanic_type": "contradiction_pinpoint",
+      "action_button_label": "揭穿主语助词伪证 (Objection!)",
+      "clue_label": "🪪 证物 A（正确）：怀表内侧刻有『私 (わたし)』的私章",
+      "distractor_clue_label": "🧤 证物 B（干扰）：无名马夫的旧皮手套",
+      "magnifier_target_word": "私 (わたし / シ)",
+      "magnifier_phonetic": "部首：禾 (のぎへん) · 7画",
+      "magnifier_etymology": "禾 (谷物) + 厶 (环抱自守) → 怀表私章镌刻的第一人称自称",
+      "instruction_text": "步骤 ① 拖动蔡司调焦环核验怀表私章『私』字源；步骤 ② 点击供词中误将宾格助词『を』当作主题助词使用的破绽『私を』，并锁定怀表私章。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_04",
+          "speaker": "嫌疑人 · 执事藤原 (Fujiwara)",
+          "text": "あの夜、私を潔白の証人です、決して嘘はありません！",
+          "flaw_token": "私を",
+          "distractor_token": "あの夜",
+          "expected_correction": "私は (主题助词 は 提示判断句主语)",
+          "has_flaw": true,
+          "flaw_grammar_ku_id_ref": "ja_n5_grammar_0001",
+          "target_evidence_ku_id_ref": "ja_n5_lemma_0001"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "艾琳·诺克斯提示：日语名词谓语句『N1 は N2 です』必须用系助词『は (wa)』提示主题，误用宾格助词『私を』暴露了慌乱中的伪证！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "deductive_ep01_enc05",
+      "lang": "zh",
+      "chapter_title": "第一卷（汉语 I）：东方快车的钟表证言",
+      "chapter_badge": "CASE ZH-01 · HSK 1",
+      "mechanic_type": "contradiction_pinpoint",
+      "action_button_label": "击破时间语序伪证 (Objection!)",
+      "clue_label": "⏱️ 证物 A（正确）：列车长怀表与『时间』签收单 (shí jiān)",
+      "distractor_clue_label": "🧳 证物 B（干扰）：空置的旧行李箱",
+      "magnifier_target_word": "时间 (shí jiān)",
+      "magnifier_phonetic": "HSK 1 核心词 · 阳平(35) + 阴平(55)",
+      "magnifier_etymology": "日 (太阳运行) + 寸 (法度刻度) → 日影推移所度量的光阴刻度",
+      "instruction_text": "步骤 ① 拖动蔡司调焦环核验列车签收单上的『时间』词源；步骤 ② 点击供词中违反汉语『时间与处所状语前置』法则的破绽并锁定怀表签收单。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_05",
+          "speaker": "嫌疑人 · 东方快车旅客林先生",
+          "text": "我是大学的学生，我读书在车厢里昨天晚上八点，绝对没有离开座位！",
+          "flaw_token": "读书在车厢里昨天晚上八点",
+          "distractor_token": "大学的学生",
+          "expected_correction": "昨天晚上八点在车厢里读书 (时间+地点状语置于动词前)",
+          "has_flaw": true,
+          "flaw_grammar_ku_id_ref": "zh_hsk1_grammar_0001",
+          "target_evidence_ku_id_ref": "zh_hsk1_lemma_0002"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "艾琳·诺克斯提示：现代汉语标准语序要求时间状语与处所状语置于核心动词之前（『主语 + 时间 + 在地点 + 动词』），将状语后置暴露了谎言！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    },
+    {
+      "encounter_id": "deductive_ep01_enc06",
+      "lang": "zh",
+      "chapter_title": "第二卷（汉语 II）：皇家书院的学籍档案",
+      "chapter_badge": "CASE ZH-02 · HSK 1",
+      "mechanic_type": "semantic_magnifier",
+      "action_button_label": "拆穿冒名学籍证言 (Verdict!)",
+      "clue_label": "🎓 证物 A（正确）：书院铜印『学生 (xué shēng)』登记册",
+      "distractor_clue_label": "📜 证物 B（干扰）：泛黄的旧剧院戏票",
+      "magnifier_target_word": "学生 (xué shēng)",
+      "magnifier_phonetic": "HSK 1 核心词 · 阳平(35) + 阴平(55)",
+      "magnifier_etymology": "学 (双手结网启蒙) + 生 (草木破土生长) → 在学堂研习新知之人",
+      "instruction_text": "步骤 ① 拖动蔡司调焦环核验书院登记册上的『学生』字源；步骤 ② 点击供词中违反汉语『是……』动宾正序法则的语序破绽并锁定登记册物证。",
+      "dialogue_stream": [
+        {
+          "segment_id": "seg_06",
+          "speaker": "嫌疑人 · 假冒学者周某",
+          "text": "我昨天来到雾都书院，我皇家学院的学生是，每天都在藏书阁抄书！",
+          "flaw_token": "皇家学院的学生是",
+          "distractor_token": "昨天来到",
+          "expected_correction": "是皇家学院的学生 (判断动词『是』须置于宾语前)",
+          "has_flaw": true,
+          "flaw_grammar_ku_id_ref": "zh_hsk1_grammar_0002",
+          "target_evidence_ku_id_ref": "zh_hsk1_lemma_0001"
+        }
+      ],
+      "rating_rules": {
+        "easy": { "max_error_count": 0, "max_duration_ms": 4000 },
+        "good": { "max_error_count": 0, "min_duration_ms": 4001, "max_duration_ms": 12000 },
+        "hard": {
+          "max_error_count": 1,
+          "fallback_on_slow_zero_error": true,
+          "description": "完备兜底分支：(error_count == 0 && duration_ms > 12000) || (error_count == 1 && duration_ms >= 0)"
+        },
+        "again": {
+          "min_error_count": 2,
+          "trigger_on_companion_hint": true,
+          "companion_hint": "艾琳·诺克斯提示：现代汉语判断句遵循 SVO 动宾正序（『主语 + 是 + 宾语』），将判断词『是』置于句末暴露了伪造的学籍供词！"
+        }
+      },
+      "telemetry_policy": {
+        "pause_on_visibility_hidden": true,
+        "max_effective_duration_cap_ms": 60000,
+        "dual_ku_attribution": {
+          "wrong_evidence_selected": "target_evidence_ku_id_ref",
+          "wrong_sentence_pinpointed": "flaw_grammar_ku_id_ref"
+        }
+      }
+    }
+  ]
+}

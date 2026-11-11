@@ -1,0 +1,68 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-07T04:30:00Z",
+  "standard": "CEFR",
+  "language": "en",
+  "level": "b1",
+  "unit_type": "lemma",
+  "total_items": 2,
+  "items": [
+    {
+      "ku_id": "en_b1_lemma_alibi",
+      "unit_type": "lemma",
+      "lang": "en",
+      "level": "b1",
+      "text": "alibi",
+      "phonetic": {
+        "display": "/ˈælɪbaɪ/",
+        "ipa": "ˈælɪbaɪ"
+      },
+      "pos": ["noun"],
+      "tags": ["deductive", "law"],
+      "definitions": [
+        "不在场证明；托辞，辩解"
+      ],
+      "examples": [
+        {
+          "source": "The suspect's receipt provided a solid alibi for 9:15 PM.",
+          "ruby": [],
+          "translation": "嫌疑人的收据为晚上9点15分提供了确凿的不在场证明。"
+        }
+      ],
+      "notes": "源自拉丁语 alibi（在别处）。",
+      "fsrs_seed": {
+        "initial_difficulty": 4.2,
+        "initial_stability": 2.6
+      }
+    },
+    {
+      "ku_id": "en_b1_lemma_contradict",
+      "unit_type": "lemma",
+      "lang": "en",
+      "level": "b1",
+      "text": "contradict",
+      "phonetic": {
+        "display": "/ˌkɒntrəˈdɪkt/",
+        "ipa": "ˌkɒntrəˈdɪkt"
+      },
+      "pos": ["verb"],
+      "tags": ["deductive", "logic"],
+      "definitions": [
+        "反驳，否定；与……发生矛盾，相抵触"
+      ],
+      "examples": [
+        {
+          "source": "The bookstore receipt directly contradicts his testimony.",
+          "ruby": [],
+          "translation": "书店收据直接与他的当庭证词相矛盾。"
+        }
+      ],
+      "notes": "词根拆解：contra- (反对、逆) + dict (言说、陈述)。",
+      "fsrs_seed": {
+        "initial_difficulty": 4.5,
+        "initial_stability": 2.4
+      }
+    }
+  ]
+}
+

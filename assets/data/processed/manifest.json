@@ -1,0 +1,151 @@
+{
+    "manifest_version":  "1.0.0",
+    "generated_at":  "2026-11-08T08:00:00Z",
+    "max_shard_bytes":  102400,
+    "partition_groups":  {
+                             "en_b1_grammar":  {
+                                                   "lang":  "en",
+                                                   "level":  "b1",
+                                                   "unit_type":  "grammar",
+                                                   "total_items":  2,
+                                                   "shards":  [
+                                                                  {
+                                                                      "shard_file":  "en_b1_grammar.json",
+                                                                      "ku_id_range":  [
+                                                                                          "en_b1_grammar_past_continuous",
+                                                                                          "en_b1_grammar_subjunctive_past"
+                                                                                      ],
+                                                                      "item_count":  2,
+                                                                      "size_bytes":  2328,
+                                                                      "sha256":  "4a83509c2a273b4fe5ce8fbd8c8789e36e4a52761296c529a2c3bcf38f8befd5"
+                                                                  }
+                                                              ]
+                                               },
+                             "en_b1_lemma":  {
+                                                 "lang":  "en",
+                                                 "level":  "b1",
+                                                 "unit_type":  "lemma",
+                                                 "total_items":  2,
+                                                 "shards":  [
+                                                                {
+                                                                    "shard_file":  "en_b1_lemma.json",
+                                                                    "ku_id_range":  [
+                                                                                        "en_b1_lemma_alibi",
+                                                                                        "en_b1_lemma_contradict"
+                                                                                    ],
+                                                                    "item_count":  2,
+                                                                    "size_bytes":  1789,
+                                                                    "sha256":  "1e09e171b859058ee69242228e433c7d0f4252fa77f3a6dea5eb210c4870e0ba"
+                                                                }
+                                                            ]
+                                             },
+                             "ja_n5_grammar":  {
+                                                   "lang":  "ja",
+                                                   "level":  "n5",
+                                                   "unit_type":  "grammar",
+                                                   "total_items":  2,
+                                                   "shards":  [
+                                                                  {
+                                                                      "shard_file":  "ja_n5_grammar.json",
+                                                                      "ku_id_range":  [
+                                                                                          "ja_n5_grammar_0001",
+                                                                                          "ja_n5_grammar_0012"
+                                                                                      ],
+                                                                      "item_count":  2,
+                                                                      "size_bytes":  2554,
+                                                                      "sha256":  "273469eb9d26e408f90d9a2ff83134b5f277a49894b9c0239eb7dc0efbf27a69"
+                                                                  }
+                                                              ]
+                                               },
+                             "ja_n5_hanzi":  {
+                                                 "lang":  "ja",
+                                                 "level":  "n5",
+                                                 "unit_type":  "hanzi",
+                                                 "total_items":  2,
+                                                 "shards":  [
+                                                                {
+                                                                    "shard_file":  "ja_n5_hanzi.json",
+                                                                    "ku_id_range":  [
+                                                                                        "ja_n5_hanzi_0001",
+                                                                                        "ja_n5_hanzi_0002"
+                                                                                    ],
+                                                                    "item_count":  2,
+                                                                    "size_bytes":  2579,
+                                                                    "sha256":  "86f27892dc9db547a70826a5243eba311de1015f910335aa82b02341027790de"
+                                                                }
+                                                            ]
+                                             },
+                             "ja_n5_lemma":  {
+                                                 "lang":  "ja",
+                                                 "level":  "n5",
+                                                 "unit_type":  "lemma",
+                                                 "total_items":  2,
+                                                 "shards":  [
+                                                                {
+                                                                    "shard_file":  "ja_n5_lemma.json",
+                                                                    "ku_id_range":  [
+                                                                                        "ja_n5_lemma_0001",
+                                                                                        "ja_n5_lemma_0002"
+                                                                                    ],
+                                                                    "item_count":  2,
+                                                                    "size_bytes":  1988,
+                                                                    "sha256":  "9034bba7b34d73f8d3bc164f555d2a507dccddf3a5b04cbbb11d44ad44b1340d"
+                                                                }
+                                                            ]
+                                             },
+                             "zh_hsk1_grammar":  {
+                                                     "lang":  "zh",
+                                                     "level":  "hsk1",
+                                                     "unit_type":  "grammar",
+                                                     "total_items":  2,
+                                                     "shards":  [
+                                                                    {
+                                                                        "shard_file":  "zh_hsk1_grammar.json",
+                                                                        "ku_id_range":  [
+                                                                                            "zh_hsk1_grammar_0001",
+                                                                                            "zh_hsk1_grammar_0002"
+                                                                                        ],
+                                                                        "item_count":  2,
+                                                                        "size_bytes":  3289,
+                                                                        "sha256":  "36ba0b101f085fd426298b0af06916222b502b3889d3975365b1c0d1ce7dce24"
+                                                                    }
+                                                                ]
+                                                 },
+                             "zh_hsk1_hanzi":  {
+                                                   "lang":  "zh",
+                                                   "level":  "hsk1",
+                                                   "unit_type":  "hanzi",
+                                                   "total_items":  2,
+                                                   "shards":  [
+                                                                  {
+                                                                      "shard_file":  "zh_hsk1_hanzi.json",
+                                                                      "ku_id_range":  [
+                                                                                          "zh_hsk1_hanzi_0001",
+                                                                                          "zh_hsk1_hanzi_0002"
+                                                                                      ],
+                                                                      "item_count":  2,
+                                                                      "size_bytes":  2337,
+                                                                      "sha256":  "fb908a5a5c5f8a255185ca7dfec096f41890b0ada53bb15f90441681bdff2bf1"
+                                                                  }
+                                                              ]
+                                               },
+                             "zh_hsk1_lemma":  {
+                                                   "lang":  "zh",
+                                                   "level":  "hsk1",
+                                                   "unit_type":  "lemma",
+                                                   "total_items":  2,
+                                                   "shards":  [
+                                                                  {
+                                                                      "shard_file":  "zh_hsk1_lemma.json",
+                                                                      "ku_id_range":  [
+                                                                                          "zh_hsk1_lemma_0001",
+                                                                                          "zh_hsk1_lemma_0002"
+                                                                                      ],
+                                                                      "item_count":  2,
+                                                                      "size_bytes":  2052,
+                                                                      "sha256":  "6ebf6b28d5fe031befb73dffeeb0bac92eb36ab73c5e1205f0c41c21ee22ada3"
+                                                                  }
+                                                              ]
+                                               }
+                         }
+}

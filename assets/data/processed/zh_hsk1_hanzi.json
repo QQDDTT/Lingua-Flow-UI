@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-11T00:00:00Z",
+  "standard": "HSK3",
+  "language": "zh",
+  "level": "hsk1",
+  "unit_type": "hanzi",
+  "total_items": 2,
+  "items": [
+    {
+      "ku_id": "zh_hsk1_hanzi_0001",
+      "unit_type": "hanzi",
+      "lang": "zh",
+      "level": "hsk1",
+      "text": "学",
+      "phonetic": {
+        "display": "xué",
+        "pinyin": "xué"
+      },
+      "pos": ["hanzi"],
+      "tags": ["radical:子", "strokes:8", "hsk:1"],
+      "definitions": [
+        "学（xué）：研习、受教、效法（部首：子，总笔画：8画）"
+      ],
+      "examples": [
+        {
+          "source": "学生清晨在竹林静心晨读。",
+          "ruby": [
+            { "base": "学生", "rt": "xué shēng" },
+            { "base": "清晨", "rt": "qīng chén" },
+            { "base": "在竹林", "rt": "zài zhú lín" },
+            { "base": "静心晨读。", "rt": "jìng xīn chén dú" }
+          ],
+          "translation": "Students read quietly in the bamboo grove at dawn."
+        }
+      ],
+      "notes": "会意字源：上方宝盖（宀）象征书院学堂，下方『子』象征求学弟子。",
+      "fsrs_seed": {
+        "initial_difficulty": 3.4,
+        "initial_stability": 3.1
+      }
+    },
+    {
+      "ku_id": "zh_hsk1_hanzi_0002",
+      "unit_type": "hanzi",
+      "lang": "zh",
+      "level": "hsk1",
+      "text": "时",
+      "phonetic": {
+        "display": "shí",
+        "pinyin": "shí"
+      },
+      "pos": ["hanzi"],
+      "tags": ["radical:日", "strokes:7", "hsk:1"],
+      "definitions": [
+        "时（shí）：光阴、日晷刻度、季节时辰（部首：日，总笔画：7画）"
+      ],
+      "examples": [
+        {
+          "source": "珍惜每一寸晨光时间。",
+          "ruby": [
+            { "base": "珍惜", "rt": "zhēn xī" },
+            { "base": "每一寸", "rt": "měi yī cùn" },
+            { "base": "晨光", "rt": "chén guāng" },
+            { "base": "时间。", "rt": "shí jiān" }
+          ],
+          "translation": "Cherish every inch of morning time."
+        }
+      ],
+      "notes": "形声兼会意：左侧『日』表日影推移，右侧『寸』表法度寸刻。",
+      "fsrs_seed": {
+        "initial_difficulty": 3.3,
+        "initial_stability": 3.2
+      }
+    }
+  ]
+}
+

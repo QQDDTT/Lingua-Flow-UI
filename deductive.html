@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-spectrum="parchment">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
+  <meta name="theme-color" content="#f3efe6">
+  <title>雾都回响 · 案卷配置与取证中枢 | Lingua-Flow</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="theme-page-deductive" data-page-level="2" data-theme-hub="deductive">
+  <!-- 顶部导航栏：返回门户 + 三世界切换 + Z-02 五维色域切换 + Z-01 玩法图解唤醒 -->
+  <header class="top-navbar">
+    <div class="navbar-inner l2-hub-topbar">
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <a href="index.html" class="btn-secondary-ghost" id="back-to-home-link" style="min-height: 44px; padding: 6px 12px;">
+          <span>← 语言门户</span>
+        </a>
+        <nav class="hub-world-pills" aria-label="三大叙事世界快速切换">
+          <a href="deductive.html" class="hub-world-pill is-current" data-hub-switch="deductive" aria-current="page">🔍 雾都回响</a>
+          <a href="immersive.html" class="hub-world-pill" data-hub-switch="immersive">🌌 星尘漫游</a>
+          <a href="strategic.html" class="hub-world-pill" data-hub-switch="strategic">⚔️ 刻痕圣殿</a>
+        </nav>
+      </div>
+
+      <div class="nav-controls-group">
+        <div class="optic-dropdown-anchor" id="spectrum-dropdown-anchor">
+          <button type="button" class="optic-spectrum-btn" id="optic-spectrum-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="optic-spectrum-menu">
+            <span class="spectrum-swatch-dot" aria-hidden="true"></span>
+            <span id="optic-spectrum-label">🎨 色域：羊皮暖砂</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="optic-z2-dropdown" id="optic-spectrum-menu" role="menu" aria-hidden="true">
+            <div class="dropdown-section-caption">雾都法庭 · 五维光学色域切换</div>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="auto" role="menuitemradio" aria-checked="true">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f3efe6;"></span>
+                <span>✨ 维多利亚羊皮卷宗 (推荐)</span>
+              </span>
+              <span class="meta-pill">日间</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="porcelain" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f8fafc;"></span>
+                <span>S1 · 日光白瓷</span>
+              </span>
+              <span class="meta-pill">清朗</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="gallery" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f5f5ef;"></span>
+                <span>S2 · 汝窑暖素</span>
+              </span>
+              <span class="meta-pill">宣纸</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="parchment" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f3efe6;"></span>
+                <span>S3 · 羊皮暖砂</span>
+              </span>
+              <span class="meta-pill">卷宗</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="slate" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #edf2f7;"></span>
+                <span>S4 · 北欧雾灰</span>
+              </span>
+              <span class="meta-pill">岩板</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="obsidian" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #090d16; border-color: #475569;"></span>
+                <span>S5 · 煤气灯夜审</span>
+              </span>
+              <span class="meta-pill">暗房</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-secondary-ghost" id="open-rules-sheet-btn" style="min-height: 44px; padding: 6px 12px;">
+          <span>📖 取证图解</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- L2 主画布：L-A2 黄金比例主从双舞台 (1fr 案卷配置锚定台 : 1.618fr 火漆案卷陈列柜) -->
+  <main class="l2-split-horizon-shell">
+    <!-- 左舞台 (1fr)：维多利亚法庭主视觉、蔡司光学装备阶位与三行胶囊配置器 -->
+    <section class="l2-master-stage optic-stagger-item" style="--stagger-idx: 0;" aria-label="雾都回响案卷配置台">
+      <div class="l2-identity-row">
+        <img src="assets/textures/deductive/badge.svg" alt="雾都回响皇家档案徽章" class="l2-identity-badge" width="52" height="52">
+        <div>
+          <div class="l2-spectrum-kicker">01 · DEDUCTIVE · 皇家高等质证法庭</div>
+          <h1>雾都回响 · 案卷检视台</h1>
+        </div>
+      </div>
+
+      <p>
+        协同首席档案员艾琳·诺克斯，先以蔡司分光透镜鉴定物证词源，再于法庭证言中锁定违反时态与助词法则的伪证破绽。
+      </p>
+
+      <!-- 器具与场景主视觉预览舱 (保留 theme-workbench-mount / banner.svg / mechanic_hud.svg 契约) -->
+      <div class="l2-apparatus-showcase" id="theme-workbench-mount">
+        <div class="l2-banner-frame">
+          <img src="assets/textures/deductive/banner.svg" alt="雾都回响法庭与蔡司黄铜光学仪" width="600" height="130">
+        </div>
+        <div class="l2-rig-hud-strip">
+          <div class="l2-rig-hud-left">
+            <img src="assets/textures/deductive/mechanic_hud.svg" alt="蔡司取证仪阶位徽标" class="l2-rig-hud-icon" width="34" height="34">
+            <div>
+              <div style="font-size: var(--optic-font-xs); color: var(--text-tertiary); font-weight: 700;">当前取证光学器具</div>
+              <div class="l2-rig-tier-text" id="hub-rig-tier-val">T1 黄铜单筒放大镜</div>
+            </div>
+          </div>
+          <span class="meta-pill meta-pill-accent" id="hub-lang-badge">🇬🇧 英语 (CEFR B1)</span>
+        </div>
+      </div>
+
+      <!-- 紧凑三行 44px 分段胶囊配置器 -->
+      <div class="hub-config-matrix" role="group" aria-label="质证参数设定">
+        <div class="seg-control-row">
+          <span class="seg-row-label">🌐 专场语种</span>
+          <div class="seg-pill-group">
+            <button type="button" class="seg-pill-btn is-selected" data-hub-lang="en">🇬🇧 英语</button>
+            <button type="button" class="seg-pill-btn" data-hub-lang="ja">🇯🇵 日语</button>
+            <button type="button" class="seg-pill-btn" data-hub-lang="zh">🇨🇳 汉语</button>
+          </div>
+        </div>
+
+        <div class="seg-control-row">
+          <span class="seg-row-label">🎚️ 质证难度</span>
+          <div class="seg-pill-group" role="radiogroup" aria-label="选择质证难度">
+            <button type="button" class="seg-pill-btn" data-difficulty-select="tier1" role="radio" aria-checked="false">🌱 入门</button>
+            <button type="button" class="seg-pill-btn is-selected" data-difficulty-select="tier2" role="radio" aria-checked="true">⚖️ 进阶</button>
+            <button type="button" class="seg-pill-btn" data-difficulty-select="tier3" role="radio" aria-checked="false">🔥 精通</button>
+          </div>
+        </div>
+
+        <div class="seg-control-row">
+          <span class="seg-row-label">🎯 训练重心</span>
+          <div class="seg-pill-group" role="radiogroup" aria-label="选择训练重心">
+            <button type="button" class="seg-pill-btn is-selected" data-content-select="all" role="radio" aria-checked="true">📚 综合双轴</button>
+            <button type="button" class="seg-pill-btn" data-content-select="lemma" role="radio" aria-checked="false">🔬 词源鉴定</button>
+            <button type="button" class="seg-pill-btn" data-content-select="grammar" role="radio" aria-checked="false">🎯 证词破绽</button>
+          </div>
+        </div>
+      </div>
+
+      <a href="learn.html?theme=deductive" class="btn-theme btn-deductive" id="hub-quick-start-btn" style="width: 100%;">
+        <span>⚡ 立即升堂 · 进入推荐待办案卷</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <!-- 右舞台 (1.618fr)：火漆封印案卷陈列柜 -->
+    <section class="l2-detail-stage optic-stagger-item" style="--stagger-idx: 1;" aria-labelledby="chapters-heading">
+      <div class="l2-detail-header">
+        <div>
+          <span class="meta-pill" style="margin-bottom: 4px;">📂 皇家档案馆 · 纯净单语卷宗库</span>
+          <h2 id="chapters-heading">选择案卷进入法庭双幕质证</h2>
+        </div>
+        <div class="l2-status-badges">
+          <span class="meta-pill" id="hub-diff-badge">🎚️ 进阶 (Standard)</span>
+          <span class="meta-pill meta-pill-accent" id="hub-content-badge">📚 综合双轴实操</span>
+        </div>
+      </div>
+
+      <div class="hub-chapters-grid" id="hub-chapters-mount">
+        <!-- 由 app.js 按已选单一语言渲染专属火漆案卷卡片 -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Z-01 主动唤醒抽屉：皇家质证三步操作法 (保留 usage-guide-section 类名契约) -->
+  <div class="optic-sheet-backdrop" id="rules-guide-sheet" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rules-sheet-title">
+    <div class="optic-sheet-panel usage-guide-section">
+      <div class="optic-sheet-header">
+        <div>
+          <span class="meta-pill meta-pill-accent">🦉 首席档案员 · 艾琳·诺克斯办案手册</span>
+          <h2 class="optic-sheet-title" id="rules-sheet-title" style="margin-top: 4px;">雾都回响 · 双幕取证与质证图解</h2>
+        </div>
+        <button type="button" class="sheet-close-btn" data-close-sheet="rules-guide-sheet" aria-label="关闭取证图解">✕ 关闭</button>
+      </div>
+      <div class="optic-sheet-body">
+        <p>
+          演练台采用恒定画幅分幕幻灯片架构：第一幕专注词源屈光鉴定，达标后自动推入第二幕法庭证言交锋，全程零纵向跳变。
+        </p>
+        <div class="usage-steps-grid">
+          <div class="usage-step-card">
+            <span class="usage-step-num">1</span>
+            <h3>第一幕 · 蔡司屈光锁焦</h3>
+            <p style="font-size: var(--optic-font-sm);">拖动黄铜调焦滑杆超越清晰度阈值，看清物证词根、音标与部首拆解。</p>
+          </div>
+          <div class="usage-step-card">
+            <span class="usage-step-num">2</span>
+            <h3>第二幕 · 锁定破绽与物证</h3>
+            <p style="font-size: var(--optic-font-sm);">在扇形候选词牌中点选违反语法的破绽词块，并勾选时间线吻合的物证卡。</p>
+          </div>
+          <div class="usage-step-card">
+            <span class="usage-step-num">3</span>
+            <h3>终局 · 猩红激光裁决</h3>
+            <p style="font-size: var(--optic-font-sm);">发射矛盾指控针击穿伪证，自动依据专注耗时与失误写入 FSRS-5 记忆参数。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div>© 2026 Lingua-Flow · 雾都回响 (Deductive Courtroom Hub)</div>
+    <div>S3 Warm-Parchment / S5 Gaslamp Obsidian Dual-Mode</div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

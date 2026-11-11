@@ -1,0 +1,115 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-08T08:00:00Z",
+  "standard": "HSK3",
+  "language": "zh",
+  "level": "hsk1",
+  "unit_type": "grammar",
+  "total_items": 2,
+  "items": [
+    {
+      "ku_id": "zh_hsk1_grammar_0001",
+      "unit_type": "grammar",
+      "lang": "zh",
+      "level": "hsk1",
+      "text": "主语 + 时间状语 + 在 + 处所 + 动词",
+      "phonetic": {
+        "display": "S + Time + zài + Place + V",
+        "pinyin": "shí jiān zhuàng yǔ qián zhì"
+      },
+      "pos": [
+        "syntax"
+      ],
+      "tags": [
+        "hsk1",
+        "word-order",
+        "time-adverbial"
+      ],
+      "definitions": [
+        "现代汉语时间状语与处所状语标准语序：时间词与“在+地点”必须置于核心谓语动词之前。"
+      ],
+      "formation": "主语 + 时间词 + 在 + 处所 + 动词 + 宾语",
+      "examples": [
+        {
+          "source": "我昨天晚上八点在车厢里读书。",
+          "ruby": [
+            {
+              "base": "我",
+              "rt": "wǒ"
+            },
+            {
+              "base": "昨天晚上八点",
+              "rt": "zuó tiān wǎn shang bā diǎn"
+            },
+            {
+              "base": "在车厢里",
+              "rt": "zài chē xiāng lǐ"
+            },
+            {
+              "base": "读书。",
+              "rt": "dú shū"
+            }
+          ],
+          "translation": "I was reading a book in the carriage at 8:00 PM yesterday."
+        }
+      ],
+      "notes": "区别于英语将地点与时间置于句尾（reading in the carriage at 8 PM），汉语严禁将时间/处所状语直接后置于动词之后。",
+      "fsrs_seed": {
+        "initial_difficulty": 2.6,
+        "initial_stability": 3.0
+      }
+    },
+    {
+      "ku_id": "zh_hsk1_grammar_0002",
+      "unit_type": "grammar",
+      "lang": "zh",
+      "level": "hsk1",
+      "text": "是……（判断句）与动宾正序（V + O）",
+      "phonetic": {
+        "display": "shì ... / V + O",
+        "pinyin": "pàn duàn jù yǔ dòng bīn jié gòu"
+      },
+      "pos": [
+        "syntax"
+      ],
+      "tags": [
+        "hsk1",
+        "svo",
+        "copula"
+      ],
+      "definitions": [
+        "以系动词“是”构成判断句，且及物动词置于受事宾语之前构成标准 SVO 动宾结构。"
+      ],
+      "formation": "主语 + 是 + 名词 / 主语 + 动词 + 宾语",
+      "examples": [
+        {
+          "source": "我是学院的学生，珍惜每一段黄金时间。",
+          "ruby": [
+            {
+              "base": "我是",
+              "rt": "wǒ shì"
+            },
+            {
+              "base": "学院的学生，",
+              "rt": "xué yuàn de xué sheng"
+            },
+            {
+              "base": "珍惜",
+              "rt": "zhēn xī"
+            },
+            {
+              "base": "每一段黄金时间。",
+              "rt": "měi yī duàn huáng jīn shí jiān"
+            }
+          ],
+          "translation": "I am a student of the academy, cherishing every golden moment."
+        }
+      ],
+      "notes": "HSK 3.0 一级核心句法。",
+      "fsrs_seed": {
+        "initial_difficulty": 2.4,
+        "initial_stability": 3.2
+      }
+    }
+  ]
+}

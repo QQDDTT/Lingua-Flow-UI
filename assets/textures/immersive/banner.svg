@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" width="600" height="180">
+  <defs>
+    <!-- 1. 材质物理与光学滤镜层：推光黑大漆 + 宋代汝窑天青冰裂 + 全光谱鲍鱼螺钿虹彩 + 24K金缮 -->
+    <radialGradient id="ib-urushi" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="#171324"/>
+      <stop offset="45%" stop-color="#0d0b14"/>
+      <stop offset="80%" stop-color="#09080a"/>
+      <stop offset="100%" stop-color="#040306"/>
+    </radialGradient>
+    <linearGradient id="ib-celadon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0f9ff"/>
+      <stop offset="30%" stop-color="#bae6fd"/>
+      <stop offset="65%" stop-color="#7dd3fc"/>
+      <stop offset="90%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="ib-raden" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2dd4bf"/>
+      <stop offset="25%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#c084fc"/>
+      <stop offset="75%" stop-color="#f472b6"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="ib-gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="30%" stop-color="#fde047"/>
+      <stop offset="60%" stop-color="#fbbf24"/>
+      <stop offset="85%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#fef08a"/>
+    </linearGradient>
+    <radialGradient id="ib-lumi" cx="50%" cy="38%" r="58%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="32%" stop-color="#f5d0fe"/>
+      <stop offset="68%" stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </radialGradient>
+  </defs>
+
+  <!-- 2. <g id="layer-footprint">：推光黑大漆镜面盘与24K金缮回纹底座（零虚线环） -->
+  <g id="layer-footprint">
+    <rect width="600" height="180" rx="14" fill="url(#ib-urushi)" stroke="url(#ib-gold)" stroke-width="2"/>
+    <rect x="8" y="8" width="584" height="164" rx="10" fill="none" stroke="url(#ib-raden)" stroke-width="1" stroke-opacity="0.6"/>
+    <!-- 贯穿全域的24K金缮正弦谐振波 -->
+    <path d="M20,90 C90,42 150,138 220,90 C290,42 350,138 420,90 C490,42 540,138 580,90" fill="none" stroke="url(#ib-gold)" stroke-width="2" stroke-opacity="0.45"/>
+  </g>
+
+  <!-- 3. <g id="layer-chassis">：T1 -> T2 -> T3 跨等级拓扑进化序列（天青音石 -> 四扇螺钿盘 -> 八角折扇坛城） -->
+  <g id="layer-chassis">
+    <!-- T1 基础阶：单核汝窑天青冰裂共鸣石 (左侧 x=112) -->
+    <g transform="translate(112, 84)">
+      <circle cx="0" cy="0" r="32" fill="url(#ib-celadon)" fill-opacity="0.65" stroke="url(#ib-gold)" stroke-width="3"/>
+      <path d="M-22,-10 L-4,6 L18,-14 M-12,18 L6,2 L22,14" fill="none" stroke="url(#ib-gold)" stroke-width="2" stroke-linecap="round"/>
+      <text x="0" y="6" text-anchor="middle" fill="#ffffff" font-family="serif" font-size="16" font-weight="bold">私</text>
+      <text x="0" y="58" text-anchor="middle" fill="#bae6fd" font-family="sans-serif" font-size="10" font-weight="bold">T1 · 汝窑金缮音石</text>
+    </g>
+
+    <!-- 进化箭头 1 -->
+    <path d="M164,84 L198,84 L190,78 M198,84 L190,90" fill="none" stroke="url(#ib-raden)" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- T2 进阶阶：四叶折扇黑漆螺钿调频盘 (中侧 x=282) -->
+    <g transform="translate(282, 84)">
+      <polygon points="0,-42 42,0 0,42 -42,0" fill="#09080a" stroke="url(#ib-gold)" stroke-width="3"/>
+      <path d="M0,0 L-22,-32 Q0,-40 22,-32 Z M0,0 L22,32 Q0,40 -22,32 Z" fill="url(#ib-celadon)" fill-opacity="0.5" stroke="url(#ib-gold)" stroke-width="1.5"/>
+      <path d="M0,0 L32,-22 Q40,0 32,22 Z M0,0 L-32,22 Q-40,0 -32,-22 Z" fill="url(#ib-raden)" fill-opacity="0.75"/>
+      <circle cx="0" cy="0" r="14" fill="#09080a" stroke="url(#ib-gold)" stroke-width="2"/>
+      <text x="0" y="58" text-anchor="middle" fill="#e9d5ff" font-family="sans-serif" font-size="10" font-weight="bold">T2 · 四扇螺钿调频盘</text>
+    </g>
+
+    <!-- 进化箭头 2 -->
+    <path d="M346,84 L380,84 L372,78 M380,84 L372,90" fill="none" stroke="url(#ib-raden)" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- T3 终极阶：八角对称折扇坛城与星尘水母露米谐振中枢 (右侧 x=472) -->
+    <g transform="translate(472, 84)">
+      <polygon points="0,-52 37,-37 52,0 37,37 0,52 -37,37 -52,0 -37,-37" fill="#09080a" stroke="url(#ib-gold)" stroke-width="3"/>
+      <path d="M0,0 L-16,-48 L16,-48 Z M0,0 L16,48 L-16,48 Z M0,0 L-48,-16 L-48,16 Z M0,0 L48,-16 L48,16 Z" fill="url(#ib-celadon)" fill-opacity="0.48" stroke="url(#ib-gold)" stroke-width="1.2"/>
+      <path d="M0,0 L16,-48 L48,-16 Z M0,0 L48,16 L16,48 Z M0,0 L-16,48 L-48,16 Z M0,0 L-48,-16 L-16,-48 Z" fill="url(#ib-raden)" fill-opacity="0.65"/>
+      <circle cx="0" cy="0" r="28" fill="#09080a" stroke="url(#ib-gold)" stroke-width="2"/>
+      <!-- 中心水母向导露米 -->
+      <path d="M-16,-4 C-16,-22 16,-22 16,-4 C10,2 -10,2 -16,-4 Z" fill="url(#ib-lumi)" stroke="#fef08a" stroke-width="1.5"/>
+      <path d="M-9,0 Q-12,14 -7,22 M0,1 Q0,15 0,24 M9,0 Q12,14 7,22" fill="none" stroke="url(#ib-raden)" stroke-width="2" stroke-linecap="round"/>
+      <text x="0" y="64" text-anchor="middle" fill="#fef08a" font-family="sans-serif" font-size="10" font-weight="bold">T3 · 八角折扇螺钿坛城</text>
+    </g>
+  </g>
+
+  <!-- 4. <g id="layer-mechanics">：黄铜浑天仪刻度与双层声波调频弦 -->
+  <g id="layer-mechanics">
+    <path d="M446,84 C458,66 470,102 482,84 C488,74 494,94 500,84" fill="none" stroke="#34d399" stroke-width="2"/>
+    <circle cx="472" cy="32" r="2.5" fill="#fef08a"/>
+    <circle cx="472" cy="136" r="2.5" fill="#fef08a"/>
+    <circle cx="420" cy="84" r="2.5" fill="#fef08a"/>
+    <circle cx="524" cy="84" r="2.5" fill="#fef08a"/>
+  </g>
+
+  <!-- 5. <g id="layer-patina-fx">：螺钿四角星芒、晨露水珠高光与金箔微粒 -->
+  <g id="layer-patina-fx">
+    <polygon points="48,36 51,44 59,47 51,50 48,58 45,50 37,47 45,44" fill="url(#ib-raden)"/>
+    <polygon points="558,38 561,46 569,49 561,52 558,60 555,52 547,49 555,46" fill="url(#ib-raden)"/>
+    <ellipse cx="102" cy="70" rx="7" ry="3" transform="rotate(-20 102 70)" fill="#ffffff" fill-opacity="0.8"/>
+    <ellipse cx="466" cy="72" rx="6" ry="2.5" transform="rotate(-18 466 72)" fill="#ffffff" fill-opacity="0.88"/>
+  </g>
+</svg>
+

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 130" width="100%" height="100%" role="img" aria-label="雾都回响·双缝天平与证言铆接台 HUD 贴图">
+  <defs>
+    <!-- 1A+1A+1A: 暖金丁达尔雾光与古铜天平 PBR 渐变 -->
+    <linearGradient id="ded-hud-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050914" />
+      <stop offset="50%" stop-color="#0b1528" />
+      <stop offset="100%" stop-color="#040710" />
+    </linearGradient>
+    <linearGradient id="ded-hud-brass" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#451a03" />
+      <stop offset="22%" stop-color="#92400e" />
+      <stop offset="50%" stop-color="#fde68a" />
+      <stop offset="78%" stop-color="#b45309" />
+      <stop offset="100%" stop-color="#451a03" />
+    </linearGradient>
+    <radialGradient id="ded-hud-tyndall" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#fde68a" stop-opacity="0.32" />
+      <stop offset="55%" stop-color="#f59e0b" stop-opacity="0.10" />
+      <stop offset="100%" stop-color="#050914" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="ded-hud-wax" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fca5a5" />
+      <stop offset="35%" stop-color="#dc2626" />
+      <stop offset="75%" stop-color="#7f1d1d" />
+      <stop offset="100%" stop-color="#450a0a" />
+    </linearGradient>
+    <linearGradient id="ded-hud-teal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e0f2fe" />
+      <stop offset="45%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0c4a6e" />
+    </linearGradient>
+    <style>
+      .ded-pendulum-arm {
+        transform-origin: 300px 22px;
+        animation: ded-pendulum-swing 4.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+      }
+      .ded-scale-beam {
+        transform-origin: 300px 22px;
+        animation: ded-beam-balance 4.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+      }
+      .ded-seal-star {
+        transform-origin: 420px 59px;
+        animation: ded-seal-rotate 18s linear infinite;
+      }
+      .ded-tyndall-cone {
+        animation: ded-tyndall-breathe 5.4s ease-in-out infinite alternate;
+      }
+      @keyframes ded-pendulum-swing {
+        0% { transform: rotate(-4.5deg); }
+        100% { transform: rotate(4.5deg); }
+      }
+      @keyframes ded-beam-balance {
+        0% { transform: rotate(-1.6deg); }
+        100% { transform: rotate(1.6deg); }
+      }
+      @keyframes ded-seal-rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes ded-tyndall-breathe {
+        0% { opacity: 0.38; }
+        100% { opacity: 0.72; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .ded-pendulum-arm, .ded-scale-beam, .ded-seal-star, .ded-tyndall-cone {
+          animation: none !important;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Layer 1: Footprint & Grounding (环境接地与阴影层) -->
+  <g id="layer-footprint">
+    <rect x="2" y="2" width="596" height="126" rx="10" fill="url(#ded-hud-bg)" stroke="#78350f" stroke-width="1.5" />
+    <ellipse cx="300" cy="65" rx="260" ry="52" fill="url(#ded-hud-tyndall)" />
+    <!-- 鲸油雾港地砖透视网格线 -->
+    <path d="M 20,108 L 580,108 M 45,118 L 555,118" stroke="#1e293b" stroke-width="1" opacity="0.7" />
+    <path d="M 120,108 L 95,124 M 210,108 L 195,124 M 300,108 L 300,124 M 390,108 L 405,124 M 480,108 L 505,124" stroke="#1e293b" stroke-width="1" opacity="0.6" />
+  </g>
+
+  <!-- Layer 2: Primary Chassis (主体装甲与天平基座层) -->
+  <g id="layer-chassis">
+    <!-- 顶部与底部铆接黄铜横梁 -->
+    <rect x="14" y="10" width="572" height="6" rx="3" fill="url(#ded-hud-brass)" opacity="0.85" />
+    <rect x="14" y="105" width="572" height="7" rx="3" fill="url(#ded-hud-brass)" opacity="0.9" />
+    <!-- 中央法庭钟楼立柱与天平底座 -->
+    <polygon points="282,105 318,105 310,32 290,32" fill="#0f172a" stroke="url(#ded-hud-brass)" stroke-width="1.8" />
+    <polygon points="268,112 332,112 322,102 278,102" fill="url(#ded-hud-brass)" />
+    <!-- 左右证物托盘外框 (Left: 控方证词槽 / Right: 辩方卷宗槽) -->
+    <rect x="28" y="26" width="195" height="66" rx="6" fill="#091326" stroke="#b45309" stroke-width="1.5" />
+    <rect x="377" y="26" width="195" height="66" rx="6" fill="#091326" stroke="#b45309" stroke-width="1.5" />
+    <!-- 羊皮纸内衬与折痕 -->
+    <rect x="34" y="32" width="183" height="54" rx="4" fill="#1c1917" stroke="#78350f" stroke-width="1" />
+    <rect x="383" y="32" width="183" height="54" rx="4" fill="#1c1917" stroke="#78350f" stroke-width="1" />
+  </g>
+
+  <!-- Layer 3: Internal Mechanics (精密内构与刻度层) -->
+  <g id="layer-mechanics">
+    <!-- 双翼天平横臂 -->
+    <path class="ded-scale-beam" d="M 125,26 L 300,18 L 475,26" fill="none" stroke="url(#ded-hud-brass)" stroke-width="3" />
+    <circle cx="300" cy="22" r="11" fill="#090d16" stroke="url(#ded-hud-brass)" stroke-width="2.5" />
+    <circle cx="300" cy="22" r="4" fill="#fde68a" />
+    <!-- 中央钟摆指针与游标刻度盘 -->
+    <path d="M 272,62 A 30,30 0 0,1 328,62" fill="none" stroke="#f59e0b" stroke-width="1.4" opacity="0.85" />
+    <g class="ded-pendulum-arm">
+      <line x1="300" y1="22" x2="300" y2="88" stroke="#fde68a" stroke-width="2" />
+      <polygon points="300,94 295,82 305,82" fill="#fde68a" />
+    </g>
+    <!-- 左舱：煤气灯光谱比对刻度与语料声纹 -->
+    <path d="M 46,60 L 66,60 L 74,45 L 84,74 L 94,50 L 104,68 L 114,56 L 130,60 L 204,60" fill="none" stroke="url(#ded-hud-teal)" stroke-width="1.8" />
+    <circle cx="74" cy="45" r="2.5" fill="#e0f2fe" />
+    <circle cx="94" cy="50" r="2.5" fill="#e0f2fe" />
+    <text x="46" y="44" fill="#fde68a" font-family="serif" font-size="9" letter-spacing="1">EXHIBIT A · 证言声纹校对</text>
+    <text x="46" y="80" fill="#94a3b8" font-family="monospace" font-size="8">CALIBRATION: REMBRANDT-700K</text>
+    <!-- 右舱：火漆封印与卷宗齿轮锁定结构 -->
+    <circle cx="420" cy="59" r="16" fill="url(#ded-hud-wax)" stroke="#fde68a" stroke-width="1.2" />
+    <polygon class="ded-seal-star" points="420,48 424,55 432,55 426,60 428,68 420,63 412,68 414,60 408,55 416,55" fill="#fde68a" opacity="0.85" />
+    <text x="446" y="48" fill="#fde68a" font-family="serif" font-size="9" letter-spacing="1">SEAL OF VERDICT</text>
+    <text x="446" y="62" fill="#fca5a5" font-family="monospace" font-size="8">LOGIC CHAIN: LOCKED</text>
+    <path d="M 446,72 L 552,72" stroke="#b45309" stroke-width="2" />
+    <circle cx="465" cy="72" r="3" fill="#fde68a" />
+    <circle cx="505" cy="72" r="3" fill="#fde68a" />
+    <circle cx="545" cy="72" r="3" fill="#38bdf8" />
+  </g>
+
+  <!-- Layer 4: Patina & FX (岁月包浆与光效层) -->
+  <g id="layer-patina-fx">
+    <!-- 丁达尔斜射光束 -->
+    <polygon class="ded-tyndall-cone" points="240,2 360,2 420,128 180,128" fill="url(#ded-hud-tyndall)" opacity="0.55" />
+    <!-- 四角黄铜铆钉高光 -->
+    <circle cx="22" cy="13" r="2.2" fill="#fef3c7" />
+    <circle cx="578" cy="13" r="2.2" fill="#fef3c7" />
+    <circle cx="22" cy="108" r="2.2" fill="#fef3c7" />
+    <circle cx="578" cy="108" r="2.2" fill="#fef3c7" />
+    <!-- 悬浮煤灰金粉微粒 -->
+    <circle cx="255" cy="42" r="1.3" fill="#fde68a" opacity="0.8" />
+    <circle cx="345" cy="36" r="1.5" fill="#fde68a" opacity="0.75" />
+    <circle cx="275" cy="78" r="1.1" fill="#38bdf8" opacity="0.8" />
+    <circle cx="332" cy="72" r="1.2" fill="#fde68a" opacity="0.7" />
+  </g>
+</svg>
+

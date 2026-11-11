@@ -1,0 +1,84 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-07T04:30:00Z",
+  "standard": "JLPT",
+  "language": "ja",
+  "level": "n5",
+  "unit_type": "grammar",
+  "total_items": 2,
+  "items": [
+    {
+      "ku_id": "ja_n5_grammar_0001",
+      "unit_type": "grammar",
+      "lang": "ja",
+      "level": "n5",
+      "text": "〜は",
+      "phonetic": {
+        "display": "wa",
+        "romaji": "wa"
+      },
+      "pos": ["particle"],
+      "tags": ["particle", "topic"],
+      "definitions": [
+        "提示句子的主题，相当于汉语的“至于…… / 是……”"
+      ],
+      "formation": "名词 + は",
+      "examples": [
+        {
+          "source": "私は異星の探検家です。",
+          "ruby": [
+            { "base": "私", "rt": "わたし" },
+            { "base": "は", "rt": "" },
+            { "base": "異星", "rt": "いせい" },
+            { "base": "の", "rt": "" },
+            { "base": "探検家", "rt": "たんけんか" },
+            { "base": "です。", "rt": "" }
+          ],
+          "translation": "我是异星的探险家。"
+        }
+      ],
+      "notes": "虽然写作假名'は'，但作为主题助词时发音为'wa'。",
+      "fsrs_seed": {
+        "initial_difficulty": 2.8,
+        "initial_stability": 3.0
+      }
+    },
+    {
+      "ku_id": "ja_n5_grammar_0012",
+      "unit_type": "grammar",
+      "lang": "ja",
+      "level": "n5",
+      "text": "〜ない（動詞未然形＋ない）",
+      "phonetic": {
+        "display": "nai",
+        "romaji": "nai"
+      },
+      "pos": ["auxiliary"],
+      "tags": ["conjugation", "negative"],
+      "definitions": [
+        "动词简体否定形态，接在五段动词未然形（あ段）或一段动词词干之后。"
+      ],
+      "formation": "動詞未然形 + ない（例：書く → 書かない）",
+      "examples": [
+        {
+          "source": "古いルーン文字を書かない。",
+          "ruby": [
+            { "base": "古", "rt": "ふる" },
+            { "base": "いルーン", "rt": "" },
+            { "base": "文字", "rt": "もじ" },
+            { "base": "を", "rt": "" },
+            { "base": "書", "rt": "か" },
+            { "base": "かない。", "rt": "" }
+          ],
+          "translation": "不书写古老的符文文字。"
+        }
+      ],
+      "notes": "五段动词词尾由う段变为同行あ段假名后接续ない（唯一例外：ある → ない）。",
+      "fsrs_seed": {
+        "initial_difficulty": 3.5,
+        "initial_stability": 2.5
+      }
+    }
+  ]
+}
+

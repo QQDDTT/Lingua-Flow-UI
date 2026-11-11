@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 130" width="100%" height="100%" role="img" aria-label="星尘漫游·推光黑漆与金缮螺钿谐振星盘 HUD 贴图">
+  <defs>
+    <!-- 2B+2C+2D: 推光黑漆镜面 + 宋代汝窑天青冰裂 + 24K 金缮 + 鲍鱼壳夜光螺钿虹彩 -->
+    <linearGradient id="imm-hud-lacquer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050406" />
+      <stop offset="50%" stop-color="#09080c" />
+      <stop offset="100%" stop-color="#040305" />
+    </linearGradient>
+    <linearGradient id="imm-hud-raden" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7dd3fc" />
+      <stop offset="28%" stop-color="#34d399" />
+      <stop offset="58%" stop-color="#c084fc" />
+      <stop offset="82%" stop-color="#f472b6" />
+      <stop offset="100%" stop-color="#7dd3fc" />
+    </linearGradient>
+    <linearGradient id="imm-hud-kintsugi" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#78350f" />
+      <stop offset="35%" stop-color="#f59e0b" />
+      <stop offset="55%" stop-color="#fef08a" />
+      <stop offset="80%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#78350f" />
+    </linearGradient>
+    <radialGradient id="imm-hud-celadon" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7dd3fc" stop-opacity="0.28" />
+      <stop offset="55%" stop-color="#c084fc" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#09080a" stop-opacity="0" />
+    </radialGradient>
+    <style>
+      .imm-compass-star {
+        transform-origin: 300px 65px;
+        animation: imm-star-rotate 20s linear infinite;
+      }
+      .imm-compass-core {
+        transform-origin: 300px 65px;
+        animation: imm-core-breathe 3.8s ease-in-out infinite alternate;
+      }
+      .imm-wave-raden {
+        animation: imm-wave-pulse 3.2s ease-in-out infinite alternate;
+      }
+      @keyframes imm-star-rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes imm-core-breathe {
+        0% { transform: scale(0.9); opacity: 0.82; }
+        100% { transform: scale(1.16); opacity: 1; }
+      }
+      @keyframes imm-wave-pulse {
+        0% { opacity: 0.72; }
+        100% { opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .imm-compass-star, .imm-compass-core, .imm-wave-raden {
+          animation: none !important;
+        }
+      }
+    </style>
+  </defs>
+
+  <!-- Layer 1: Footprint & Grounding (推光黑漆镜面基底与八角坛城倒影层) -->
+  <g id="layer-footprint">
+    <rect x="2" y="2" width="596" height="126" rx="12" fill="url(#imm-hud-lacquer)" stroke="url(#imm-hud-kintsugi)" stroke-width="1.6" />
+    <ellipse cx="300" cy="65" rx="250" ry="54" fill="url(#imm-hud-celadon)" />
+    <!-- 汝窑开片冰裂暗纹 (实线晶体拓扑，严禁虚线) -->
+    <path d="M 18,32 L 95,48 L 142,20 L 210,55 L 165,98 L 78,112 L 18,84 Z" fill="none" stroke="#7dd3fc" stroke-width="0.7" opacity="0.22" />
+    <path d="M 582,28 L 505,46 L 452,18 L 392,58 L 438,102 L 520,114 L 582,86 Z" fill="none" stroke="#c084fc" stroke-width="0.7" opacity="0.22" />
+  </g>
+
+  <!-- Layer 2: Primary Chassis (中心八角坛城与左右螺钿折扇共鸣腔层) -->
+  <g id="layer-chassis">
+    <!-- 中心八角坛城外框 -->
+    <polygon points="282,12 318,12 344,38 344,92 318,118 282,118 256,92 256,38" fill="#0d131a" stroke="url(#imm-hud-raden)" stroke-width="2" />
+    <polygon points="286,20 314,20 336,42 336,88 314,110 286,110 264,88 264,42" fill="#070a0f" stroke="url(#imm-hud-kintsugi)" stroke-width="1.2" />
+    <!-- 左翼螺钿折扇面板：母语语义场盲听回响 -->
+    <path d="M 26,24 L 236,24 L 246,65 L 236,106 L 26,106 Z" fill="#0b0f17" stroke="url(#imm-hud-raden)" stroke-width="1.4" />
+    <!-- 右翼螺钿折扇面板：金缮谐振锁相槽 -->
+    <path d="M 574,24 L 364,24 L 354,65 L 364,106 L 574,106 Z" fill="#0b0f17" stroke="url(#imm-hud-raden)" stroke-width="1.4" />
+  </g>
+
+  <!-- Layer 3: Internal Mechanics (精密内构：双轨声学谐振波形与金缮星轨层) -->
+  <g id="layer-mechanics">
+    <!-- 中央星盘八芒螺钿罗盘 -->
+    <circle cx="300" cy="65" r="28" fill="none" stroke="url(#imm-hud-raden)" stroke-width="1.5" />
+    <polygon class="imm-compass-star" points="300,34 307,58 331,65 307,72 300,96 293,72 269,65 293,58" fill="url(#imm-hud-raden)" opacity="0.88" />
+    <circle class="imm-compass-core" cx="300" cy="65" r="6" fill="#fef08a" stroke="#f59e0b" stroke-width="1.5" />
+    <!-- 左翼：24K 金缮基准谐振波与夜光螺钿实测波 (纯实线连续光带) -->
+    <text x="40" y="42" fill="#7dd3fc" font-family="sans-serif" font-size="9" letter-spacing="1">RADEN ACOUSTIC HARMONY · 螺钿声学共振</text>
+    <path d="M 40,70 C 68,42 96,98 124,70 C 152,42 180,98 208,70 L 228,70" fill="none" stroke="url(#imm-hud-kintsugi)" stroke-width="2" opacity="0.85" />
+    <path class="imm-wave-raden" d="M 40,70 C 68,46 96,94 124,70 C 152,46 180,94 208,70 L 228,70" fill="none" stroke="url(#imm-hud-raden)" stroke-width="2.4" />
+    <circle cx="82" cy="70" r="3" fill="#fef08a" />
+    <circle cx="166" cy="70" r="3" fill="#34d399" />
+    <!-- 右翼：金缮裂隙弥合度与汝窑天青共鸣节点 -->
+    <text x="378" y="42" fill="#f472b6" font-family="sans-serif" font-size="9" letter-spacing="1">KINTSUGI PHASE LOCK · 金缮锁相环</text>
+    <path d="M 378,66 L 412,54 L 448,74 L 486,52 L 524,68 L 558,58" fill="none" stroke="url(#imm-hud-kintsugi)" stroke-width="2.2" />
+    <polygon points="412,50 416,54 412,58 408,54" fill="#fef08a" />
+    <polygon points="486,48 490,52 486,56 482,52" fill="#7dd3fc" />
+    <polygon points="558,54 562,58 558,62 554,58" fill="#34d399" />
+    <text x="378" y="92" fill="#cbd5e1" font-family="monospace" font-size="8">NACRE IRIDESCENCE: 520nm-640nm LOCKED</text>
+  </g>
+
+  <!-- Layer 4: Patina & FX (24K 金缮描金关节与螺钿极光微粒层) -->
+  <g id="layer-patina-fx">
+    <!-- 24K 金缮修补金线横贯主体 -->
+    <path d="M 236,45 L 264,42 M 236,85 L 264,88 M 336,42 L 364,45 M 336,88 L 364,85" stroke="url(#imm-hud-kintsugi)" stroke-width="2.2" />
+    <circle cx="250" cy="43.5" r="2.5" fill="#fef08a" />
+    <circle cx="350" cy="43.5" r="2.5" fill="#fef08a" />
+    <circle cx="250" cy="86.5" r="2.5" fill="#fef08a" />
+    <circle cx="350" cy="86.5" r="2.5" fill="#fef08a" />
+    <!-- 悬浮螺钿虹彩星尘 -->
+    <circle cx="276" cy="28" r="1.5" fill="#7dd3fc" />
+    <circle cx="324" cy="28" r="1.5" fill="#f472b6" />
+    <circle cx="276" cy="102" r="1.5" fill="#34d399" />
+    <circle cx="324" cy="102" r="1.5" fill="#fbbf24" />
+  </g>
+</svg>
+

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-spectrum="gallery">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none';">
+  <meta name="theme-color" content="#f5f5ef">
+  <title>星尘漫游 · 谐振星盘与漫步手帐 | Lingua-Flow</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="theme-page-immersive" data-page-level="2" data-theme-hub="immersive">
+  <!-- 顶部导航栏：返回门户 + 三世界切换 + Z-02 五维色域切换 + Z-01 漫游指南唤醒 -->
+  <header class="top-navbar">
+    <div class="navbar-inner l2-hub-topbar">
+      <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+        <a href="index.html" class="btn-secondary-ghost" id="back-to-home-link" style="min-height: 44px; padding: 6px 12px;">
+          <span>← 语言门户</span>
+        </a>
+        <nav class="hub-world-pills" aria-label="三大叙事世界快速切换">
+          <a href="deductive.html" class="hub-world-pill" data-hub-switch="deductive">🔍 雾都回响</a>
+          <a href="immersive.html" class="hub-world-pill is-current" data-hub-switch="immersive" aria-current="page">🌌 星尘漫游</a>
+          <a href="strategic.html" class="hub-world-pill" data-hub-switch="strategic">⚔️ 刻痕圣殿</a>
+        </nav>
+      </div>
+
+      <div class="nav-controls-group">
+        <div class="optic-dropdown-anchor" id="spectrum-dropdown-anchor">
+          <button type="button" class="optic-spectrum-btn" id="optic-spectrum-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="optic-spectrum-menu">
+            <span class="spectrum-swatch-dot" aria-hidden="true"></span>
+            <span id="optic-spectrum-label">🎨 色域：汝窑暖素</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="optic-z2-dropdown" id="optic-spectrum-menu" role="menu" aria-hidden="true">
+            <div class="dropdown-section-caption">星尘漫游 · 五维光学色域切换</div>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="auto" role="menuitemradio" aria-checked="true">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f5f5ef;"></span>
+                <span>✨ 宋代汝窑天青素白 (推荐)</span>
+              </span>
+              <span class="meta-pill">日间</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="porcelain" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f8fafc;"></span>
+                <span>S1 · 日光白瓷</span>
+              </span>
+              <span class="meta-pill">清朗</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="gallery" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f5f5ef;"></span>
+                <span>S2 · 汝窑暖素</span>
+              </span>
+              <span class="meta-pill">画廊</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="parchment" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #f3efe6;"></span>
+                <span>S3 · 羊皮暖砂</span>
+              </span>
+              <span class="meta-pill">护眼</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="slate" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #edf2f7;"></span>
+                <span>S4 · 北欧雾灰</span>
+              </span>
+              <span class="meta-pill">岩板</span>
+            </button>
+            <button type="button" class="spectrum-option-btn" data-spectrum-choice="obsidian" role="menuitemradio" aria-checked="false">
+              <span class="spectrum-option-left">
+                <span class="spectrum-chip-preview" style="background-color: #080a12; border-color: #475569;"></span>
+                <span>S5 · 推光黑漆深空</span>
+              </span>
+              <span class="meta-pill">夜航</span>
+            </button>
+          </div>
+        </div>
+
+        <button type="button" class="btn-secondary-ghost" id="open-rules-sheet-btn" style="min-height: 44px; padding: 6px 12px;">
+          <span>📖 漫游指南</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- L2 主画布：L-A2 黄金比例主从双舞台 (1fr 谐振星盘配置台 : 1.618fr 汝窑漫步手帐展廊) -->
+  <main class="l2-split-horizon-shell">
+    <!-- 左舞台 (1fr)：汝窑金缮视觉展台、谐振器阶位与三行低焦虑配置器 -->
+    <section class="l2-master-stage optic-stagger-item" style="--stagger-idx: 0;" aria-label="星尘漫游谐振配置台">
+      <div class="l2-identity-row">
+        <img src="assets/textures/immersive/badge.svg" alt="星尘漫游八角螺钿徽章" class="l2-identity-badge" width="52" height="52">
+        <div>
+          <div class="l2-spectrum-kicker">02 · IMMERSIVE · 宋代汝窑与金缮星港</div>
+          <h1>星尘漫游 · 谐振配置台</h1>
+        </div>
+      </div>
+
+      <p>
+        遵循 Krashen 低情感过滤假说，全程零倒计时与零红叉惩罚。伴随螺钿水母向导露米调谐母语声波，在天青石碑上温润拓印字源记忆。
+      </p>
+
+      <!-- 器具与场景主视觉预览舱 -->
+      <div class="l2-apparatus-showcase" id="theme-workbench-mount">
+        <div class="l2-banner-frame">
+          <img src="assets/textures/immersive/banner.svg" alt="星尘漫游汝窑金缮与螺钿谐振星盘" width="600" height="130">
+        </div>
+        <div class="l2-rig-hud-strip">
+          <div class="l2-rig-hud-left">
+            <img src="assets/textures/immersive/mechanic_hud.svg" alt="金缮谐振器阶位徽标" class="l2-rig-hud-icon" width="34" height="34">
+            <div>
+              <div style="font-size: var(--optic-font-xs); color: var(--text-tertiary); font-weight: 700;">当前声学谐振器具</div>
+              <div class="l2-rig-tier-text" id="hub-rig-tier-val">T1 汝窑天青单环音叉</div>
+            </div>
+          </div>
+          <span class="meta-pill meta-pill-accent" id="hub-lang-badge">🇬🇧 英语 (CEFR B1)</span>
+        </div>
+      </div>
+
+      <!-- 紧凑三行 44px 分段胶囊配置器 -->
+      <div class="hub-config-matrix" role="group" aria-label="漫游参数设定">
+        <div class="seg-control-row">
+          <span class="seg-row-label">🌐 专场语种</span>
+          <div class="seg-pill-group">
+            <button type="button" class="seg-pill-btn is-selected" data-hub-lang="en">🇬🇧 英语</button>
+            <button type="button" class="seg-pill-btn" data-hub-lang="ja">🇯🇵 日语</button>
+            <button type="button" class="seg-pill-btn" data-hub-lang="zh">🇨🇳 汉语</button>
+          </div>
+        </div>
+
+        <div class="seg-control-row">
+          <span class="seg-row-label">🎚️ 漫游带宽</span>
+          <div class="seg-pill-group" role="radiogroup" aria-label="选择谐振带宽难度">
+            <button type="button" class="seg-pill-btn" data-difficulty-select="tier1" role="radio" aria-checked="false">🌱 舒缓</button>
+            <button type="button" class="seg-pill-btn is-selected" data-difficulty-select="tier2" role="radio" aria-checked="true">⚖️ 均衡</button>
+            <button type="button" class="seg-pill-btn" data-difficulty-select="tier3" role="radio" aria-checked="false">🔥 精密</button>
+          </div>
+        </div>
+
+        <div class="seg-control-row">
+          <span class="seg-row-label">🎯 共鸣重心</span>
+          <div class="seg-pill-group" role="radiogroup" aria-label="选择共鸣重心">
+            <button type="button" class="seg-pill-btn is-selected" data-content-select="all" role="radio" aria-checked="true">📚 综合共鸣</button>
+            <button type="button" class="seg-pill-btn" data-content-select="lemma" role="radio" aria-checked="false">🪨 螺钿拓印</button>
+            <button type="button" class="seg-pill-btn" data-content-select="grammar" role="radio" aria-checked="false">🌊 声波调频</button>
+          </div>
+        </div>
+      </div>
+
+      <a href="learn.html?theme=immersive" class="btn-theme btn-immersive" id="hub-quick-start-btn" style="width: 100%;">
+        <span>✨ 启程漫游 · 进入推荐待共鸣章节</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <!-- 右舞台 (1.618fr)：汝窑天青漫步手帐画廊 -->
+    <section class="l2-detail-stage optic-stagger-item" style="--stagger-idx: 1;" aria-labelledby="chapters-heading">
+      <div class="l2-detail-header">
+        <div>
+          <span class="meta-pill" style="margin-bottom: 4px;">🌿 星港植物志与声景手帐 · 单语策展</span>
+          <h2 id="chapters-heading">选择星港手帐进入双幕共鸣</h2>
+        </div>
+        <div class="l2-status-badges">
+          <span class="meta-pill" id="hub-diff-badge">🎚️ 进阶 (Standard)</span>
+          <span class="meta-pill meta-pill-accent" id="hub-content-badge">📚 综合双轴实操</span>
+        </div>
+      </div>
+
+      <div class="hub-chapters-grid" id="hub-chapters-mount">
+        <!-- 由 app.js 按已选单一语言渲染专属汝窑漫游手帐卡片 -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Z-01 主动唤醒抽屉：星尘漫游三步共鸣图解 -->
+  <div class="optic-sheet-backdrop" id="rules-guide-sheet" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rules-sheet-title">
+    <div class="optic-sheet-panel usage-guide-section">
+      <div class="optic-sheet-header">
+        <div>
+          <span class="meta-pill meta-pill-accent">🪼 星尘水母向导 · 露米漫游手记</span>
+          <h2 class="optic-sheet-title" id="rules-sheet-title" style="margin-top: 4px;">星尘漫游 · 声波调频与螺钿拓印指南</h2>
+        </div>
+        <button type="button" class="sheet-close-btn" data-close-sheet="rules-guide-sheet" aria-label="关闭漫游指南">✕ 关闭</button>
+      </div>
+      <div class="optic-sheet-body">
+        <p>
+          在柔和的汝窑天青素白画布上，每一章通过“听觉韵律对齐 + 触觉拭苔拓印”两幕温润推进，让外语语感自然沉淀。
+        </p>
+        <div class="usage-steps-grid">
+          <div class="usage-step-card">
+            <span class="usage-step-num">1</span>
+            <h3>第一幕 · 金缮双波同频</h3>
+            <p style="font-size: var(--optic-font-sm);">品读带注音原句与诗意译文，拨动滑杆使螺钿声波与 24K 金缮母语波谷重合。</p>
+          </div>
+          <div class="usage-step-card">
+            <span class="usage-step-num">2</span>
+            <h3>第二幕 · 汝窑石碑拭苔</h3>
+            <p style="font-size: var(--optic-font-sm);">直接在石碑表面滑动擦拭青苔或拖动滑杆，显影冰裂纹下的螺钿字源与读音。</p>
+          </div>
+          <div class="usage-step-card">
+            <span class="usage-step-num">3</span>
+            <h3>终局 · 漫游手帐收录</h3>
+            <p style="font-size: var(--optic-font-sm);">点击共鸣收录按钮，将当前词源与句法韵律温和写入本地 FSRS-5 记忆库。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div>© 2026 Lingua-Flow · 星尘漫游 (Immersive Resonance Hub)</div>
+    <div>S2 Celadon Gallery / S5 Urushi Obsidian Dual-Mode</div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-11-07T04:30:00Z",
+  "standard": "JLPT",
+  "language": "ja",
+  "level": "n5",
+  "unit_type": "lemma",
+  "total_items": 2,
+  "items": [
+    {
+      "ku_id": "ja_n5_lemma_0001",
+      "unit_type": "lemma",
+      "lang": "ja",
+      "level": "n5",
+      "text": "私",
+      "phonetic": {
+        "display": "わたし",
+        "romaji": "watashi"
+      },
+      "pos": ["pronoun"],
+      "tags": ["core", "person"],
+      "definitions": [
+        "我（第一人称通用代词）"
+      ],
+      "examples": [
+        {
+          "source": "私は学生です。",
+          "ruby": [
+            { "base": "私", "rt": "わたし" },
+            { "base": "は", "rt": "" },
+            { "base": "学生", "rt": "がくせい" },
+            { "base": "です。", "rt": "" }
+          ],
+          "translation": "我是学生。"
+        }
+      ],
+      "notes": "标准礼貌与日常会话中最常用的自称。",
+      "fsrs_seed": {
+        "initial_difficulty": 2.0,
+        "initial_stability": 3.5
+      }
+    },
+    {
+      "ku_id": "ja_n5_lemma_0002",
+      "unit_type": "lemma",
+      "lang": "ja",
+      "level": "n5",
+      "text": "書く",
+      "phonetic": {
+        "display": "かく",
+        "romaji": "kaku"
+      },
+      "pos": ["verb", "godan"],
+      "tags": ["action", "conjugation"],
+      "definitions": [
+        "写，书写，铭刻"
+      ],
+      "examples": [
+        {
+          "source": "手紙を書く。",
+          "ruby": [
+            { "base": "手紙", "rt": "てがみ" },
+            { "base": "を", "rt": "" },
+            { "base": "書", "rt": "か" },
+            { "base": "く。", "rt": "" }
+          ],
+          "translation": "写信。"
+        }
+      ],
+      "notes": "五段活用他动词，未然形为『書か-』，连用形音便为『書いて』。",
+      "fsrs_seed": {
+        "initial_difficulty": 2.6,
+        "initial_stability": 3.0
+      }
+    }
+  ]
+}
+
