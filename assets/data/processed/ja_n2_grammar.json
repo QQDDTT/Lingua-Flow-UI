@@ -1,0 +1,667 @@
+{
+    "language":  "ja",
+    "level":  "n2",
+    "unit_type":  "grammar",
+    "items":  [
+                  {
+                      "ku_id":  "ja_n2_grammar_0001",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0001",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "on the occasion of; when; at the time of"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0002",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0002",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "along with; as; accompanying"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0003",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0003",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "according to; depending on; in response to"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0004",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0004",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "contrary to; against; in violation of"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0005",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0005",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "based on; on the basis of"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0006",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0006",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "over; throughout; spanning (a whole period or area)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0007",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0007",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "along; in line with; following"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0008",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0008",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "in addition to; on top of"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0009",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0009",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "over; concerning; surrounding (an issue of dispute)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0010",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0010",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "through; via; by way of; throughout (a period)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0011",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0011",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "taking the opportunity of; triggered by; with ... as the start"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0012",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0012",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "except; excluding; apart from"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0013",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0013",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "as if; as though (when it isn\u0027t really so)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0014",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0014",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "could well; might (lead to something bad)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0015",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0015",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "cannot; be unable to (polite refusal); find it hard to"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0016",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0016",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "can\u0027t help doing; can\u0027t resist doing"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0017",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0017",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "have no choice but to; cannot help but"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0018",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0018",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "can\u0027t afford to (keep) doing; can\u0027t just"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0019",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0019",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "no way (will I); as if; I\u0027ll never"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0020",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0020",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "although; even though (but the expected result doesn\u0027t follow)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0021",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0021",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "if (it were possible); if only one could"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0022",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0022",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "rather than; if it comes to (doing that), I\u0027d rather"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0023",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0023",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "there is something (about it that is) ...; it really is"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0024",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0024",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "how ...!; how much ...!"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0025",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0025",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "(emotion)-ly; what is (surprising, sad, etc.) is that"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0026",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0026",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "knowing (someone); since it\u0027s (someone), surely"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0027",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0027",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "without (doing); without ever"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0028",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0028",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "from the fact that; because; judging from"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0029",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0029",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "unless; if ... not (then it can\u0027t happen)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0030",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0030",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "it\u0027s true that ..., but; (I) do ..., but"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0031",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0031",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "after (a long, troublesome process); in the end"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0032",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0032",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "so much that; out of excessive; because of too much"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0033",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0033",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "besides; on top of; in addition to"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0034",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0034",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "after (doing), upon; in (doing), when it comes to"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0035",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0035",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "since; now that; as long as"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0036",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0036",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "now that; since (having done/being ..., one must)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0037",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0037",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "precisely because; it is because ... that"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0038",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0038",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "judging from; (starting) even with; to begin with"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0039",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0039",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "judging from; from the standpoint of"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0040",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0040",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "from the point of view of; judging from; seen from"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0041",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0041",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "in terms of; from the standpoint of; judging by"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0042",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0042",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "when; at the time of; on the occasion of"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0043",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0043",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "as soon as (then immediately)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0044",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0044",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "depending on; it depends on"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0045",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0045",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "after (a long process of); finally, at the end of"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0046",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0046",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "even if (it would be no use); no matter how much"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0047",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0047",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "when (I) did ..., (I found that); upon doing"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0048",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0048",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "not only ... but also"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0049",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0049",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "simply because; just because (with a bad result)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0050",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0050",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "keep (getting worse); only continue to"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0051",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0051",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "not to mention; of course ... and also"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0052",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0052",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "setting aside; regardless of; whatever about"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0053",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0053",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "leaving aside; putting aside (for now)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0054",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0054",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "on the other hand; while (it is ...)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0055",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0055",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "although; despite; while (contrary to expectation)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0056",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0056",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "while (doing); although, even while"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0057",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0057",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "be in the process of; be gradually (changing)"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0058",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0058",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "leaving (something) as is; keep (doing) without a break"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0059",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0059",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "do to the very end; see through; do thoroughly"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  },
+                  {
+                      "ku_id":  "ja_n2_grammar_0060",
+                      "unit_type":  "grammar",
+                      "text":  "pattern_0060",
+                      "level":  "n2",
+                      "definitions":  [
+                                          "can; be possible / cannot; be impossible"
+                                      ],
+                      "initial_difficulty":  5.6,
+                      "initial_stability":  1.2
+                  }
+              ]
+}

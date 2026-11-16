@@ -1,0 +1,356 @@
+/* ==========================================================================
+   Optic-Resonance UI 核心设计令牌与跨主题空间基础 (tokens.css)
+   遵循：五维明暗色域光谱 / 流体模数字阶 / X-Y-Z 三轴动力学 / 合成器零重排铁律
+   ========================================================================== */
+
+:root {
+  /* 1. 五维明暗色域基准 (5-Spectrum Chromatic Matrix) */
+  /* S1. 日光白瓷 Daylight-Porcelain */
+  --optic-porcelain-bg: #f8fafc;
+  --optic-porcelain-surface: #ffffff;
+  --optic-porcelain-surface-alt: #f1f5f9;
+  --optic-porcelain-border: rgba(15, 23, 42, 0.10);
+  --optic-porcelain-text: #0f172a;
+  --optic-porcelain-text-secondary: rgba(15, 23, 42, 0.78);
+  --optic-porcelain-text-tertiary: rgba(15, 23, 42, 0.60);
+
+  /* S2. 美术馆暖素白 Gallery-Alabaster */
+  --optic-gallery-bg: #f6f5f1;
+  --optic-gallery-surface: #ffffff;
+  --optic-gallery-surface-alt: #edeae2;
+  --optic-gallery-border: rgba(21, 24, 30, 0.11);
+  --optic-gallery-text: #15181e;
+  --optic-gallery-text-secondary: rgba(21, 24, 30, 0.78);
+  --optic-gallery-text-tertiary: rgba(21, 24, 30, 0.60);
+
+  /* S3. 温润羊皮暖砂 Warm-Parchment */
+  --optic-parchment-bg: #f3efe6;
+  --optic-parchment-surface: #faf7f0;
+  --optic-parchment-surface-alt: #e8e1d1;
+  --optic-parchment-border: rgba(28, 25, 23, 0.14);
+  --optic-parchment-text: #1c1917;
+  --optic-parchment-text-secondary: rgba(28, 25, 23, 0.80);
+  --optic-parchment-text-tertiary: rgba(28, 25, 23, 0.62);
+
+  /* S4. 北欧雾灰岩板 Nordic-Slate */
+  --optic-slate-bg: #eef2f6;
+  --optic-slate-surface: #ffffff;
+  --optic-slate-surface-alt: #e2e8f0;
+  --optic-slate-border: rgba(30, 41, 59, 0.12);
+  --optic-slate-text: #0f172a;
+  --optic-slate-text-secondary: rgba(15, 23, 42, 0.78);
+  --optic-slate-text-tertiary: rgba(15, 23, 42, 0.60);
+
+  /* S4-Dark. 北欧深岩态 */
+  --optic-slate-dark-bg: #1e293b;
+  --optic-slate-dark-surface: #273449;
+  --optic-slate-dark-border: rgba(248, 250, 252, 0.14);
+  --optic-slate-dark-text: #f8fafc;
+  --optic-slate-dark-text-secondary: rgba(248, 250, 252, 0.80);
+  --optic-slate-dark-text-tertiary: rgba(248, 250, 252, 0.62);
+
+  /* S5. 受限黑曜暗夜 Obsidian-Nocturne (仅限放映态/夜盘) */
+  --optic-obsidian-bg: #0a0c10;
+  --optic-obsidian-surface: #131720;
+  --optic-obsidian-surface-alt: #1b212e;
+  --optic-obsidian-border: rgba(243, 244, 246, 0.13);
+  --optic-obsidian-text: #f3f4f6;
+  --optic-obsidian-text-secondary: rgba(243, 244, 246, 0.80);
+  --optic-obsidian-text-tertiary: rgba(243, 244, 246, 0.62);
+
+  /* 2. 精密字体排印工程 (Fluid Typography & Measure) */
+  --optic-font-sans: "PingFang SC", "Noto Sans SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+  --optic-font-serif: "Noto Serif SC", "Songti SC", "STSong", "Georgia", serif;
+  --optic-font-mono: "JetBrains Mono", "Cascadia Code", "Fira Code", ui-monospace, monospace;
+
+  --optic-font-display: clamp(1.75rem, 2.8vw + 0.8rem, 2.75rem);
+  --optic-font-h1: clamp(1.4rem, 1.8vw + 0.85rem, 2.05rem);
+  --optic-font-h2: clamp(1.15rem, 1.1vw + 0.8rem, 1.45rem);
+  --optic-font-h3: clamp(1.02rem, 0.6vw + 0.82rem, 1.18rem);
+  --optic-font-body: clamp(0.9375rem, 0.25vw + 0.88rem, 1.03125rem);
+  --optic-font-sm: 0.875rem;
+  --optic-font-xs: 0.75rem; /* 严禁小于 12px */
+
+  --optic-leading-tight: 1.22;
+  --optic-leading-body: 1.68;
+  --optic-measure-optimal: 65ch;
+
+  /* 3. 物理动效与非对称时序 (Motion Physics) */
+  --optic-ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --optic-ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --optic-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --optic-dur-enter: 420ms;
+  --optic-dur-exit: 220ms;
+  --optic-dur-fast: 150ms;
+  --optic-stagger-step: 45ms;
+  --optic-stagger-cap: 360ms;
+
+  /* 4. Z 轴叠层与遮挡退火 */
+  --optic-z-base: 1;
+  --optic-z-hud: 40;
+  --optic-z-dropdown: 100;
+  --optic-z-drawer: 200;
+  --optic-z-modal: 300;
+  --optic-z-scrim: rgba(15, 23, 42, 0.38);
+
+  /* 5. Y/X 轴边缘渐变羽化遮罩 */
+  --optic-mask-y-fade: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent 100%
+  );
+  --optic-mask-x-fade: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 32px,
+    #000 calc(100% - 32px),
+    transparent 100%
+  );
+
+  /* 6. 漫反射阴影层级 */
+  --optic-elevation-1: 0 2px 8px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --optic-elevation-2: 0 12px 28px -6px rgba(15, 23, 42, 0.10), 0 4px 10px -2px rgba(15, 23, 42, 0.05);
+  --optic-elevation-3: 0 24px 48px -12px rgba(15, 23, 42, 0.18);
+
+  /* 默认激活色域变量（各页面按主题覆盖） */
+  --bg: var(--optic-porcelain-bg);
+  --surface: var(--optic-porcelain-surface);
+  --surface-alt: var(--optic-porcelain-surface-alt);
+  --border: var(--optic-porcelain-border);
+  --text: var(--optic-porcelain-text);
+  --text-secondary: var(--optic-porcelain-text-secondary);
+  --text-tertiary: var(--optic-porcelain-text-tertiary);
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.10);
+}
+
+/* ==========================================================================
+   全局重置与排版基线
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  transition-property: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--optic-font-sans);
+  font-size: var(--optic-font-body);
+  line-height: var(--optic-leading-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color var(--optic-dur-enter) var(--optic-ease-cinematic),
+              color var(--optic-dur-fast) ease;
+}
+
+h1, h2, h3, .optic-title {
+  margin: 0;
+  line-height: var(--optic-leading-tight);
+  text-wrap: balance;
+  color: var(--text);
+}
+
+h1 { font-size: var(--optic-font-h1); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: var(--optic-font-h2); font-weight: 650; letter-spacing: -0.015em; }
+h3 { font-size: var(--optic-font-h3); font-weight: 600; }
+
+p, .optic-body-text {
+  margin: 0;
+  max-width: min(var(--optic-measure-optimal), 100%);
+  color: var(--text-secondary);
+  line-height: var(--optic-leading-body);
+  text-wrap: pretty;
+  line-break: strict;
+  text-align: left;
+}
+
+.tabular-num, [data-num] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 触控热区 >= 44x44px 强制基准 */
+button, .optic-btn, a.optic-btn, [role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.optic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: var(--optic-font-sm);
+  font-weight: 550;
+  text-decoration: none;
+  box-shadow: var(--optic-elevation-1);
+  transition: transform var(--optic-dur-fast) var(--optic-ease-cinematic),
+              background-color var(--optic-dur-fast) ease,
+              border-color var(--optic-dur-fast) ease,
+              box-shadow var(--optic-dur-fast) ease;
+  user-select: none;
+}
+
+.optic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--optic-elevation-2);
+}
+
+.optic-btn:active {
+  transform: scale(0.97);
+}
+
+.optic-btn-primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   Y-01 局部纵向渐变滚动容器
+   ========================================================================== */
+.optic-scroll-y {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-mask-image: var(--optic-mask-y-fade);
+  mask-image: var(--optic-mask-y-fade);
+  padding-top: 16px;
+  padding-bottom: 24px;
+  scrollbar-width: thin;
+}
+
+/* ==========================================================================
+   Z-02 智能避让下拉菜单 (z-index: 100, 8px 间隙, 不遮挡触发源)
+   ========================================================================== */
+.optic-dropdown-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.optic-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 210px;
+  padding: 6px;
+  border-radius: 14px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--optic-elevation-3);
+  z-index: var(--optic-z-dropdown);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, -6px, 0) scale(0.96);
+  transform-origin: top right;
+  transition: opacity var(--optic-dur-exit) var(--optic-ease-exit),
+              transform var(--optic-dur-exit) var(--optic-ease-exit);
+}
+
+.optic-dropdown-menu.flip-up {
+  top: auto;
+  bottom: calc(100% + 8px);
+  transform-origin: bottom right;
+}
+
+.optic-dropdown-menu.flip-left {
+  right: auto;
+  left: 0;
+  transform-origin: top left;
+}
+
+.optic-dropdown-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: opacity 180ms var(--optic-ease-cinematic),
+              transform 180ms var(--optic-ease-cinematic);
+}
+
+.optic-dropdown-item {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  font-size: var(--optic-font-sm);
+  text-align: left;
+  transition: background-color var(--optic-dur-fast) ease;
+}
+
+.optic-dropdown-item:hover,
+.optic-dropdown-item[aria-selected="true"] {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   Z-01 用户唤醒侧边抽屉 (z-index: 200, Scrim 景深压暗模糊)
+   ========================================================================== */
+.optic-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--optic-z-drawer) - 1);
+  background: var(--optic-z-scrim);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--optic-dur-exit) var(--optic-ease-exit);
+}
+
+.optic-scrim.open {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+
+.optic-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 92vw);
+  z-index: var(--optic-z-drawer);
+  background-color: var(--surface);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--optic-elevation-3);
+  padding: max(20px, env(safe-area-inset-top)) 20px max(20px, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: translate3d(100%, 0, 0);
+  transition: transform var(--optic-dur-exit) var(--optic-ease-exit);
+}
+
+.optic-drawer.open {
+  transform: translate3d(0, 0, 0);
+  transition: transform var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+
+/* ==========================================================================
+   D14 减弱动态无障碍双轨退火
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+  }
+}

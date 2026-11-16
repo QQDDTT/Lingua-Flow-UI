@@ -1,0 +1,59 @@
+{
+  "episode_id": "deductive_episode_01",
+  "theme": "deductive",
+  "episode_arc": "arc_london_clockwork",
+  "encounters": [
+    {
+      "encounter_id": "enc_en_01",
+      "lang": "en",
+      "telemetry_policy": { "implicit_fsrs": true, "cooldown_ms": 800 },
+      "dialogue_stream": [
+        {
+          "span_id": "t_is_burning",
+          "text": "Before the inspector arrived, the warehouse was already abandoned, yet the stove is still burning.",
+          "flaw_grammar_ku_id_ref": "en_b2_lemma_abandoned_1",
+          "target_evidence_ku_id_ref": "en_b2_lemma_abolish_3"
+        }
+      ]
+    },
+    {
+      "encounter_id": "enc_en_02",
+      "lang": "en",
+      "telemetry_policy": { "implicit_fsrs": true, "cooldown_ms": 800 },
+      "dialogue_stream": [
+        {
+          "span_id": "t_abolish",
+          "text": "The guild tried to abolish the rule yesterday, so it has existed for two centuries next week.",
+          "flaw_grammar_ku_id_ref": "en_b2_lemma_abolish_3",
+          "target_evidence_ku_id_ref": "en_b2_lemma_abandoned_1"
+        }
+      ]
+    },
+    {
+      "encounter_id": "enc_ja_01",
+      "lang": "ja",
+      "telemetry_policy": { "implicit_fsrs": true, "cooldown_ms": 800 },
+      "dialogue_stream": [
+        {
+          "span_id": "t_hazu",
+          "text": "鍵は確かに机の上に置いてあったはずだが、最初から存在しなかった。",
+          "flaw_grammar_ku_id_ref": "ja_n2_grammar_0001",
+          "target_evidence_ku_id_ref": "ja_n2_grammar_0002"
+        }
+      ]
+    },
+    {
+      "encounter_id": "enc_zh_01",
+      "lang": "zh",
+      "telemetry_policy": { "implicit_fsrs": true, "cooldown_ms": 800 },
+      "dialogue_stream": [
+        {
+          "span_id": "t_suiran_suoyi",
+          "text": "虽然他嘴上标榜自己十分爱国，所以暗地里却一直在倒卖馆藏文物。",
+          "flaw_grammar_ku_id_ref": "zh_hsk4_lemma_0002",
+          "target_evidence_ku_id_ref": "zh_hsk4_lemma_0003"
+        }
+      ]
+    }
+  ]
+}

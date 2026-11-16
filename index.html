@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>Lingua-Flow · 心流语境总览</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/unified.v6.css">
+</head>
+<body data-theme="portal">
+  <div class="optic-shell">
+    <header class="optic-topbar">
+      <div class="optic-brand">
+        <div class="optic-logo" aria-hidden="true">LF</div>
+        <div>
+          <h1 style="font-size: var(--optic-font-h3);">Lingua-Flow · 心流语境</h1>
+          <div class="optic-brand-sub">S1 日光白瓷 · 统一指挥舱</div>
+        </div>
+      </div>
+
+      <nav class="theme-nav-pills" aria-label="主题切换导航">
+        <a href="index.html" class="theme-nav-pill active">总览</a>
+        <a href="deductive.html" class="theme-nav-pill">🕵️ 雾都回响</a>
+        <a href="immersive.html" class="theme-nav-pill">🌌 星尘漫游</a>
+        <a href="strategic.html" class="theme-nav-pill">⚔️ 刻痕圣殿</a>
+      </nav>
+
+      <div class="optic-topbar-actions">
+        <div class="optic-dropdown-wrap" data-dropdown>
+          <button type="button" class="optic-btn" data-dropdown-trigger aria-expanded="false" id="lang-dropdown-btn">
+            <span id="current-lang-label">英语 · CEFR</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="optic-dropdown-menu" role="listbox" aria-label="切换目标语种">
+            <button type="button" class="optic-dropdown-item" data-set-lang="en"><span>英语 · CEFR</span><span>B2</span></button>
+            <button type="button" class="optic-dropdown-item" data-set-lang="ja"><span>日语 · JLPT</span><span>N2</span></button>
+            <button type="button" class="optic-dropdown-item" data-set-lang="zh"><span>汉语 · HSK 3.0</span><span>4级</span></button>
+          </div>
+        </div>
+        <button type="button" class="optic-btn" data-drawer-open="archive-drawer">记忆档案</button>
+      </div>
+    </header>
+
+    <main class="bento-grid">
+      <section class="optic-panel bento-hero" aria-labelledby="hero-title">
+        <div>
+          <span class="theme-kicker">
+            <span class="theme-dot" style="background-color: #2563eb;"></span>
+            双轴正交 · 语种与心智调度中心
+          </span>
+          <h2 id="hero-title" style="font-size: var(--optic-font-display); margin-top: 10px;">
+            先锁定单一语种，再步入你的心智叙事世界
+          </h2>
+          <p class="optic-body-text" style="margin-top: 12px;">
+            Lingua-Flow 将官方考纲（CEFR / JLPT / HSK 3.0）与认知心理学（FSRS-5 记忆稳定性模型）解耦注入三个统一的主题工作台：推理案卷室、声景画廊与榫卯试炼场。
+          </p>
+        </div>
+
+        <div>
+          <div style="font-size: var(--optic-font-xs); color: var(--text-tertiary); margin-bottom: 8px;">快速锁定目标语种（三主题同步生效）</div>
+          <div class="lang-switch-row" role="group" aria-label="快速切换语种">
+            <button type="button" class="lang-chip" data-set-lang="en">EN · 英语 CEFR</button>
+            <button type="button" class="lang-chip" data-set-lang="ja">JA · 日语 JLPT</button>
+            <button type="button" class="lang-chip" data-set-lang="zh">ZH · 汉语 HSK 3.0</button>
+          </div>
+        </div>
+
+        <div class="hero-metrics">
+          <div class="metric-pill">
+            <div class="metric-label">累计演练</div>
+            <div class="metric-value tabular-num" id="stat-reviewed">0</div>
+          </div>
+          <div class="metric-pill">
+            <div class="metric-label">心流准确率</div>
+            <div class="metric-value tabular-num" id="stat-accuracy">0%</div>
+          </div>
+          <div class="metric-pill">
+            <div class="metric-label">连续命中</div>
+            <div class="metric-value tabular-num" id="stat-streak">0</div>
+          </div>
+        </div>
+      </section>
+
+      <article class="optic-panel bento-theme-deductive">
+        <div class="theme-hero-window" style="height: 92px;">
+          <img src="assets/images/deductive-keyart.jpg" alt="雾都回响主视觉" class="hero-art">
+          <img src="assets/textures/zeiss-brass-lens.svg" alt="蔡司黄铜显微透镜" class="theme-hero-badge">
+        </div>
+        <div>
+          <span class="theme-kicker"><span class="theme-dot" style="background-color: #9a6b2f;"></span>主题 01 · 高逻辑反思</span>
+          <h2 style="margin-top: 4px;">雾都回响 · 推理案卷室</h2>
+          <p class="optic-body-text" style="margin-top: 4px;">S3 温润羊皮暖砂 · 蔡司显微透镜拆解词根与法庭矛盾指控。</p>
+        </div>
+        <div class="theme-card-footer">
+          <span style="font-size: var(--optic-font-xs); color: var(--text-tertiary);">L-A13 Tufte 三栏</span>
+          <a href="deductive.html" class="optic-btn optic-btn-primary" style="background-color: #9a6b2f; border-color: #9a6b2f;">进入案卷室 →</a>
+        </div>
+      </article>
+
+      <article class="optic-panel bento-theme-immersive">
+        <div class="theme-hero-window" style="height: 76px;">
+          <img src="assets/images/immersive-keyart.jpg" alt="星尘漫游主视觉" class="hero-art">
+          <img src="assets/textures/kintsugi-resonator.svg" alt="24K 金缮调频盘" class="theme-hero-badge" style="width:42px;height:42px;">
+        </div>
+        <div>
+          <span class="theme-kicker"><span class="theme-dot" style="background-color: #3b7a75;"></span>主题 02 · 低压共情</span>
+          <h3 style="margin-top: 4px;">星尘漫游 · 声景画廊</h3>
+          <p class="optic-body-text" style="margin-top: 4px;">S2 暖素白 / 暗房，X 轴滑轨调频音调。</p>
+        </div>
+        <div class="theme-card-footer">
+          <span style="font-size: var(--optic-font-xs); color: var(--text-tertiary);">L-A4 横向滑轨</span>
+          <a href="immersive.html" class="optic-btn optic-btn-primary" style="background-color: #3b7a75; border-color: #3b7a75;">漫游 →</a>
+        </div>
+      </article>
+
+      <article class="optic-panel bento-theme-strategic">
+        <div class="theme-hero-window" style="height: 76px;">
+          <img src="assets/images/strategic-keyart.jpg" alt="刻痕圣殿主视觉" class="hero-art">
+          <img src="assets/textures/rose-rune-crest.svg" alt="六翼玫瑰花窗晶球" class="theme-hero-badge" style="width:42px;height:42px;">
+        </div>
+        <div>
+          <span class="theme-kicker"><span class="theme-dot" style="background-color: #2563eb;"></span>主题 03 · 胜任感驱动</span>
+          <h3 style="margin-top: 4px;">刻痕圣殿 · 榫卯试炼</h3>
+          <p class="optic-body-text" style="margin-top: 4px;">S4 北欧雾灰 · 极坐标法轮与扇形手牌。</p>
+        </div>
+        <div class="theme-card-footer">
+          <span style="font-size: var(--optic-font-xs); color: var(--text-tertiary);">L-A11 扇形手牌</span>
+          <a href="strategic.html" class="optic-btn optic-btn-primary">试炼 →</a>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <div class="optic-scrim" id="optic-scrim"></div>
+  <aside class="optic-drawer" id="archive-drawer" aria-hidden="true" aria-label="FSRS-5 记忆档案">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <h2>FSRS-5 记忆档案</h2>
+      <button type="button" class="optic-btn" data-drawer-close>关闭</button>
+    </div>
+    <p class="optic-body-text">所有主题共用同一份客户端持久化记忆状态，演练结果将实时更新稳定性 $S$ 与难度 $D$。</p>
+    <div class="optic-scroll-y" style="flex: 1; display: flex; flex-direction: column; gap: 12px;" id="drawer-cards-list"></div>
+    <div style="display: flex; gap: 10px;">
+      <button type="button" class="optic-btn" id="toggle-sound-btn" style="flex: 1;">声触反馈：开启</button>
+      <button type="button" class="optic-btn" id="reset-progress-btn">重置进度</button>
+    </div>
+  </aside>
+
+  <script src="assets/js/lingua-core.v2.js"></script>
+  <script src="assets/js/portal.js"></script>
+</body>
+</html>

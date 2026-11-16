@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>刻痕圣殿 · 榫卯试炼场 | Lingua-Flow</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/unified.v6.css">
+</head>
+<body data-theme="strategic" data-slate="light">
+  <div class="optic-shell">
+    <header class="optic-topbar">
+      <div class="optic-brand">
+        <div class="optic-logo" aria-hidden="true">⚔️</div>
+        <div>
+          <h1 style="font-size: var(--optic-font-h3);">刻痕圣殿 · 榫卯试炼场</h1>
+          <div class="optic-brand-sub">S4 北欧雾灰岩板 · Z-04 甲板 &amp; 极坐标法轮</div>
+        </div>
+      </div>
+
+      <nav class="theme-nav-pills" aria-label="主题切换导航">
+        <a href="index.html" class="theme-nav-pill">总览</a>
+        <a href="deductive.html" class="theme-nav-pill">🕵️ 雾都回响</a>
+        <a href="immersive.html" class="theme-nav-pill">🌌 星尘漫游</a>
+        <a href="strategic.html" class="theme-nav-pill active">⚔️ 刻痕圣殿</a>
+      </nav>
+
+      <div class="optic-topbar-actions">
+        <div style="display: flex; flex-direction: column; gap: 3px; padding: 0 6px;">
+          <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-tertiary);">
+            <span>护盾</span>
+            <span class="tabular-num" id="shield-pct">100%</span>
+          </div>
+          <div class="shield-track" aria-label="符文护盾能量">
+            <div class="shield-ghost"></div>
+            <div class="shield-main"></div>
+          </div>
+        </div>
+
+        <div class="optic-dropdown-wrap" data-dropdown>
+          <button type="button" class="optic-btn" data-dropdown-trigger aria-expanded="false">
+            <span id="str-lang-label">英语 · CEFR</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="optic-dropdown-menu" role="listbox" aria-label="切换语种">
+            <button type="button" class="optic-dropdown-item" data-str-lang="en"><span>英语 · CEFR</span><span>B2</span></button>
+            <button type="button" class="optic-dropdown-item" data-str-lang="ja"><span>日语 · JLPT</span><span>N2</span></button>
+            <button type="button" class="optic-dropdown-item" data-str-lang="zh"><span>汉语 · HSK 3.0</span><span>4级</span></button>
+          </div>
+        </div>
+
+        <button type="button" class="optic-btn" id="toggle-slate-btn">🪨 深岩态</button>
+        <button type="button" class="optic-btn" data-drawer-open="str-codex-drawer">法典</button>
+      </div>
+    </header>
+
+    <div class="str-workspace">
+      <main class="str-arena">
+        <section class="deck-stage" id="deck-stage" aria-label="试炼题卡甲板"></section>
+
+        <aside class="optic-panel" aria-label="极坐标语法战术轮盘">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: var(--optic-font-xs); font-weight: 700; color: var(--text-tertiary);">L-A16 极坐标语法法轮</span>
+            <span class="tabular-num" style="font-size: var(--optic-font-xs); color: var(--accent);" id="str-fsrs-badge">FSRS：待试炼</span>
+          </div>
+
+          <div class="radial-hub" id="radial-hub">
+            <div class="radial-center">
+              <img src="assets/textures/rose-rune-crest.svg" alt="六翼玫瑰花窗晶球" width="36" height="36" style="width: 36px; height: 36px; display: block; margin-bottom: 2px;">
+              <div style="font-size: var(--optic-font-xs); color: var(--accent); font-weight: 700;" id="wheel-center-title">战术提示</div>
+              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.25;" id="wheel-center-desc">点击扇区</div>
+            </div>
+          </div>
+
+          <div class="fsrs-telemetry-bar" id="str-hint-box" style="justify-content: flex-start;">
+            点击下方扇形卡榫手牌拼入左侧凹槽，破除护盾即可推进下一试炼。
+          </div>
+        </aside>
+      </main>
+
+      <section class="hand-tray" id="hand-tray" aria-label="动词变位与句法卡榫手牌"></section>
+    </div>
+  </div>
+
+  <div class="optic-scrim" id="optic-scrim"></div>
+  <aside class="optic-drawer" id="str-codex-drawer" aria-hidden="true" aria-label="刻痕圣殿法典">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <h2>圣殿榫卯破盾法则</h2>
+      <button type="button" class="optic-btn" data-drawer-close>关闭</button>
+    </div>
+    <div class="theme-hero-window" style="height: 148px;">
+      <img src="assets/images/strategic-keyart.jpg" alt="刻痕圣殿玫瑰花窗与符文星盘" class="hero-art">
+    </div>
+    <p class="optic-body-text">
+      1. 观察左侧【Z-04 层叠试炼卡】中的空缺卡榫位。<br>
+      2. 可随时点击右侧【极坐标语法法轮】唤醒对应语种的变位口诀。<br>
+      3. 从底部【扇形卡榫手牌】选取唯一正确的屈折词尾或句法关联词拼入凹槽，触发 `180ms` 延迟残影破盾并更新 FSRS-5 稳定性。
+    </p>
+  </aside>
+
+  <script src="assets/js/lingua-core.v2.js"></script>
+  <script src="assets/js/strategic.v4.js"></script>
+</body>
+</html>

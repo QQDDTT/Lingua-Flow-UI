@@ -1,0 +1,71 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="蔡司黄铜显微透镜">
+  <defs>
+    <radialGradient id="parchment-seal" cx="42%" cy="38%" r="60%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="35%" stop-color="#b91c1c"/>
+      <stop offset="72%" stop-color="#7f1d1d"/>
+      <stop offset="92%" stop-color="#450a0a"/>
+      <stop offset="100%" stop-color="#2a0808"/>
+    </radialGradient>
+    <linearGradient id="brass-bevel" x1="15%" y1="10%" x2="85%" y2="90%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="22%" stop-color="#d97706"/>
+      <stop offset="50%" stop-color="#9a6b2f"/>
+      <stop offset="76%" stop-color="#5c3d18"/>
+      <stop offset="100%" stop-color="#2e1f0d"/>
+    </linearGradient>
+    <radialGradient id="zeiss-glass" cx="36%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.92"/>
+      <stop offset="22%" stop-color="#bae6fd" stop-opacity="0.58"/>
+      <stop offset="55%" stop-color="#0284c7" stop-opacity="0.28"/>
+      <stop offset="82%" stop-color="#1e293b" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.52"/>
+    </radialGradient>
+    <filter id="brass-grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.6  0 0 0 0 0.42  0 0 0 0 0.18  0 0 0 0.14 0" in="noise" result="tinted"/>
+      <feComposite in="tinted" in2="SourceGraphic" operator="atop"/>
+    </filter>
+    <filter id="soft-shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#1c1917" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- 1. 流派专属底座：炼金星象黄铜分度底盘与朱砂火漆印 -->
+  <g id="layer-footprint">
+    <circle cx="128" cy="128" r="112" fill="#e8e1d1" stroke="#9a6b2f" stroke-width="1.5" opacity="0.65"/>
+    <circle cx="128" cy="128" r="102" fill="none" stroke="#9a6b2f" stroke-width="0.75" opacity="0.5"/>
+    <path d="M128 16 L132 28 L124 28 Z M128 240 L132 228 L124 228 Z M16 128 L28 124 L28 132 Z M240 128 L228 124 L228 132 Z" fill="#9a6b2f" opacity="0.7"/>
+    <path d="M178 178 C194 170 212 182 214 200 C216 218 198 232 180 226 C164 222 158 202 168 188 Z" fill="url(#parchment-seal)" filter="url(#soft-shadow)"/>
+    <circle cx="187" cy="202" r="16" fill="none" stroke="#fca5a5" stroke-width="0.8" opacity="0.55"/>
+    <path d="M187 192 L191 202 L187 212 L183 202 Z" fill="#fef2f2" opacity="0.75"/>
+  </g>
+
+  <!-- 2. 主体体积块面：手柄与黄铜镜框 -->
+  <g id="layer-chassis" filter="url(#soft-shadow)">
+    <path d="M68 168 L28 208 C22 214 22 224 28 230 C34 236 44 236 50 230 L90 190 Z" fill="url(#brass-bevel)"/>
+    <path d="M58 178 L34 202 L46 214 L70 190 Z" fill="#451a03" opacity="0.45"/>
+    <circle cx="122" cy="118" r="76" fill="url(#brass-bevel)" filter="url(#brass-grain)"/>
+    <circle cx="122" cy="118" r="64" fill="#291d0e"/>
+  </g>
+
+  <!-- 3. 中观工程结构：滚花调焦环、法兰螺栓与多层光学镜片 -->
+  <g id="layer-mechanics">
+    <circle cx="122" cy="118" r="60" fill="none" stroke="#d97706" stroke-width="3" opacity="0.6"/>
+    <circle cx="122" cy="118" r="56" fill="url(#zeiss-glass)"/>
+    <circle cx="70" cy="74" r="3.2" fill="#fef08a"/>
+    <circle cx="174" cy="74" r="3.2" fill="#fef08a"/>
+    <circle cx="70" cy="162" r="3.2" fill="#fef08a"/>
+    <circle cx="174" cy="162" r="3.2" fill="#9a6b2f"/>
+    <path d="M90 118 L154 118 M122 86 L122 150" stroke="#e0f2fe" stroke-width="0.6" opacity="0.45"/>
+    <circle cx="122" cy="118" r="24" fill="none" stroke="#bae6fd" stroke-width="0.8" opacity="0.5"/>
+  </g>
+
+  <!-- 4. 时间包浆与物理光学反光 -->
+  <g id="layer-patina-fx">
+    <path d="M84 80 C98 68 124 64 146 72 C132 82 104 88 88 102 C80 96 80 86 84 80 Z" fill="#ffffff" opacity="0.55"/>
+    <ellipse cx="102" cy="96" rx="14" ry="7" transform="rotate(-32 102 96)" fill="#ffffff" opacity="0.72"/>
+    <path d="M52 106 A72 72 0 0 1 132 46" fill="none" stroke="#fef08a" stroke-width="0.9" stroke-opacity="0.85"/>
+    <path d="M168 164 A70 70 0 0 1 112 188" fill="none" stroke="#4d7c6f" stroke-width="2.2" stroke-opacity="0.45"/>
+  </g>
+</svg>

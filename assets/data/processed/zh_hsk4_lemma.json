@@ -1,0 +1,727 @@
+{
+    "language":  "zh",
+    "level":  "hsk4",
+    "unit_type":  "lemma",
+    "items":  [
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0001",
+                      "unit_type":  "lemma",
+                      "text":  "啊",
+                      "pinyin":  "啊",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "a"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0002",
+                      "unit_type":  "lemma",
+                      "text":  "愛國",
+                      "pinyin":  "爱国",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "àiguó"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0003",
+                      "unit_type":  "lemma",
+                      "text":  "矮",
+                      "pinyin":  "矮",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "ǎi"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0004",
+                      "unit_type":  "lemma",
+                      "text":  "愛護",
+                      "pinyin":  "爱护",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "àihù"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0005",
+                      "unit_type":  "lemma",
+                      "text":  "矮小",
+                      "pinyin":  "矮小",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "ǎixiǎo"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0006",
+                      "unit_type":  "lemma",
+                      "text":  "按時",
+                      "pinyin":  "按时",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "ànshí"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0007",
+                      "unit_type":  "lemma",
+                      "text":  "安置",
+                      "pinyin":  "安置",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "ānzhì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0008",
+                      "unit_type":  "lemma",
+                      "text":  "暗示",
+                      "pinyin":  "暗示",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "ànshì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0009",
+                      "unit_type":  "lemma",
+                      "text":  "安",
+                      "pinyin":  "安",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "ān"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0010",
+                      "unit_type":  "lemma",
+                      "text":  "百貨",
+                      "pinyin":  "百货",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎihuò"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0011",
+                      "unit_type":  "lemma",
+                      "text":  "暗",
+                      "pinyin":  "暗",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "àn"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0012",
+                      "unit_type":  "lemma",
+                      "text":  "擺",
+                      "pinyin":  "摆",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎi"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0013",
+                      "unit_type":  "lemma",
+                      "text":  "擺動",
+                      "pinyin":  "摆动",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎidòng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0014",
+                      "unit_type":  "lemma",
+                      "text":  "巴士",
+                      "pinyin":  "巴士",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bāshì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0015",
+                      "unit_type":  "lemma",
+                      "text":  "擺脫",
+                      "pinyin":  "摆脱",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎi tuō"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0016",
+                      "unit_type":  "lemma",
+                      "text":  "辦事",
+                      "pinyin":  "办事",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bàn shì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0017",
+                      "unit_type":  "lemma",
+                      "text":  "包裹",
+                      "pinyin":  "包裹",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bāoguǒ"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0018",
+                      "unit_type":  "lemma",
+                      "text":  "敗",
+                      "pinyin":  "败",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bài"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0019",
+                      "unit_type":  "lemma",
+                      "text":  "包括",
+                      "pinyin":  "包括",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bāokuò"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0020",
+                      "unit_type":  "lemma",
+                      "text":  "寶",
+                      "pinyin":  "宝",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎo"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0021",
+                      "unit_type":  "lemma",
+                      "text":  "包含",
+                      "pinyin":  "包含",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bāohán"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0022",
+                      "unit_type":  "lemma",
+                      "text":  "寶寶",
+                      "pinyin":  "宝宝",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎobao"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0023",
+                      "unit_type":  "lemma",
+                      "text":  "寶貝",
+                      "pinyin":  "宝贝",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎobèi"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0024",
+                      "unit_type":  "lemma",
+                      "text":  "寶貴",
+                      "pinyin":  "宝贵",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎoguì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0025",
+                      "unit_type":  "lemma",
+                      "text":  "寶石",
+                      "pinyin":  "宝石",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎoshí"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0026",
+                      "unit_type":  "lemma",
+                      "text":  "保守",
+                      "pinyin":  "保守",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎoshǒu"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0027",
+                      "unit_type":  "lemma",
+                      "text":  "抱",
+                      "pinyin":  "抱",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bào"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0028",
+                      "unit_type":  "lemma",
+                      "text":  "背景",
+                      "pinyin":  "背景",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bèijǐng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0029",
+                      "unit_type":  "lemma",
+                      "text":  "倍",
+                      "pinyin":  "倍",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bèi"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0030",
+                      "unit_type":  "lemma",
+                      "text":  "保密",
+                      "pinyin":  "保密",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǎo mì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0031",
+                      "unit_type":  "lemma",
+                      "text":  "本科",
+                      "pinyin":  "本科",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "běnkē"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0032",
+                      "unit_type":  "lemma",
+                      "text":  "薄",
+                      "pinyin":  "薄",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "báo"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0033",
+                      "unit_type":  "lemma",
+                      "text":  "比分",
+                      "pinyin":  "比分",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bǐfēn"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0034",
+                      "unit_type":  "lemma",
+                      "text":  "畢業",
+                      "pinyin":  "毕业",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bì yè"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0035",
+                      "unit_type":  "lemma",
+                      "text":  "笨",
+                      "pinyin":  "笨",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bèn"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0036",
+                      "unit_type":  "lemma",
+                      "text":  "畢業生",
+                      "pinyin":  "毕业生",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bìyèshēng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0037",
+                      "unit_type":  "lemma",
+                      "text":  "避",
+                      "pinyin":  "避",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0038",
+                      "unit_type":  "lemma",
+                      "text":  "避免",
+                      "pinyin":  "避免",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bìmiǎn"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0039",
+                      "unit_type":  "lemma",
+                      "text":  "被迫",
+                      "pinyin":  "被迫",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bèipò"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0040",
+                      "unit_type":  "lemma",
+                      "text":  "辯論",
+                      "pinyin":  "辩论",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "biànlùn"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0041",
+                      "unit_type":  "lemma",
+                      "text":  "標志",
+                      "pinyin":  "标志",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "biāozhì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0042",
+                      "unit_type":  "lemma",
+                      "text":  "編",
+                      "pinyin":  "编",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "biān"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0043",
+                      "unit_type":  "lemma",
+                      "text":  "表情",
+                      "pinyin":  "表情",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "biǎoqíng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0044",
+                      "unit_type":  "lemma",
+                      "text":  "表揚",
+                      "pinyin":  "表扬",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "biǎoyáng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0045",
+                      "unit_type":  "lemma",
+                      "text":  "別",
+                      "pinyin":  "别",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bié"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0046",
+                      "unit_type":  "lemma",
+                      "text":  "冰",
+                      "pinyin":  "冰",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bīng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0047",
+                      "unit_type":  "lemma",
+                      "text":  "冰箱",
+                      "pinyin":  "冰箱",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bīngxiāng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0048",
+                      "unit_type":  "lemma",
+                      "text":  "冰雪",
+                      "pinyin":  "冰雪",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bīngxuě"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0049",
+                      "unit_type":  "lemma",
+                      "text":  "兵",
+                      "pinyin":  "兵",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bīng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0050",
+                      "unit_type":  "lemma",
+                      "text":  "并",
+                      "pinyin":  "并",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bìng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0051",
+                      "unit_type":  "lemma",
+                      "text":  "不要緊",
+                      "pinyin":  "不要紧",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bù yàojǐn"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0052",
+                      "unit_type":  "lemma",
+                      "text":  "不管",
+                      "pinyin":  "不管",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bùguǎn"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0053",
+                      "unit_type":  "lemma",
+                      "text":  "不在乎",
+                      "pinyin":  "不在乎",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bù zàihu"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0054",
+                      "unit_type":  "lemma",
+                      "text":  "布置",
+                      "pinyin":  "布置",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bùzhì"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0055",
+                      "unit_type":  "lemma",
+                      "text":  "不然",
+                      "pinyin":  "不然",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bùrán"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0056",
+                      "unit_type":  "lemma",
+                      "text":  "步行",
+                      "pinyin":  "步行",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "bùxíng"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0057",
+                      "unit_type":  "lemma",
+                      "text":  "才",
+                      "pinyin":  "才",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "cái"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0058",
+                      "unit_type":  "lemma",
+                      "text":  "擦",
+                      "pinyin":  "擦",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "cā"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0059",
+                      "unit_type":  "lemma",
+                      "text":  "材料",
+                      "pinyin":  "材料",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "cáiliào"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  },
+                  {
+                      "ku_id":  "zh_hsk4_lemma_0060",
+                      "unit_type":  "lemma",
+                      "text":  "財富",
+                      "pinyin":  "财富",
+                      "level":  "hsk4",
+                      "definitions":  [
+                                          "cáifù"
+                                      ],
+                      "initial_difficulty":  5,
+                      "initial_stability":  1.5
+                  }
+              ]
+}

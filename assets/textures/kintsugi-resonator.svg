@@ -1,0 +1,61 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="24K 金缮汝窑声波调频盘">
+  <defs>
+    <radialGradient id="celadon-glaze" cx="38%" cy="34%" r="66%">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="28%" stop-color="#6ee7b7" stop-opacity="0.55"/>
+      <stop offset="56%" stop-color="#3b7a75"/>
+      <stop offset="84%" stop-color="#1e3a3a"/>
+      <stop offset="100%" stop-color="#0f2324"/>
+    </radialGradient>
+    <linearGradient id="kintsugi-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="30%" stop-color="#e2b45a"/>
+      <stop offset="62%" stop-color="#c28e2e"/>
+      <stop offset="88%" stop-color="#92400e"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <filter id="porcelain-sss" x="-12%" y="-12%" width="124%" height="124%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#15181e" flood-opacity="0.22"/>
+    </filter>
+    <filter id="gold-glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="1.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. 流派专属底座：宋瓷声波同心涟漪盘 -->
+  <g id="layer-footprint">
+    <circle cx="128" cy="128" r="114" fill="none" stroke="#3b7a75" stroke-width="1" opacity="0.24"/>
+    <circle cx="128" cy="128" r="100" fill="none" stroke="#c28e2e" stroke-width="1.2" opacity="0.35"/>
+    <circle cx="128" cy="128" r="88" fill="#edeae2" opacity="0.7"/>
+  </g>
+
+  <!-- 2. 主体体积块面：青苔汝窑瓷盘胎体 -->
+  <g id="layer-chassis" filter="url(#porcelain-sss)">
+    <circle cx="128" cy="128" r="82" fill="url(#celadon-glaze)"/>
+    <circle cx="128" cy="128" r="72" fill="none" stroke="#a7f3d0" stroke-width="0.9" opacity="0.45"/>
+    <circle cx="128" cy="128" r="42" fill="#1e3a3a" opacity="0.28"/>
+  </g>
+
+  <!-- 3. 中观结构：蝉翼冰裂开片与 24K 金缮生漆接缝 -->
+  <g id="layer-mechanics">
+    <path d="M66 96 L98 112 L124 92 L158 104 L192 84" fill="none" stroke="#94a3b8" stroke-width="0.8" opacity="0.55"/>
+    <path d="M88 176 L112 146 L148 158 L176 134" fill="none" stroke="#94a3b8" stroke-width="0.8" opacity="0.5"/>
+    <path d="M52 138 C74 128 96 138 118 124 C138 110 154 126 178 112 L204 98" fill="none" stroke="url(#kintsugi-gold)" stroke-width="3.4" stroke-linecap="round" filter="url(#gold-glow)"/>
+    <path d="M118 124 C124 148 116 172 132 198" fill="none" stroke="url(#kintsugi-gold)" stroke-width="2.6" stroke-linecap="round" filter="url(#gold-glow)"/>
+    <path d="M138 116 C144 92 134 68 148 48" fill="none" stroke="url(#kintsugi-gold)" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="128" cy="128" r="14" fill="url(#kintsugi-gold)"/>
+    <circle cx="128" cy="128" r="6" fill="#1e3a3a"/>
+  </g>
+
+  <!-- 4. 瓷釉玉质高光与金箔微光 -->
+  <g id="layer-patina-fx">
+    <path d="M68 82 A68 68 0 0 1 154 64" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-opacity="0.7"/>
+    <ellipse cx="98" cy="84" rx="18" ry="8" transform="rotate(-24 98 84)" fill="#ffffff" opacity="0.34"/>
+    <circle cx="118" cy="124" r="3" fill="#fef08a"/>
+    <circle cx="178" cy="112" r="2.2" fill="#fef08a"/>
+  </g>
+</svg>

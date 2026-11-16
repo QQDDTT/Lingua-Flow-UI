@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>星尘漫游 · 声景画廊 | Lingua-Flow</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/unified.v6.css">
+</head>
+<body data-theme="immersive" data-mode="gallery">
+  <div class="optic-shell">
+    <header class="optic-topbar">
+      <div class="optic-brand">
+        <div class="optic-logo" aria-hidden="true">🌌</div>
+        <div>
+          <h1 style="font-size: var(--optic-font-h3);">星尘漫游 · 声景画廊</h1>
+          <div class="optic-brand-sub">S2 美术馆暖素白 / S5 暗房双模</div>
+        </div>
+      </div>
+
+      <nav class="theme-nav-pills" aria-label="主题切换导航">
+        <a href="index.html" class="theme-nav-pill">总览</a>
+        <a href="deductive.html" class="theme-nav-pill">🕵️ 雾都回响</a>
+        <a href="immersive.html" class="theme-nav-pill active">🌌 星尘漫游</a>
+        <a href="strategic.html" class="theme-nav-pill">⚔️ 刻痕圣殿</a>
+      </nav>
+
+      <div class="optic-topbar-actions">
+        <div class="optic-dropdown-wrap" data-dropdown>
+          <button type="button" class="optic-btn" data-dropdown-trigger aria-expanded="false">
+            <span id="imm-lang-label">英语 · CEFR</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="optic-dropdown-menu" role="listbox" aria-label="切换语种">
+            <button type="button" class="optic-dropdown-item" data-imm-lang="en"><span>英语 · CEFR</span><span>B2</span></button>
+            <button type="button" class="optic-dropdown-item" data-imm-lang="ja"><span>日语 · JLPT</span><span>N2</span></button>
+            <button type="button" class="optic-dropdown-item" data-imm-lang="zh"><span>汉语 · HSK 3.0</span><span>4级</span></button>
+          </div>
+        </div>
+        <button type="button" class="optic-btn" id="toggle-darkroom-btn">🌓 暗房态</button>
+        <button type="button" class="optic-btn" data-drawer-open="imm-guide-drawer">拓印说明</button>
+      </div>
+    </header>
+
+    <div class="imm-workspace">
+      <main class="slide-stage" id="slide-stage" aria-live="polite"></main>
+
+      <section aria-label="星域章节横向滑轨" style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="fsrs-telemetry-bar" style="margin-top: 0;">
+          <span>↔ 横向滑动或点击星域卡片切换幻灯片（Y 轴零延展）</span>
+          <span id="imm-fsrs-status">共鸣稳定性：待调频</span>
+        </div>
+        <div class="film-track" id="film-track"></div>
+      </section>
+    </div>
+  </div>
+
+  <div class="optic-scrim" id="optic-scrim"></div>
+  <aside class="optic-drawer" id="imm-guide-drawer" aria-hidden="true" aria-label="星尘漫游指引">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <h2>24K 金缮声波与字源拓印</h2>
+      <button type="button" class="optic-btn" data-drawer-close>关闭</button>
+    </div>
+    <p class="optic-body-text">
+      星尘漫游专为低压共情心智设计：通过【X 轴横向画廊】与【Z-03 景深幻灯片】在恒定画幅内聆听日语高低音调（Pitch Accent）、汉语五度声调与英语重音韵律，点击“声波调频共鸣”完成 FSRS-5 温和锚定。
+    </p>
+  </aside>
+
+  <script src="assets/js/lingua-core.v2.js"></script>
+  <script src="assets/js/immersive.v3.js"></script>
+</body>
+</html>

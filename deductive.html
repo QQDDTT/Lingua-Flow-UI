@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>雾都回响 · 推理案卷室 | Lingua-Flow</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/unified.v6.css">
+</head>
+<body data-theme="deductive">
+  <div class="optic-shell">
+    <header class="optic-topbar">
+      <div class="optic-brand">
+        <div class="optic-logo" aria-hidden="true">🕵️</div>
+        <div>
+          <h1 style="font-size: var(--optic-font-h3);">雾都回响 · 推理案卷室</h1>
+          <div class="optic-brand-sub">S3 温润羊皮暖砂 · Tufte 三栏旁注</div>
+        </div>
+      </div>
+
+      <nav class="theme-nav-pills" aria-label="主题切换导航">
+        <a href="index.html" class="theme-nav-pill">总览</a>
+        <a href="deductive.html" class="theme-nav-pill active">🕵️ 雾都回响</a>
+        <a href="immersive.html" class="theme-nav-pill">🌌 星尘漫游</a>
+        <a href="strategic.html" class="theme-nav-pill">⚔️ 刻痕圣殿</a>
+      </nav>
+
+      <div class="optic-topbar-actions">
+        <div class="optic-dropdown-wrap" data-dropdown>
+          <button type="button" class="optic-btn" data-dropdown-trigger aria-expanded="false">
+            <span id="ded-lang-label">英语 · CEFR</span>
+            <span aria-hidden="true">▾</span>
+          </button>
+          <div class="optic-dropdown-menu" role="listbox" aria-label="切换语种">
+            <button type="button" class="optic-dropdown-item" data-ded-lang="en"><span>英语 · CEFR</span><span>B2</span></button>
+            <button type="button" class="optic-dropdown-item" data-ded-lang="ja"><span>日语 · JLPT</span><span>N2</span></button>
+            <button type="button" class="optic-dropdown-item" data-ded-lang="zh"><span>汉语 · HSK 3.0</span><span>4级</span></button>
+          </div>
+        </div>
+        <button type="button" class="optic-btn" data-drawer-open="ded-rules-drawer">审讯准则</button>
+      </div>
+    </header>
+
+    <main class="tufte-grid">
+      <aside class="optic-panel" aria-label="案件卷宗目录">
+        <div class="theme-hero-window">
+          <img src="assets/images/deductive-keyart.jpg" alt="雾都回响维多利亚推理案卷台" class="hero-art">
+          <img src="assets/textures/zeiss-brass-lens.svg" alt="蔡司黄铜显微透镜" class="theme-hero-badge">
+        </div>
+        <div style="font-size: var(--optic-font-xs); font-weight: 700; color: var(--text-tertiary); letter-spacing: 0.05em;">卷宗目录 (CASES)</div>
+        <div class="optic-scroll-y" style="flex: 1; display: flex; flex-direction: column; gap: 6px;" id="case-list"></div>
+        <div class="fsrs-telemetry-bar">
+          <span>FSRS 记忆引擎</span>
+          <span id="ded-fsrs-badge">待审阅</span>
+        </div>
+      </aside>
+
+      <section class="optic-panel optic-scroll-y" aria-labelledby="dossier-title">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <span style="font-size: var(--optic-font-xs); font-weight: 700; color: var(--accent);" id="dossier-case-no">卷宗 #01-A</span>
+          <button type="button" class="optic-btn" id="toggle-lens-btn">🔍 蔡司显微透镜：收起</button>
+        </div>
+
+        <h2 id="dossier-title">钟表匠的不在场证明</h2>
+
+        <div class="dossier-word-bar">
+          <div>
+            <div class="dossier-word-main" id="dossier-word">anachronism</div>
+            <div class="dossier-phonetic" id="dossier-phonetic">/əˈnækrənɪzəm/</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: var(--optic-font-xs); color: var(--text-tertiary);">核心证物词源</span>
+            <img src="assets/textures/zeiss-brass-lens.svg" alt="蔡司黄铜显微透镜" width="48" height="48" style="width: 48px; height: 48px; display: block;">
+          </div>
+        </div>
+
+        <div class="lens-panel" id="lens-panel"></div>
+
+        <div class="testimony-box">
+          <div style="font-size: var(--optic-font-xs); color: var(--text-tertiary); margin-bottom: 6px;">证人口供笔录</div>
+          <p class="testimony-quote" id="dossier-testimony"></p>
+        </div>
+      </section>
+
+      <section class="optic-panel optic-scroll-y" aria-label="法庭矛盾指控台">
+        <h3>⚖️ 法庭矛盾指控针</h3>
+        <p class="optic-body-text" id="dossier-question"></p>
+        <div class="clause-list" id="clause-list"></div>
+
+        <div class="verdict-banner" id="verdict-banner" hidden>
+          <div>
+            <div style="font-weight: 700; font-size: var(--optic-font-sm);" id="verdict-title">推理结论</div>
+            <p class="optic-body-text" style="margin-top: 4px; font-size: var(--optic-font-sm);" id="verdict-note"></p>
+          </div>
+          <img src="assets/textures/crimson-verdict-seal.svg" alt="朱砂火漆结案印章" id="verdict-seal-img" width="52" height="52" style="width: 52px; height: 52px; flex-shrink: 0;" hidden>
+        </div>
+
+        <aside class="tufte-sidenote">
+          <div style="font-weight: 700; font-size: var(--optic-font-xs); color: var(--accent); margin-bottom: 4px;">TUFTE 词源旁注</div>
+          <p class="optic-body-text" style="font-size: var(--optic-font-sm);" id="dossier-sidenote"></p>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <div class="optic-scrim" id="optic-scrim"></div>
+  <aside class="optic-drawer" id="ded-rules-drawer" aria-hidden="true" aria-label="雾都回响审讯准则">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <h2>审讯与词源准则</h2>
+      <button type="button" class="optic-btn" data-drawer-close>关闭</button>
+    </div>
+    <p class="optic-body-text">
+      1. 使用【蔡司黄铜显微透镜】拆解关键证物词的词根、词缀或汉字语素。<br>
+      2. 在证人口供笔录中锁定违背时态、虚拟语气、助词接续或成语本义的逻辑矛盾。<br>
+      3. 点击右侧【法庭矛盾指控针】提交裁决，系统将按 FSRS-5 模型自动计算该语料的记忆稳定性 $S'$。
+    </p>
+  </aside>
+
+  <script src="assets/js/lingua-core.v2.js"></script>
+  <script src="assets/js/deductive.v3.js"></script>
+</body>
+</html>

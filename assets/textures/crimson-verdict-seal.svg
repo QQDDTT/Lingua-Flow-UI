@@ -1,0 +1,21 @@
+<svg viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="朱砂火漆结案印章">
+  <defs>
+    <radialGradient id="seal-wax" cx="38%" cy="34%" r="64%">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="32%" stop-color="#dc2626"/>
+      <stop offset="68%" stop-color="#991b1b"/>
+      <stop offset="92%" stop-color="#7f1d1d"/>
+      <stop offset="100%" stop-color="#450a0a"/>
+    </radialGradient>
+    <filter id="seal-depth" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#450a0a" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#seal-depth)">
+    <path d="M64 12 C82 10 102 20 112 36 C122 54 118 80 104 98 C90 116 62 120 42 112 C22 104 10 82 12 60 C14 38 30 16 64 12 Z" fill="url(#seal-wax)"/>
+    <circle cx="64" cy="64" r="38" fill="#7f1d1d" stroke="#fca5a5" stroke-width="1.2" stroke-opacity="0.55"/>
+    <circle cx="64" cy="64" r="32" fill="none" stroke="#fecaca" stroke-width="0.8" stroke-opacity="0.45"/>
+    <path d="M48 64 L59 75 L82 50" fill="none" stroke="#fef2f2" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="46" cy="40" rx="10" ry="5" transform="rotate(-30 46 40)" fill="#ffffff" opacity="0.35"/>
+  </g>
+</svg>

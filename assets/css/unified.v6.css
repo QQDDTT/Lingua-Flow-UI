@@ -1,0 +1,788 @@
+/* ==========================================================================
+   Lingua-Flow 统一 Optic-Resonance 设计系统 (unified.v5.css)
+   四页统一空间骨骼 + 五维主题色域映射 + Chroma-Muse 全量背景贴图承载
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 主题色域映射 (Unified Spectrum Mapping)
+   -------------------------------------------------------------------------- */
+body[data-theme="portal"] {
+  --bg: var(--optic-porcelain-bg);
+  --surface: var(--optic-porcelain-surface);
+  --surface-alt: var(--optic-porcelain-surface-alt);
+  --border: var(--optic-porcelain-border);
+  --text: var(--optic-porcelain-text);
+  --text-secondary: var(--optic-porcelain-text-secondary);
+  --text-tertiary: var(--optic-porcelain-text-tertiary);
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.10);
+  --bg-veil: rgba(248, 250, 252, 0.84);
+  --panel-veil: rgba(255, 255, 255, 0.90);
+  --theme-bg-tile: url('../textures/porcelain-grid-tile.svg');
+  --theme-tile: url('../textures/porcelain-grid-tile.svg');
+}
+
+body[data-theme="deductive"] {
+  --bg: var(--optic-parchment-bg);
+  --surface: var(--optic-parchment-surface);
+  --surface-alt: var(--optic-parchment-surface-alt);
+  --border: var(--optic-parchment-border);
+  --text: var(--optic-parchment-text);
+  --text-secondary: var(--optic-parchment-text-secondary);
+  --text-tertiary: var(--optic-parchment-text-tertiary);
+  --accent: #9a6b2f;
+  --accent-soft: rgba(154, 107, 47, 0.12);
+  --crimson: #b91c1c;
+  --crimson-soft: rgba(185, 28, 28, 0.10);
+  --bg-veil: rgba(243, 239, 230, 0.66);
+  --panel-veil: rgba(250, 247, 240, 0.86);
+  --theme-bg-tile: url('../images/deductive-parchment-tile.jpg');
+  --theme-tile: linear-gradient(var(--panel-veil), var(--panel-veil)), url('../images/deductive-parchment-tile.jpg');
+}
+
+body[data-theme="immersive"] {
+  --bg: var(--optic-gallery-bg);
+  --surface: var(--optic-gallery-surface);
+  --surface-alt: var(--optic-gallery-surface-alt);
+  --border: var(--optic-gallery-border);
+  --text: var(--optic-gallery-text);
+  --text-secondary: var(--optic-gallery-text-secondary);
+  --text-tertiary: var(--optic-gallery-text-tertiary);
+  --accent: #3b7a75;
+  --accent-soft: rgba(59, 122, 117, 0.12);
+  --gold: #c28e2e;
+  --bg-veil: rgba(246, 245, 241, 0.70);
+  --panel-veil: rgba(255, 255, 255, 0.88);
+  --theme-bg-tile: url('../images/immersive-celadon-tile.jpg');
+  --theme-tile: linear-gradient(var(--panel-veil), var(--panel-veil)), url('../images/immersive-celadon-tile.jpg');
+}
+
+body[data-theme="immersive"][data-mode="darkroom"] {
+  --bg: var(--optic-obsidian-bg);
+  --surface: var(--optic-obsidian-surface);
+  --surface-alt: var(--optic-obsidian-surface-alt);
+  --border: var(--optic-obsidian-border);
+  --text: var(--optic-obsidian-text);
+  --text-secondary: var(--optic-obsidian-text-secondary);
+  --text-tertiary: var(--optic-obsidian-text-tertiary);
+  --accent: #4fb3aa;
+  --accent-soft: rgba(79, 179, 170, 0.14);
+  --gold: #e2b45a;
+  --bg-veil: rgba(10, 12, 16, 0.88);
+  --panel-veil: rgba(19, 23, 32, 0.90);
+}
+
+body[data-theme="strategic"] {
+  --bg: var(--optic-slate-bg);
+  --surface: var(--optic-slate-surface);
+  --surface-alt: var(--optic-slate-surface-alt);
+  --border: var(--optic-slate-border);
+  --text: var(--optic-slate-text);
+  --text-secondary: var(--optic-slate-text-secondary);
+  --text-tertiary: var(--optic-slate-text-tertiary);
+  --accent: #2563eb;
+  --accent-soft: rgba(37, 99, 235, 0.12);
+  --amber: #d97706;
+  --shield-scale: 1;
+  --bg-veil: rgba(238, 242, 246, 0.66);
+  --panel-veil: rgba(255, 255, 255, 0.88);
+  --theme-bg-tile: url('../images/strategic-slate-tile.jpg');
+  --theme-tile: linear-gradient(var(--panel-veil), var(--panel-veil)), url('../images/strategic-slate-tile.jpg');
+}
+
+body[data-theme="strategic"][data-slate="dark"] {
+  --bg: var(--optic-slate-dark-bg);
+  --surface: var(--optic-slate-dark-surface);
+  --surface-alt: #334155;
+  --border: var(--optic-slate-dark-border);
+  --text: var(--optic-slate-dark-text);
+  --text-secondary: var(--optic-slate-dark-text-secondary);
+  --text-tertiary: var(--optic-slate-dark-text-tertiary);
+  --accent: #60a5fa;
+  --accent-soft: rgba(96, 165, 250, 0.16);
+  --bg-veil: rgba(30, 41, 59, 0.86);
+  --panel-veil: rgba(39, 52, 73, 0.90);
+}
+
+body[data-theme] {
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--bg-veil), var(--bg-veil)), var(--theme-bg-tile);
+  background-size: 420px 420px;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+/* --------------------------------------------------------------------------
+   2. 统一空间外壳与顶部指挥舱 (Unified App Shell & Topbar)
+   -------------------------------------------------------------------------- */
+.optic-shell {
+  min-height: 100dvh;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: max(14px, env(safe-area-inset-top)) max(18px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(18px, env(safe-area-inset-left));
+  display: grid;
+  grid-template-rows: auto 1fr;
+  row-gap: 14px;
+}
+
+@media (min-width: 1024px) {
+  .optic-shell {
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
+
+.optic-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background-color: var(--surface);
+  background-image: var(--theme-tile);
+  background-size: 256px 256px;
+  border: 1px solid var(--border);
+  box-shadow: var(--optic-elevation-1);
+}
+
+.optic-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.optic-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: var(--accent);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.optic-brand-sub {
+  font-size: var(--optic-font-xs);
+  color: var(--text-tertiary);
+}
+
+/* 统一分段主题导航胶囊 */
+.theme-nav-pills {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 14px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+}
+
+.theme-nav-pill {
+  min-height: 44px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: var(--optic-font-sm);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: background-color var(--optic-dur-fast) ease,
+              color var(--optic-dur-fast) ease,
+              border-color var(--optic-dur-fast) ease,
+              transform var(--optic-dur-fast) var(--optic-ease-cinematic);
+}
+
+.theme-nav-pill:hover {
+  background-color: var(--surface);
+  color: var(--text);
+}
+
+.theme-nav-pill.active {
+  background-color: var(--accent);
+  color: #ffffff;
+  box-shadow: var(--optic-elevation-1);
+}
+
+.optic-topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   3. 统一表面卡片体系 (Unified Textured Surfaces)
+   -------------------------------------------------------------------------- */
+.optic-panel {
+  position: relative;
+  border-radius: 20px;
+  background-color: var(--surface);
+  background-image: var(--theme-tile);
+  background-size: 256px 256px;
+  border: 1px solid var(--border);
+  box-shadow: var(--optic-elevation-1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+  animation: panelEnter var(--optic-dur-enter) var(--optic-ease-cinematic) both;
+}
+
+@keyframes panelEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+/* 统一 Key Art 艺术视窗 (消灭留白空洞) */
+.theme-hero-window {
+  position: relative;
+  width: 100%;
+  height: 118px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background-color: var(--surface-alt);
+  flex-shrink: 0;
+}
+
+.theme-hero-window img.hero-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.theme-hero-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 4px;
+  box-shadow: var(--optic-elevation-2);
+}
+
+/* 统一底部 FSRS 遥测条 */
+.fsrs-telemetry-bar {
+  margin-top: auto;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: var(--optic-font-xs);
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* --------------------------------------------------------------------------
+   4. L1 总览页 Bento 布局 (Portal)
+   -------------------------------------------------------------------------- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  min-height: 0;
+}
+
+.bento-hero {
+  grid-column: span 6;
+  grid-row: span 2;
+  justify-content: space-between;
+}
+
+.bento-theme-deductive {
+  grid-column: span 6;
+  grid-row: span 1;
+  background-color: #faf7f0;
+  background-image: linear-gradient(rgba(250, 247, 240, 0.84), rgba(250, 247, 240, 0.84)), url('../images/deductive-parchment-tile.jpg');
+  background-size: 360px 360px;
+  border-color: rgba(154, 107, 47, 0.24);
+  animation-delay: 45ms;
+}
+
+.bento-theme-immersive {
+  grid-column: span 3;
+  grid-row: span 1;
+  background-color: #ffffff;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.86)), url('../images/immersive-celadon-tile.jpg');
+  background-size: 360px 360px;
+  border-color: rgba(59, 122, 117, 0.24);
+  animation-delay: 90ms;
+}
+
+.bento-theme-strategic {
+  grid-column: span 3;
+  grid-row: span 1;
+  background-color: #ffffff;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.86)), url('../images/strategic-slate-tile.jpg');
+  background-size: 360px 360px;
+  border-color: rgba(37, 99, 235, 0.22);
+  animation-delay: 135ms;
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-pill {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  font-variant-numeric: tabular-nums;
+}
+
+.metric-label { font-size: var(--optic-font-xs); color: var(--text-tertiary); }
+.metric-value { font-size: var(--optic-font-h2); font-weight: 700; color: var(--text); margin-top: 2px; }
+
+.lang-switch-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.lang-chip {
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  color: var(--text-secondary);
+  font-size: var(--optic-font-sm);
+  font-weight: 600;
+  transition: transform var(--optic-dur-fast) var(--optic-ease-cinematic),
+              background-color var(--optic-dur-fast) ease,
+              color var(--optic-dur-fast) ease,
+              border-color var(--optic-dur-fast) ease;
+}
+.lang-chip.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.theme-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-tertiary);
+}
+.theme-dot { width: 8px; height: 8px; border-radius: 50%; }
+.theme-card-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; }
+
+/* --------------------------------------------------------------------------
+   5. 主题一：雾都回响 Tufte 三栏网格 (Deductive)
+   -------------------------------------------------------------------------- */
+.tufte-grid {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1.45fr) minmax(300px, 1fr);
+  gap: 14px;
+  min-height: 0;
+}
+
+.case-nav-btn {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--text-secondary);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: background-color var(--optic-dur-fast) ease,
+              border-color var(--optic-dur-fast) ease;
+}
+.case-nav-btn:hover { background-color: var(--surface-alt); }
+.case-nav-btn.active { background-color: var(--accent-soft); border-color: rgba(154, 107, 47, 0.35); color: var(--text); }
+
+.dossier-word-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background-color: var(--bg);
+  border: 1px dashed rgba(154, 107, 47, 0.38);
+}
+.dossier-word-main { font-family: var(--optic-font-serif); font-size: var(--optic-font-h1); font-weight: 700; color: var(--text); }
+.dossier-phonetic { font-family: var(--optic-font-mono); font-size: var(--optic-font-sm); color: var(--text-tertiary); }
+
+.lens-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  background-color: var(--accent-soft);
+  border: 1px solid rgba(154, 107, 47, 0.28);
+}
+.lens-panel[hidden] { display: none; }
+.root-chip { padding: 10px 12px; border-radius: 10px; background-color: var(--surface); border: 1px solid var(--border); }
+.root-part { font-family: var(--optic-font-mono); font-weight: 700; color: var(--accent); font-size: var(--optic-font-h3); }
+
+.testimony-box {
+  padding: 16px 18px;
+  border-radius: 14px;
+  background-color: var(--bg);
+  border-left: 4px solid var(--accent);
+}
+.testimony-quote { font-family: var(--optic-font-serif); font-size: clamp(1rem, 0.4vw + 0.94rem, 1.125rem); line-height: 1.7; color: var(--text); max-width: min(36em, 100%); }
+
+.clause-list { display: flex; flex-direction: column; gap: 10px; }
+.clause-btn {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  color: var(--text);
+  text-align: left;
+  font-size: var(--optic-font-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: transform var(--optic-dur-fast) var(--optic-ease-cinematic), border-color var(--optic-dur-fast) ease, background-color var(--optic-dur-fast) ease;
+}
+.clause-btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+.clause-btn.hit-flaw { background-color: var(--crimson-soft); border-color: var(--crimson); color: var(--crimson); font-weight: 600; }
+.clause-btn.miss-flaw { background-color: var(--surface-alt); opacity: 0.78; }
+
+.verdict-banner {
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(154, 107, 47, 0.35);
+  background-color: var(--accent-soft);
+}
+.tufte-sidenote { padding: 12px 14px; border-radius: 14px; background-color: var(--bg); border: 1px solid var(--border); font-size: var(--optic-font-sm); }
+
+/* --------------------------------------------------------------------------
+   6. 主题二：星尘漫游 幻灯片与 X 轴滑轨 (Immersive)
+   -------------------------------------------------------------------------- */
+.imm-workspace {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 14px;
+  min-height: 0;
+}
+
+.slide-stage {
+  position: relative;
+  border-radius: 20px;
+  background-color: var(--surface);
+  background-image: var(--theme-tile);
+  background-size: 256px 256px;
+  border: 1px solid var(--border);
+  box-shadow: var(--optic-elevation-1);
+  overflow: hidden;
+  display: grid;
+  min-height: 320px;
+}
+
+.slide-frame {
+  grid-area: 1 / 1;
+  width: 100%;
+  min-width: 0;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(48px, 0, 0) scale(0.97);
+  transition: opacity var(--optic-dur-enter) var(--optic-ease-cinematic), transform var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+.slide-frame > * { min-width: 0; }
+.slide-frame .optic-btn { min-height: 46px; max-width: 100%; }
+.slide-frame.active { opacity: 1; pointer-events: auto; transform: translate3d(0, 0, 0) scale(1); }
+.slide-frame.prev { opacity: 0; transform: translate3d(-48px, 0, -40px) scale(0.95); transition: opacity 320ms var(--optic-ease-exit), transform 320ms var(--optic-ease-exit); }
+
+.kintsugi-dial {
+  padding: 18px;
+  border-radius: 18px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contour-bars {
+  height: 104px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 14px;
+  background-color: var(--surface);
+  background-image: url('../textures/stardust-wave-frame.svg');
+  background-size: 100% 100%;
+  border: 1px solid var(--border);
+}
+.contour-col { width: 22px; height: 100%; display: flex; align-items: flex-end; }
+.contour-fill {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(to top, var(--accent), var(--gold));
+  transform-origin: bottom center;
+  transition: transform var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+.rubbing-card { padding: 14px 16px; border-radius: 14px; background-color: var(--accent-soft); border: 1px solid rgba(59, 122, 117, 0.28); }
+
+.film-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 4px 28px;
+  -webkit-mask-image: var(--optic-mask-x-fade);
+  mask-image: var(--optic-mask-x-fade);
+  scrollbar-width: none;
+}
+.film-track::-webkit-scrollbar { display: none; }
+
+.track-pill-card {
+  flex: 0 0 auto;
+  min-width: 240px;
+  min-height: 62px;
+  scroll-snap-align: center;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background-color: var(--surface);
+  background-image: var(--theme-tile);
+  background-size: 200px 200px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: transform var(--optic-dur-fast) var(--optic-ease-cinematic), border-color var(--optic-dur-fast) ease, box-shadow var(--optic-dur-fast) ease;
+}
+.track-pill-card.active { border-color: var(--gold); box-shadow: var(--optic-elevation-2); transform: scale(1.03); }
+
+/* --------------------------------------------------------------------------
+   7. 主题三：刻痕圣殿 试炼舞台与法轮 (Strategic)
+   -------------------------------------------------------------------------- */
+.str-workspace {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 14px;
+  min-height: 0;
+}
+
+.str-arena {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 14px;
+  min-height: 0;
+}
+
+.deck-stage {
+  position: relative;
+  display: grid;
+  perspective: 900px;
+  min-height: 0;
+}
+
+.deck-card {
+  grid-area: 1 / 1;
+  border-radius: 20px;
+  background-color: var(--surface);
+  background-image: var(--theme-tile);
+  background-size: 256px 256px;
+  border: 1px solid var(--border);
+  box-shadow: var(--optic-elevation-1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform var(--optic-dur-enter) var(--optic-ease-cinematic), opacity var(--optic-dur-enter) var(--optic-ease-cinematic);
+}
+.deck-card.is-back { transform: translate3d(0, -12px, -30px) scale(0.96); opacity: 0.65; pointer-events: none; }
+.deck-card.is-front { transform: translate3d(0, 0, 0) scale(1); opacity: 1; z-index: 2; }
+
+.stem-slot-box {
+  padding: 16px 20px;
+  border-radius: 14px;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  font-size: var(--optic-font-h2);
+  font-weight: 600;
+  line-height: 1.55;
+}
+.tenon-blank {
+  display: inline-block;
+  min-width: 96px;
+  padding: 2px 12px;
+  margin: 0 4px;
+  border-radius: 8px;
+  border-bottom: 3px solid var(--accent);
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  text-align: center;
+}
+
+.shield-track {
+  position: relative;
+  width: 140px;
+  height: 10px;
+  border-radius: 999px;
+  background-color: var(--surface-alt);
+  overflow: hidden;
+}
+.shield-ghost {
+  position: absolute; inset: 0; background-color: var(--amber);
+  transform-origin: left center; transform: scaleX(var(--shield-scale));
+  transition: transform 450ms var(--optic-ease-cinematic) 180ms;
+}
+.shield-main {
+  position: absolute; inset: 0; background-color: var(--accent);
+  transform-origin: left center; transform: scaleX(var(--shield-scale));
+  transition: transform 80ms linear;
+}
+
+.radial-hub {
+  position: relative;
+  width: 276px;
+  height: 276px;
+  flex-shrink: 0;
+  margin: 0 auto;
+  border-radius: 50%;
+  background-color: #0f172a;
+  background-image: url('../images/strategic-dharma-wheel.jpg');
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--optic-elevation-2);
+  display: grid;
+  place-items: center;
+}
+
+.radial-center {
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(251, 191, 36, 0.65);
+  box-shadow: var(--optic-elevation-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6px;
+  z-index: 2;
+}
+body[data-theme="strategic"][data-slate="dark"] .radial-center { background-color: rgba(15, 23, 42, 0.90); }
+
+.radial-node {
+  position: absolute;
+  min-width: 64px;
+  min-height: 44px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0.55);
+  background-color: rgba(255, 255, 255, 0.94);
+  color: #0f172a;
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: var(--optic-elevation-2);
+  z-index: 3;
+  transition: transform var(--optic-dur-fast) var(--optic-ease-cinematic), background-color var(--optic-dur-fast) ease, color var(--optic-dur-fast) ease;
+}
+.radial-node:hover, .radial-node.active { background-color: var(--accent); color: #ffffff; border-color: var(--accent); }
+
+.hand-tray {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 20px;
+  background-color: var(--surface);
+  background-image: var(--theme-tile);
+  background-size: 256px 256px;
+  border: 1px solid var(--border);
+  box-shadow: var(--optic-elevation-1);
+}
+
+.tenon-card {
+  min-width: 148px;
+  min-height: 74px;
+  padding: 10px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background-color: var(--bg);
+  background-image: url('../textures/tenon-card-frame.svg');
+  background-size: 100% 100%;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: var(--optic-elevation-1);
+  transform: rotate(var(--card-tilt, 0deg));
+  transition: transform var(--optic-dur-fast) var(--optic-ease-cinematic), border-color var(--optic-dur-fast) ease, background-color var(--optic-dur-fast) ease, box-shadow var(--optic-dur-fast) ease;
+}
+.tenon-card:hover { transform: translate3d(0, -12px, 0) scale(1.06) rotate(0deg); border-color: var(--accent); box-shadow: var(--optic-elevation-2); z-index: 4; }
+.tenon-card.is-correct { border-color: #10b981; background-color: rgba(16, 185, 129, 0.14); }
+.tenon-card.is-wrong { border-color: #ef4444; background-color: rgba(239, 68, 68, 0.12); }
+
+/* --------------------------------------------------------------------------
+   8. 响应式平板与移动端适配 (Tablet & Mobile <= 1023px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
+  .bento-hero, .bento-theme-deductive { grid-column: span 2; grid-row: auto; }
+  .bento-theme-immersive, .bento-theme-strategic { grid-column: span 1; grid-row: auto; }
+  .tufte-grid, .str-arena, .slide-frame { grid-template-columns: 1fr; }
+  .theme-nav-pills { width: 100%; justify-content: space-between; overflow-x: auto; }
+  .tenon-card { min-width: calc(50% - 10px); transform: none; }
+  .tenon-card:hover { transform: translate3d(0, -4px, 0); }
+}
+
+@media (max-width: 639px) {
+  .bento-theme-immersive, .bento-theme-strategic { grid-column: span 2; }
+  .optic-panel { padding: 16px; }
+  .slide-frame { padding: 16px; gap: 14px; }
+}

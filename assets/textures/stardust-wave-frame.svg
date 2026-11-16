@@ -1,0 +1,6 @@
+<svg viewBox="0 0 320 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <line x1="12" y1="22" x2="308" y2="22" stroke="#c28e2e" stroke-width="0.7" stroke-opacity="0.22"/>
+  <line x1="12" y1="55" x2="308" y2="55" stroke="#3b7a75" stroke-width="0.7" stroke-opacity="0.22"/>
+  <line x1="12" y1="88" x2="308" y2="88" stroke="#c28e2e" stroke-width="0.7" stroke-opacity="0.22"/>
+  <path d="M0 95 Q 80 65 160 85 T 320 72" fill="none" stroke="#c28e2e" stroke-width="1.1" stroke-opacity="0.28"/>
+</svg>

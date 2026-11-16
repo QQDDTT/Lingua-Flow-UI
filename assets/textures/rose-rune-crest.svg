@@ -1,0 +1,54 @@
+<svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="六翼玫瑰花窗破盾晶球徽章">
+  <defs>
+    <radialGradient id="cobalt-glass" cx="38%" cy="32%" r="65%">
+      <stop offset="0%" stop-color="#bae6fd"/>
+      <stop offset="28%" stop-color="#38bdf8"/>
+      <stop offset="60%" stop-color="#2563eb"/>
+      <stop offset="86%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+    <radialGradient id="amber-orb" cx="35%" cy="30%" r="64%">
+      <stop offset="0%" stop-color="#fef9c3"/>
+      <stop offset="30%" stop-color="#fbbf24"/>
+      <stop offset="65%" stop-color="#d97706"/>
+      <stop offset="90%" stop-color="#78350f"/>
+      <stop offset="100%" stop-color="#451a03"/>
+    </radialGradient>
+    <linearGradient id="slate-stone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cbd5e1"/>
+      <stop offset="35%" stop-color="#64748b"/>
+      <stop offset="70%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="gem-shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+
+  <!-- 1. 流派专属底座：哥特八角玄武岩罗盘框 -->
+  <g id="layer-footprint">
+    <polygon points="128,14 208,48 242,128 208,208 128,242 48,208 14,128 48,48" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+    <polygon points="128,24 200,56 232,128 200,200 128,232 56,200 24,128 56,56" fill="none" stroke="#94a3b8" stroke-width="0.9" opacity="0.6"/>
+  </g>
+
+  <!-- 2. 主体体积块面：玫瑰花窗铅条与钴蓝宝石玻璃瓣 -->
+  <g id="layer-chassis" filter="url(#gem-shadow)">
+    <circle cx="128" cy="128" r="88" fill="url(#cobalt-glass)" stroke="#0f172a" stroke-width="5"/>
+    <path d="M128 40 L146 98 L204 84 L158 128 L204 172 L146 158 L128 216 L110 158 L52 172 L98 128 L52 84 L110 98 Z" fill="url(#slate-stone)" stroke="#0f172a" stroke-width="2.5"/>
+  </g>
+
+  <!-- 3. 中观工程与符文结构：榫卯卡齿与中央琥珀晶球 -->
+  <g id="layer-mechanics">
+    <circle cx="128" cy="128" r="46" fill="#0f172a"/>
+    <circle cx="128" cy="128" r="38" fill="url(#amber-orb)"/>
+    <path d="M128 58 L128 74 M128 182 L128 198 M58 128 L74 128 M182 128 L198 128" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M116 116 L128 104 L140 116 L128 152 Z" fill="#fef3c7" opacity="0.45"/>
+  </g>
+
+  <!-- 4. 玻璃焦散高光与倒角亮边 -->
+  <g id="layer-patina-fx">
+    <ellipse cx="114" cy="112" rx="12" ry="6" transform="rotate(-35 114 112)" fill="#ffffff" opacity="0.8"/>
+    <path d="M62 84 A78 78 0 0 1 158 54" fill="none" stroke="#e0f2fe" stroke-width="1.2" stroke-opacity="0.72"/>
+    <circle cx="144" cy="144" r="3" fill="#fef08a" opacity="0.7"/>
+  </g>
+</svg>

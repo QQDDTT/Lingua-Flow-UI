@@ -1,0 +1,18 @@
+<svg viewBox="0 0 180 96" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="tenon-edge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#93c5fd" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#2563eb" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="176" height="92" rx="14" fill="none" stroke="url(#tenon-edge)" stroke-width="2"/>
+  <!-- 顶部与底部榫卯卡齿 -->
+  <path d="M68 2 L76 10 L104 10 L112 2" fill="none" stroke="#2563eb" stroke-width="1.4" stroke-opacity="0.45"/>
+  <path d="M68 94 L76 86 L104 86 L112 94" fill="none" stroke="#2563eb" stroke-width="1.4" stroke-opacity="0.45"/>
+  <!-- 四角符文点 -->
+  <circle cx="14" cy="14" r="2.2" fill="#2563eb" fill-opacity="0.4"/>
+  <circle cx="166" cy="14" r="2.2" fill="#2563eb" fill-opacity="0.4"/>
+  <circle cx="14" cy="82" r="2.2" fill="#2563eb" fill-opacity="0.4"/>
+  <circle cx="166" cy="82" r="2.2" fill="#2563eb" fill-opacity="0.4"/>
+</svg>
