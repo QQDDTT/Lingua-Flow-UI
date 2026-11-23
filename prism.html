@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>Lingua-Flow · Prism Sanctum</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/immersion.css">
+  <link rel="stylesheet" href="assets/css/theme-gate.css">
+</head>
+<body data-theme="prism">
+  <div class="lf-reveal-veil" id="lf-reveal-veil" aria-hidden="true"></div>
+  <div class="gate-behind-stage" aria-hidden="true"></div>
+
+  <div class="portcullis-slab" aria-hidden="true">
+    <div class="gate-leaf-lattice"></div>
+    <div class="gate-leaf-brace"></div>
+  </div>
+
+  <div class="prism-beams-layer" aria-hidden="true">
+    <div class="prism-beam prism-beam-cobalt"></div>
+    <div class="prism-beam prism-beam-cyan"></div>
+    <div class="prism-beam prism-beam-amber"></div>
+  </div>
+
+  <div class="gate-foreground-shell">
+    <header class="sigil-topbar">
+      <div class="sigil-group">
+        <a href="index.html" class="sigil-btn" aria-label="Return to Portal"><img src="assets/textures/ui-portal-return.svg" alt=""></a>
+        <button type="button" class="sigil-lang-pill" id="sigil-lang-btn" aria-label="Switch Target Language">EN</button>
+      </div>
+      <div class="sigil-group">
+        <button type="button" class="sigil-btn" id="sigil-sound-btn" aria-label="Toggle Audio"><img src="assets/textures/ui-audio-wave.svg" alt=""></button>
+        <button type="button" class="sigil-btn" id="sigil-rule-btn" aria-label="Rules Guide"><img src="assets/textures/ui-rule-sigil.svg" alt=""></button>
+      </div>
+    </header>
+
+    <main class="gate-mechanism-hub">
+      <div class="astrolabe-assembly">
+        <img src="assets/textures/parts/part-rune-ring-outer.svg" alt="" class="rune-ring-layer rune-ring-outer" aria-hidden="true">
+        <img src="assets/textures/parts/part-rune-ring-mid.svg" alt="" class="rune-ring-layer rune-ring-mid" aria-hidden="true">
+        <img src="assets/textures/parts/part-rune-ring-inner.svg" alt="" class="rune-ring-layer rune-ring-inner" aria-hidden="true">
+        <button type="button" class="astrolabe-orb-btn" id="astrolabe-orb-btn" aria-label="Charge Orb to Lift Portcullis">
+          <img src="assets/textures/prism-orb-glyph.svg" alt="">
+        </button>
+        <button type="button" class="chain-pull-btn" id="gate-chain-btn" aria-label="Pull Iron Chain to Lift Portcullis">
+          <img src="assets/textures/parts/part-chain-pull.svg" alt="">
+        </button>
+      </div>
+
+      <div class="gate-control-console">
+        <div class="gate-topic-screen" aria-live="polite">
+          <span class="topic-screen-code tabular-num" id="topic-screen-code">#001</span>
+          <span class="topic-screen-title" id="topic-screen-title">---</span>
+        </div>
+        <div class="drum-counter" role="group" aria-label="Three-Digit Curriculum Dial">
+          <div class="drum-col">
+            <button type="button" class="drum-step-btn" data-drum-delta="-100" aria-label="Hundreds Down">‹</button>
+            <span class="drum-digit-window tabular-num" data-drum-digit="0">0</span>
+            <button type="button" class="drum-step-btn" data-drum-delta="100" aria-label="Hundreds Up">›</button>
+          </div>
+          <div class="drum-col">
+            <button type="button" class="drum-step-btn" data-drum-delta="-10" aria-label="Tens Down">‹</button>
+            <span class="drum-digit-window tabular-num" data-drum-digit="1">0</span>
+            <button type="button" class="drum-step-btn" data-drum-delta="10" aria-label="Tens Up">›</button>
+          </div>
+          <div class="drum-col">
+            <button type="button" class="drum-step-btn" data-drum-delta="-1" aria-label="Ones Down">‹</button>
+            <span class="drum-digit-window tabular-num" data-drum-digit="2">1</span>
+            <button type="button" class="drum-step-btn" data-drum-delta="1" aria-label="Ones Up">›</button>
+          </div>
+        </div>
+        <button type="button" class="gate-lever-track" id="gate-lever-btn" aria-label="Slide Lever to Lift Portcullis">
+          <span class="gate-lever-knob"><img src="assets/textures/prism-tenon-glyph.svg" alt=""></span>
+          <span class="gate-lever-chevrons" aria-hidden="true">▲ ▲ ▲</span>
+        </button>
+      </div>
+    </main>
+    <footer style="height:8px;"></footer>
+  </div>
+
+  <div class="rule-overlay" id="rule-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="rule-card" style="border-color:#2563eb;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>棱镜圣殿 · 星轨铁栅说明</h2>
+        <button type="button" class="sigil-btn" id="rule-close-btn" aria-label="关闭"><img src="assets/textures/ui-close-sigil.svg" alt=""></button>
+      </div>
+      <p>欢迎步入<strong>棱镜圣殿（Prism Sanctum）</strong>。本页面严格实行<strong>零母语沉浸</strong>：</p>
+      <ul>
+        <li>拨动<strong>三位数字滚轮</strong>，百/十/个位分别驱动三层卢恩石环独立旋转并收敛彩窗三束聚光。</li>
+        <li>点击中央<strong>琥珀晶球</strong>或下拉<strong>重型铁链</strong>，三环反转咬合再归位，整面玄武岩铁栅分段顿挫升起，直入扇形榫卯试炼场。</li>
+      </ul>
+      <div class="rule-legend-row">
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-1-again.svg" alt=""><span>重来 (Again)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-2-hard.svg" alt=""><span>困难 (Hard)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-3-good.svg" alt=""><span>良好 (Good)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-4-easy.svg" alt=""><span>轻松 (Easy)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/lingua-core.js"></script>
+  <script src="assets/js/immersion-shell.js"></script>
+  <script src="assets/js/theme-home.js"></script>
+</body>
+</html>

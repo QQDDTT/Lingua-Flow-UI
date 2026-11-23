@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>Lingua-Flow · 心流语境总览</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/portal.css">
+  <link rel="stylesheet" href="assets/css/transition.css">
+</head>
+<body data-theme="portal">
+  <div class="portal-shell">
+    <header class="portal-topbar">
+      <div class="portal-brand">
+        <div class="portal-logo" aria-hidden="true">LF</div>
+        <div>
+          <div class="portal-brand-title">Lingua-Flow · 心流语境</div>
+          <div class="portal-brand-sub">S1 日光白瓷 · L-A1 Bento 总览指挥舱</div>
+        </div>
+      </div>
+      <div class="portal-actions">
+        <button type="button" class="optic-btn" id="open-archive-btn">FSRS-5 记忆档案</button>
+      </div>
+    </header>
+
+    <main class="bento-grid">
+      <section class="bento-card bento-hero" aria-labelledby="hero-title">
+        <div>
+          <span class="theme-kicker"><span class="theme-dot" style="background:#2563eb;"></span>双轴正交 · 语言学核心 × 心智叙事世界</span>
+          <h1 id="hero-title" class="portal-h1">先锁定单一目标语种，再步入零母语沉浸闸门</h1>
+          <p class="portal-body" style="margin-top:12px;">
+            Lingua-Flow 将官方考纲（CEFR / JLPT / HSK 3.0）与 FSRS-5 认知记忆稳定性算法解耦投射至三大全新叙事空间。所有主题门厅与演练舞台均严格隔离母语干扰。
+          </p>
+        </div>
+
+        <div>
+          <div style="font-size:12px; color:var(--optic-porcelain-text-ter); margin-bottom:8px;">锁定目标习得语种（全主题同步生效）</div>
+          <div class="lang-switch-row" role="group" aria-label="切换目标语种">
+            <button type="button" class="lang-chip" data-set-lang="en">EN · 英语 CEFR</button>
+            <button type="button" class="lang-chip" data-set-lang="ja">JA · 日语 JLPT</button>
+            <button type="button" class="lang-chip" data-set-lang="zh">ZH · 汉语 HSK 3.0</button>
+          </div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-pill">
+            <div class="metric-label">累计演练</div>
+            <div class="metric-value tabular-num" id="stat-reviewed">0</div>
+          </div>
+          <div class="metric-pill">
+            <div class="metric-label">心流准确率</div>
+            <div class="metric-value tabular-num" id="stat-accuracy">0%</div>
+          </div>
+          <div class="metric-pill">
+            <div class="metric-label">连续命中</div>
+            <div class="metric-value tabular-num" id="stat-streak">0</div>
+          </div>
+        </div>
+      </section>
+
+      <article class="bento-card bento-codex">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px;">
+          <div>
+            <span class="theme-kicker"><span class="theme-dot" style="background:#9a6b2f;"></span>01 · 高逻辑词源与推理</span>
+            <h2 style="font-size:var(--optic-font-h2); margin-top:4px;">时计法典 · Chronos Codex</h2>
+            <p class="portal-body" style="font-size:var(--optic-font-sm); margin-top:6px;">S3 羊皮暖砂 · 齿轮活塞蒸汽闸门 + L-A13 Tufte 旁注案卷。</p>
+          </div>
+          <img src="assets/textures/sigil-codex.svg" alt="" style="width:52px; height:52px; flex-shrink:0;">
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:12px; color:var(--optic-porcelain-text-ter);">机械 / 流体机关</span>
+          <a href="codex.html" class="optic-btn optic-btn-primary" style="background:#9a6b2f; border-color:#9a6b2f;">开启闸门 →</a>
+        </div>
+      </article>
+
+      <article class="bento-card bento-tidal">
+        <div>
+          <span class="theme-kicker"><span class="theme-dot" style="background:#3b7a75;"></span>02 · 低压共情</span>
+          <h2 style="font-size:var(--optic-font-h3); margin-top:4px;">潮汐星图</h2>
+          <p class="portal-body" style="font-size:var(--optic-font-sm); margin-top:6px;">S2/S5 双模 · 玉璧障子门 + X 轴声景滑轨。</p>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <img src="assets/textures/sigil-tidal.svg" alt="" style="width:40px; height:40px;">
+          <a href="tidal.html" class="optic-btn optic-btn-primary" style="background:#3b7a75; border-color:#3b7a75;">进入 →</a>
+        </div>
+      </article>
+
+      <article class="bento-card bento-prism">
+        <div>
+          <span class="theme-kicker"><span class="theme-dot" style="background:#2563eb;"></span>03 · 胜任感破盾</span>
+          <h2 style="font-size:var(--optic-font-h3); margin-top:4px;">棱镜圣殿 · Prism Sanctum</h2>
+          <p class="portal-body" style="font-size:var(--optic-font-sm); margin-top:6px;">S4 北欧岩板 · 三环光学聚光铁栅 + 扇形榫卯手牌。</p>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <img src="assets/textures/sigil-prism.svg" alt="" style="width:40px; height:40px;">
+          <a href="prism.html" class="optic-btn optic-btn-primary" style="background:#2563eb; border-color:#2563eb;">试炼 →</a>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <div class="optic-scrim" id="optic-scrim"></div>
+  <aside class="optic-drawer" id="archive-drawer" aria-hidden="true" aria-label="FSRS-5 记忆档案">
+    <div style="display:flex; align-items:center; justify-content:space-between;">
+      <h2 style="font-size:var(--optic-font-h2);">FSRS-5 记忆档案</h2>
+      <button type="button" class="optic-btn" id="close-archive-btn">关闭</button>
+    </div>
+    <p class="portal-body" style="font-size:var(--optic-font-sm);">三主题共用一份客户端持久化记忆曲线，演练结果将实时更新稳定性 S 与难度 D。</p>
+    <div class="drawer-scroll-list" id="drawer-cards-list"></div>
+    <div style="display:flex; gap:10px;">
+      <button type="button" class="optic-btn" id="toggle-sound-btn" style="flex:1;">声触反馈：开启</button>
+      <button type="button" class="optic-btn" id="reset-progress-btn">重置进度</button>
+    </div>
+  </aside>
+
+  <script src="assets/js/lingua-core.js"></script>
+  <script src="assets/js/portal.js"></script>
+  <script src="assets/js/transition.js"></script>
+</body>
+</html>

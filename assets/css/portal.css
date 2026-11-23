@@ -1,0 +1,279 @@
+/* ==========================================================================
+   L1 平台总览样式 (portal.css) — S1 日光白瓷 · L-A1 瑞士 12 列 Bento 矩阵
+   ========================================================================== */
+body[data-theme="portal"] {
+  background-color: var(--optic-porcelain-bg);
+  color: var(--optic-porcelain-text);
+  font-family: "Inter", "Noto Sans JP", "PingFang SC", system-ui, sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+.portal-shell {
+  max-width: 1380px;
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: calc(16px + var(--safe-top)) calc(22px + var(--safe-right)) calc(22px + var(--safe-bottom)) calc(22px + var(--safe-left));
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.portal-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: var(--optic-porcelain-surface);
+  border: 1px solid var(--optic-porcelain-border);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+.portal-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.portal-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #0f172a;
+  color: #f8fafc;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  flex-shrink: 0;
+}
+
+.portal-brand-title {
+  font-size: var(--optic-font-h3);
+  font-weight: 700;
+}
+
+.portal-brand-sub {
+  font-size: var(--optic-font-xs);
+  color: var(--optic-porcelain-text-ter);
+}
+
+.portal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.optic-btn {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid var(--optic-porcelain-border);
+  background: var(--optic-porcelain-surface);
+  color: var(--optic-porcelain-text);
+  font-size: var(--optic-font-sm);
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 180ms var(--optic-ease-cinematic), box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.optic-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.optic-btn-primary {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+/* L-A1 瑞士 12 列 Bento 矩阵 */
+.bento-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.bento-card {
+  background: var(--optic-porcelain-surface);
+  border: 1px solid var(--optic-porcelain-border);
+  border-radius: 22px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-hero {
+  grid-column: span 7;
+  grid-row: span 2;
+  background: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+.bento-codex {
+  grid-column: span 5;
+  grid-row: span 1;
+  background: linear-gradient(135deg, rgba(250, 247, 240, 0.96) 0%, rgba(243, 239, 230, 0.92) 100%);
+  border-color: rgba(154, 107, 47, 0.25);
+}
+
+.bento-tidal {
+  grid-column: span 2;
+  grid-row: span 1;
+  background: linear-gradient(135deg, rgba(246, 245, 241, 0.96) 0%, rgba(220, 235, 232, 0.85) 100%);
+  border-color: rgba(59, 122, 117, 0.25);
+}
+
+.bento-prism {
+  grid-column: span 3;
+  grid-row: span 1;
+  background: linear-gradient(135deg, #eef2f6 0%, #e2e8f0 100%);
+  border-color: rgba(37, 99, 235, 0.22);
+}
+
+.theme-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--optic-font-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--optic-porcelain-text-ter);
+}
+
+.theme-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.portal-h1 {
+  font-size: var(--optic-font-display);
+  line-height: 1.18;
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.portal-body {
+  font-size: var(--optic-font-body);
+  line-height: var(--optic-leading-body);
+  color: var(--optic-porcelain-text-sec);
+  max-width: var(--optic-measure-optimal);
+}
+
+.lang-switch-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lang-chip {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--optic-porcelain-border);
+  background: #ffffff;
+  color: var(--optic-porcelain-text);
+  font-size: var(--optic-font-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 180ms var(--optic-ease-cinematic), background-color 180ms ease, color 180ms ease;
+}
+
+.lang-chip.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+}
+
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric-pill {
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--optic-porcelain-border);
+}
+
+.metric-label {
+  font-size: var(--optic-font-xs);
+  color: var(--optic-porcelain-text-ter);
+}
+
+.metric-value {
+  font-size: var(--optic-font-h2);
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+/* L-A6 主从记忆档案抽屉 */
+.optic-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--optic-z-drawer) - 1);
+  background: var(--optic-z-scrim);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+.optic-scrim.open { opacity: 1; pointer-events: auto; }
+
+.optic-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(440px, 92vw);
+  z-index: var(--optic-z-drawer);
+  background: #ffffff;
+  padding: calc(22px + var(--safe-top)) 22px calc(22px + var(--safe-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: -16px 0 48px rgba(15, 23, 42, 0.14);
+  transform: translate3d(104%, 0, 0);
+  transition: transform 360ms var(--optic-ease-cinematic);
+}
+.optic-drawer.open { transform: translate3d(0, 0, 0); }
+
+.drawer-scroll-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  mask-image: var(--optic-mask-y-fade);
+  -webkit-mask-image: var(--optic-mask-y-fade);
+  padding: 12px 0;
+}
+
+@media (max-width: 960px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+  }
+  .bento-hero, .bento-codex { grid-column: span 2; grid-row: auto; }
+  .bento-tidal, .bento-prism { grid-column: span 2; grid-row: auto; }
+  .portal-topbar { flex-wrap: wrap; }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>Lingua-Flow · Codex Stage</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/immersion.css">
+  <style>
+    .codex-stage-bg { background-image: url('assets/images/codex-desk-stage.jpg'); }
+    .codex-stage-vignette { background: radial-gradient(circle, rgba(243,239,230,0.12) 0%, rgba(43,30,18,0.68) 100%); }
+    /* L-A13 Tufte 3-column sidenote grid */
+    .tufte-grid {
+      width: min(1160px, 100%);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 190px minmax(0, 65ch) 240px;
+      gap: 20px;
+      align-items: start;
+      padding: 12px 16px 12px 60px;
+    }
+    .tufte-rail-left, .tufte-sidenote-right {
+      background: rgba(250, 247, 240, 0.88);
+      border: 1.5px solid rgba(154, 107, 47, 0.45);
+      border-radius: 16px;
+      padding: 16px;
+      color: #2b1e12;
+      box-shadow: 0 12px 32px rgba(28, 20, 12, 0.24);
+    }
+    .tufte-main-dossier {
+      background: rgba(250, 247, 240, 0.94);
+      border: 2px solid rgba(154, 107, 47, 0.62);
+      border-radius: 20px;
+      padding: clamp(20px, 3vw, 32px);
+      color: #1c1917;
+      box-shadow: 0 22px 54px rgba(28, 20, 12, 0.36);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .dossier-word { font-size: clamp(28px, 4vw, 42px); font-weight: 800; }
+    .dossier-phonetic { font-size: 14px; color: rgba(59, 47, 47, 0.72); font-family: ui-monospace, monospace; }
+    .roots-col { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+    .root-chip { padding: 7px 12px; border-radius: 10px; border: 1px solid rgba(154,107,47,0.45); background: #f3efe6; font-weight: 700; font-size: 14px; color: #785322; }
+    .testimony-box { padding: 14px 16px; border-radius: 12px; background: #f3efe6; border-left: 4px solid #9a6b2f; font-size: 17px; line-height: 1.65; }
+    .clauses-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .clause-btn {
+      min-height: 50px; padding: 12px 16px; border-radius: 12px; border: 1.5px solid rgba(154,107,47,0.42);
+      background: #ffffff; color: #2b1e12; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer;
+    }
+    .clause-btn.is-flaw-hit { border-color: #b91c1c; background: rgba(185,28,28,0.12); color: #7f1d1d; }
+    .clause-btn.is-miss { opacity: 0.5; }
+    .verdict-seal-stamp {
+      position: absolute; right: 20px; top: 18px; width: 64px; height: 64px;
+      opacity: 0; transform: scale(1.5) rotate(-18deg); pointer-events: none;
+      transition: opacity 260ms ease, transform 320ms var(--ease-cinematic);
+    }
+    .verdict-seal-stamp.is-stamped { opacity: 0.95; transform: scale(1) rotate(-8deg); }
+    @media (max-width: 980px) {
+      .tufte-grid { grid-template-columns: 1fr; padding: 8px; }
+      .roots-col { flex-direction: row; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body data-theme="codex">
+  <div class="lf-reveal-veil" id="lf-reveal-veil" aria-hidden="true"></div>
+  <div class="immersion-backdrop-layer codex-stage-bg" aria-hidden="true"></div>
+  <div class="immersion-vignette-layer codex-stage-vignette" aria-hidden="true"></div>
+
+  <button type="button" class="gate-trigger-edge" id="gate-trigger-btn" aria-label="Open Curriculum Gate">
+    <img src="assets/textures/ui-gate-handle.svg" alt="">
+    <div class="gate-trigger-dots"><span></span><span></span><span></span></div>
+  </button>
+
+  <div class="gate-scrim" id="gate-scrim"></div>
+  <aside class="gate-sidebar" id="gate-sidebar" aria-hidden="true" aria-label="Curriculum Gate">
+    <div class="gate-sidebar-header">
+      <img src="assets/textures/sigil-codex.svg" alt="" style="width:42px;height:42px;">
+      <button type="button" class="sigil-btn" id="gate-close-btn" aria-label="Close Gate"><img src="assets/textures/ui-close-sigil.svg" alt=""></button>
+    </div>
+    <div class="gate-curriculum-list" id="gate-curriculum-list"></div>
+  </aside>
+
+  <div class="immersion-stage">
+    <header class="sigil-topbar">
+      <div class="sigil-group">
+        <a href="codex.html" class="sigil-btn" aria-label="Return to Theme Gate"><img src="assets/textures/ui-portal-return.svg" alt=""></a>
+        <button type="button" class="sigil-lang-pill" id="sigil-lang-btn" aria-label="Switch Target Language">EN</button>
+      </div>
+      <div class="sigil-group">
+        <button type="button" class="sigil-btn" id="sigil-sound-btn" aria-label="Toggle Audio"><img src="assets/textures/ui-audio-wave.svg" alt=""></button>
+        <button type="button" class="sigil-btn" id="sigil-rule-btn" aria-label="Rules Guide"><img src="assets/textures/ui-rule-sigil.svg" alt=""></button>
+      </div>
+    </header>
+
+    <main class="tufte-grid">
+      <aside class="tufte-rail-left">
+        <span class="tabular-num" id="case-code" style="font-weight:800; letter-spacing:0.16em; color:#9a6b2f;">#001</span>
+        <div class="roots-col" id="case-roots"></div>
+      </aside>
+
+      <article class="tufte-main-dossier">
+        <img src="assets/textures/codex-seal-crimson.svg" alt="" class="verdict-seal-stamp" id="verdict-seal-stamp">
+        <div>
+          <div class="dossier-word" id="case-word">---</div>
+          <div class="dossier-phonetic" id="case-phonetic"></div>
+        </div>
+        <div class="testimony-box" id="case-testimony"></div>
+        <div class="clauses-grid" id="case-clauses"></div>
+      </article>
+
+      <aside class="tufte-sidenote-right">
+        <img src="assets/textures/sigil-codex.svg" alt="" style="width:32px; height:32px; margin-bottom:8px;">
+        <p id="case-sidenote" style="font-size:14px; line-height:1.65; color:rgba(28,25,23,0.82);"></p>
+      </aside>
+    </main>
+
+    <div class="fsrs-sigil-dock" id="fsrs-dock" aria-label="FSRS Memory Rating">
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="1" aria-label="Again"><img src="assets/textures/ui-fsrs-1-again.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="2" aria-label="Hard"><img src="assets/textures/ui-fsrs-2-hard.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="3" aria-label="Good"><img src="assets/textures/ui-fsrs-3-good.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="4" aria-label="Easy"><img src="assets/textures/ui-fsrs-4-easy.svg" alt=""></button>
+    </div>
+  </div>
+
+  <div class="rule-overlay" id="rule-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="rule-card">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>时计法典 · Tufte 案卷舞台规则</h2>
+        <button type="button" class="sigil-btn" id="rule-close-btn" aria-label="关闭"><img src="assets/textures/ui-close-sigil.svg" alt=""></button>
+      </div>
+      <p>本情景台采用 <strong>L-A13 Tufte 三栏旁注网格</strong> 与<strong>零母语沉浸</strong>：</p>
+      <ul>
+        <li>左侧栏展示词根解构，右侧栏提供纯目标语的词源/语法旁注，左侧闸门可切换全部课程。</li>
+        <li>点击证词中存在逻辑或词法破绽的片段，盖下朱砂印章后解锁底部 FSRS-5 记忆评分符号。</li>
+      </ul>
+      <div class="rule-legend-row">
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-1-again.svg" alt=""><span>重来 (Again)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-2-hard.svg" alt=""><span>困难 (Hard)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-3-good.svg" alt=""><span>良好 (Good)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-4-easy.svg" alt=""><span>轻松 (Easy)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/lingua-core.js"></script>
+  <script src="assets/js/immersion-shell.js"></script>
+  <script src="assets/js/codex-scenario.js"></script>
+</body>
+</html>

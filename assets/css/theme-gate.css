@@ -1,0 +1,376 @@
+/* ==========================================================================
+   Lingua-Flow L2 主题主页：三套差异化物理闸门架构 (theme-gate.css)
+   - codex: 黄铜齿轮(Z16/Z10) + 往复活塞 + 液压蒸汽水管 + 左右/上下保险库门
+   - tidal: 宋瓷玉璧门环 + 青瓷风铃 + 紫檀木栓 + 月光光学折射 + 组子障子门
+   - prism: 三层卢恩星轨石环 + 铁链拉环 + 彩窗三束光学聚光 + 垂直升降铁栅
+   ========================================================================== */
+html, body { height: 100dvh; max-height: 100dvh; overflow: hidden; }
+
+:root {
+  --ease-ratchet: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 1. 背后学习情景舞台透视层 */
+.gate-behind-stage {
+  position: fixed; inset: 0; z-index: 1;
+  background-size: cover; background-position: center;
+  transform: scale(0.92);
+  filter: blur(7px) brightness(0.58);
+  transition: transform 860ms var(--ease-cinematic), filter 860ms var(--ease-cinematic);
+}
+body.is-gate-opening .gate-behind-stage { transform: scale(1); filter: blur(0px) brightness(1); }
+body[data-theme="codex"] .gate-behind-stage { background-image: url('../images/codex-desk-stage.jpg'); }
+body[data-theme="tidal"] .gate-behind-stage { background-image: url('../images/tidal-sanctum-stage.jpg'); }
+body[data-theme="prism"] .gate-behind-stage { background-image: url('../images/prism-altar-stage.jpg'); }
+
+/* 2. 双扇门扇 (codex & tidal) */
+.gate-leaves-wrap {
+  position: fixed; inset: 0; z-index: 10;
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr;
+  pointer-events: none;
+}
+.gate-leaf {
+  position: relative; overflow: hidden;
+  background-size: 280px 280px; background-repeat: repeat;
+  will-change: transform;
+}
+body[data-theme="codex"] .gate-leaf { background-image: url('../images/codex-parchment-tile.jpg'); }
+body[data-theme="tidal"] .gate-leaf { background-image: url('../images/tidal-celadon-tile.jpg'); }
+
+.gate-leaf-lattice { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+
+body[data-theme="codex"] .gate-leaf-lattice {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(180, 126, 50, 0.18) 0%, rgba(24, 16, 10, 0.84) 85%),
+    repeating-linear-gradient(90deg, transparent 0 118px, rgba(212, 163, 89, 0.32) 118px 122px, rgba(28, 20, 12, 0.72) 122px 128px),
+    repeating-linear-gradient(0deg, transparent 0 138px, rgba(212, 163, 89, 0.28) 138px 142px, rgba(28, 20, 12, 0.68) 142px 148px);
+  box-shadow: inset 0 0 0 14px rgba(43, 30, 18, 0.92), inset 0 0 0 18px rgba(212, 163, 89, 0.62);
+}
+
+body[data-theme="tidal"] .gate-leaf-lattice {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(246, 245, 241, 0.32) 0%, rgba(24, 48, 48, 0.68) 90%),
+    repeating-linear-gradient(90deg, transparent 0 74px, rgba(20, 42, 42, 0.68) 74px 79px, rgba(226, 180, 90, 0.38) 79px 81px),
+    repeating-linear-gradient(0deg, transparent 0 96px, rgba(20, 42, 42, 0.68) 96px 101px, rgba(226, 180, 90, 0.38) 101px 103px);
+  box-shadow: inset 0 0 0 14px rgba(18, 36, 36, 0.92), inset 0 0 0 17px rgba(226, 180, 90, 0.65);
+}
+body[data-theme="tidal"].darkroom-mode .gate-leaf-lattice {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(30, 58, 58, 0.28) 0%, rgba(6, 10, 14, 0.92) 85%),
+    repeating-linear-gradient(90deg, transparent 0 74px, rgba(8, 14, 18, 0.86) 74px 79px, rgba(226, 180, 90, 0.4) 79px 81px),
+    repeating-linear-gradient(0deg, transparent 0 96px, rgba(8, 14, 18, 0.86) 96px 101px, rgba(226, 180, 90, 0.4) 101px 103px);
+}
+
+.gate-leaf-primary { border-right: 5px solid #9a6b2f; box-shadow: inset -24px 0 48px rgba(0, 0, 0, 0.65); }
+.gate-leaf-secondary { border-left: 5px solid #785322; box-shadow: inset 24px 0 48px rgba(0, 0, 0, 0.65); }
+body[data-theme="tidal"] .gate-leaf-primary { border-right-color: #e2b45a; }
+body[data-theme="tidal"] .gate-leaf-secondary { border-left-color: #3b7a75; }
+
+.gate-leaf-brace {
+  position: absolute; inset: 26px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.52);
+  pointer-events: none; z-index: 2;
+}
+
+.gate-corner {
+  position: absolute;
+  width: clamp(54px, 7vw, 84px); height: clamp(54px, 7vw, 84px);
+  z-index: 3; pointer-events: none;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.58));
+}
+.gate-corner-tl { top: 12px; left: 12px; transform: rotate(0deg); }
+.gate-corner-tr { top: 12px; right: 12px; transform: rotate(90deg); }
+.gate-corner-bl { bottom: 12px; left: 12px; transform: rotate(-90deg); }
+.gate-corner-br { bottom: 12px; right: 12px; transform: rotate(180deg); }
+
+.gate-locking-rod {
+  position: absolute; height: 18px; width: 38%; z-index: 2; border-radius: 4px;
+  background: linear-gradient(180deg, #fef08a 0%, #b47e32 38%, #5c3d18 82%, #2b1e12 100%);
+  border: 1.5px solid #2b1e12;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.6);
+  transition: transform 380ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+.gate-leaf-primary .gate-rod-top { top: 22%; right: -4px; }
+.gate-leaf-primary .gate-rod-bottom { bottom: 22%; right: -4px; }
+.gate-leaf-secondary .gate-rod-top { top: 22%; left: -4px; }
+.gate-leaf-secondary .gate-rod-bottom { bottom: 22%; left: -4px; }
+body.is-bolt-retracted .gate-leaf-primary .gate-locking-rod { transform: translate3d(-85%, 0, 0); }
+body.is-bolt-retracted .gate-leaf-secondary .gate-locking-rod { transform: translate3d(85%, 0, 0); }
+
+/* 门扇分段顿挫滑开 */
+body.is-gate-opening .gate-leaf-primary { animation: lf-leaf-step-left 740ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+body.is-gate-opening .gate-leaf-secondary { animation: lf-leaf-step-right 740ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+@keyframes lf-leaf-step-left {
+  0% { transform: translate3d(0, 0, 0); }
+  18% { transform: translate3d(-7%, 0, 0); }
+  32% { transform: translate3d(-5.5%, 0, 0); }
+  100% { transform: translate3d(-104%, 0, 0); }
+}
+@keyframes lf-leaf-step-right {
+  0% { transform: translate3d(0, 0, 0); }
+  18% { transform: translate3d(7%, 0, 0); }
+  32% { transform: translate3d(5.5%, 0, 0); }
+  100% { transform: translate3d(104%, 0, 0); }
+}
+
+/* 3. 前景控制台壳层 */
+.gate-foreground-shell {
+  position: relative; z-index: 20; width: 100%; height: 100dvh;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: calc(12px + var(--safe-top)) calc(18px + var(--safe-right)) calc(16px + var(--safe-bottom)) calc(18px + var(--safe-left));
+  pointer-events: none;
+}
+.gate-foreground-shell > * { pointer-events: auto; }
+
+.gate-mechanism-hub {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  transition: opacity 420ms ease, transform 560ms var(--ease-cinematic);
+}
+body.is-gate-opening .gate-mechanism-hub { opacity: 0; transform: scale(1.12); pointer-events: none; }
+body.is-mech-recoil .gate-mechanism-hub { animation: lf-mech-jolt 240ms steps(4, end); }
+@keyframes lf-mech-jolt {
+  0% { transform: translate3d(0, 0, 0); }
+  25% { transform: translate3d(-4px, 3px, 0); }
+  50% { transform: translate3d(4px, -2px, 0); }
+  75% { transform: translate3d(-2px, 1px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+/* 4. 时计法典 (Codex)：精确齿合黄铜齿轮 + 活塞 + 蒸汽水管 */
+.gear-assembly { position: relative; width: 360px; height: 296px; flex-shrink: 0; }
+.assembly-chassis-plate {
+  position: absolute; left: 50%; top: 50%; width: 248px; height: 248px;
+  transform: translate(-50%, -50%); border-radius: 50%;
+  background: radial-gradient(circle, rgba(15, 23, 42, 0.78) 48%, rgba(8, 10, 14, 0.96) 100%);
+  border: 3px solid rgba(212, 163, 89, 0.62);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.74), inset 0 0 32px rgba(0, 0, 0, 0.8);
+  pointer-events: none; z-index: 1;
+}
+
+.gear-master-btn {
+  position: absolute; left: 80px; top: 48px; width: 200px; height: 200px;
+  border: none; background: transparent; padding: 0; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; z-index: 5;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.66));
+  transform: rotate(var(--gear-angle, 0deg));
+  transition: transform 360ms var(--ease-ratchet), filter 220ms ease;
+}
+.gear-master-rim { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.gear-master-core { position: relative; width: 46%; height: 46%; object-fit: contain; pointer-events: none; z-index: 2; }
+
+.gear-satellite {
+  position: absolute; width: 125px; height: 125px;
+  border: none; background: transparent; padding: 0; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; z-index: 4;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.62));
+  transition: transform 360ms var(--ease-ratchet), filter 220ms ease;
+}
+.gear-satellite img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+.gear-sat-a { left: 236.5px; top: 22.5px; transform: rotate(calc(var(--gear-angle, 0deg) * -1.6 + 18deg)); }
+.gear-sat-b { left: -1.5px; top: 148.5px; transform: rotate(calc(var(--gear-angle, 0deg) * -1.6 + 18deg)); }
+
+.piston-unit {
+  position: absolute; top: 50%; width: 96px; height: 36px; pointer-events: none; z-index: 3;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.55));
+  transition: transform 180ms cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+.piston-unit-left { left: -34px; transform: translate3d(var(--piston-l, 0px), -50%, 0); }
+.piston-unit-right { right: -34px; transform: translate3d(var(--piston-r, 0px), -50%, 0) scaleX(-1); }
+
+.gate-gauge-unit {
+  position: absolute; left: 16px; top: 8px; width: 78px; height: 78px;
+  pointer-events: none; z-index: 7; filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+}
+.gate-gauge-unit img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.gate-gauge-needle { transform-origin: 50% 50%; transform: rotate(var(--needle-angle, -105deg)); transition: transform 420ms var(--ease-ratchet); }
+
+.gate-pawl-unit {
+  position: absolute; right: 26px; bottom: 48px; width: 96px; pointer-events: none; z-index: 7;
+  transform-origin: 18% 56%; transition: transform 220ms var(--ease-ratchet);
+}
+body.is-pawl-released .gate-pawl-unit { transform: rotate(-28deg); }
+
+.gate-bolt-rail {
+  position: absolute; bottom: 4px; left: 50%; width: 260px; height: 44px;
+  transform: translate3d(-50%, 0, 0); pointer-events: none; z-index: 7;
+}
+.gate-bolt-img { width: 100%; height: 100%; object-fit: contain; transition: transform 400ms var(--ease-gate); }
+body.is-bolt-retracted .gate-bolt-img { transform: translate3d(-118%, 0, 0); }
+
+.steam-pipe-unit {
+  position: fixed; top: 50%; width: clamp(46px, 5vw, 66px); height: clamp(180px, 34vh, 260px);
+  transform: translateY(-50%); z-index: 15; pointer-events: none;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.55));
+  transition: transform 740ms var(--ease-cinematic), opacity 420ms ease;
+}
+.steam-pipe-left { left: max(10px, 3vw); }
+.steam-pipe-right { right: max(10px, 3vw); }
+body.is-gate-opening .steam-pipe-left { transform: translate3d(-160%, -50%, 0); opacity: 0; }
+body.is-gate-opening .steam-pipe-right { transform: translate3d(160%, -50%, 0); opacity: 0; }
+.steam-pipe-img { position: relative; width: 100%; height: 100%; object-fit: contain; z-index: 2; }
+.steam-fluid-core {
+  position: absolute; left: 34%; right: 34%; bottom: 12%; top: 12%; border-radius: 6px;
+  background: linear-gradient(180deg, #fef08a 0%, #f59e0b 45%, #b91c1c 100%);
+  opacity: 0.65; transform-origin: bottom center; transform: scaleY(var(--fluid-level, 0.35));
+  transition: transform 420ms var(--ease-ratchet); z-index: 1;
+}
+body.is-steam-pressurized .steam-fluid-core { transform: scaleY(0.96); opacity: 0.95; }
+
+/* 5. 潮汐星图 (Tidal)：玉璧门环 + 风铃 + 紫檀木栓 + 月光折射 */
+.jade-bi-assembly { position: relative; width: 340px; height: 276px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.chime-pendant {
+  position: absolute; top: 4px; width: 68px; height: 156px; pointer-events: none; z-index: 3;
+  transform-origin: 50% 0%; transition: transform 620ms var(--ease-cinematic);
+}
+.chime-left { left: 8px; transform: rotate(var(--chime-sway, -2deg)); }
+.chime-right { right: 8px; transform: rotate(calc(var(--chime-sway, -2deg) * -1)); }
+body.is-mech-recoil .chime-left { animation: lf-chime-damp 680ms ease-out; }
+@keyframes lf-chime-damp { 0%{transform:rotate(-14deg)} 30%{transform:rotate(12deg)} 60%{transform:rotate(-8deg)} 100%{transform:rotate(4deg)} }
+
+.jade-bi-portal-btn {
+  position: relative; width: 204px; height: 204px; border: none; background: transparent; padding: 0; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; z-index: 5;
+  transform: rotate(var(--jade-rot, 0deg)); transition: transform 420ms var(--ease-ratchet);
+}
+.jade-bi-half { position: absolute; top: 0; width: 102px; height: 204px; object-fit: contain; pointer-events: none; transition: transform 480ms var(--ease-ratchet); }
+.jade-bi-half-l { left: 0; }
+.jade-bi-half-r { right: 0; }
+.jade-bi-core-sigil { position: relative; width: 72px; height: 72px; object-fit: contain; pointer-events: none; z-index: 2; }
+body.is-jade-split .jade-bi-half-l { transform: translate3d(-44px, 0, 0); }
+body.is-jade-split .jade-bi-half-r { transform: translate3d(44px, 0, 0); }
+
+.sandalwood-bolt-rail { position: absolute; bottom: 10px; left: 50%; width: 264px; height: 44px; transform: translate3d(-50%, 0, 0); pointer-events: none; z-index: 6; }
+.sandalwood-bolt-img { width: 100%; height: 100%; object-fit: contain; transition: transform 420ms var(--ease-gate); }
+body.is-bolt-retracted .sandalwood-bolt-img { transform: translate3d(118%, 0, 0); }
+
+.optical-moon-beam {
+  position: fixed; left: 50%; top: 44%; width: min(520px, 120vw); height: 140px;
+  transform: translate(-50%, -50%) rotate(var(--beam-angle, -12deg));
+  background: linear-gradient(90deg, transparent 0%, rgba(226, 180, 90, 0.16) 30%, rgba(246, 245, 241, 0.42) 50%, rgba(59, 122, 117, 0.18) 70%, transparent 100%);
+  filter: blur(8px); pointer-events: none; z-index: 14;
+  transition: transform 640ms var(--ease-cinematic), opacity 420ms ease;
+}
+body.is-optical-flash .optical-moon-beam { opacity: 0.95; transform: translate(-50%, -50%) rotate(0deg) scaleY(2.6); }
+
+/* 6. 棱镜圣殿 (Prism)：三层卢恩石环 + 铁链 + 彩窗聚光 + 垂直铁栅 */
+.portcullis-slab {
+  position: fixed; inset: 0; z-index: 10; overflow: hidden;
+  background-image: url('../images/prism-slate-tile.jpg'); background-size: 280px 280px; background-repeat: repeat;
+  border-bottom: 8px solid #38bdf8; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.82); pointer-events: none;
+}
+body[data-theme="prism"] .gate-leaf-lattice {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(37, 99, 235, 0.32) 0%, transparent 48%),
+    radial-gradient(circle at 70% 70%, rgba(251, 191, 36, 0.22) 0%, transparent 45%),
+    linear-gradient(135deg, rgba(15, 23, 42, 0.56) 0%, rgba(8, 12, 24, 0.88) 100%),
+    repeating-linear-gradient(60deg, transparent 0 68px, rgba(12, 18, 32, 0.78) 68px 73px, rgba(56, 189, 248, 0.28) 73px 75px),
+    repeating-linear-gradient(-60deg, transparent 0 68px, rgba(12, 18, 32, 0.78) 68px 73px, rgba(56, 189, 248, 0.28) 73px 75px);
+  box-shadow: inset 0 0 0 14px rgba(10, 15, 28, 0.94), inset 0 0 0 18px rgba(56, 189, 248, 0.52);
+}
+body.is-gate-opening .portcullis-slab { animation: lf-portcullis-step 820ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+@keyframes lf-portcullis-step {
+  0% { transform: translate3d(0, 0, 0); }
+  22% { transform: translate3d(0, -16%, 0); }
+  36% { transform: translate3d(0, -13%, 0); }
+  100% { transform: translate3d(0, -104%, 0); }
+}
+
+.astrolabe-assembly { position: relative; width: 340px; height: 288px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.rune-ring-layer { position: absolute; left: 50%; top: 50%; object-fit: contain; pointer-events: none; transition: transform 420ms var(--ease-ratchet); }
+.rune-ring-outer { width: 264px; height: 264px; z-index: 2; transform: translate(-50%, -50%) rotate(var(--ring-outer, 0deg)); }
+.rune-ring-mid { width: 204px; height: 204px; z-index: 3; transform: translate(-50%, -50%) rotate(var(--ring-mid, 0deg)); }
+.rune-ring-inner { width: 148px; height: 148px; z-index: 4; transform: translate(-50%, -50%) rotate(var(--ring-inner, 0deg)); }
+
+.astrolabe-orb-btn {
+  position: relative; width: 86px; height: 86px; border-radius: 50%;
+  border: 2px solid rgba(56, 189, 248, 0.65); background: #0f172a; padding: 10px;
+  cursor: pointer; z-index: 6; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 28px rgba(37, 99, 235, 0.55); transition: transform 280ms var(--ease-ratchet), box-shadow 280ms ease;
+}
+.astrolabe-orb-btn img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+body.is-orb-charged .astrolabe-orb-btn { transform: scale(1.16); box-shadow: 0 0 56px rgba(251, 191, 36, 0.95); border-color: #fbbf24; }
+
+.chain-pull-btn {
+  position: absolute; right: 2px; bottom: 8px; width: 56px; height: 126px;
+  border: none; background: transparent; padding: 0; cursor: pointer; z-index: 7;
+  transition: transform 260ms var(--ease-ratchet);
+}
+.chain-pull-btn.is-pulled { transform: translate3d(0, 22px, 0); }
+.chain-pull-btn img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+
+.prism-beams-layer { position: fixed; inset: 0; z-index: 14; pointer-events: none; overflow: hidden; transition: opacity 420ms ease; }
+.prism-beam { position: absolute; top: -10%; left: 50%; width: 44px; height: 130vh; transform-origin: 50% 0%; filter: blur(6px); opacity: 0.28; transition: transform 520ms var(--ease-cinematic), opacity 380ms ease; }
+.prism-beam-cobalt { background: linear-gradient(180deg, rgba(37, 99, 235, 0.72) 0%, rgba(37, 99, 235, 0) 85%); transform: translateX(-50%) rotate(calc(-26deg + var(--beam-converge, 0deg))); }
+.prism-beam-cyan { background: linear-gradient(180deg, rgba(56, 189, 248, 0.75) 0%, rgba(56, 189, 248, 0) 85%); transform: translateX(-50%) rotate(0deg); }
+.prism-beam-amber { background: linear-gradient(180deg, rgba(251, 191, 36, 0.72) 0%, rgba(251, 191, 36, 0) 85%); transform: translateX(-50%) rotate(calc(26deg - var(--beam-converge, 0deg))); }
+body.is-orb-charged .prism-beam { opacity: 0.85; }
+body.is-gate-opening .prism-beams-layer { opacity: 0; }
+
+/* 7. 课题小屏幕 + 三位数滚轮 + 推杆控制台 */
+.gate-control-console {
+  display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px 16px;
+  border-radius: 18px; background: rgba(15, 18, 26, 0.92);
+  border: 2px solid rgba(212, 163, 89, 0.65); width: min(390px, 94vw);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.68);
+}
+body[data-theme="tidal"] .gate-control-console { background: rgba(16, 36, 36, 0.92); border-color: rgba(226, 180, 90, 0.68); }
+body[data-theme="prism"] .gate-control-console { background: rgba(10, 15, 28, 0.94); border-color: rgba(56, 189, 248, 0.65); }
+
+.gate-topic-screen {
+  width: 100%; min-height: 46px; padding: 8px 14px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: #0f172a; border: 2px solid rgba(255, 255, 255, 0.25); color: #fef08a;
+}
+body[data-theme="codex"] .gate-topic-screen { background: #170f08; border-color: #b47e32; color: #fef08a; }
+body[data-theme="tidal"] .gate-topic-screen { background: #0b1c1c; border-color: #e2b45a; color: #f6f5f1; }
+body[data-theme="prism"] .gate-topic-screen { background: #060914; border-color: #38bdf8; color: #7dd3fc; }
+
+.topic-screen-code { font-size: 13px; font-weight: 800; letter-spacing: 0.14em; opacity: 0.82; flex-shrink: 0; }
+.topic-screen-title { font-size: 17px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: right; }
+
+.drum-counter { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.drum-col { display: flex; align-items: center; border-radius: 10px; border: 1.5px solid rgba(255, 255, 255, 0.28); background: rgba(10, 12, 18, 0.85); overflow: hidden; }
+.drum-step-btn { width: 44px; height: 44px; min-width: 44px; min-height: 44px; border: none; background: rgba(255, 255, 255, 0.06); color: #f8fafc; font-size: 14px; font-weight: 800; cursor: pointer; }
+.drum-digit-window { width: 28px; height: 44px; display: inline-flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 800; color: #fef08a; border-left: 1px solid rgba(255,255,255,0.12); border-right: 1px solid rgba(255,255,255,0.12); }
+
+.gate-lever-track {
+  position: relative; width: 100%; height: 50px; border-radius: 12px;
+  border: 2px solid rgba(212, 163, 89, 0.55); background: rgba(8, 10, 14, 0.92);
+  display: flex; align-items: center; padding: 3px; cursor: pointer;
+}
+.gate-lever-knob {
+  width: 44px; height: 44px; border-radius: 10px; background: #b47e32;
+  display: flex; align-items: center; justify-content: center; padding: 6px;
+  transform: translate3d(0, 0, 0); transition: transform 360ms var(--ease-ratchet);
+}
+.gate-lever-knob img { width: 100%; height: 100%; object-fit: contain; }
+.gate-lever-track.is-tripped .gate-lever-knob { transform: translate3d(calc(100% + 220px), 0, 0) rotate(90deg); }
+.gate-lever-chevrons { flex: 1; display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 16px; font-weight: 800; letter-spacing: 0.3em; color: rgba(254, 240, 138, 0.65); padding-right: 12px; }
+
+/* 8. 移动端竖屏专属适配 (<= 768px) */
+@media (max-width: 768px) {
+  .gate-leaves-wrap { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+  .gate-leaf-primary { border-right: none; border-bottom: 5px solid #d4a359; }
+  .gate-leaf-secondary { border-left: none; border-top: 5px solid #785322; }
+  .gate-leaf-primary .gate-rod-top { top: auto; bottom: -4px; left: 18%; right: auto; width: 16px; height: 24%; }
+  .gate-leaf-primary .gate-rod-bottom { top: auto; bottom: -4px; right: 18%; width: 16px; height: 24%; }
+  .gate-leaf-secondary .gate-rod-top { top: -4px; left: 18%; width: 16px; height: 24%; }
+  .gate-leaf-secondary .gate-rod-bottom { top: -4px; right: 18%; left: auto; width: 16px; height: 24%; }
+  body.is-bolt-retracted .gate-leaf-primary .gate-locking-rod { transform: translate3d(0, -85%, 0); }
+  body.is-bolt-retracted .gate-leaf-secondary .gate-locking-rod { transform: translate3d(0, 85%, 0); }
+  body.is-gate-opening .gate-leaf-primary { animation: lf-leaf-step-up 740ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  body.is-gate-opening .gate-leaf-secondary { animation: lf-leaf-step-down 740ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+  @keyframes lf-leaf-step-up { 0%{transform:translate3d(0,0,0)} 18%{transform:translate3d(0,-7%,0)} 32%{transform:translate3d(0,-5.5%,0)} 100%{transform:translate3d(0,-104%,0)} }
+  @keyframes lf-leaf-step-down { 0%{transform:translate3d(0,0,0)} 18%{transform:translate3d(0,7%,0)} 32%{transform:translate3d(0,5.5%,0)} 100%{transform:translate3d(0,104%,0)} }
+
+  .gate-mechanism-hub { justify-content: flex-end; padding-bottom: 4px; gap: 4px; }
+  .gear-assembly { transform: scale(0.76); margin: -24px 0; }
+  .jade-bi-assembly, .astrolabe-assembly { transform: scale(0.8); margin: -20px 0; }
+  .steam-pipe-unit { width: 38px; height: 136px; top: 34%; }
+  .steam-pipe-left { left: 6px; }
+  .steam-pipe-right { right: 6px; }
+  .drum-counter { gap: 6px; }
+  .drum-digit-window { width: 24px; font-size: 18px; }
+  .gate-lever-track.is-tripped .gate-lever-knob { transform: translate3d(calc(100% + 165px), 0, 0) rotate(90deg); }
+}

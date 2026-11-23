@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>Lingua-Flow · Prism Stage</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/immersion.css">
+  <style>
+    .prism-stage-bg { background-image: url('assets/images/prism-altar-stage.jpg'); }
+    .prism-stage-vignette { background: radial-gradient(circle, rgba(30,41,59,0.16) 0%, rgba(15,23,42,0.84) 100%); }
+    .prism-hud-arena {
+      flex: 1; width: min(860px, 100%); margin: auto;
+      padding: 12px 16px 12px 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
+    }
+    /* C21 180ms delayed trail shield bar */
+    .shield-bar-track {
+      width: min(320px, 80vw); height: 12px; border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(56, 189, 248, 0.45);
+      position: relative; overflow: hidden;
+    }
+    .shield-bar-trail {
+      position: absolute; inset: 0; background: #fbbf24;
+      transform-origin: left center; transform: scaleX(var(--shield, 1));
+      transition: transform 420ms var(--ease-cinematic) 180ms;
+    }
+    .shield-bar-fill {
+      position: absolute; inset: 0; background: linear-gradient(90deg, #2563eb, #38bdf8);
+      transform-origin: left center; transform: scaleX(var(--shield, 1));
+      transition: transform 220ms ease;
+    }
+    .altar-tablet {
+      width: 100%; background: rgba(15, 23, 42, 0.86); border: 2px solid rgba(56, 189, 248, 0.48);
+      border-radius: 22px; padding: clamp(22px, 3.5vw, 36px); color: #f8fafc;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.56);
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 22px;
+    }
+    .altar-stem { font-size: clamp(20px, 3vw, 28px); font-weight: 700; line-height: 1.55; max-width: 44ch; }
+    .altar-orb-status { width: 64px; height: 64px; filter: grayscale(0.85) opacity(0.6); transition: transform 320ms var(--ease-cinematic), filter 320ms ease; }
+    .altar-orb-status.is-lit { filter: grayscale(0) drop-shadow(0 0 24px rgba(251, 191, 36, 0.9)); transform: scale(1.16); }
+
+    /* L-A11 fan hand cards */
+    .tenon-fan-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; width: 100%; padding-top: 8px; }
+    .tenon-card {
+      min-width: 120px; min-height: 58px; padding: 12px 18px; border-radius: 14px;
+      border: 2px solid rgba(56, 189, 248, 0.42); background: rgba(30, 41, 59, 0.92);
+      color: #f8fafc; font-size: 17px; font-weight: 700; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      transform: rotate(var(--fan-angle, 0deg));
+      transition: transform 240ms var(--ease-cinematic), border-color 200ms ease, background-color 200ms ease;
+    }
+    .tenon-card:hover { transform: translateY(-10px) scale(1.06) rotate(0deg); border-color: #fbbf24; z-index: 4; }
+    .tenon-card.is-correct { border-color: #fbbf24; background: rgba(251, 191, 36, 0.24); color: #fef08a; transform: rotate(0deg); }
+    .tenon-card.is-wrong { opacity: 0.42; border-color: #64748b; }
+    .tenon-card img { width: 24px; height: 24px; }
+    @media (max-width: 768px) {
+      .prism-hud-arena { padding: 8px; }
+      .tenon-card { transform: none; }
+    }
+  </style>
+</head>
+<body data-theme="prism">
+  <div class="lf-reveal-veil" id="lf-reveal-veil" aria-hidden="true"></div>
+  <div class="immersion-backdrop-layer prism-stage-bg" aria-hidden="true"></div>
+  <div class="immersion-vignette-layer prism-stage-vignette" aria-hidden="true"></div>
+
+  <button type="button" class="gate-trigger-edge" id="gate-trigger-btn" aria-label="Open Curriculum Gate">
+    <img src="assets/textures/ui-gate-handle.svg" alt="">
+    <div class="gate-trigger-dots"><span></span><span></span><span></span></div>
+  </button>
+
+  <div class="gate-scrim" id="gate-scrim"></div>
+  <aside class="gate-sidebar" id="gate-sidebar" aria-hidden="true" aria-label="Curriculum Gate">
+    <div class="gate-sidebar-header">
+      <img src="assets/textures/sigil-prism.svg" alt="" style="width:42px;height:42px;">
+      <button type="button" class="sigil-btn" id="gate-close-btn" aria-label="Close Gate"><img src="assets/textures/ui-close-sigil.svg" alt=""></button>
+    </div>
+    <div class="gate-curriculum-list" id="gate-curriculum-list"></div>
+  </aside>
+
+  <div class="immersion-stage">
+    <header class="sigil-topbar">
+      <div class="sigil-group">
+        <a href="prism.html" class="sigil-btn" aria-label="Return to Theme Gate"><img src="assets/textures/ui-portal-return.svg" alt=""></a>
+        <button type="button" class="sigil-lang-pill" id="sigil-lang-btn" aria-label="Switch Target Language">EN</button>
+      </div>
+      <div class="sigil-group">
+        <button type="button" class="sigil-btn" id="sigil-sound-btn" aria-label="Toggle Audio"><img src="assets/textures/ui-audio-wave.svg" alt=""></button>
+        <button type="button" class="sigil-btn" id="sigil-rule-btn" aria-label="Rules Guide"><img src="assets/textures/ui-rule-sigil.svg" alt=""></button>
+      </div>
+    </header>
+
+    <main class="prism-hud-arena">
+      <div class="shield-bar-track" aria-hidden="true">
+        <div class="shield-bar-trail"></div>
+        <div class="shield-bar-fill"></div>
+      </div>
+
+      <article class="altar-tablet">
+        <span class="tabular-num" id="str-code" style="font-size:14px; font-weight:800; letter-spacing:0.2em; color:#38bdf8;">#001</span>
+        <img src="assets/textures/prism-orb-glyph.svg" alt="" class="altar-orb-status" id="str-orb">
+        <div class="altar-stem" id="str-stem"></div>
+        <div class="tenon-fan-row" id="str-options"></div>
+      </article>
+    </main>
+
+    <div class="fsrs-sigil-dock" id="fsrs-dock" aria-label="FSRS Memory Rating">
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="1" aria-label="Again"><img src="assets/textures/ui-fsrs-1-again.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="2" aria-label="Hard"><img src="assets/textures/ui-fsrs-2-hard.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="3" aria-label="Good"><img src="assets/textures/ui-fsrs-3-good.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="4" aria-label="Easy"><img src="assets/textures/ui-fsrs-4-easy.svg" alt=""></button>
+    </div>
+  </div>
+
+  <div class="rule-overlay" id="rule-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="rule-card" style="border-color:#2563eb;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>棱镜圣殿 · 扇形榫卯试炼规则</h2>
+        <button type="button" class="sigil-btn" id="rule-close-btn" aria-label="关闭"><img src="assets/textures/ui-close-sigil.svg" alt=""></button>
+      </div>
+      <p>本试炼台采用 <strong>L-A11 情境 HUD 与扇形手牌</strong> 及<strong>零母语沉浸</strong>：</p>
+      <ul>
+        <li>左侧铁栅闸门可切换试炼课程；从下方扇形手牌中选择唯一匹配的词法榫卯嵌入词干。</li>
+        <li>命中后上方护盾能量条伴随 180ms 残影归零破盾，点亮琥珀晶球并解锁底部 FSRS-5 记忆符号。</li>
+      </ul>
+      <div class="rule-legend-row">
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-1-again.svg" alt=""><span>重来 (Again)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-2-hard.svg" alt=""><span>困难 (Hard)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-3-good.svg" alt=""><span>良好 (Good)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-4-easy.svg" alt=""><span>轻松 (Easy)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/lingua-core.js"></script>
+  <script src="assets/js/immersion-shell.js"></script>
+  <script src="assets/js/prism-scenario.js"></script>
+</body>
+</html>

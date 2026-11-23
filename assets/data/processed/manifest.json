@@ -1,0 +1,61 @@
+{
+    "manifest_version":  "1.0.0",
+    "generated_at":  "2026-11-08T08:00:00Z",
+    "max_shard_bytes":  102400,
+    "partition_groups":  {
+                             "en_b2_lemma":  {
+                                                 "lang":  "en",
+                                                 "level":  "b2",
+                                                 "unit_type":  "lemma",
+                                                 "total_items":  60,
+                                                 "shards":  [
+                                                                {
+                                                                    "shard_file":  "en_b2_lemma.json",
+                                                                    "ku_id_range":  [
+                                                                                        "en_b2_lemma_abandoned_1",
+                                                                                        "en_b2_lemma_ally_60"
+                                                                                    ],
+                                                                    "item_count":  60,
+                                                                    "size_bytes":  30621,
+                                                                    "sha256":  "983fef5610bdb6200443935ab3c0b927c828283bb30dc05dce29abd092695cad"
+                                                                }
+                                                            ]
+                                             },
+                             "ja_n2_grammar":  {
+                                                   "lang":  "ja",
+                                                   "level":  "n2",
+                                                   "unit_type":  "grammar",
+                                                   "total_items":  60,
+                                                   "shards":  [
+                                                                  {
+                                                                      "shard_file":  "ja_n2_grammar.json",
+                                                                      "ku_id_range":  [
+                                                                                          "ja_n2_grammar_0001",
+                                                                                          "ja_n2_grammar_0060"
+                                                                                      ],
+                                                                      "item_count":  60,
+                                                                      "size_bytes":  30372,
+                                                                      "sha256":  "6ebca711a18a69bee59d6143d00aa59cafa91dae839184fce497d7eb811a0349"
+                                                                  }
+                                                              ]
+                                               },
+                             "zh_hsk4_lemma":  {
+                                                   "lang":  "zh",
+                                                   "level":  "hsk4",
+                                                   "unit_type":  "lemma",
+                                                   "total_items":  60,
+                                                   "shards":  [
+                                                                  {
+                                                                      "shard_file":  "zh_hsk4_lemma.json",
+                                                                      "ku_id_range":  [
+                                                                                          "zh_hsk4_lemma_0001",
+                                                                                          "zh_hsk4_lemma_0060"
+                                                                                      ],
+                                                                      "item_count":  60,
+                                                                      "size_bytes":  30307,
+                                                                      "sha256":  "b54c4cfc8b7a7c93ba8ddc815cf78467adba17262d3eb5298c549b3492b0262e"
+                                                                  }
+                                                              ]
+                                               }
+                         }
+}

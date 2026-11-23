@@ -1,0 +1,314 @@
+/* ==========================================================================
+   Lingua-Flow L2/L3 公共沉浸壳样式 (immersion.css)
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-gate: cubic-bezier(0.32, 0.72, 0, 1);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+
+html, body {
+  width: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  font-family: "Inter", "Noto Sans JP", "PingFang SC", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+.tabular-num { font-variant-numeric: tabular-nums; }
+
+.lf-reveal-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 480ms var(--ease-cinematic), transform 540ms var(--ease-cinematic);
+}
+.lf-reveal-veil.is-cleared { opacity: 0; transform: scale(1.04); }
+body[data-theme="codex"] .lf-reveal-veil { background: radial-gradient(circle, #f3efe6 0%, #3b2f2f 100%); }
+body[data-theme="tidal"] .lf-reveal-veil { background: radial-gradient(circle, #f6f5f1 0%, #1e3a3a 100%); }
+body[data-theme="prism"] .lf-reveal-veil { background: radial-gradient(circle, #1e293b 0%, #0f172a 100%); }
+
+.lf-exit-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: auto;
+  opacity: 0;
+  clip-path: circle(0% at var(--tx, 50%) var(--ty, 50%));
+  transition: clip-path 420ms var(--ease-cinematic), opacity 220ms ease;
+}
+.lf-exit-veil.is-active { opacity: 1; clip-path: circle(155% at var(--tx, 50%) var(--ty, 50%)); }
+body[data-theme="codex"] .lf-exit-veil { background: radial-gradient(circle, #f3efe6 0%, #3b2f2f 100%); }
+body[data-theme="tidal"] .lf-exit-veil { background: radial-gradient(circle, #f6f5f1 0%, #1e3a3a 100%); }
+body[data-theme="prism"] .lf-exit-veil { background: radial-gradient(circle, #1e293b 0%, #0f172a 100%); }
+
+/* 悬浮符号顶栏 */
+.sigil-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 40;
+}
+.sigil-group { display: flex; align-items: center; gap: 10px; }
+
+.sigil-btn {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  background: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(10px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 8px;
+  text-decoration: none;
+  color: #f8fafc;
+  transition: transform 200ms var(--ease-cinematic), filter 200ms ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.24);
+}
+.sigil-btn:hover { transform: translateY(-2px) scale(1.06); filter: brightness(1.12); }
+.sigil-btn img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+
+.sigil-lang-pill {
+  height: 44px;
+  min-width: 56px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  background: rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(10px);
+  color: #f8fafc;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+body[data-theme="codex"] .sigil-btn,
+body[data-theme="codex"] .sigil-lang-pill {
+  background: rgba(250, 247, 240, 0.84);
+  border-color: rgba(154, 107, 47, 0.5);
+  color: #3b2f2f;
+}
+body[data-theme="tidal"]:not(.darkroom-mode) .sigil-btn,
+body[data-theme="tidal"]:not(.darkroom-mode) .sigil-lang-pill {
+  background: rgba(246, 245, 241, 0.84);
+  border-color: rgba(59, 122, 117, 0.45);
+  color: #1e3a3a;
+}
+
+/* L3 情景页全屏舞台与侧边栏闸门 */
+.immersion-stage {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(14px + var(--safe-top)) calc(20px + var(--safe-right)) calc(18px + var(--safe-bottom)) calc(20px + var(--safe-left));
+  isolation: isolate;
+}
+.immersion-backdrop-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03) translate3d(var(--px, 0px), var(--py, 0px), 0);
+  transition: filter 420ms ease;
+}
+.immersion-vignette-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+
+.gate-trigger-edge {
+  position: fixed;
+  left: calc(14px + var(--safe-left));
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  width: 54px;
+  height: 82px;
+  border-radius: 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+  background: rgba(15, 23, 42, 0.62);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 8px;
+  color: #f8fafc;
+}
+.gate-trigger-edge img { width: 34px; height: 34px; object-fit: contain; }
+.gate-trigger-dots { display: flex; gap: 4px; }
+.gate-trigger-dots span { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0.75; }
+
+.gate-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  background: rgba(10, 12, 18, 0.56);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms ease;
+}
+.gate-scrim.open { opacity: 1; pointer-events: auto; }
+
+.gate-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(360px, 88vw);
+  z-index: 80;
+  transform: translateX(-104%);
+  transition: transform 440ms var(--ease-gate);
+  display: flex;
+  flex-direction: column;
+  padding: calc(20px + var(--safe-top)) 20px calc(24px + var(--safe-bottom)) calc(20px + var(--safe-left));
+  background-size: 280px 280px;
+  box-shadow: 18px 0 48px rgba(0, 0, 0, 0.48);
+}
+.gate-sidebar.open { transform: translateX(0); }
+.gate-sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.68) 0%, rgba(10, 12, 18, 0.9) 100%);
+  pointer-events: none;
+}
+body[data-theme="codex"] .gate-sidebar { background-image: url('../images/codex-parchment-tile.jpg'); border-right: 4px solid #9a6b2f; }
+body[data-theme="tidal"] .gate-sidebar { background-image: url('../images/tidal-celadon-tile.jpg'); border-right: 4px solid #e2b45a; }
+body[data-theme="prism"] .gate-sidebar { background-image: url('../images/prism-slate-tile.jpg'); border-right: 4px solid #38bdf8; }
+
+.gate-sidebar-header, .gate-curriculum-list { position: relative; z-index: 1; }
+.gate-sidebar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.gate-curriculum-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  mask-image: linear-gradient(to bottom, transparent 0px, #000 18px, #000 calc(100% - 18px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0px, #000 18px, #000 calc(100% - 18px), transparent 100%);
+  padding: 10px 4px;
+}
+
+.gate-lesson-slot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 60px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
+  background: rgba(15, 23, 42, 0.56);
+  color: #f8fafc;
+  cursor: pointer;
+  text-align: left;
+}
+.gate-lesson-slot.active { border-color: #fbbf24; background: rgba(251, 191, 36, 0.2); }
+.gate-lesson-sigil { width: 38px; height: 38px; flex-shrink: 0; object-fit: contain; }
+.gate-lesson-meta { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.gate-lesson-roman { font-size: 12px; font-weight: 700; opacity: 0.72; }
+.gate-lesson-target { font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* FSRS 符号评分栏 */
+.fsrs-sigil-dock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.52);
+  backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(255, 255, 255, 0.24);
+  margin: 0 auto;
+  transition: opacity 280ms ease, transform 280ms var(--ease-cinematic), filter 280ms ease;
+}
+.fsrs-sigil-dock.is-locked { opacity: 0.34; filter: grayscale(0.75); pointer-events: none; transform: translateY(4px); }
+
+.fsrs-sigil-btn {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 7px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 180ms var(--ease-cinematic);
+}
+.fsrs-sigil-btn:hover { transform: translateY(-4px) scale(1.1); }
+.fsrs-sigil-btn img { width: 100%; height: 100%; object-fit: contain; }
+
+/* 规则介绍浮层（唯一允许母语） */
+.rule-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 12, 18, 0.72);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+.rule-overlay.open { opacity: 1; pointer-events: auto; }
+.rule-card {
+  width: min(560px, 100%);
+  max-height: 82dvh;
+  overflow-y: auto;
+  border-radius: 20px;
+  padding: 26px;
+  background: #faf7f0;
+  color: #1c1917;
+  border: 2px solid #9a6b2f;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.rule-card p, .rule-card li { font-size: 14px; line-height: 1.68; color: rgba(28, 25, 23, 0.85); }
+.rule-card ul { padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+.rule-legend-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding-top: 8px; border-top: 1px solid rgba(28, 25, 23, 0.12); }
+.rule-legend-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; text-align: center; }
+.rule-legend-item img { width: 32px; height: 32px; }
+
+@media (max-width: 768px) {
+  .gate-trigger-edge {
+    top: auto;
+    bottom: calc(84px + var(--safe-bottom));
+    left: calc(12px + var(--safe-left));
+    transform: none;
+    width: 48px;
+    height: 56px;
+  }
+}

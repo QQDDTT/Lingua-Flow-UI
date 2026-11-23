@@ -1,0 +1,727 @@
+{
+    "language":  "en",
+    "level":  "b2",
+    "unit_type":  "lemma",
+    "items":  [
+                  {
+                      "ku_id":  "en_b2_lemma_abandoned_1",
+                      "unit_type":  "lemma",
+                      "text":  "abandoned",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_abnormally_2",
+                      "unit_type":  "lemma",
+                      "text":  "abnormally",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_abolish_3",
+                      "unit_type":  "lemma",
+                      "text":  "abolish",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_aboriginal_4",
+                      "unit_type":  "lemma",
+                      "text":  "aboriginal",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_abruptly_5",
+                      "unit_type":  "lemma",
+                      "text":  "abruptly",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_absentee_6",
+                      "unit_type":  "lemma",
+                      "text":  "absentee",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_absurd_7",
+                      "unit_type":  "lemma",
+                      "text":  "absurd",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_abuse_8",
+                      "unit_type":  "lemma",
+                      "text":  "abuse",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_access_9",
+                      "unit_type":  "lemma",
+                      "text":  "access",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_accessibility_10",
+                      "unit_type":  "lemma",
+                      "text":  "accessibility",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_accommodation_11",
+                      "unit_type":  "lemma",
+                      "text":  "accommodation",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_accordingly_12",
+                      "unit_type":  "lemma",
+                      "text":  "accordingly",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_accumulate_13",
+                      "unit_type":  "lemma",
+                      "text":  "accumulate",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_accusation_14",
+                      "unit_type":  "lemma",
+                      "text":  "accusation",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_ache_15",
+                      "unit_type":  "lemma",
+                      "text":  "ache",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_achievable_16",
+                      "unit_type":  "lemma",
+                      "text":  "achievable",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_acid_17",
+                      "unit_type":  "lemma",
+                      "text":  "acid",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_acquisition_18",
+                      "unit_type":  "lemma",
+                      "text":  "acquisition",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_actively_19",
+                      "unit_type":  "lemma",
+                      "text":  "actively",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_actual_20",
+                      "unit_type":  "lemma",
+                      "text":  "actual",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_acute_21",
+                      "unit_type":  "lemma",
+                      "text":  "acute",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adaptable_22",
+                      "unit_type":  "lemma",
+                      "text":  "adaptable",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_addict_23",
+                      "unit_type":  "lemma",
+                      "text":  "addict",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_addicted_24",
+                      "unit_type":  "lemma",
+                      "text":  "addicted",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_addiction_25",
+                      "unit_type":  "lemma",
+                      "text":  "addiction",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_additionally_26",
+                      "unit_type":  "lemma",
+                      "text":  "additionally",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adequate_27",
+                      "unit_type":  "lemma",
+                      "text":  "adequate",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adequately_28",
+                      "unit_type":  "lemma",
+                      "text":  "adequately",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adjustment_29",
+                      "unit_type":  "lemma",
+                      "text":  "adjustment",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_administrative_30",
+                      "unit_type":  "lemma",
+                      "text":  "administrative",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_admirable_31",
+                      "unit_type":  "lemma",
+                      "text":  "admirable",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_admiringly_32",
+                      "unit_type":  "lemma",
+                      "text":  "admiringly",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_admittedly_33",
+                      "unit_type":  "lemma",
+                      "text":  "admittedly",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adopted_34",
+                      "unit_type":  "lemma",
+                      "text":  "adopted",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adoption_35",
+                      "unit_type":  "lemma",
+                      "text":  "adoption",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adore_36",
+                      "unit_type":  "lemma",
+                      "text":  "adore",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adorn_37",
+                      "unit_type":  "lemma",
+                      "text":  "adorn",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_advance_38",
+                      "unit_type":  "lemma",
+                      "text":  "advance",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_advancement_39",
+                      "unit_type":  "lemma",
+                      "text":  "advancement",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_advent_40",
+                      "unit_type":  "lemma",
+                      "text":  "advent",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adventurous_41",
+                      "unit_type":  "lemma",
+                      "text":  "adventurous",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adverse_42",
+                      "unit_type":  "lemma",
+                      "text":  "adverse",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adversely_43",
+                      "unit_type":  "lemma",
+                      "text":  "adversely",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_adversity_44",
+                      "unit_type":  "lemma",
+                      "text":  "adversity",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_affectionate_45",
+                      "unit_type":  "lemma",
+                      "text":  "affectionate",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_affectionately_46",
+                      "unit_type":  "lemma",
+                      "text":  "affectionately",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_affordable_47",
+                      "unit_type":  "lemma",
+                      "text":  "affordable",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_ageless_48",
+                      "unit_type":  "lemma",
+                      "text":  "ageless",
+                      "pos":  "adjective",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adjective"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_aggressively_49",
+                      "unit_type":  "lemma",
+                      "text":  "aggressively",
+                      "pos":  "adverb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "adverb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_agonize_agonise_50",
+                      "unit_type":  "lemma",
+                      "text":  "agonize/agonise",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_agony_51",
+                      "unit_type":  "lemma",
+                      "text":  "agony",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_aim_52",
+                      "unit_type":  "lemma",
+                      "text":  "aim",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_aircraft_53",
+                      "unit_type":  "lemma",
+                      "text":  "aircraft",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_aircrew_54",
+                      "unit_type":  "lemma",
+                      "text":  "aircrew",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_alcoholic_55",
+                      "unit_type":  "lemma",
+                      "text":  "alcoholic",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_alcoholism_56",
+                      "unit_type":  "lemma",
+                      "text":  "alcoholism",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_alert_57",
+                      "unit_type":  "lemma",
+                      "text":  "alert",
+                      "pos":  "verb",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "verb"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_allegation_58",
+                      "unit_type":  "lemma",
+                      "text":  "allegation",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_alliance_59",
+                      "unit_type":  "lemma",
+                      "text":  "alliance",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  },
+                  {
+                      "ku_id":  "en_b2_lemma_ally_60",
+                      "unit_type":  "lemma",
+                      "text":  "ally",
+                      "pos":  "noun",
+                      "level":  "b2",
+                      "definitions":  [
+                                          "noun"
+                                      ],
+                      "initial_difficulty":  5.2,
+                      "initial_stability":  1.4
+                  }
+              ]
+}

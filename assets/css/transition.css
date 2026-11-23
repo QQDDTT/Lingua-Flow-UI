@@ -1,0 +1,51 @@
+/* ==========================================================================
+   L1 -> L2 跨页沉浸式转场动画 (transition.css)
+   ========================================================================== */
+.lf-transition-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  clip-path: circle(0% at var(--tx, 50%) var(--ty, 50%));
+  transition: clip-path 500ms cubic-bezier(0.16, 1, 0.3, 1), opacity 240ms ease;
+  will-change: clip-path, opacity;
+}
+
+.lf-transition-curtain.is-active {
+  pointer-events: auto;
+  opacity: 1;
+  clip-path: circle(155% at var(--tx, 50%) var(--ty, 50%));
+}
+
+.lf-transition-curtain[data-target-theme="codex"] {
+  background: radial-gradient(circle at center, #faf7f0 0%, #f3efe6 48%, #3b2f2f 100%);
+}
+.lf-transition-curtain[data-target-theme="tidal"] {
+  background: radial-gradient(circle at center, #f6f5f1 0%, #dcebe8 48%, #1e3a3a 100%);
+}
+.lf-transition-curtain[data-target-theme="prism"] {
+  background: radial-gradient(circle at center, #eef2f6 0%, #1e293b 52%, #0f172a 100%);
+}
+
+.lf-transition-emblem {
+  width: clamp(92px, 16vw, 152px);
+  height: clamp(92px, 16vw, 152px);
+  opacity: 0;
+  transform: scale(0.65) rotate(-12deg);
+  transition: transform 460ms cubic-bezier(0.16, 1, 0.3, 1) 70ms, opacity 280ms ease 70ms;
+  filter: drop-shadow(0 18px 42px rgba(0, 0, 0, 0.28));
+}
+
+.lf-transition-curtain.is-active .lf-transition-emblem {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lf-transition-curtain { clip-path: none; transition: opacity 150ms ease; }
+  .lf-transition-emblem { transition: opacity 150ms ease; transform: none; }
+}

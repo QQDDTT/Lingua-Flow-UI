@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;">
+  <title>Lingua-Flow · Tidal Stage</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/immersion.css">
+  <style>
+    .tidal-stage-bg { background-image: url('assets/images/tidal-sanctum-stage.jpg'); }
+    .tidal-stage-vignette { background: radial-gradient(circle, rgba(246,245,241,0.12) 0%, rgba(30,58,58,0.55) 100%); transition: background 420ms ease; }
+    body.darkroom-mode .tidal-stage-bg { filter: brightness(0.38) contrast(1.15); }
+    body.darkroom-mode .tidal-stage-vignette { background: radial-gradient(circle, rgba(10,12,16,0.25) 0%, rgba(10,12,16,0.88) 100%); }
+
+    /* L-A4 X-axis horizontal acoustic track */
+    .tidal-track-wrap {
+      width: min(980px, 100%);
+      margin: auto;
+      padding: 12px 0 12px 54px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .tidal-film-track {
+      width: 100%;
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 18px 42px;
+      mask-image: var(--optic-mask-x-fade);
+      -webkit-mask-image: var(--optic-mask-x-fade);
+    }
+    .tidal-slide-card {
+      flex: 0 0 min(460px, 84vw);
+      scroll-snap-align: center;
+      background: rgba(246, 245, 241, 0.9);
+      border: 2px solid rgba(59, 122, 117, 0.48);
+      border-radius: 24px;
+      padding: clamp(22px, 3.5vw, 34px);
+      color: #1e3a3a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 18px;
+      box-shadow: 0 20px 50px rgba(16, 36, 36, 0.24);
+      transition: transform 280ms var(--ease-cinematic), border-color 280ms ease;
+    }
+    .tidal-slide-card.is-active {
+      transform: scale(1.02);
+      border-color: #e2b45a;
+    }
+    body.darkroom-mode .tidal-slide-card {
+      background: rgba(16, 24, 30, 0.9);
+      color: #f6f5f1;
+      border-color: rgba(226, 180, 90, 0.52);
+    }
+    .sanctum-word { font-size: clamp(28px, 4.5vw, 44px); font-weight: 800; }
+    .sanctum-phonetic { font-size: 15px; opacity: 0.78; font-family: ui-monospace, monospace; }
+    .kintsugi-wave-bars {
+      display: flex; align-items: flex-end; justify-content: center; gap: 12px;
+      height: 102px; padding: 12px 22px; border-radius: 16px;
+      background: rgba(59, 122, 117, 0.1); border: 1.5px solid rgba(226, 180, 90, 0.45);
+    }
+    .wave-bar { width: 14px; border-radius: 999px; background: linear-gradient(180deg, #e2b45a 0%, #3b7a75 100%); transition: transform 280ms var(--ease-cinematic); }
+    .kintsugi-wave-bars.is-playing .wave-bar { transform: scaleY(1.16); filter: brightness(1.2); }
+    .resonance-play-btn {
+      width: 68px; height: 68px; border-radius: 50%; border: 2px solid #e2b45a;
+      background: rgba(30, 58, 58, 0.92); padding: 12px; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+    .resonance-play-btn img { width: 100%; height: 100%; object-fit: contain; }
+    @media (max-width: 768px) {
+      .tidal-track-wrap { padding: 8px 0; }
+      .tidal-film-track { padding: 12px 20px; }
+    }
+  </style>
+</head>
+<body data-theme="tidal">
+  <div class="lf-reveal-veil" id="lf-reveal-veil" aria-hidden="true"></div>
+  <div class="immersion-backdrop-layer tidal-stage-bg" aria-hidden="true"></div>
+  <div class="immersion-vignette-layer tidal-stage-vignette" aria-hidden="true"></div>
+
+  <button type="button" class="gate-trigger-edge" id="gate-trigger-btn" aria-label="Open Curriculum Gate">
+    <img src="assets/textures/ui-gate-handle.svg" alt="">
+    <div class="gate-trigger-dots"><span></span><span></span><span></span></div>
+  </button>
+
+  <div class="gate-scrim" id="gate-scrim"></div>
+  <aside class="gate-sidebar" id="gate-sidebar" aria-hidden="true" aria-label="Curriculum Gate">
+    <div class="gate-sidebar-header">
+      <img src="assets/textures/sigil-tidal.svg" alt="" style="width:42px;height:42px;">
+      <button type="button" class="sigil-btn" id="gate-close-btn" aria-label="Close Gate"><img src="assets/textures/ui-close-sigil.svg" alt=""></button>
+    </div>
+    <div class="gate-curriculum-list" id="gate-curriculum-list"></div>
+  </aside>
+
+  <div class="immersion-stage">
+    <header class="sigil-topbar">
+      <div class="sigil-group">
+        <a href="tidal.html" class="sigil-btn" aria-label="Return to Theme Gate"><img src="assets/textures/ui-portal-return.svg" alt=""></a>
+        <button type="button" class="sigil-lang-pill" id="sigil-lang-btn" aria-label="Switch Target Language">EN</button>
+      </div>
+      <div class="sigil-group">
+        <button type="button" class="sigil-btn" id="sigil-darkroom-btn" aria-label="Toggle Darkroom">◐</button>
+        <button type="button" class="sigil-btn" id="sigil-sound-btn" aria-label="Toggle Audio"><img src="assets/textures/ui-audio-wave.svg" alt=""></button>
+        <button type="button" class="sigil-btn" id="sigil-rule-btn" aria-label="Rules Guide"><img src="assets/textures/ui-rule-sigil.svg" alt=""></button>
+      </div>
+    </header>
+
+    <main class="tidal-track-wrap">
+      <div class="tidal-film-track" id="tidal-film-track"></div>
+    </main>
+
+    <div class="fsrs-sigil-dock" id="fsrs-dock" aria-label="FSRS Memory Rating">
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="1" aria-label="Again"><img src="assets/textures/ui-fsrs-1-again.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="2" aria-label="Hard"><img src="assets/textures/ui-fsrs-2-hard.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="3" aria-label="Good"><img src="assets/textures/ui-fsrs-3-good.svg" alt=""></button>
+      <button type="button" class="fsrs-sigil-btn" data-fsrs="4" aria-label="Easy"><img src="assets/textures/ui-fsrs-4-easy.svg" alt=""></button>
+    </div>
+  </div>
+
+  <div class="rule-overlay" id="rule-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="rule-card" style="border-color:#3b7a75;">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>潮汐星图 · X 轴声景画廊规则</h2>
+        <button type="button" class="sigil-btn" id="rule-close-btn" aria-label="关闭"><img src="assets/textures/ui-close-sigil.svg" alt=""></button>
+      </div>
+      <p>本声景舞台采用 <strong>L-A4 X 轴横向滑轨</strong> 与<strong>零母语沉浸</strong>：</p>
+      <ul>
+        <li>可左右滑动白砂声景卡片，或推开左侧障子门切换课程；点击卡片中央声波按钮播放高低音调旋律。</li>
+        <li>完成声景共振后，底部 4 枚 FSRS-5 符号解锁，点击记录本次记忆稳定性。</li>
+      </ul>
+      <div class="rule-legend-row">
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-1-again.svg" alt=""><span>重来 (Again)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-2-hard.svg" alt=""><span>困难 (Hard)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-3-good.svg" alt=""><span>良好 (Good)</span></div>
+        <div class="rule-legend-item"><img src="assets/textures/ui-fsrs-4-easy.svg" alt=""><span>轻松 (Easy)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/lingua-core.js"></script>
+  <script src="assets/js/immersion-shell.js"></script>
+  <script src="assets/js/tidal-scenario.js"></script>
+</body>
+</html>

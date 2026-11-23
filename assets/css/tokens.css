@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Optic-Resonance 五维明暗色域、流体字阶、Y/Z 轴空间与动效令牌 (tokens.css)
+   ========================================================================== */
+:root {
+  /* S1 日光白瓷 (L1 平台总览) */
+  --optic-porcelain-bg: #f8fafc;
+  --optic-porcelain-surface: #ffffff;
+  --optic-porcelain-alt: #f1f5f9;
+  --optic-porcelain-text: #0f172a;
+  --optic-porcelain-text-sec: rgba(15, 23, 42, 0.78);
+  --optic-porcelain-text-ter: rgba(15, 23, 42, 0.58);
+  --optic-porcelain-border: rgba(15, 23, 42, 0.1);
+
+  /* S2 美术馆暖素白 / S5 黑曜暗房 (潮汐星图 Tidal) */
+  --optic-gallery-bg: #f6f5f1;
+  --optic-gallery-text: #15181e;
+  --optic-obsidian-bg: #0a0c10;
+  --optic-obsidian-text: #f3f4f6;
+
+  /* S3 温润羊皮暖砂 (时计法典 Codex) */
+  --optic-parchment-bg: #f3efe6;
+  --optic-parchment-surface: #faf7f0;
+  --optic-parchment-text: #1c1917;
+
+  /* S4 北欧雾灰岩板 / 深岩 (棱镜圣殿 Prism) */
+  --optic-slate-bg: #eef2f6;
+  --optic-slate-dark: #1e293b;
+  --optic-slate-deep: #0f172a;
+
+  /* 流体模数字阶 (clamp) */
+  --optic-font-display: clamp(1.75rem, 2.8vw + 0.8rem, 2.75rem);
+  --optic-font-h1: clamp(1.5rem, 2.2vw + 0.7rem, 2.25rem);
+  --optic-font-h2: clamp(1.25rem, 1.5vw + 0.6rem, 1.65rem);
+  --optic-font-h3: clamp(1.0625rem, 0.9vw + 0.65rem, 1.25rem);
+  --optic-font-body: clamp(0.9375rem, 0.35vw + 0.82rem, 1.0625rem);
+  --optic-font-sm: 0.875rem;
+  --optic-font-xs: 0.75rem;
+
+  /* 排印黄金行高与行宽 */
+  --optic-leading-body: 1.68;
+  --optic-measure-optimal: 65ch;
+
+  /* Y 轴边缘渐变羽化遮罩 */
+  --optic-mask-y-fade: linear-gradient(to bottom, transparent 0px, #000 28px, #000 calc(100% - 28px), transparent 100%);
+  --optic-mask-x-fade: linear-gradient(to right, transparent 0px, #000 32px, #000 calc(100% - 32px), transparent 100%);
+
+  /* Z 轴层级与遮罩 */
+  --optic-z-dropdown: 100;
+  --optic-z-drawer: 200;
+  --optic-z-modal: 300;
+  --optic-z-scrim: rgba(10, 12, 18, 0.56);
+
+  /* 非对称物理动效曲线 */
+  --optic-ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --optic-ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --optic-ease-ratchet: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* 安全区 */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; line-break: strict; }
+.tabular-num { font-variant-numeric: tabular-nums; }
